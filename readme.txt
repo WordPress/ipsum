@@ -14,6 +14,10 @@ Ipsum is a blank canvas built around the blogging experience, our proposal for w
 
 == Changelog ==
 
+= 1.0.3 =
+* Offer the Hero Colophon pattern in the header replace flow
+* Let the Archive pattern be inserted in templates, not only in pages
+
 = 1.0.2 =
 * Keep the sticky search bar at the viewport bottom on short pages
 * Reduce the default header's bottom spacing

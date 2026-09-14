@@ -4,7 +4,6 @@
  * Slug: ipsum/archive-page
  * Categories: pages
  * Block Types: core/post-content
- * Post Types: page
  * Viewport width: 1280
  * Description: A lean chronological list of all posts with dates, categories, and reading time.
  */

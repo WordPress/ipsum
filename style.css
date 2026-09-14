@@ -7,7 +7,7 @@ Description: Ipsum is a blank canvas built around the blogging experience, our p
 Requires at least: 7.1
 Tested up to: 7.1
 Requires PHP: 7.2
-Version: 1.0.0
+Version: 1.0.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: ipsum
@@ -223,6 +223,48 @@ header.wp-block-template-part:has(> .is-position-sticky) {
 		color-scheme: dark;
 	}
 }
+/*
+ * Arrival bar: the blank canvas keeps index and single visually close, so a
+ * thin accent bar sweeps the top of the viewport when a single post loads,
+ * then fades — a quiet confirmation that navigation happened. Width animates
+ * as inline-size so the sweep follows the reading direction in RTL.
+ */
+@media (prefers-reduced-motion: no-preference) {
+	.single::before {
+		content: "";
+		position: fixed;
+		inset-block-start: 0;
+		inset-inline-start: 0;
+		block-size: 3px;
+		inline-size: 100%;
+		background-color: var(--wp--preset--color--theme-3);
+		z-index: 99;
+		pointer-events: none;
+		animation: ipsum-arrival 0.9s ease-out forwards;
+	}
+
+	.admin-bar.single::before {
+		inset-block-start: var(--wp-admin--admin-bar--height, 32px);
+	}
+
+	@keyframes ipsum-arrival {
+		0% {
+			inline-size: 0;
+			opacity: 1;
+		}
+
+		60% {
+			inline-size: 100%;
+			opacity: 1;
+		}
+
+		100% {
+			inline-size: 100%;
+			opacity: 0;
+		}
+	}
+}
+
 /* A light tilt-and-settle on the row's featured image when the row is hovered. */
 @media (prefers-reduced-motion: no-preference) {
 	@keyframes tilt-settle {

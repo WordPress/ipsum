@@ -14,6 +14,11 @@ Ipsum is a blank canvas built around the blogging experience, our proposal for w
 
 == Changelog ==
 
+= 1.0.1 =
+* Remove the fixed aspect ratio from featured images across templates; images now render at their natural proportions
+* Add a 10px radius to code blocks
+* Add an arrival bar animation when a single post loads
+
 = 1.0.0 =
 * Initial release
 

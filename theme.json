@@ -608,7 +608,7 @@
 			"core/code": {
 				"border": {
 					"color": "var(--wp--preset--color--theme-4)",
-					"radius": "10px",
+					"radius": "5px",
 					"style": "solid",
 					"width": "1px"
 				},
@@ -1124,9 +1124,6 @@
 					"fontFamily": "var(--wp--preset--font-family--manrope)",
 					"fontSize": "var(--wp--preset--font-size--small)"
 				}
-			},
-			"core/table": {
-				"css": "& thead{border-bottom-width:2px !important;} & thead th{text-align:left;font-family:var(--wp--preset--font-family--manrope);font-size:var(--wp--preset--font-size--small);font-style:normal;font-weight:600;}"
 			},
 			"core/term-description": {
 				"css": "& p:not(:first-of-type){margin-top: var(--wp--preset--spacing--40) !important;}"

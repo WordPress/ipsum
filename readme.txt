@@ -14,6 +14,14 @@ Ipsum is a blank canvas built around the blogging experience, our proposal for w
 
 == Changelog ==
 
+= 1.0.2 =
+* Keep the sticky search bar at the viewport bottom on short pages
+* Reduce the default header's bottom spacing
+* Serve every template part from its pattern, the navigation overlay included
+* Restyle tables: tinted header row with bold labels, a single hairline under the header, and palette-wash strokes throughout
+* Reduce the code block radius to 5px
+* Remove unused utility classes
+
 = 1.0.1 =
 * Remove the fixed aspect ratio from featured images across templates; images now render at their natural proportions
 * Add a 10px radius to code blocks

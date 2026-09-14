@@ -29,44 +29,41 @@ footer.wp-block-template-part {
 	margin-block-start: 0 !important;
 }
 
+/*
+ * Tables — editor mirror of the frontend block in style.css (kept there,
+ * with full notes, because theme.json css strings cannot carry comments).
+ */
+.wp-block-table table,
+.wp-block-table th,
+.wp-block-table td {
+	border-color: var(--wp--preset--color--theme-4);
+}
+
+.wp-block-table thead {
+	background-color: var(--wp--preset--color--theme-5);
+	border-bottom-width: 1px !important;
+	border-bottom-color: var(--wp--preset--color--theme-4);
+}
+
+.wp-block-table thead th {
+	text-align: left;
+	font-family: var(--wp--preset--font-family--manrope);
+	font-size: var(--wp--preset--font-size--small);
+	font-style: normal;
+	font-weight: 700;
+}
+
+.wp-block-table.is-style-stripes tbody tr:nth-child(odd) {
+	background-color: var(--wp--preset--color--theme-5);
+}
+
+.wp-block-table.is-style-stripes {
+	border-bottom-color: var(--wp--preset--color--theme-5);
+}
+
 /* Utility classes for removing text decoration from link. */
 .no-underline a {
 	text-decoration: none;
-}
-
-/* Utility classes for custom ordering. */
-.order-0 {
-	order: 0;
-}
-
-.order-1 {
-	order: 1;
-}
-
-.grow-0 {
-	flex-grow: 0;
-}
-
-.grow {
-	flex-grow: 1;
-}
-
-@media (min-width: 600px) {
-	.md\:order-0 {
-		order: 0;
-	}
-
-	.md\:order-1 {
-		order: 1;
-	}
-
-	.md\:grow-0 {
-		flex-grow: 0;
-	}
-
-	.md\:grow {
-		flex-grow: 1;
-	}
 }
 
 /*

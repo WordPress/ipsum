@@ -17,15 +17,51 @@ You can try Ipsum without installing anything using the [WordPress Playground de
 
 ### Getting Started
 
-To get started with development:
+The recommended way to work on Ipsum is with [`wp-env`](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/), so every contributor runs the same WordPress setup.
 
-1. Set up a WordPress instance, we recommend [wp-env](https://developer.wordpress.org/block-editor/handbook/tutorials/devenv/) or [WordPress Studio](https://developer.wordpress.com/studio/) as an alternative to Docker. Alternatively you can use [WordPress Playground](https://developer.wordpress.org/playground/) to test the theme directly in the browser.
-2. Install the [Gutenberg plugin](https://wordpress.org/plugins/gutenberg/)
-3. Clone / download this repository into your `/wp-content/themes/` directory.
+#### Requirements
 
-Also, consider enabling [development mode](https://make.wordpress.org/core/2023/07/14/configuring-development-mode-in-6-3/) with `define( 'WP_DEVELOPMENT_MODE', 'theme' );` in your `wp-config.php`. This will help minimize caching of `theme.json` while you're developing.
+- [Node.js](https://nodejs.org/) 20 or later, with npm. If you use `nvm`, run `nvm use` to pick the version in `.nvmrc`.
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/), or another Docker-compatible daemon, running.
 
-To enable development mode using [WP CLI](https://developer.wordpress.org/cli/commands/config/set/) use the following command in your terminal inside your installation directory `wp config set 'WP_DEVELOPMENT_MODE' theme`.
+#### First-time setup
+
+```sh
+npm install
+npm run env:setup
+```
+
+This starts WordPress, activates Ipsum, and installs and activates the [Gutenberg](https://wordpress.org/plugins/gutenberg/) and [Theme Check](https://wordpress.org/plugins/theme-check/) plugins.
+
+- Site: <http://localhost:8899>
+- Admin: <http://localhost:8899/wp-admin/>
+- Username: `admin`
+- Password: `password`
+
+Debugging, script debugging, and theme [development mode](https://make.wordpress.org/core/2023/07/14/configuring-development-mode-in-6-3/) are on. PHP notices, warnings, and errors go to `wp-content/debug.log` instead of the browser.
+
+#### Everyday commands
+
+```sh
+npm run env:start   # Start the existing environment.
+npm run env:status  # Show its status and ports.
+npm run env:stop    # Stop it without deleting data.
+npm run env:clean   # Delete its WordPress and database data.
+```
+
+`npm run env:clean` can't be undone. The next `npm run env:setup` creates a fresh site.
+
+#### Other setups
+
+You can also clone this repository into `wp-content/themes/ipsum` in any WordPress install, such as [WordPress Studio](https://developer.wordpress.com/studio/), then install the [Gutenberg plugin](https://wordpress.org/plugins/gutenberg/) and activate Ipsum. Turn on development mode there too, so `theme.json` isn't cached while you work:
+
+```php
+define( 'WP_DEVELOPMENT_MODE', 'theme' );
+```
+
+Or with [WP-CLI](https://developer.wordpress.org/cli/commands/config/set/), from your installation directory: `wp config set WP_DEVELOPMENT_MODE theme`.
+
+To try the theme in the browser without installing anything, use [WordPress Playground](https://developer.wordpress.org/playground/).
 
 ### Pattern creation guidelines
 

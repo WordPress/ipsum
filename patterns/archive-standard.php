@@ -1,20 +1,14 @@
 <?php
 /**
- * Title: search
- * Slug: ipsum/search
- * Inserter: no
+ * Title: Archive Standard
+ * Slug: ipsum/archive-standard
+ * Categories: posts
+ * Block Types: core/query
+ * Viewport width: 1280
+ * Description: Featured image, title, meta, and an excerpt with a Read more link — the classic listing.
  */
 ?>
-<!-- wp:template-part {"slug":"header"} /-->
-
-<!-- wp:group {"tagName":"main","metadata":{"name":"Body"},"layout":{"type":"default"}} -->
-<main class="wp-block-group"><!-- wp:group {"metadata":{"name":"Section Title"},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group"><!-- wp:query-title {"type":"search"} /-->
-
-<!-- wp:search {"label":"<?php esc_attr_e('Search', 'ipsum');?>","showLabel":false,"placeholder":"<?php esc_attr_e('Type here...', 'ipsum');?>","buttonText":"<?php esc_attr_e('Search', 'ipsum');?>","buttonPosition":"button-inside","buttonUseIcon":true} /--></div>
-<!-- /wp:group -->
-
-<!-- wp:query {"queryId":0,"query":{"perPage":20,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true,"taxQuery":null,"parents":[],"excludeCurrent":null},"layout":{"type":"default"}} -->
+<!-- wp:query {"queryId":15,"query":{"perPage":20,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true,"taxQuery":null,"parents":[],"excludeCurrent":null},"layout":{"type":"default"}} -->
 <div class="wp-block-query"><!-- wp:post-template {"className":"hover-together","style":{"spacing":{"blockGap":"var:preset|spacing|70"}},"layout":{"type":"default"}} -->
 <!-- wp:group {"metadata":{"name":"Post Template Wrapper"},"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"},"padding":{"bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)"><!-- wp:group {"metadata":{"name":"Featured Image Wrapper"},"align":"full","layout":{"type":"constrained"}} -->
@@ -46,7 +40,7 @@
 <!-- wp:group {"metadata":{"name":"No Results Wrapper"},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:query-no-results -->
 <!-- wp:paragraph -->
-<p><?php esc_html_e('Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'ipsum');?></p>
+<p><?php esc_html_e('No posts have been published in this section yet.', 'ipsum');?></p>
 <!-- /wp:paragraph -->
 <!-- /wp:query-no-results --></div>
 <!-- /wp:group -->
@@ -58,7 +52,4 @@
 <!-- wp:query-pagination-next /-->
 <!-- /wp:query-pagination --></div>
 <!-- /wp:group --></div>
-<!-- /wp:query --></main>
-<!-- /wp:group -->
-
-<!-- wp:template-part {"slug":"footer"} /-->
+<!-- /wp:query -->

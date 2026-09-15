@@ -66,6 +66,12 @@ footer.wp-block-template-part {
 	text-decoration: none;
 }
 
+/* Meta-separator prefix for conditionally rendered neighbors — see style.css. */
+.dot-before::before {
+	content: "· ";
+	font-weight: 600;
+}
+
 /*
  * Sticky headers: the template part's wrapper carries the stickiness for a
  * sticky root block — see style.css. !important because the editor forces

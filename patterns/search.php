@@ -46,7 +46,7 @@
 <!-- wp:group {"metadata":{"name":"No Results Wrapper"},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:query-no-results -->
 <!-- wp:paragraph -->
-<p><?php esc_html_e('Sorry, but nothing was found. Please try a search with different keywords.', 'ipsum');?></p>
+<p><?php esc_html_e('Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'ipsum');?></p>
 <!-- /wp:paragraph -->
 <!-- /wp:query-no-results --></div>
 <!-- /wp:group -->

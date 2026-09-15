@@ -69,17 +69,9 @@
 <!-- wp:group {"metadata":{"name":"Comment Date and Edit"},"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 <div class="wp-block-group"><!-- wp:comment-date {"className":"no-underline"} /-->
 
-<!-- wp:paragraph {"metadata":{"name":"·"},"fontSize":"small"} -->
-<p class="has-small-font-size"><?php esc_html_e('·', 'ipsum');?></p>
-<!-- /wp:paragraph -->
+<!-- wp:comment-edit-link {"className":"dot-before"} /-->
 
-<!-- wp:comment-edit-link /-->
-
-<!-- wp:paragraph {"metadata":{"name":"·"},"fontSize":"small"} -->
-<p class="has-small-font-size"><?php esc_html_e('·', 'ipsum');?></p>
-<!-- /wp:paragraph -->
-
-<!-- wp:comment-reply-link /--></div>
+<!-- wp:comment-reply-link {"className":"dot-before"} /--></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->

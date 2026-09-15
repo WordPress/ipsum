@@ -63,8 +63,8 @@
 
 <!-- wp:group {"metadata":{"name":"No Results Wrapper"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--60)"><!-- wp:query-no-results -->
-<!-- wp:paragraph {"placeholder":"Add text or blocks that will display when a query returns no results."} -->
-<p></p>
+<!-- wp:paragraph -->
+<p><?php esc_html_e('No posts have been published in this section yet.', 'ipsum');?></p>
 <!-- /wp:paragraph -->
 <!-- /wp:query-no-results --></div>
 <!-- /wp:group -->

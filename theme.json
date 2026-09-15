@@ -669,7 +669,7 @@
 					"fontFamily": "var(--wp--preset--font-family--manrope)",
 					"fontSize": "var(--wp--preset--font-size--small)",
 					"fontStyle": "normal",
-					"fontWeight": "600",
+					"fontWeight": "400",
 					"textTransform": "none"
 				}
 			},
@@ -678,7 +678,7 @@
 					"fontFamily": "var(--wp--preset--font-family--manrope)",
 					"fontSize": "var(--wp--preset--font-size--small)",
 					"fontStyle": "normal",
-					"fontWeight": "600",
+					"fontWeight": "400",
 					"textTransform": "none"
 				}
 			},

@@ -68,8 +68,9 @@ footer.wp-block-template-part {
 
 /* Meta-separator prefix for conditionally rendered neighbors — see style.css. */
 .dot-before::before {
-	content: "· ";
+	content: "·";
 	font-weight: 600;
+	padding-inline: 0.5em;
 }
 
 /*

@@ -70,7 +70,7 @@
 <!-- wp:group {"metadata":{"name":"Comment Date and Author"},"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"flex","orientation":"vertical"}} -->
 <div class="wp-block-group"><!-- wp:comment-author-name {"className":"no-underline"} /-->
 
-<!-- wp:group {"metadata":{"name":"Comment Date and Edit"},"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+<!-- wp:group {"metadata":{"name":"Comment Date and Edit"},"style":{"spacing":{"blockGap":{"top":"var:preset|spacing|20","left":"0"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 <div class="wp-block-group"><!-- wp:comment-date {"className":"no-underline"} /-->
 
 <!-- wp:comment-edit-link {"className":"dot-before"} /-->

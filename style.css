@@ -147,11 +147,14 @@ footer.wp-block-template-part {
  * Utility class prefixing an element with the "·" meta separator. Used where
  * neighbors render conditionally (e.g. the comment Edit link only exists for
  * users who can edit), so the dot appears and disappears with its element
- * instead of leaving orphan separators.
+ * instead of leaving orphan separators. The padding carries the breathing
+ * room — literal spaces in generated content can collapse — so rows using
+ * this class need no block gap of their own.
  */
 .dot-before::before {
-	content: "· ";
+	content: "·";
 	font-weight: 600;
+	padding-inline: 0.5em;
 }
 
 /*

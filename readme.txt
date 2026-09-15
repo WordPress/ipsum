@@ -1,6 +1,6 @@
 == Ipsum ==
 
-Contributors: Automattic
+Contributors: wordpressdotorg
 Requires at least: 7.1
 Tested up to: 7.1
 Requires PHP: 7.2
@@ -20,7 +20,7 @@ Ipsum is a blank canvas built around the blogging experience, our proposal for w
 
 == Copyright ==
 
-Ipsum WordPress Theme, (C) 2026 Automattic
+Ipsum WordPress Theme, (C) 2026 WordPress.org and contributors.
 Ipsum is distributed under the terms of the GNU GPL.
 
 This program is free software: you can redistribute it and/or modify

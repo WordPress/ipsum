@@ -11,7 +11,7 @@
 				{
 					"colors": [
 						"#000000",
-						"#e4ff33"
+						"#FFFF66"
 					],
 					"name": "Black and acid",
 					"slug": "duotone-1"
@@ -19,7 +19,7 @@
 			],
 			"palette": [
 				{
-					"color": "#e4ff33",
+					"color": "#FFFF66",
 					"name": "Color 1",
 					"slug": "theme-1"
 				},

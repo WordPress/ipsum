@@ -238,8 +238,8 @@ header.wp-block-template-part:has(> .is-position-sticky) {
 	}
 }
 
-/* Same flip for After Hours' warm-black ground. */
-@container style(--wp--preset--color--theme-1: #190d15) {
+/* Same flip for After Hours' plum-black ground. */
+@container style(--wp--preset--color--theme-1: #310c25) {
 	.wp-block-audio audio {
 		color-scheme: dark;
 	}

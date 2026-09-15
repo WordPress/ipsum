@@ -5,7 +5,7 @@
  * Inserter: no
  */
 ?>
-<!-- wp:group {"tagName":"aside","metadata":{"name":"sidebar","patternName":"ipsum/sidebar"},"style":{"spacing":{"blockGap":"var:preset|spacing|50"}},"layout":{"type":"default"}} -->
+<!-- wp:group {"tagName":"aside","metadata":{"name":"sidebar"},"style":{"spacing":{"blockGap":"var:preset|spacing|50"}},"layout":{"type":"default"}} -->
 <aside class="wp-block-group"><!-- wp:group {"metadata":{"name":"Categories"},"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"default"}} -->
 <div class="wp-block-group"><!-- wp:heading {"metadata":{"name":"Categories Label"},"style":{"typography":{"letterSpacing":"0rem"}},"fontSize":"small"} -->
 <h2 class="wp-block-heading has-small-font-size" style="letter-spacing:0rem"><?php esc_html_e('Categories', 'ipsum');?></h2>
@@ -14,7 +14,7 @@
 <!-- wp:categories {"fontSize":"small"} /--></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"metadata":{"name":"Recent Posts"},"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"name":"Recent Posts"},"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"default"}} -->
 <div class="wp-block-group"><!-- wp:heading {"metadata":{"name":"Recent Posts Label"},"style":{"typography":{"letterSpacing":"0rem"}},"fontSize":"small"} -->
 <h2 class="wp-block-heading has-small-font-size" style="letter-spacing:0rem"><?php esc_html_e('Recent posts', 'ipsum');?></h2>
 <!-- /wp:heading -->

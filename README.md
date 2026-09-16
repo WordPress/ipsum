@@ -32,6 +32,19 @@ Ipsum is being developed in the open. Feedback is welcome — [open an issue](ht
 
 Two conventions for contributors: the theme version stays at 1.0.0 while Ipsum is in development, and changes are logged in pull request descriptions rather than a changelog.
 
+### Checking your changes
+
+Pull requests are linted in CI. To run the same checks locally, you need PHP with [Composer](https://getcomposer.org/), and Node.js 24.18 or later with npm 11.16 or later — `nvm use` picks the version in `.nvmrc`.
+
+```sh
+composer install
+npm install
+npm run lint
+```
+
+- `npm run lint:php` checks PHP against the WordPress Coding Standards; `npm run lint:php:fix` fixes what it can.
+- `npm run lint:theme` checks the pattern headers and the block markup in patterns, templates, and template parts, and validates `theme.json` and the style variations against the schema for the theme's "Requires at least" version.
+
 ## License
 
 Ipsum is licensed under the [GNU General Public License v2 or later](http://www.gnu.org/licenses/gpl-2.0.html). Bundled fonts are licensed under the SIL Open Font License; details in [readme.txt](readme.txt).

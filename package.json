@@ -1,0 +1,28 @@
+{
+	"name": "ipsum",
+	"private": true,
+	"engines": {
+		"node": ">=24.18.0",
+		"npm": ">=11.16.0"
+	},
+	"devEngines": {
+		"runtime": {
+			"name": "node",
+			"version": ">=24.18.0"
+		},
+		"packageManager": {
+			"name": "npm",
+			"version": ">=11.16.0",
+			"onFail": "error"
+		}
+	},
+	"scripts": {
+		"lint": "npm run lint:php && npm run lint:theme",
+		"lint:php": "composer run lint",
+		"lint:php:fix": "composer run format",
+		"lint:theme": "node bin/validate-theme.mjs"
+	},
+	"devDependencies": {
+		"ajv": "^8.20.0"
+	}
+}

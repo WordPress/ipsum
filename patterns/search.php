@@ -11,7 +11,7 @@
 <main class="wp-block-group"><!-- wp:group {"metadata":{"name":"Section Title"},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:query-title {"type":"search"} /-->
 
-<!-- wp:search {"label":"<?php esc_attr_e('Search', 'ipsum');?>","showLabel":false,"placeholder":"<?php esc_attr_e('Type here...', 'ipsum');?>","buttonText":"<?php esc_attr_e('Search', 'ipsum');?>","buttonPosition":"button-inside","buttonUseIcon":true} /--></div>
+<!-- wp:search {"label":"<?php esc_attr_e( 'Search', 'ipsum' ); ?>","showLabel":false,"placeholder":"<?php esc_attr_e( 'Type here...', 'ipsum' ); ?>","buttonText":"<?php esc_attr_e( 'Search', 'ipsum' ); ?>","buttonPosition":"button-inside","buttonUseIcon":true} /--></div>
 <!-- /wp:group -->
 
 <!-- wp:query {"queryId":16,"query":{"perPage":20,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true,"taxQuery":null,"parents":[],"excludeCurrent":null},"metadata":{"categories":["posts"],"name":"Archive Compact"},"layout":{"type":"default"}} -->
@@ -24,7 +24,7 @@
 <div class="wp-block-group"><!-- wp:post-date {"datetime":"2026-08-25T12:32:20.987Z","isLink":true} /-->
 
 <!-- wp:paragraph {"metadata":{"name":"·"},"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"small"} -->
-<p class="has-small-font-size" style="font-style:normal;font-weight:600"><?php esc_html_e('·', 'ipsum');?></p>
+<p class="has-small-font-size" style="font-style:normal;font-weight:600"><?php esc_html_e( '·', 'ipsum' ); ?></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:post-terms {"term":"category"} /--></div>
@@ -34,7 +34,7 @@
 <!-- wp:group {"metadata":{"name":"Post Template Copy"},"layout":{"type":"constrained","justifyContent":"left"}} -->
 <div class="wp-block-group"><!-- wp:post-excerpt {"showMoreOnNewLine":false} /-->
 
-<!-- wp:read-more {"content":"<?php esc_attr_e('Read more ›', 'ipsum');?>"} /--></div>
+<!-- wp:read-more {"content":"<?php esc_attr_e( 'Read more ›', 'ipsum' ); ?>"} /--></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 <!-- /wp:post-template -->
@@ -42,7 +42,7 @@
 <!-- wp:group {"metadata":{"name":"No Results Wrapper"},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:query-no-results -->
 <!-- wp:paragraph -->
-<p><?php esc_html_e('Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'ipsum');?></p>
+<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'ipsum' ); ?></p>
 <!-- /wp:paragraph -->
 <!-- /wp:query-no-results --></div>
 <!-- /wp:group -->

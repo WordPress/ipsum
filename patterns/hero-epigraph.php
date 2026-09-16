@@ -22,8 +22,12 @@
 <!-- /wp:group -->
 
 <!-- wp:heading {"level":1,"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|70"}}},"fitText":true} -->
-<h1 class="wp-block-heading alignwide has-fit-text" style="margin-top:var(--wp--preset--spacing--80);margin-bottom:var(--wp--preset--spacing--70)"><?php /* Translators: %1$s is a line break HTML element */
-echo sprintf( esc_html__( 'I cook, I run, and I write about both%1$s—usually in that order.', 'ipsum' ), '<br>' ); ?></h1>
+<h1 class="wp-block-heading alignwide has-fit-text" style="margin-top:var(--wp--preset--spacing--80);margin-bottom:var(--wp--preset--spacing--70)">
+<?php
+/* Translators: %1$s is a line break HTML element */
+printf( esc_html__( 'I cook, I run, and I write about both%1$s—usually in that order.', 'ipsum' ), '<br>' );
+?>
+</h1>
 <!-- /wp:heading -->
 
 <!-- wp:group {"metadata":{"name":"Read the blog line"},"layout":{"type":"constrained"}} -->

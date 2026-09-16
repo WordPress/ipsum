@@ -7,7 +7,7 @@
 ?>
 <!-- wp:group {"metadata":{"name":"Keep Reading"},"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"default"}} -->
 <div class="wp-block-group"><!-- wp:heading {"metadata":{"name":"Keep Reading Label"},"style":{"typography":{"letterSpacing":"0rem"}},"fontSize":"small"} -->
-<h2 class="wp-block-heading has-small-font-size" style="letter-spacing:0rem"><?php esc_html_e('Keep Reading', 'ipsum');?></h2>
+<h2 class="wp-block-heading has-small-font-size" style="letter-spacing:0rem"><?php esc_html_e( 'Keep Reading', 'ipsum' ); ?></h2>
 <!-- /wp:heading -->
 
 <!-- wp:query {"queryId":2,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"taxQuery":null,"parents":[],"excludeCurrent":true},"layout":{"type":"default"}} -->

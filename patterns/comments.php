@@ -8,7 +8,7 @@
 <!-- wp:comments {"className":"wp-block-comments-query-loop"} -->
 <div class="wp-block-comments wp-block-comments-query-loop"><!-- wp:group {"metadata":{"name":"Comments Titles"},"style":{"spacing":{"blockGap":{"top":"var:preset|spacing|20"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
 <div class="wp-block-group"><!-- wp:heading -->
-<h2 class="wp-block-heading"><?php esc_html_e('Comments', 'ipsum');?></h2>
+<h2 class="wp-block-heading"><?php esc_html_e( 'Comments', 'ipsum' ); ?></h2>
 <!-- /wp:heading -->
 
 <!-- wp:comments-title {"level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}}} /--></div>

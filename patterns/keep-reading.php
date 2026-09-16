@@ -3,6 +3,9 @@
  * Title: Keep Reading
  * Slug: ipsum/keep-reading
  * Inserter: no
+ *
+ * @package Ipsum
+ * @since Ipsum 1.0
  */
 ?>
 <!-- wp:group {"metadata":{"name":"Keep Reading"},"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"default"}} -->

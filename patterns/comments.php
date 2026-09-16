@@ -3,6 +3,9 @@
  * Title: Comments
  * Slug: ipsum/comments
  * Inserter: no
+ *
+ * @package Ipsum
+ * @since Ipsum 1.0
  */
 ?>
 <!-- wp:comments {"className":"wp-block-comments-query-loop"} -->

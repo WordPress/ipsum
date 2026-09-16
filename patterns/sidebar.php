@@ -3,6 +3,9 @@
  * Title: sidebar
  * Slug: ipsum/sidebar
  * Inserter: no
+ *
+ * @package Ipsum
+ * @since Ipsum 1.0
  */
 ?>
 <!-- wp:group {"tagName":"aside","metadata":{"name":"sidebar"},"style":{"spacing":{"blockGap":"var:preset|spacing|50"}},"layout":{"type":"default"}} -->

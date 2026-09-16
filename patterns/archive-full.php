@@ -6,6 +6,9 @@
  * Block Types: core/query
  * Viewport width: 1280
  * Description: The whole post in the stream — featured image, title, meta, full content, and the conversation link. The home feed, wherever you want it.
+ *
+ * @package Ipsum
+ * @since Ipsum 1.0
  */
 ?>
 <!-- wp:query {"queryId":14,"query":{"perPage":20,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true,"taxQuery":null,"parents":[],"excludeCurrent":null},"align":"full","layout":{"type":"default"}} -->

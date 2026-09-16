@@ -5,6 +5,9 @@
  * Categories: banner, header
  * Viewport width: 1280
  * Description: A full-height opening statement — site title and menu on top, one oversized line about the blog, and an invitation to read.
+ *
+ * @package Ipsum
+ * @since Ipsum 1.0
  */
 ?>
 <!-- wp:group {"metadata":{"name":"Hero Epigraph"},"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"default"}} -->

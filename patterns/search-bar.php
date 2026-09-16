@@ -3,6 +3,9 @@
  * Title: search-bar
  * Slug: ipsum/search-bar
  * Inserter: no
+ *
+ * @package Ipsum
+ * @since Ipsum 1.0
  */
 ?>
 <!-- wp:group {"metadata":{"name":"search-bar","patternName":"ipsum/search-bar"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"right"}} -->

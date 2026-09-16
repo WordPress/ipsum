@@ -6,6 +6,9 @@
  * Block Types: core/query
  * Viewport width: 1280
  * Description: Featured image beside title and meta in a responsive row — the image takes a fixed width on desktop and the full width on small screens.
+ *
+ * @package Ipsum
+ * @since Ipsum 1.0
  */
 ?>
 <!-- wp:query {"queryId":12,"query":{"perPage":20,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true,"taxQuery":null,"parents":[],"excludeCurrent":null},"metadata":{"categories":["posts"],"name":"Archive Columns"},"align":"wide","layout":{"type":"default"}} -->

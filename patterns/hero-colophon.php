@@ -6,6 +6,9 @@
  * Block Types: core/template-part/header
  * Viewport width: 1280
  * Description: A blogger card introducing the person behind the blog — site icon, greeting, short bio and the menu.
+ *
+ * @package Ipsum
+ * @since Ipsum 1.0
  */
 ?>
 <!-- wp:group {"metadata":{"name":"Hero Colophon"},"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->

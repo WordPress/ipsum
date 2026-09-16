@@ -6,6 +6,9 @@
  * Block Types: core/template-part/header
  * Viewport width: 1280
  * Description: A sticky full-width header bar with the site logo, title and navigation.
+ *
+ * @package Ipsum
+ * @since Ipsum 1.0
  */
 ?>
 <!-- wp:group {"metadata":{"name":"Header Wrapper"},"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"bottom":"var:preset|spacing|70"}},"position":{"type":"sticky","top":"0px"}},"layout":{"type":"default"}} -->

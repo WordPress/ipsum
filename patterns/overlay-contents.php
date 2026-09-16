@@ -6,6 +6,9 @@
  * Block Types: core/template-part/navigation-overlay
  * Viewport width: 1280
  * Description: A navigation overlay working as the site’s table of contents — a large menu list with submenus in view and a search field underneath.
+ *
+ * @package Ipsum
+ * @since Ipsum 1.0
  */
 ?>
 <!-- wp:group {"metadata":{"name":"Overlay Contents"},"style":{"spacing":{"padding":{"right":"var:preset|spacing|40","left":"var:preset|spacing|40","top":"var:preset|spacing|40","bottom":"var:preset|spacing|40"}},"dimensions":{"minHeight":"100vh"},"elements":{"link":{"color":{"text":"var:preset|color|theme-6"}}}},"backgroundColor":"theme-1","textColor":"theme-6","layout":{"type":"default"}} -->

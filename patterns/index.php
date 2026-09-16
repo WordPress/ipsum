@@ -4,6 +4,9 @@
  * Slug: ipsum/index
  * Template Types: index, home
  * Inserter: no
+ *
+ * @package Ipsum
+ * @since Ipsum 1.0
  */
 ?>
 <!-- wp:template-part {"slug":"header","area":"header"} /-->

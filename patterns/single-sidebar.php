@@ -5,6 +5,9 @@
  * Template Types: single
  * Inserter: no
  * Description: A single post beside a classic sidebar with categories and recent posts, on the wide width.
+ *
+ * @package Ipsum
+ * @since Ipsum 1.0
  */
 ?>
 <!-- wp:template-part {"slug":"header"} /-->

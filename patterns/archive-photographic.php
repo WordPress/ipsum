@@ -6,6 +6,9 @@
  * Block Types: core/query
  * Viewport width: 1280
  * Description: The images lead: a grid of square photographs with small captions of title and date.
+ *
+ * @package Ipsum
+ * @since Ipsum 1.0
  */
 ?>
 <!-- wp:query {"queryId":13,"query":{"perPage":20,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true,"taxQuery":null,"parents":[],"excludeCurrent":null},"metadata":{"categories":["posts"],"name":"Archive Photographic"},"align":"full","layout":{"type":"default"}} -->

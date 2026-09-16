@@ -4,6 +4,9 @@
  * Slug: ipsum/single
  * Template Types: single
  * Inserter: no
+ *
+ * @package Ipsum
+ * @since Ipsum 1.0
  */
 ?>
 <!-- wp:template-part {"slug":"header"} /-->

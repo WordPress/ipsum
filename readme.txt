@@ -44,6 +44,11 @@ Copyright 2020 The Archivo Project Authors (https://github.com/Omnibus-Type/Arch
 License: This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: http://scripts.sil.org/OFL
 Source: http://www.omnibus-type.com
 
+Archivo Condensed
+Copyright 2020 The Archivo Project Authors (https://github.com/Omnibus-Type/Archivo)
+License: This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: http://scripts.sil.org/OFL
+Source: http://www.omnibus-type.com
+
 Besley
 Copyright 2020 The Besley Project Authors (https://github.com/indestructible-type/Besley)
 License: This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL

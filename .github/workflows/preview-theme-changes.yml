@@ -1,0 +1,85 @@
+name: Preview Theme Changes
+
+# Comments a WordPress Playground link on every pull request, booting the
+# theme from the pull request's own branch and importing the demo content, so
+# the change can be looked at instead of read. Skips pull requests that only
+# touch repository tooling.
+#
+# The Blueprint is written out explicitly instead of using the action's
+# `theme-path` shortcut. The shortcut builds the clone URL from the event
+# payload's repository, which is always the base repository, so a pull request
+# from a fork would clone this repository at a branch that only exists in the
+# contributor's fork:
+# https://github.com/WordPress/action-wp-playground-pr-preview/issues/93
+# Pointing the clone at the head repository works around that for both forks
+# and branches from this repository.
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+    # Skip pull requests that only touch repository tooling: nothing there
+    # changes what the theme looks like in Playground. A pull request that
+    # touches both these files and the theme itself still gets a preview.
+    paths-ignore:
+      - '.github/**'
+      - '.husky/**'
+      - '.gitignore'
+      - '.wp-env.json'
+      - 'package.json'
+      - 'package-lock.json'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: playground-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  preview-theme-changes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add the WordPress Playground preview button
+        uses: WordPress/action-wp-playground-pr-preview@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          mode: comment
+          blueprint: |
+            {
+              "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+              "landingPage": "/",
+              "login": true,
+              "preferredVersions": {
+                "php": "8.3",
+                "wp": "nightly"
+              },
+              "steps": [
+                {
+                  "step": "setSiteOptions",
+                  "options": {
+                    "blogname": "Ipsum",
+                    "blogdescription": "Until real words arrive"
+                  }
+                },
+                {
+                  "step": "installTheme",
+                  "themeData": {
+                    "resource": "git:directory",
+                    "url": "${{ github.event.pull_request.head.repo.clone_url }}",
+                    "ref": "${{ github.event.pull_request.head.ref }}",
+                    "path": "/"
+                  },
+                  "options": {
+                    "activate": true
+                  }
+                },
+                {
+                  "step": "importWxr",
+                  "file": {
+                    "resource": "url",
+                    "url": "https://raw.githubusercontent.com/${{ github.event.pull_request.head.repo.full_name }}/${{ github.event.pull_request.head.ref }}/.github/ipsum-demo-content.xml"
+                  }
+                }
+              ]
+            }

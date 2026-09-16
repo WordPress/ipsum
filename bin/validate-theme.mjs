@@ -4,11 +4,13 @@
  * theme.json schema, the pattern headers, and the block markup in patterns,
  * templates, and template parts.
  *
- * Run it with `npm run lint:theme`.
+ * Run it with `npm run lint:theme`. Given file paths, as the pre-commit hook
+ * does, it still reads the whole theme but only reports problems in those
+ * files.
  */
 
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
-import { basename, join, sep } from 'node:path';
+import { basename, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import Ajv from 'ajv';
 
@@ -89,7 +91,23 @@ const COMBINATOR_ERROR = /^must match (exactly one|a) schema in (oneOf|anyOf)$/;
 const problems = [];
 
 /**
- * Records a problem to print at the end.
+ * The files given on the command line, relative to the theme root. When there
+ * are none, every file is reported on.
+ */
+const reportedFiles = new Set(
+	process.argv
+		.slice( 2 )
+		.map( ( file ) =>
+			relative( THEME_DIR, resolve( file ) ).split( sep ).join( '/' )
+		)
+);
+
+function isReported( file ) {
+	return ! reportedFiles.size || reportedFiles.has( file );
+}
+
+/**
+ * Records a problem to print at the end, if its file is reported on.
  *
  * @param {string} file    Path relative to the theme root.
  * @param {number} line    Line number.
@@ -97,7 +115,9 @@ const problems = [];
  * @param {string} message What is wrong.
  */
 function report( file, line, rule, message ) {
-	problems.push( { file, line, rule, message } );
+	if ( isReported( file ) ) {
+		problems.push( { file, line, rule, message } );
+	}
 }
 
 function read( file ) {
@@ -391,12 +411,21 @@ function reportSchemaErrors( file, lines, data, errors ) {
 }
 
 /**
- * Validates theme.json and the style variations.
+ * Validates theme.json and the style variations that are reported on.
  *
  * @param {string} requiresAtLeast The theme's minimum WordPress version.
  */
 async function validateThemeJson( requiresAtLeast ) {
-	const files = [ 'theme.json', ...listFiles( 'styles', '.json', true ) ];
+	const files = [
+		'theme.json',
+		...listFiles( 'styles', '.json', true ),
+	].filter( isReported );
+
+	// Skips the schema download when there's nothing to validate.
+	if ( ! files.length ) {
+		return;
+	}
+
 	const schemaUrl =
 		requiresAtLeast &&
 		`https://schemas.wp.org/wp/${ requiresAtLeast }/theme.json`;
@@ -415,7 +444,7 @@ async function validateThemeJson( requiresAtLeast ) {
 			);
 		} catch ( error ) {
 			report(
-				'theme.json',
+				files[ 0 ],
 				1,
 				'theme-json-schema',
 				`Could not load the schema from ${ schemaUrl }: ${ error.message }`

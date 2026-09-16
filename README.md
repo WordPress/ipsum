@@ -45,6 +45,8 @@ npm run lint
 - `npm run lint:php` checks PHP against the WordPress Coding Standards; `npm run lint:php:fix` fixes what it can.
 - `npm run lint:theme` checks the pattern headers and the block markup in patterns, templates, and template parts, and validates `theme.json` and the style variations against the schema for the theme's "Requires at least" version.
 
+`npm install` also sets up a pre-commit hook with [Husky](https://typicode.github.io/husky/) and [lint-staged](https://github.com/lint-staged/lint-staged). It runs the same checks on the files you stage and stops the commit if they fail. Until you run `composer install`, it skips the PHP check. To skip the hook for a commit, use `git commit --no-verify`.
+
 ## License
 
 Ipsum is licensed under the [GNU General Public License v2 or later](http://www.gnu.org/licenses/gpl-2.0.html). Bundled fonts are licensed under the SIL Open Font License; details in [readme.txt](readme.txt).

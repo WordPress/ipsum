@@ -20,9 +20,12 @@
 		"lint": "npm run lint:php && npm run lint:theme",
 		"lint:php": "composer run lint",
 		"lint:php:fix": "composer run format",
-		"lint:theme": "node bin/validate-theme.mjs"
+		"lint:theme": "node bin/validate-theme.mjs",
+		"prepare": "husky"
 	},
 	"devDependencies": {
-		"ajv": "^8.20.0"
+		"ajv": "^8.20.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^17.5.1"
 	}
 }

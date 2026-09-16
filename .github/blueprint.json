@@ -4,6 +4,13 @@
 	"login": true,
 	"steps": [
 		{
+			"step": "setSiteOptions",
+			"options": {
+				"blogname": "Ipsum",
+				"blogdescription": "Until real words arrive"
+			}
+		},
+		{
 			"step": "installTheme",
 			"themeData": {
 				"resource": "url",

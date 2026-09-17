@@ -1,7 +1,8 @@
 name: Assign Linked Issues
 
-# Assigns any issue a newly opened PR references with a GitHub closing
-# keyword (fixes/closes/resolves #N) to that PR's author. Adapted from the
+# Assigns any issue a PR references with a GitHub closing keyword
+# (fixes/closes/resolves #N) to that PR's author, when the PR is opened and
+# whenever its description is edited. Adapted from the
 # "Assign Fixed Issues" task in Gutenberg's project-management-automation
 # package, renamed here since the keyword only marks that the issue will
 # auto-close on merge, not that it's confirmed fixed:
@@ -9,7 +10,7 @@ name: Assign Linked Issues
 
 on:
   pull_request_target:
-    types: [opened]
+    types: [opened, edited]
 
 permissions:
   contents: read
@@ -17,6 +18,9 @@ permissions:
 
 jobs:
   assign-linked-issues:
+    # `edited` also fires for title and base branch changes; only a change to
+    # the description can add a new link.
+    if: github.event.action == 'opened' || github.event.changes.body
     runs-on: ubuntu-latest
     steps:
       - name: Assign issues linked by this PR to its author

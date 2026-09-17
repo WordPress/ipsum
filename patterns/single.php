@@ -35,7 +35,7 @@
 <div class="wp-block-group alignfull"><!-- wp:post-content {"align":"full","layout":{"type":"constrained"}} /--></div>
 <!-- /wp:group -->
 
-<!-- wp:post-terms {"term":"post_tag","separator":"  ","prefix":"Tags: ","style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}}} /-->
+<!-- wp:post-terms {"term":"post_tag","separator":"  ","prefix":"<?php esc_attr_e( 'Tags: ', 'ipsum' ); ?>","style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}}} /-->
 
 <!-- wp:group {"metadata":{"name":"Author Card"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
 <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--60);margin-bottom:var(--wp--preset--spacing--60)"><!-- wp:group {"metadata":{"name":"Avatar and Author"},"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"stretch","justifyContent":"left"}} -->

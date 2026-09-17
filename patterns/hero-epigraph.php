@@ -9,6 +9,7 @@
  * @package Ipsum
  * @since Ipsum 1.0
  */
+
 ?>
 <!-- wp:group {"metadata":{"name":"Hero Epigraph"},"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"default"}} -->
 <div class="wp-block-group" style="margin-top:0;margin-bottom:0"><!-- wp:cover {"overlayColor":"theme-1","isUserOverlayColor":true,"minHeight":400,"contentPosition":"top center","isDark":false,"style":{"spacing":{"padding":{"right":"var:preset|spacing|40","left":"var:preset|spacing|40"},"blockGap":"var:preset|spacing|60"}},"layout":{"type":"default"}} -->

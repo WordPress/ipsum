@@ -7,6 +7,7 @@
  * @package Ipsum
  * @since Ipsum 1.0
  */
+
 ?>
 <!-- wp:group {"tagName":"aside","metadata":{"name":"sidebar"},"style":{"spacing":{"blockGap":"var:preset|spacing|50"}},"layout":{"type":"default"}} -->
 <aside class="wp-block-group"><!-- wp:group {"metadata":{"name":"Categories"},"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"default"}} -->

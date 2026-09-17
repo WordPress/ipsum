@@ -10,6 +10,7 @@
  * @package Ipsum
  * @since Ipsum 1.0
  */
+
 ?>
 <!-- wp:group {"metadata":{"name":"Overlay Contents"},"style":{"spacing":{"padding":{"right":"var:preset|spacing|40","left":"var:preset|spacing|40","top":"var:preset|spacing|40","bottom":"var:preset|spacing|40"}},"dimensions":{"minHeight":"100vh"},"elements":{"link":{"color":{"text":"var:preset|color|theme-6"}}}},"backgroundColor":"theme-1","textColor":"theme-6","layout":{"type":"default"}} -->
 <div class="wp-block-group has-theme-6-color has-theme-1-background-color has-text-color has-background has-link-color" style="min-height:100vh;padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><!-- wp:group {"metadata":{"name":"Action Bar"},"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"right"}} -->

@@ -7,6 +7,7 @@
  * @package Ipsum
  * @since Ipsum 1.0
  */
+
 ?>
 <!-- wp:comments {"className":"wp-block-comments-query-loop"} -->
 <div class="wp-block-comments wp-block-comments-query-loop"><!-- wp:group {"metadata":{"name":"Comments Titles"},"style":{"spacing":{"blockGap":{"top":"var:preset|spacing|20"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->

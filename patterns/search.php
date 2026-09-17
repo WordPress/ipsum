@@ -7,6 +7,7 @@
  * @package Ipsum
  * @since Ipsum 1.0
  */
+
 ?>
 <!-- wp:template-part {"slug":"header"} /-->
 

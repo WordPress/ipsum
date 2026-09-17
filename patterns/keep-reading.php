@@ -7,6 +7,7 @@
  * @package Ipsum
  * @since Ipsum 1.0
  */
+
 ?>
 <!-- wp:group {"metadata":{"name":"Keep Reading"},"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"default"}} -->
 <div class="wp-block-group"><!-- wp:heading {"metadata":{"name":"Keep Reading Label"},"style":{"typography":{"letterSpacing":"0rem"}},"fontSize":"small"} -->

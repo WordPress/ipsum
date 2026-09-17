@@ -1,9 +1,9 @@
 == Ipsum ==
-
-Contributors: Automattic
+Contributors: wordpressdotorg
 Requires at least: 7.1
 Tested up to: 7.1
-Requires PHP: 7.2
+Requires PHP: 7.4
+Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,7 +20,7 @@ Ipsum is a blank canvas built around the blogging experience, our proposal for w
 
 == Copyright ==
 
-Ipsum WordPress Theme, (C) 2026 Automattic
+Ipsum WordPress Theme, (C) 2026 WordPress.org and contributors.
 Ipsum is distributed under the terms of the GNU GPL.
 
 This program is free software: you can redistribute it and/or modify
@@ -40,6 +40,11 @@ Ipsum is based on Ichi (https://themeshaper.com/ichi/), (C) Automattic, [GPLv2 o
 == Fonts ==
 
 Archivo
+Copyright 2020 The Archivo Project Authors (https://github.com/Omnibus-Type/Archivo)
+License: This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: http://scripts.sil.org/OFL
+Source: http://www.omnibus-type.com
+
+Archivo Condensed
 Copyright 2020 The Archivo Project Authors (https://github.com/Omnibus-Type/Archivo)
 License: This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: http://scripts.sil.org/OFL
 Source: http://www.omnibus-type.com

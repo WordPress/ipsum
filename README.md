@@ -14,7 +14,7 @@ Ipsum is built as a [block theme](https://developer.wordpress.org/block-editor/h
 
 - **[Open Ipsum in WordPress Playground](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/WordPress/ipsum/trunk/.github/blueprint.json)** — a throwaway WordPress in your browser with Ipsum active and the demo content already imported. Nothing to install; close the tab and it's gone.
 - **[Browse the demo site](https://ipsum.mystagingwebsite.com/)** — the theme with the same content, hosted.
-- **Install it** — download this repository as a ZIP (Code → Download ZIP) or clone it into `wp-content/themes/ipsum`, then activate Ipsum under Appearance → Themes. Requires WordPress 7.1 or later and PHP 7.2 or later.
+- **Install it** — download this repository as a ZIP (Code → Download ZIP) or clone it into `wp-content/themes/ipsum`, then activate Ipsum under Appearance → Themes. Requires WordPress 7.1 or later and PHP 7.4 or later.
 
 ## Demo content
 

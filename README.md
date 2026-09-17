@@ -1,6 +1,12 @@
 # Ipsum
 
+Welcome to the development repository for the default theme that will launch with [WordPress 7.2](https://make.wordpress.org/core/7-2/).
+
+## About
+
 Ipsum is a blank canvas built around the blogging experience, our proposal for what a default theme should be. Named after *lorem ipsum*, the placeholder that fills a page until real content arrives, it is composed enough to stand on its own and to be transformed the moment people start writing.
+
+Ipsum is built as a [block theme](https://developer.wordpress.org/block-editor/how-to-guides/themes/block-theme-overview/). The theme aims to ship with as little CSS as possible: our goal is for all theme styles to be configured through [`theme.json`](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/) and editable through Global Styles. The theme development team will work closely with [Gutenberg](https://github.com/wordpress/gutenberg) contributors to build design tools in the block editor that enable this goal.
 
 ![The Ipsum home page on a laptop: site title, a quiet navigation, and a single large featured image on the blank canvas.](.github/1-Ipsum-theme-preview-single-laptop.png)
 
@@ -8,7 +14,7 @@ Ipsum is a blank canvas built around the blogging experience, our proposal for w
 
 - **[Open Ipsum in WordPress Playground](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/WordPress/ipsum/trunk/.github/blueprint.json)** — a throwaway WordPress in your browser with Ipsum active and the demo content already imported. Nothing to install; close the tab and it's gone.
 - **[Browse the demo site](https://ipsum.mystagingwebsite.com/)** — the theme with the same content, hosted.
-- **Install it** — download this repository as a ZIP (Code → Download ZIP) or clone it into `wp-content/themes/ipsum`, then activate Ipsum under Appearance → Themes. Requires WordPress 7.1 or later and PHP 7.2 or later.
+- **Install it** — download this repository as a ZIP (Code → Download ZIP) or clone it into `wp-content/themes/ipsum`, then activate Ipsum under Appearance → Themes. Requires WordPress 7.1 or later and PHP 7.4 or later.
 
 ## Demo content
 
@@ -26,11 +32,35 @@ The posts and pages used in the screenshots and the demo site are in [`ipsum-dem
 
 ![More views of the theme across its style variations.](.github/6-Ipsum-theme-preview-bento-2.png)
 
-## About this project
+## Contributing
 
 Ipsum is being developed in the open. Feedback is welcome — [open an issue](https://github.com/WordPress/ipsum/issues) with anything you find, from bugs to design notes. The style variations, the archive pattern pack, and the sidebar templates are the areas where testing helps most right now.
 
+Connect your GitHub account to your WordPress.org account to receive props for your contributions.
+Please see the tutorials on [Linking your GitHub and w.org profiles](https://make.wordpress.org/core/handbook/tutorials/linking-your-github-and-w-org-profiles/).
+
+If you would like to contribute code, the list of [open issues](https://github.com/WordPress/ipsum/issues) is a great place to start looking for tasks. [Pull requests](https://github.com/WordPress/ipsum/pulls) are preferred when linked to an existing issue.
+
+Contributing is not just for developers! There are many opportunities to help with [testing](CONTRIBUTING.md#getting-started), triage, discussion, design, building patterns and templates, and more. Please look through [open issues](https://github.com/WordPress/ipsum/issues), and join in wherever you feel most comfortable.
+
+If you'd like to help with triage, open a new issue and one of the maintainers will help you get set up with the ability to add labels to issues and PRs.
+
+However you contribute, please read the [contributing guide](CONTRIBUTING.md) first.
+
 Two conventions for contributors: the theme version stays at 1.0.0 while Ipsum is in development, and changes are logged in pull request descriptions rather than a changelog.
+
+As with all WordPress projects, we want to ensure a welcoming environment for everyone. With that in mind, all contributors are expected to follow our [Code of Conduct](https://make.wordpress.org/handbook/community-code-of-conduct/).
+
+## Resources
+
+- [Setting up a development environment](https://developer.wordpress.org/block-editor/handbook/tutorials/devenv/)
+- [Theme Developer Handbook](https://developer.wordpress.org/themes/getting-started/what-is-a-theme/)
+- [Block Editor Handbook: Global Styles & theme.json documentation](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/)
+- [Block Editor Handbook: theme.json reference](https://developer.wordpress.org/block-editor/reference-guides/theme-json-reference/theme-json-living/)
+
+## Timeline
+
+The theme will be released with [WordPress 7.2](https://make.wordpress.org/core/7-2/) and follow the key dates / milestones associated with its future development schedule.
 
 ## License
 

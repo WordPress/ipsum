@@ -32,9 +32,6 @@ on:
       - '.github/*.png'
       - '.github/workflows/**'
       - '.github/*.md'
-      # The preview inlines its own copy of the Blueprint, so an edit to this
-      # file on its own is not reflected in the preview.
-      - '.github/blueprint.json'
       - '.husky/**'
       - '.gitignore'
       - '.wp-env.json'

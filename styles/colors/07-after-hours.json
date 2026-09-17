@@ -10,7 +10,7 @@
 			"duotone": [
 				{
 					"colors": [
-						"#190d15",
+						"#310c25",
 						"#e26bbe"
 					],
 					"name": "Pink on black",
@@ -19,7 +19,7 @@
 			],
 			"palette": [
 				{
-					"color": "#190d15",
+					"color": "#310c25",
 					"name": "Color 1",
 					"slug": "theme-1"
 				},

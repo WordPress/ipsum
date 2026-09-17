@@ -52,6 +52,13 @@
 		}
 	},
 	"styles": {
+		"blocks": {
+			"core/post-featured-image": {
+				"filter": {
+					"duotone": "var:preset|duotone|duotone-1"
+				}
+			}
+		},
 		"elements": {
 			"heading": {
 				"typography": {

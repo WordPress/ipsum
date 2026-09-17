@@ -8,9 +8,33 @@ Ipsum is a blank canvas built around the blogging experience, our proposal for w
 
 Ipsum is built as a [block theme](https://developer.wordpress.org/block-editor/how-to-guides/themes/block-theme-overview/). The theme aims to ship with as little CSS as possible: our goal is for all theme styles to be configured through [`theme.json`](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/) and editable through Global Styles. The theme development team will work closely with [Gutenberg](https://github.com/wordpress/gutenberg) contributors to build design tools in the block editor that enable this goal.
 
-If you'd like to try the latest version of Ipsum, use this [WordPress Playground](https://bit.ly/wp-ipsum) link. It runs WordPress with the theme from this repository's trunk.
+![The Ipsum home page on a laptop: site title, a quiet navigation, and a single large featured image on the blank canvas.](.github/1-Ipsum-theme-preview-single-laptop.png)
+
+## Try Ipsum
+
+- **[Open Ipsum in WordPress Playground](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/WordPress/ipsum/trunk/.github/blueprint.json)** — a throwaway WordPress in your browser with Ipsum active and the demo content already imported. Nothing to install; close the tab and it's gone.
+- **[Browse the demo site](https://ipsum.mystagingwebsite.com/)** — the theme with the same content, hosted.
+- **Install it** — download this repository as a ZIP (Code → Download ZIP) or clone it into `wp-content/themes/ipsum`, then activate Ipsum under Appearance → Themes. Requires WordPress 7.1 or later and PHP 7.2 or later.
+
+## Demo content
+
+The posts and pages used in the screenshots and the demo site are in [`ipsum-demo-content.xml`](.github/ipsum-demo-content.xml). Import them on a test site via Tools → Import → WordPress. The Playground link above loads them for you.
+
+## A closer look
+
+![A single post on desktop, tablet and mobile.](.github/2-Ipsum-theme-preview-responsive.png)
+
+![Page details.](.github/3-Ipsum-theme-preview-page-details-1.png)
+
+![More page details.](.github/4-Ipsum-theme-preview-page-details-2.png)
+
+![The blog feed with and without featured images, a picture gallery post, an audio post in the Blue Hour style variation, and the navigation overlay in After Hours.](.github/5-Ipsum-theme-preview-bento-1.png)
+
+![More views of the theme across its style variations.](.github/6-Ipsum-theme-preview-bento-2.png)
 
 ## Contributing
+
+Ipsum is being developed in the open. Feedback is welcome — [open an issue](https://github.com/WordPress/ipsum/issues) with anything you find, from bugs to design notes. The style variations, the archive pattern pack, and the sidebar templates are the areas where testing helps most right now.
 
 Connect your GitHub account to your WordPress.org account to receive props for your contributions.
 Please see the tutorials on [Linking your GitHub and w.org profiles](https://make.wordpress.org/core/handbook/tutorials/linking-your-github-and-w-org-profiles/).
@@ -21,11 +45,11 @@ Contributing is not just for developers! There are many opportunities to help wi
 
 If you'd like to help with triage, open a new issue and one of the maintainers will help you get set up with the ability to add labels to issues and PRs.
 
-
 However you contribute, please read the [contributing guide](CONTRIBUTING.md) first.
 
-As with all WordPress projects, we want to ensure a welcoming environment for everyone. With that in mind, all contributors are expected to follow our [Code of Conduct](https://make.wordpress.org/handbook/community-code-of-conduct/).
+Two conventions for contributors: the theme version stays at 1.0.0 while Ipsum is in development, and changes are logged in pull request descriptions rather than a changelog.
 
+As with all WordPress projects, we want to ensure a welcoming environment for everyone. With that in mind, all contributors are expected to follow our [Code of Conduct](https://make.wordpress.org/handbook/community-code-of-conduct/).
 
 ## Resources
 
@@ -37,3 +61,7 @@ As with all WordPress projects, we want to ensure a welcoming environment for ev
 ## Timeline
 
 The theme will be released with [WordPress 7.2](https://make.wordpress.org/core/7-2/) and follow the key dates / milestones associated with its future development schedule.
+
+## License
+
+Ipsum is licensed under the [GNU General Public License v2 or later](http://www.gnu.org/licenses/gpl-2.0.html). Bundled fonts are licensed under the SIL Open Font License; details in [readme.txt](readme.txt).

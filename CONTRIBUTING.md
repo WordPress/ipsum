@@ -38,7 +38,13 @@ This starts WordPress, activates Ipsum, and installs and activates the [Gutenber
 - Username: `admin`
 - Password: `password`
 
-Debugging, script debugging, and theme [development mode](https://make.wordpress.org/core/2023/07/14/configuring-development-mode-in-6-3/) are on. PHP notices, warnings, and errors go to `wp-content/debug.log` instead of the browser.
+Debugging, script debugging, and theme [development mode](https://make.wordpress.org/core/2023/07/14/configuring-development-mode-in-6-3/) are on. PHP notices, warnings, and errors go to `debug.log` in the WordPress install's `wp-content` directory instead of the browser. That install lives outside this repository (`npm run env:status` shows the path), or you can follow the log from the container:
+
+```sh
+npm run wp-env -- run cli tail -f wp-content/debug.log
+```
+
+The repository is mounted as the `ipsum` theme, whatever the folder is named on your computer. `node_modules` is hidden from WordPress, so Theme Check only sees the theme's own files.
 
 #### Everyday commands
 
@@ -46,10 +52,10 @@ Debugging, script debugging, and theme [development mode](https://make.wordpress
 npm run env:start   # Start the existing environment.
 npm run env:status  # Show its status and ports.
 npm run env:stop    # Stop it without deleting data.
-npm run env:clean   # Delete its WordPress and database data.
+npm run env:reset   # Reset the database to a fresh WordPress install.
 ```
 
-`npm run env:clean` can't be undone. The next `npm run env:setup` creates a fresh site.
+`npm run env:reset` can't be undone. Run `npm run env:setup` afterwards to activate Ipsum and the plugins again.
 
 #### Other setups
 

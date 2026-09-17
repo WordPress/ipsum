@@ -10,7 +10,7 @@
 		"env:start": "wp-env start",
 		"env:status": "wp-env status",
 		"env:stop": "wp-env stop",
-		"env:clean": "wp-env clean all"
+		"env:reset": "wp-env reset"
 	},
 	"devDependencies": {
 		"@wordpress/env": "^11.15.0"

@@ -1,7 +1,8 @@
 {
-	"themes": [
-		"."
-	],
+	"mappings": {
+		"wp-content/themes/ipsum": ".",
+		"wp-content/themes/ipsum/node_modules": "./node_modules/.wp-env-empty"
+	},
 	"port": 8899,
 	"testsEnvironment": false,
 	"config": {

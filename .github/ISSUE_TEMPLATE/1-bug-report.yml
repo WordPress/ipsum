@@ -1,0 +1,105 @@
+name: Bug report
+description: Something in Ipsum isn't working or doesn't look right.
+labels: ['[Type] Bug']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve Ipsum! Please [search the existing issues](https://github.com/WordPress/ipsum/issues?q=is%3Aissue) first, in case it's already reported. If you [link your GitHub and WordPress.org accounts](https://make.wordpress.org/core/handbook/tutorials/linking-your-github-and-w-org-profiles/), you can be credited when your report leads to a fix.
+
+        Found a security vulnerability? Please don't open an issue. Report it privately on [HackerOne](https://hackerone.com/wordpress).
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Tell us what you saw and what you expected to see instead.
+      placeholder: e.g. The post title overlaps the featured image. I expected it to sit below the image.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: location
+    attributes:
+      label: Where does it happen?
+      description: Select all that apply.
+      multiple: true
+      options:
+        - On the site (front end)
+        - In the post or page editor
+        - In the Site Editor
+        - Somewhere else
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Switch to the After Hours style variation.
+        2. Open a single post with a featured image.
+        3. Narrow the window to phone width.
+        4. See that …
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or screen recording
+      description: Drag images or a short video into this box. For visual bugs, it's often the quickest way to show what's wrong.
+
+  - type: markdown
+    attributes:
+      value: |
+        ### Your setup
+
+        All of these are listed under **Tools → Site Health → Info**: WordPress under *WordPress*, PHP under *Server*, Ipsum under *Active Theme*, and Gutenberg under *Active Plugins*.
+
+  - type: input
+    id: wp-version
+    attributes:
+      label: WordPress version
+      placeholder: e.g. 7.1
+    validations:
+      required: true
+
+  - type: input
+    id: php-version
+    attributes:
+      label: PHP version
+      placeholder: e.g. 8.3
+    validations:
+      required: true
+
+  - type: input
+    id: ipsum-version
+    attributes:
+      label: Ipsum version
+      description: Ipsum stays at 1.0.0 during development, so tell us where you got it too.
+      placeholder: e.g. 1.0.0 from the Playground demo, or a git clone at commit 687d3bd
+    validations:
+      required: true
+
+  - type: input
+    id: gutenberg-version
+    attributes:
+      label: Gutenberg plugin version
+      description: Leave blank if the Gutenberg plugin isn't active.
+      placeholder: e.g. 24.0.0
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and device
+      description: Most useful for layout and styling bugs.
+      placeholder: e.g. Chrome 140 on Windows 11, Safari on iPhone
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you submit
+      options:
+        - label: I searched the existing issues and this bug hasn't been reported yet.
+          required: true

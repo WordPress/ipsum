@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Add the WordPress Playground preview button
-        uses: WordPress/action-wp-playground-pr-preview@v4
+        uses: WordPress/action-wp-playground-pr-preview@1b15093d61b5e98cdfeb31466f34ade495762cd7 # v4.0.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           mode: comment

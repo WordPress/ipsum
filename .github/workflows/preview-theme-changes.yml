@@ -17,18 +17,24 @@ name: Preview Theme Changes
 on:
   pull_request_target:
     types: [opened, synchronize, reopened]
-    # Skip pull requests that only touch repository tooling: nothing there
-    # changes what the theme looks like in Playground. A pull request that
-    # touches both these files and the theme itself still gets a preview.
+    # Skip pull requests that only touch files which do not change what the
+    # theme looks like in Playground. A pull request that touches both these
+    # files and the theme itself still gets a preview.
     #
     # `.github/**` is deliberately not ignored wholesale: the preview imports
     # `.github/ipsum-demo-content.xml`, so a change to that file does change
     # what the preview shows. Path filters behave like gitignore, so a file
-    # under an excluded directory cannot be re-included - the tooling paths
-    # are listed individually instead.
+    # under an excluded directory cannot be re-included - the paths that do
+    # not affect the preview are listed individually instead.
     paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+      - '.github/labeler.yml'
+      - '.github/*.png'
       - '.github/workflows/**'
       - '.github/*.md'
+      # The preview inlines its own copy of the Blueprint, so an edit to this
+      # file on its own is not reflected in the preview.
+      - '.github/blueprint.json'
       - '.husky/**'
       - '.gitignore'
       - '.wp-env.json'

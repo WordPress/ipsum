@@ -17,6 +17,12 @@
 		}
 	},
 	"scripts": {
+		"wp-env": "wp-env",
+		"env:setup": "wp-env start && wp-env run cli wp theme activate ipsum && wp-env run cli wp plugin install gutenberg theme-check --activate",
+		"env:start": "wp-env start",
+		"env:status": "wp-env status",
+		"env:stop": "wp-env stop",
+		"env:reset": "wp-env reset",
 		"lint": "npm run lint:php && npm run lint:theme",
 		"lint:php": "composer run lint",
 		"lint:php:fix": "composer run format",
@@ -24,8 +30,12 @@
 		"prepare": "husky"
 	},
 	"devDependencies": {
+		"@wordpress/env": "^11.15.0",
 		"ajv": "^8.20.0",
 		"husky": "^9.1.7",
 		"lint-staged": "^17.5.1"
+	},
+	"allowScripts": {
+		"fs-ext-extra-prebuilt": false
 	}
 }

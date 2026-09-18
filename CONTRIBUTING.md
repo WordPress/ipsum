@@ -179,7 +179,6 @@ One way to control the order in which patterns are displayed in the inserter is 
 - In accordance to those last two bullets, this theme has no required build process.
 - Refrain from creating pull requests for translatable strings until all patterns, parts, and templates are completed.
 
-
 ## Development guidelines
 
 Ipsum is a [block theme](https://developer.wordpress.org/block-editor/how-to-guides/themes/block-theme-overview/). Keep these goals in mind:
@@ -189,6 +188,26 @@ Ipsum is a [block theme](https://developer.wordpress.org/block-editor/how-to-gui
 - Follow [WordPress PHP coding standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/) for PHP in `functions.php` and pattern files.
 
 When a change affects the front end or the Site Editor, test both and note what you checked in your pull request.
+
+## Contributor Attribution (Props)
+
+When merging a PR, make sure all meaningful contributors receive proper credit.  The WordPress [Props Bot](https://github.com/WordPress/props-bot-action) will leave a comment on the PR with the appropriate `Co-authored-by` lines.
+
+Review the Props Bot list to confirm the contributors should be credited, then copy those lines to the bottom of the squash merge commit message:
+
+```text
+Co-authored-by: githubusername <dotorgusername@git.wordpress.org>
+```
+
+The `Co-authored-by` lines must:
+
+* Be preceded by a blank line.
+* Appear at the very end of the commit message.
+* Include everyone who meaningfully contributed to the PR or linked issues, including through code, design, documentation, testing, review, or other substantive contributions.
+
+Do not omit the Props Bot attribution when cleaning up the squash merge commit description. These trailers allow WordPress.org to correctly recognize contributions made through GitHub.
+
+See the [WordPress Contributor Attribution (“Props”) guide](https://make.wordpress.org/core/handbook/best-practices/contributor-attribution-props/) for additional details.
 
 ## Questions
 

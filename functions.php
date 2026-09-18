@@ -40,7 +40,7 @@ if ( ! function_exists( 'ipsum_styles' ) ) :
 		// Register theme stylesheet.
 		wp_register_style(
 			'ipsum-style',
-			get_stylesheet_directory_uri() . '/' . $src,
+			get_parent_theme_file_uri( $src ),
 			array(),
 			wp_get_theme()->get( 'Version' )
 		);

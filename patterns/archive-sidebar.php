@@ -25,13 +25,13 @@
 <div class="wp-block-group" style="border-bottom-color:var(--wp--preset--color--theme-4);border-bottom-style:dotted;border-bottom-width:1px;padding-bottom:var(--wp--preset--spacing--50)"><!-- wp:post-date {"format":"M j","isLink":true} /-->
 
 <!-- wp:paragraph {"metadata":{"name":"·"},"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"small"} -->
-<p class="has-small-font-size" style="font-style:normal;font-weight:600"><?php esc_html_e('·', 'ipsum');?></p>
+<p aria-hidden="true" class="has-small-font-size" style="font-style:normal;font-weight:600"><?php esc_html_e('·', 'ipsum');?></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:post-terms {"term":"category"} /-->
 
 <!-- wp:paragraph {"metadata":{"name":"·"},"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"small"} -->
-<p class="has-small-font-size" style="font-style:normal;font-weight:600"><?php esc_html_e('·', 'ipsum');?></p>
+<p aria-hidden="true" class="has-small-font-size" style="font-style:normal;font-weight:600"><?php esc_html_e('·', 'ipsum');?></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:post-time-to-read /--></div>

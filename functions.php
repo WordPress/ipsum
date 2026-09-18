@@ -54,15 +54,18 @@ if ( ! function_exists( 'ipsum_comments_cta_binding' ) ) :
 	 * @return string The call to action text.
 	 */
 	function ipsum_comments_cta_binding( $source_args, $block_instance ) {
-		$post_id = $block_instance->context['postId'] ?? get_the_ID();
+		$post_id    = $block_instance->context['postId'] ?? get_the_ID();
+		$post_title = get_the_title( $post_id );
 
 		if ( get_comments_number( $post_id ) > 0 ) {
-			$text = __( 'Join the conversation', 'ipsum' );
+			$text       = __( 'Join the conversation', 'ipsum' );
+			$aria_label = $post_title ? sprintf( /* translators: %s: Post title. */ __( 'Join the conversation on %s', 'ipsum' ), $post_title ) : $text;
 		} else {
-			$text = __( 'Be the first to comment', 'ipsum' );
+			$text       = __( 'Be the first to comment', 'ipsum' );
+			$aria_label = $post_title ? sprintf( /* translators: %s: Post title. */ __( 'Be the first to comment on %s', 'ipsum' ), $post_title ) : $text;
 		}
 
-		return '<a href="' . esc_url( get_comments_link( $post_id ) ) . '">' . esc_html( $text ) . '</a>';
+		return '<a href="' . esc_url( get_comments_link( $post_id ) ) . '" aria-label="' . esc_attr( $aria_label ) . '">' . esc_html( $text ) . '</a>';
 	}
 endif;
 

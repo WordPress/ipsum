@@ -46,7 +46,71 @@ a, u, ins,
 span[style*="text-decoration"] {
 	text-decoration-thickness: 1px !important;
 	text-decoration-style: dotted !important;
-	text-underline-offset: 0.1em
+	text-underline-offset: 0.1em;
+}
+
+/*
+ * Accessible focus indicators for keyboard navigation
+ * (WCAG 2.1 AA 2.4.7 Focus Visible & 2.4.11 Focus Appearance)
+ */
+:focus-visible {
+	outline: 2px solid var(--wp--preset--color--theme-6, #000000);
+	outline-offset: 3px;
+}
+
+a:focus-visible {
+	outline: 2px solid var(--wp--preset--color--theme-6, #000000);
+	outline-offset: 3px;
+	text-decoration-style: solid !important;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+.wp-block-button__link:focus-visible {
+	outline: 2px solid var(--wp--preset--color--theme-6, #000000);
+	outline-offset: 2px;
+}
+
+/*
+ * Screen reader text utility & Skip Link styling
+ * (WCAG 2.1 AA 2.4.1 Bypass Blocks)
+ */
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+	background-color: var(--wp--preset--color--theme-1, #fcfcfc);
+	border: 1px solid var(--wp--preset--color--theme-4, rgba(0, 0, 0, 0.2));
+	border-radius: 4px;
+	box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
+	clip: auto !important;
+	clip-path: none;
+	color: var(--wp--preset--color--theme-2, #000000);
+	display: block;
+	font-family: var(--wp--preset--font-family--manrope, sans-serif);
+	font-size: var(--wp--preset--font-size--small, 0.875rem);
+	font-weight: 700;
+	height: auto;
+	inset-inline-start: 10px;
+	inset-block-start: 10px;
+	line-height: normal;
+	padding: var(--wp--preset--spacing--30, 16px) var(--wp--preset--spacing--40, 24px);
+	text-decoration: none;
+	width: auto;
+	z-index: 100000;
 }
 
 /*
@@ -119,7 +183,7 @@ footer.wp-block-template-part {
 }
 
 .wp-block-table thead th {
-	text-align: left;
+	text-align: start;
 	font-family: var(--wp--preset--font-family--manrope);
 	font-size: var(--wp--preset--font-size--small);
 	font-style: normal;
@@ -309,3 +373,19 @@ header.wp-block-template-part:has(> .is-position-sticky) {
 		animation: tilt-settle 0.5s ease-out;
 	}
 }
+
+/*
+ * Accessible motion fallback
+ * (WCAG 2.1 AAA 2.3.3 Animation from Interactions)
+ */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+

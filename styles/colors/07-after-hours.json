@@ -11,7 +11,7 @@
 				{
 					"colors": [
 						"#310c25",
-						"#e26bbe"
+						"#ea85d0"
 					],
 					"name": "Pink on black",
 					"slug": "duotone-1"
@@ -24,7 +24,7 @@
 					"slug": "theme-1"
 				},
 				{
-					"color": "#e26bbe",
+					"color": "#ea85d0",
 					"name": "Color 2",
 					"slug": "theme-2"
 				},
@@ -34,12 +34,12 @@
 					"slug": "theme-3"
 				},
 				{
-					"color": "#e26bbe40",
+					"color": "#ea85d040",
 					"name": "Color 4",
 					"slug": "theme-4"
 				},
 				{
-					"color": "#e26bbe1a",
+					"color": "#ea85d01a",
 					"name": "Color 5",
 					"slug": "theme-5"
 				},

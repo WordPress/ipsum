@@ -917,7 +917,7 @@
 				"color": {
 					"background": "var(--wp--preset--color--theme-5)"
 				},
-				"css": "& {text-align:left;} & blockquote::before{content:\"❝\";display:block;color:var(--wp--preset--color--theme-4);font-size:var(--wp--preset--font-size--2-x-large);line-height:1;} & cite::before{content:\"— \";} & p:last-of-type {margin-bottom: var(--wp--preset--spacing--40);}",
+				"css": "& {text-align:start;} & blockquote::before{content:\"❝\";display:block;color:var(--wp--preset--color--theme-4);font-size:var(--wp--preset--font-size--2-x-large);line-height:1;} & cite::before{content:\"— \";} & p:last-of-type {margin-bottom: var(--wp--preset--spacing--40);}",
 				"elements": {
 					"cite": {
 						"typography": {

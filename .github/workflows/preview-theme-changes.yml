@@ -5,14 +5,13 @@ name: Preview Theme Changes
 # the change can be looked at instead of read. Skips pull requests that only
 # touch repository tooling.
 #
-# The Blueprint is written out explicitly instead of using the action's
-# `theme-path` shortcut. The shortcut builds the clone URL from the event
-# payload's repository, which is always the base repository, so a pull request
-# from a fork would clone this repository at a branch that only exists in the
-# contributor's fork:
+# The Blueprint is derived from `.github/blueprint.json` on the pull request's
+# branch, with the theme install and the demo content import repointed at the
+# head repository, rather than using the action's `theme-path` shortcut. The
+# shortcut builds the clone URL from the event payload's repository, which is
+# always the base repository, so a pull request from a fork would clone this
+# repository at a branch that only exists in the contributor's fork:
 # https://github.com/WordPress/action-wp-playground-pr-preview/issues/93
-# Pointing the clone at the head repository works around that for both forks
-# and branches from this repository.
 
 on:
   pull_request_target:
@@ -50,46 +49,48 @@ jobs:
   preview-theme-changes:
     runs-on: ubuntu-latest
     steps:
+      - name: Build the preview Blueprint from .github/blueprint.json
+        id: blueprint
+        env:
+          HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          BASE_REPO: ${{ github.repository }}
+          BASE_REF: ${{ github.event.repository.default_branch }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${HEAD_REPO:-}" ] || [ -z "${HEAD_REF:-}" ]; then
+            echo "::error::this pull request payload has no head repository or ref"
+            exit 1
+          fi
+
+          if ! curl -fsSL "https://raw.githubusercontent.com/${HEAD_REPO}/${HEAD_REF}/.github/blueprint.json" -o blueprint.json; then
+            echo "No .github/blueprint.json on ${HEAD_REPO}@${HEAD_REF}; falling back to ${BASE_REPO}@${BASE_REF}"
+            curl -fsSL "https://raw.githubusercontent.com/${BASE_REPO}/${BASE_REF}/.github/blueprint.json" -o blueprint.json
+          fi
+
+          jq -c --arg url "https://github.com/${HEAD_REPO}.git" \
+                --arg ref "${HEAD_REF}" \
+                --arg wxr "https://raw.githubusercontent.com/${HEAD_REPO}/${HEAD_REF}/.github/ipsum-demo-content.xml" \
+                '.preferredVersions = {php: "8.3", wp: "nightly"}
+                 | .steps = (.steps | map(
+                     if .step == "installTheme" then
+                       .themeData = {resource: "git:directory", url: $url, ref: $ref, path: "/"} | .options = {activate: true}
+                     elif .step == "importWxr" then
+                       .file = {resource: "url", url: $wxr}
+                     else . end))' \
+                blueprint.json > preview-blueprint.json
+
+          if ! grep -qF "${HEAD_REPO}.git" preview-blueprint.json; then
+            echo "::error::the generated Blueprint does not install the theme from ${HEAD_REPO}"
+            exit 1
+          fi
+
+          echo "blueprint=$(cat preview-blueprint.json)" >> "$GITHUB_OUTPUT"
+
       - name: Add the WordPress Playground preview button
         uses: WordPress/action-wp-playground-pr-preview@1b15093d61b5e98cdfeb31466f34ade495762cd7 # v4.0.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           mode: comment
-          blueprint: |
-            {
-              "$schema": "https://playground.wordpress.net/blueprint-schema.json",
-              "landingPage": "/",
-              "login": true,
-              "preferredVersions": {
-                "php": "8.3",
-                "wp": "nightly"
-              },
-              "steps": [
-                {
-                  "step": "setSiteOptions",
-                  "options": {
-                    "blogname": "Ipsum",
-                    "blogdescription": "Until real words arrive"
-                  }
-                },
-                {
-                  "step": "installTheme",
-                  "themeData": {
-                    "resource": "git:directory",
-                    "url": "${{ github.event.pull_request.head.repo.clone_url }}",
-                    "ref": "${{ github.event.pull_request.head.ref }}",
-                    "path": "/"
-                  },
-                  "options": {
-                    "activate": true
-                  }
-                },
-                {
-                  "step": "importWxr",
-                  "file": {
-                    "resource": "url",
-                    "url": "https://raw.githubusercontent.com/${{ github.event.pull_request.head.repo.full_name }}/${{ github.event.pull_request.head.ref }}/.github/ipsum-demo-content.xml"
-                  }
-                }
-              ]
-            }
+          blueprint: ${{ steps.blueprint.outputs.blueprint }}

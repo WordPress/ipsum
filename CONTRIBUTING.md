@@ -21,7 +21,7 @@ The recommended way to work on Ipsum is with [`wp-env`](https://developer.wordpr
 
 #### Requirements
 
-- [Node.js](https://nodejs.org/) 20 or later, with npm. If you use `nvm`, run `nvm use` to pick the version in `.nvmrc`.
+- [Node.js](https://nodejs.org/) 24.18 or later, with npm 11.16 or later (the version bundled with Node.js 24.18). These match the requirements of [WordPress core](https://github.com/WordPress/wordpress-develop) and [Gutenberg](https://github.com/WordPress/gutenberg). If you use `nvm`, run `nvm install` to install and use the version in `.nvmrc`.
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/), or another Docker-compatible daemon, running.
 
 #### First-time setup

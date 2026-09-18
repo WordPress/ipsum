@@ -1,0 +1,35 @@
+name: Enhancement
+description: Suggest a new feature or an improvement to Ipsum.
+labels: ['[Type] Enhancement']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for sharing an idea! Please [search the existing issues](https://github.com/WordPress/ipsum/issues?q=is%3Aissue) first, in case someone has suggested it already. If you [link your GitHub and WordPress.org accounts](https://make.wordpress.org/core/handbook/tutorials/linking-your-github-and-w-org-profiles/), you can be credited when your suggestion leads to a change.
+
+        Ipsum leans on the block editor wherever it can, so ideas about blocks or the editor itself belong in the [Gutenberg repository](https://github.com/WordPress/gutenberg/issues).
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+      description: Describe what's missing or hard to do today.
+      placeholder: e.g. I often want to … but there's no way to …
+    validations:
+      required: true
+
+  - type: textarea
+    id: idea
+    attributes:
+      label: What's your idea?
+      description: Describe how it could work. Sketches, mockups, and links to examples help; drag images into this box.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you submit
+      options:
+        - label: I searched the existing issues and this hasn't been suggested yet.
+          required: true

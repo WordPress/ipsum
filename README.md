@@ -51,6 +51,19 @@ Two conventions for contributors: the theme version stays at 1.0.0 while Ipsum i
 
 As with all WordPress projects, we want to ensure a welcoming environment for everyone. With that in mind, all contributors are expected to follow our [Code of Conduct](https://make.wordpress.org/handbook/community-code-of-conduct/).
 
+### Checking your changes
+
+Pull requests are linted in CI. To run the same checks locally, you need PHP with [Composer](https://getcomposer.org/), and Node.js 24.18 or later with npm 11.16 or later — `nvm use` picks the version in `.nvmrc`.
+
+```sh
+composer install
+npm install
+npm run lint
+```
+
+- `npm run lint:php` checks PHP against the WordPress Coding Standards; `npm run lint:php:fix` fixes what it can.
+- `npm run lint:theme` checks the pattern headers and the block markup in patterns, templates, and template parts, and validates `theme.json` and the style variations against the schema for the theme's "Requires at least" version.
+
 ## Resources
 
 - [Setting up a development environment](https://developer.wordpress.org/block-editor/handbook/tutorials/devenv/)

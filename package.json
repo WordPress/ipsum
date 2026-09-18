@@ -10,9 +10,18 @@
 		"env:start": "wp-env start",
 		"env:status": "wp-env status",
 		"env:stop": "wp-env stop",
-		"env:reset": "wp-env reset"
+		"env:reset": "wp-env reset",
+		"build": "postcss style.css --use cssnano -o style.min.css --no-map",
+		"watch": "postcss style.css --use cssnano -o style.min.css --no-map --watch"
 	},
 	"devDependencies": {
-		"@wordpress/env": "^11.15.0"
-	}
+		"@wordpress/browserslist-config": "^6.55.0",
+		"@wordpress/env": "^11.15.0",
+		"cssnano": "^7.1.9",
+		"postcss": "^8.5.28",
+		"postcss-cli": "^11.0.1"
+	},
+	"browserslist": [
+		"extends @wordpress/browserslist-config"
+	]
 }

@@ -30,10 +30,17 @@ if ( ! function_exists( 'ipsum_styles' ) ) :
 	 * @return void
 	 */
 	function ipsum_styles() {
+		// Use the minified stylesheet, unless script debugging is on.
+		if ( SCRIPT_DEBUG ) {
+			$src = 'style.css';
+		} else {
+			$src = 'style.min.css';
+		}
+
 		// Register theme stylesheet.
 		wp_register_style(
 			'ipsum-style',
-			get_stylesheet_directory_uri() . '/style.css',
+			get_parent_theme_file_uri( $src ),
 			array(),
 			wp_get_theme()->get( 'Version' )
 		);

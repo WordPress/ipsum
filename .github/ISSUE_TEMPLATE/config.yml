@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Block editor bugs and ideas
+    url: https://github.com/WordPress/gutenberg/issues/new/choose
+    about: Problems with blocks or the editor itself, rather than Ipsum's design, belong in the Gutenberg repository.
+  - name: Security vulnerabilities
+    url: https://hackerone.com/wordpress
+    about: Please report security issues privately on HackerOne, not in a public issue.
+  - name: Help using WordPress
+    url: https://wordpress.org/support/forum/how-to-and-troubleshooting/
+    about: For general WordPress questions, ask in the Fixing WordPress support forum.

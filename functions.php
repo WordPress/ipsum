@@ -54,7 +54,7 @@ if ( ! function_exists( 'ipsum_comments_cta_binding' ) ) :
 	 * @return string The call to action text.
 	 */
 	function ipsum_comments_cta_binding( $source_args, $block_instance ) {
-		$post_id = isset( $block_instance->context['postId'] ) ? $block_instance->context['postId'] : get_the_ID();
+		$post_id = $block_instance->context['postId'] ?? get_the_ID();
 
 		if ( get_comments_number( $post_id ) > 0 ) {
 			$text = __( 'Join the conversation', 'ipsum' );

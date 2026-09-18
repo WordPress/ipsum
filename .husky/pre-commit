@@ -1,0 +1,3 @@
+# Lints the staged files. The tasks are in lint-staged.config.mjs.
+# --continue-on-error runs every task, so all the problems show at once.
+lint-staged --continue-on-error

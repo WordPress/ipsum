@@ -6,9 +6,13 @@
  * Block Types: core/query
  * Viewport width: 1280
  * Description: The images lead: a grid of square photographs with small captions of title and date.
+ *
+ * @package Ipsum
+ * @since Ipsum 1.0
  */
+
 ?>
-<!-- wp:query {"queryId":13,"query":{"perPage":20,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true,"taxQuery":null,"parents":[],"excludeCurrent":null},"metadata":{"categories":["posts"],"name":"Archive Photographic"},"align":"full","layout":{"type":"default"}} -->
+<!-- wp:query {"query":{"perPage":20,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true,"taxQuery":null,"parents":[],"excludeCurrent":null},"metadata":{"categories":["posts"],"name":"Archive Photographic"},"align":"full","layout":{"type":"default"}} -->
 <div class="wp-block-query alignfull"><!-- wp:post-template {"style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"grid","columnCount":3}} -->
 <!-- wp:group {"metadata":{"name":"Photo Card"},"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"default"}} -->
 <div class="wp-block-group"><!-- wp:post-featured-image {"isLink":true,"aspectRatio":"1"} /-->
@@ -20,7 +24,7 @@
 <!-- wp:group {"metadata":{"name":"No Results Wrapper"},"layout":{"type":"default"}} -->
 <div class="wp-block-group"><!-- wp:query-no-results -->
 <!-- wp:paragraph -->
-<p><?php esc_html_e('No posts have been published in this section yet.', 'ipsum');?></p>
+<p><?php esc_html_e( 'No posts have been published in this section yet.', 'ipsum' ); ?></p>
 <!-- /wp:paragraph -->
 <!-- /wp:query-no-results --></div>
 <!-- /wp:group -->

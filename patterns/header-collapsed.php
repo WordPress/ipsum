@@ -6,7 +6,11 @@
  * Block Types: core/template-part/header
  * Viewport width: 1280
  * Description: Header with the site logo, title and tagline on the left and the navigation always collapsed behind a menu button.
+ *
+ * @package Ipsum
+ * @since Ipsum 1.0
  */
+
 ?>
 <!-- wp:group {"metadata":{"name":"Header Wrapper"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|40","right":"var:preset|spacing|40"},"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"default"}} -->
 <div class="wp-block-group" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--40)"><!-- wp:group {"metadata":{"name":"Header Row"},"align":"full","layout":{"type":"flex","flexWrap":"nowrap"}} -->

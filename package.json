@@ -2,7 +2,19 @@
 	"name": "ipsum",
 	"private": true,
 	"engines": {
-		"node": ">=20"
+		"node": ">=24.18.0",
+		"npm": ">=11.16.0"
+	},
+	"devEngines": {
+		"runtime": {
+			"name": "node",
+			"version": ">=24.18.0"
+		},
+		"packageManager": {
+			"name": "npm",
+			"version": ">=11.16.0",
+			"onFail": "error"
+		}
 	},
 	"scripts": {
 		"wp-env": "wp-env",
@@ -10,9 +22,16 @@
 		"env:start": "wp-env start",
 		"env:status": "wp-env status",
 		"env:stop": "wp-env stop",
-		"env:reset": "wp-env reset"
+		"env:reset": "wp-env reset",
+		"lint": "npm run lint:php && npm run lint:theme",
+		"lint:php": "composer run lint",
+		"lint:php:fix": "composer run format",
+		"lint:theme": "node bin/validate-theme.mjs",
+		"prepare": "husky"
 	},
 	"devDependencies": {
-		"@wordpress/env": "^11.15.0"
+		"ajv": "^8.20.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^17.5.1"
 	}
 }

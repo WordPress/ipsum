@@ -13,7 +13,7 @@
 <main class="wp-block-group" style="margin-top:0;margin-bottom:0"><!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|70"}}}} -->
 <div class="wp-block-columns alignwide"><!-- wp:column {"width":"66.66%","layout":{"type":"constrained","justifyContent":"left"}} -->
 <div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:group {"metadata":{"name":"Section Title"},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group"><!-- wp:query-title {"type":"archive","level":1} /--></div>
+<div class="wp-block-group"><!-- wp:query-title {"type":"archive"} /--></div>
 <!-- /wp:group -->
 
 <!-- wp:query {"queryId":10,"query":{"perPage":20,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true,"taxQuery":null,"parents":[],"excludeCurrent":null},"metadata":{"categories":["posts"],"name":"Archive Simple"},"layout":{"type":"default"}} -->

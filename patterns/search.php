@@ -9,7 +9,7 @@
 
 <!-- wp:group {"tagName":"main","metadata":{"name":"Body"},"layout":{"type":"default"}} -->
 <main class="wp-block-group"><!-- wp:group {"metadata":{"name":"Section Title"},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group"><!-- wp:query-title {"type":"search","level":1} /-->
+<div class="wp-block-group"><!-- wp:query-title {"type":"search"} /-->
 
 <!-- wp:search {"label":"<?php esc_attr_e('Search', 'ipsum');?>","showLabel":false,"placeholder":"<?php esc_attr_e('Type here...', 'ipsum');?>","buttonText":"<?php esc_attr_e('Search', 'ipsum');?>","buttonPosition":"button-inside","buttonUseIcon":true} /--></div>
 <!-- /wp:group -->

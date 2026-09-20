@@ -191,7 +191,7 @@ When a change affects the front end or the Site Editor, test both and note what 
 
 ## Contributor Attribution (Props)
 
-When merging a PR, make sure all meaningful contributors receive proper credit.  The WordPress [Props Bot](https://github.com/WordPress/props-bot-action) will leave a comment on the PR with the appropriate `Co-authored-by` lines.
+When merging a PR, make sure all meaningful contributors receive proper credit. The WordPress [Props Bot](https://github.com/WordPress/props-bot-action) will leave a comment on the PR with the appropriate `Co-authored-by` lines.
 
 Review the Props Bot list to confirm the contributors should be credited, then copy those lines to the bottom of the squash merge commit message:
 

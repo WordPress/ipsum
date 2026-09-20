@@ -88,6 +88,14 @@ const BLOCK_GAP_POINTER = /^\/styles\/blocks\/[^/]+\/spacing\/blockGap(?=\/|$)/;
 
 const COMBINATOR_ERROR = /^must match (exactly one|a) schema in (oneOf|anyOf)$/;
 
+/**
+ * The schema for the next release. "$schema" only drives editor autocomplete,
+ * so pointing at trunk is allowed alongside the "Requires at least" version.
+ * The validation below stays on that version either way, so a property that
+ * trunk offers but the theme's minimum WordPress doesn't know is still caught.
+ */
+const TRUNK_SCHEMA = 'https://schemas.wp.org/trunk/theme.json';
+
 const problems = [];
 
 /**
@@ -471,13 +479,16 @@ async function validateThemeJson( requiresAtLeast ) {
 
 		const lines = mapPointerLines( source );
 
-		if ( schemaUrl && data.$schema !== schemaUrl ) {
+		if (
+			schemaUrl &&
+			! [ schemaUrl, TRUNK_SCHEMA ].includes( data.$schema )
+		) {
 			const found = describeValue( data.$schema );
 			report(
 				file,
 				lines.get( '/$schema' ) ?? 1,
 				'theme-json-schema-version',
-				`"$schema" should be ${ schemaUrl } to match "Requires at least" in style.css, found ${ found }.`
+				`"$schema" should be ${ schemaUrl } to match "Requires at least" in style.css, or ${ TRUNK_SCHEMA }, found ${ found }.`
 			);
 		}
 

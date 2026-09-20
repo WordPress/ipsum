@@ -131,3 +131,27 @@ if ( ! function_exists( 'ipsum_block_styles' ) ) :
 	}
 endif;
 add_action( 'init', 'ipsum_block_styles' );
+
+if ( ! function_exists( 'ipsum_unregister_problematic_core_patterns' ) ) :
+	/**
+	 * Unregisters core block patterns that do not render correctly with this
+	 * theme's global styles.
+	 *
+	 * The "Large title" core pattern (core/query-large-title-posts) paints a
+	 * black background but never emits a unique class of its own, so the
+	 * theme's global link color — near-black — overrides the pattern's white
+	 * post titles and leaves them unreadable. The pattern cannot be fixed with
+	 * theme CSS, so remove it from the pattern inserter instead.
+	 *
+	 * The code runs on the 'init' hook at priority 11 so that the pattern is
+	 * registered (core hooks its own registration on 'init' at the default
+	 * priority 10) before it is unregistered here.
+	 *
+	 * @since Ipsum 1.0
+	 * @return void
+	 */
+	function ipsum_unregister_problematic_core_patterns() {
+		unregister_block_pattern( 'core/query-large-title-posts' );
+	}
+endif;
+add_action( 'init', 'ipsum_unregister_problematic_core_patterns', 11 );

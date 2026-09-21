@@ -30,8 +30,12 @@
 		"prepare": "husky"
 	},
 	"devDependencies": {
+		"@wordpress/env": "^11.15.0",
 		"ajv": "^8.20.0",
 		"husky": "^9.1.7",
 		"lint-staged": "^17.5.1"
+	},
+	"allowScripts": {
+		"fs-ext-extra-prebuilt": false
 	}
 }

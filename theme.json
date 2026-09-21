@@ -1059,6 +1059,12 @@
 					}
 				}
 			},
+			"core/site-logo": {
+				"border": {
+					"radius": "5px"
+				},
+				"css": "&.is-style-rounded{border-radius:9999px}"
+			},
 			"core/site-tagline": {
 				"typography": {
 					"fontFamily": "var(--wp--preset--font-family--manrope)",

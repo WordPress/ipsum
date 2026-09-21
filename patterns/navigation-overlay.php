@@ -13,7 +13,7 @@
 <!-- wp:group {"metadata":{"name":"Navigation Content"},"align":"wide","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignwide"><!-- wp:group {"metadata":{"name":"Site Logo Wrapper"},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center"}} -->
 <div class="wp-block-group"><!-- wp:group {"metadata":{"name":"Site Logo"},"style":{"dimensions":{"minHeight":"80px"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center","verticalAlignment":"center"}} -->
-<div class="wp-block-group" style="min-height:80px"><!-- wp:site-logo {"width":80,"isLink":false,"align":"center","className":"is-style-rounded"} /--></div>
+<div class="wp-block-group" style="min-height:80px"><!-- wp:site-logo {"width":80,"isLink":false,"align":"center"} /--></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 

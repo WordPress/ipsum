@@ -137,15 +137,6 @@ if ( ! function_exists( 'ipsum_block_styles' ) ) :
 				'inline_style' => '.wp-block-site-logo.is-style-squared{border-radius:0;}',
 			)
 		);
-
-		register_block_style(
-			'core/site-logo',
-			array(
-				'name'         => 'tile',
-				'label'        => _x( 'Tile', 'Block style label', 'ipsum' ),
-				'inline_style' => '.wp-block-site-logo.is-style-tile{border-radius:5px;}',
-			)
-		);
 	}
 endif;
 add_action( 'init', 'ipsum_block_styles' );

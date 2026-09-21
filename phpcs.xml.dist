@@ -15,7 +15,7 @@
 
 	<!-- Keep in sync with "Requires at least" and "Requires PHP" in style.css. -->
 	<config name="minimum_wp_version" value="7.1"/>
-	<config name="testVersion" value="7.2-"/>
+	<config name="testVersion" value="7.4-"/>
 
 	<rule ref="WordPress"/>
 	<rule ref="PHPCompatibilityWP"/>

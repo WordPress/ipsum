@@ -134,7 +134,7 @@ if ( ! function_exists( 'ipsum_block_styles' ) ) :
 			array(
 				'name'         => 'tile',
 				'label'        => _x( 'Tile', 'Block style label', 'ipsum' ),
-				'inline_style' => '.wp-block-site-logo.is-style-tile{border-radius:10px;}',
+				'inline_style' => '.wp-block-site-logo.is-style-tile{border-radius:5px;}',
 			)
 		);
 	}

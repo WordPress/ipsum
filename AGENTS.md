@@ -1,135 +1,70 @@
 # AGENTS.md
 
-How coding agents should work in this repository.
+How coding agents should work in this repository. `README.md` says what Ipsum is; `CONTRIBUTING.md` covers setup, pattern guidelines and the pull request process. This file covers what is specific to this tree and easy to get wrong.
 
-It is the theme itself: this repository is cloned into
-`wp-content/themes/ipsum` and activated, so everything outside `.github/` ships
-to users. `README.md` covers what Ipsum is; this file covers where the markup
-lives and the conventions it follows.
+## Dev environment tips
 
-## Where everything lives
-
-| Path | What lives there |
-| --- | --- |
-| `templates/*.html` | Block templates. Nearly all are one-line delegates to a pattern. |
-| `parts/*.html` | Template parts. All are one-line delegates to a pattern. |
-| `patterns/*.php` | The markup of every template and part, plus the insertable pattern packs. |
-| `styles/colors/*.json` | Seven color style variations, number-prefixed to control their order. |
-| `styles/typography/*.json` | Five typography style variations. |
-| `styles/blocks/*.json` | Block style variations, e.g. `display.json`. |
-| `assets/fonts/` | Self-hosted variable fonts, one directory per family. |
-| `assets/css/editor-style.css` | Editor-only CSS, maintained by hand as a mirror of `style.css`. |
-| `functions.php` | All theme PHP: stylesheets, the comments CTA block binding, sidebar template types, block styles. |
-| `theme.json` | Global settings and styles: presets, fonts, `customTemplates`, per-block styles. |
-| `style.css` | The theme header plus the frontend CSS that is not generated from `theme.json`. |
-| `readme.txt` | The WordPress.org readme: description, changelog, copyright, fonts. |
-| `.github/` | Repository tooling and assets only. Never part of the theme. |
-
-## The pattern is the source of truth
-
-`templates/index.html` and `parts/header.html` are single lines that look like:
-
-```html
-<!-- wp:pattern {"slug":"ipsum/index"} /-->
+```bash
+nvm use                 # Node version from .nvmrc
+npm install
+npm run env:status      # Always check first.
+npm run env:setup       # First run only: starts wp-env, activates Ipsum, installs Gutenberg and Theme Check.
+npm run env:start       # Later runs, if the environment is not already running.
 ```
 
-Editing a template changes nothing at render time. Edit `patterns/index.php`.
+The site is at <http://localhost:8899> (`admin` / `password`). The repository is mounted as the `ipsum` theme with `node_modules` hidden, and `WP_DEVELOPMENT_MODE` is `theme`, so `theme.json` is not cached. See [Getting Started](CONTRIBUTING.md#getting-started) for the rest, including running without Docker.
 
-Two exceptions are worth knowing:
+There is no build step. Templates, patterns, `theme.json` and CSS are served as they are in the tree; reload to see an edit.
 
-- `templates/page-sidebar.html` holds its own markup and does not delegate, even
-  though `patterns/page-sidebar.php` exists with near-identical markup. Check
-  both when changing the page sidebar.
-- `parts/header.html` delegates to `ipsum/header-default`, not `ipsum/header`.
-  The mismatch is intentional.
+### Key directories
 
-## Conventions
+-   `templates/*.html` - Block templates. Each is a one-line delegate to a pattern.
+-   `parts/*.html` - Template parts. Each is a one-line delegate to a pattern.
+-   `patterns/*.php` - The markup of every template and part, plus the insertable patterns.
+-   `styles/colors/*.json` - Color style variations, number-prefixed to control their order.
+-   `styles/typography/*.json` - Typography style variations.
+-   `styles/blocks/*.json` - Block style variations. The `slug` is used in markup as `is-style-<slug>`.
+-   `assets/fonts/` - Self-hosted fonts, one directory per family, credited under `== Fonts ==` in `readme.txt`.
+-   `assets/css/editor-style.css` - Editor-only CSS.
+-   `functions.php` - All theme PHP: stylesheets, the comments CTA block binding, sidebar template types, block styles.
+-   `theme.json` - Global settings and styles, fonts, `customTemplates`, per-block styles.
+-   `style.css` - The theme header plus the front end CSS that `theme.json` cannot express.
+-   `readme.txt` - The WordPress.org readme: description, changelog, copyright, font credits.
+-   `.github/`, `CONTRIBUTING.md`, `README.md`, `package.json`, `.wp-env.json`, `.nvmrc` - Repository tooling and docs, not part of the theme.
 
-- **Text domain is `ipsum`.** Every user-visible string goes through an i18n
-  function — `esc_html_e()`, `esc_attr_e()`, `esc_html__()`, `_x()`, `sprintf()`
-  — including static decoration like the `·` separators. Follow the existing
-  spacing: `<?php esc_html_e('Read more ›', 'ipsum');?>`.
-- **Style markup with the design tokens, not literals.** Colors come from
-  `var(--wp--preset--color--theme-N)`, spacing from `var:preset|spacing|N`. The
-  palette slugs are generic on purpose: `theme-1` is the background, `theme-2`
-  the body text, `theme-3` the accent, `theme-4` and `theme-5` the faint lines
-  and surfaces, `theme-6` the strongest text. Each color variation redefines all
-  six, so a hardcoded hex freezes one variation's look into every other one.
-- **Pattern headers decide where a pattern appears.** Insertable patterns use
-  `Title`, `Slug`, `Categories`, `Block Types`, `Viewport width`, `Description`.
-  A pattern that replaces a template uses `Title`, `Slug`, `Inserter: no` and
-  `Template Types:` instead. Slugs are `ipsum/<kebab-case-filename>`.
-- **PHP follows WordPress coding standards**, in tabs. Functions are wrapped in
-  `if ( ! function_exists( '…' ) ) : … endif;`, every docblock carries
-  `@since Ipsum 1.0`, and `@package Ipsum` heads the file.
-- **Variations are named for order and for their slug.** Color variations are
-  number-prefixed (`01-blue-hour.json`); a block style variation declares a
-  `slug` that is consumed in markup as `is-style-<slug>`, so
-  `styles/blocks/display.json` declares `text-display` and appears as
-  `is-style-text-display`.
-- **Explain why, in prose.** `style.css` and `assets/css/editor-style.css` carry
-  block comments describing the reason for a rule, often with a link to the
-  Gutenberg or Trac issue behind it. Match that. Note that `css` strings inside
-  `theme.json` cannot hold comments, which is why the frontend CSS that could
-  live there does not.
+## Progressive discovery
+
+Read only what your task needs, when it needs it:
+
+-   **Adding or changing a pattern**: read [Pattern creation guidelines](CONTRIBUTING.md#pattern-creation-guidelines) first. It covers categories, hiding from the inserter, which i18n function to use, images, and removing `id`, `queryId` and `theme` attributes from copied markup.
+-   **Adding CSS or PHP**: read [Development guidelines](CONTRIBUTING.md#development-guidelines). Prefer `theme.json` and Global Styles; add CSS or PHP only when the editor cannot express the design, and keep it commented.
+-   **Opening a pull request**: follow `.github/PULL_REQUEST_TEMPLATE.md`, including the AI disclosure section.
+
+## Markdown files
+
+Markdown in this repository is soft-wrapped: a paragraph, list item or table row is one line, however long. Do not hard-wrap prose, and do not re-flow lines a change does not otherwise touch.
+
+## Architectural decisions
+
+-   **The pattern is the source of truth.** `templates/index.html` is `<!-- wp:pattern {"slug":"ipsum/hidden-index"} /-->` and nothing else. Editing a delegate template or part changes nothing at render time; edit the pattern it names. A pattern that only fills a template or part is hidden from the inserter with `Inserter: no`, and its file and slug take the `hidden-` prefix (`patterns/hidden-index.php` is `ipsum/hidden-index`); template patterns also carry `Template Types:`. Insertable patterns use `Categories`, `Block Types`, `Viewport width` and `Description`.
+-   **Style with the design tokens, not literals.** Colors come from `var(--wp--preset--color--theme-N)`, spacing from `var:preset|spacing|N`. The palette slugs are generic on purpose: `theme-1` is the background, `theme-2` the body text, `theme-3` the accent, `theme-4` and `theme-5` the faint lines and surfaces, `theme-6` the strongest text. Every color variation redefines all six, so a literal hex freezes one variation's look into all the others.
+-   **CSS explains why, in prose.** Rules in `style.css` and `assets/css/editor-style.css` carry a comment saying why they exist, often with the Gutenberg or Trac issue behind it. `css` strings in `theme.json` cannot hold comments.
+-   **Text domain is `ipsum`.** Every user-visible string goes through an i18n function, including single characters such as the `·` separators.
+-   **PHP follows the WordPress coding standards**, in tabs. Functions in `functions.php` are wrapped in `if ( ! function_exists( '…' ) ) : … endif;`, every docblock carries `@since Ipsum 1.0`, and `@package Ipsum` heads the file.
 
 ## Do not reformat block markup
 
-The delimiters in templates, parts and patterns are Gutenberg's serialization,
-not hand-written HTML: flush left, one delimiter per line, a blank line between
-siblings, and the rendered wrapper element inlined after its opening delimiter.
+The delimiters in templates, parts and patterns are Gutenberg's serialization, not hand-written HTML: flush left, one delimiter per line, a blank line between sibling blocks, and a block's wrapper element on the same line as the opening delimiter of its first child:
 
 ```html
-<div class="wp-block-group" style="…"><!-- wp:group {"metadata":{"name":"Body"},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"metadata":{"name":"Body"},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group"><!-- wp:post-title /-->
 ```
 
-Reindenting or rewrapping this produces a large diff that an editor round-trip
-will undo.
+Reindenting or rewrapping it produces a large diff that the next editor round-trip undoes.
 
-## What not to touch
+## PR instructions
 
-- **Do not bump the version or add changelog entries.** `style.css` stays at
-  `Version: 1.0.0` and `readme.txt` keeps its single `= 1.0.0 =` section while
-  Ipsum is in development. Changes are described in the pull request.
-- **`Requires at least: 7.1` and `Tested up to: 7.1`** in `style.css` and
-  `readme.txt` are a deliberate placeholder, not a value to correct.
-- **`.github/ipsum-demo-content.xml`, `.github/blueprint.json` and the six
-  numbered PNGs.** They are linked by URL from `README.md` and from the preview
-  workflow, so renaming or moving one silently breaks a preview. They belong to
-  the repository, not to the theme.
-- **`@mobile` and `@tablet`** inside block JSON (in `theme.json` and
-  `patterns/archive-columns.php`) are theme.json breakpoint features. Do not
-  rewrite them as CSS media queries.
-- **`--wp--custom--control-scheme`** in `theme.json` is a fallback only. A color
-  variation cannot set it, because variations are filtered to color settings on
-  apply. The dark audio controls are switched by the
-  `@container style(--wp--preset--color--theme-1: …)` queries in `style.css`.
-
-## Couplings to keep in step
-
-- **The comments CTA is a block binding.** `ipsum/comments-cta` is registered in
-  `functions.php` and bound from `patterns/index.php`, `index-sidebar.php` and
-  `archive-full.php` through `metadata.bindings.content.source`. The visible
-  "Join the conversation" is a fallback string; removing either half breaks it.
-- **Sidebar templates are registered in two places.** `index-sidebar` and
-  `archive-sidebar` come from the `default_template_types` filter in
-  `functions.php`; `single-sidebar` and `page-sidebar` come from
-  `customTemplates` in `theme.json`. A new template replacement needs its
-  pattern's `Template Types:` to agree with whichever one registers it.
-- **`assets/css/editor-style.css` mirrors `style.css`.** Both need the change
-  when a rule applies to the editor as well as the front end.
-- **Bundled fonts are credited in `== Fonts ==`** in `readme.txt`, with
-  copyright, license and source. A new family needs an entry there.
-
-## Checking your work
-
-There is no build step: templates, patterns and CSS are served as the browser
-finds them, with nothing to compile or regenerate after an edit.
-
-Open Ipsum in WordPress Playground from the link in `README.md` to see the
-default branch. To look at a branch before it is merged, give Playground a
-Blueprint whose `installTheme` step points at your branch.
-
-Look at the change on the front end and in the Site Editor, and check a color
-style variation as well as the default palette, since the variations redefine
-every preset color.
+-   Link the issue the change fixes.
+-   Check the front end and the Site Editor, and at least one color variation besides the default, since variations redefine every preset color. Say what you checked in Testing Instructions.
+-   Do not bump `Version:` or add a changelog entry unless the issue asks for it.

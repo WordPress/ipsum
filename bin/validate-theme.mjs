@@ -61,7 +61,8 @@ const PATTERN_CATEGORIES = [
 ];
 
 /**
- * Block attributes that hold text visitors see.
+ * Block attributes that hold text visitors see. The block name in
+ * metadata is checked separately, since editors see it in the List View.
  */
 const TEXT_ATTRIBUTES = [
 	'ariaLabel',
@@ -775,6 +776,19 @@ function checkBlocks( file, markup, slugPrefix, patternSlugs ) {
 					`"${ label }" has untranslated text in "${ key }": ${ text }`
 				);
 			}
+		}
+
+		// The block name shows in the List View, so editors see it.
+		const blockName = attributes.metadata?.name;
+		if ( typeof blockName === 'string' && hasLetters( blockName ) ) {
+			report(
+				file,
+				line,
+				'untranslated-text',
+				`"${ label }" has an untranslated block name: ${ quote(
+					blockName
+				) }`
+			);
 		}
 	}
 

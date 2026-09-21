@@ -3,9 +3,6 @@
 	"version": 3,
 	"title": "Evening",
 	"settings": {
-		"custom": {
-			"controlScheme": "dark"
-		},
 		"color": {
 			"duotone": [
 				{

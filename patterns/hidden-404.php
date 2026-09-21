@@ -3,6 +3,7 @@
  * Title: 404
  * Slug: ipsum/hidden-404
  * Inserter: no
+ * Description: Error 404 page with an apology message and a search bar.
  *
  * @package Ipsum
  * @since Ipsum 1.0

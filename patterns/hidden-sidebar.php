@@ -1,8 +1,9 @@
 <?php
 /**
- * Title: sidebar
+ * Title: Sidebar
  * Slug: ipsum/hidden-sidebar
  * Inserter: no
+ * Description: Sidebar section featuring categories list and recent posts.
  *
  * @package Ipsum
  * @since Ipsum 1.0

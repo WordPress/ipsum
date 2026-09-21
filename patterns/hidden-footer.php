@@ -1,8 +1,9 @@
 <?php
 /**
- * Title: footer
+ * Title: Footer
  * Slug: ipsum/hidden-footer
  * Inserter: no
+ * Description: Default single-column footer with site title, colophon, and navigation links.
  *
  * @package Ipsum
  * @since Ipsum 1.0

@@ -1,8 +1,9 @@
 <?php
 /**
- * Title: navigation-overlay
+ * Title: Navigation Overlay
  * Slug: ipsum/hidden-navigation-overlay
  * Inserter: no
+ * Description: Full-screen navigation overlay container opened by the mobile or collapsed header button.
  *
  * @package Ipsum
  * @since Ipsum 1.0

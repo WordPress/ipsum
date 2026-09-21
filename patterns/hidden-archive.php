@@ -4,6 +4,7 @@
  * Slug: ipsum/hidden-archive
  * Template Types: archive, category, tag
  * Inserter: no
+ * Description: Default archive feed displaying latest posts for the current taxonomy or archive view.
  *
  * @package Ipsum
  * @since Ipsum 1.0

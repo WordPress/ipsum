@@ -4,6 +4,7 @@
  * Slug: ipsum/hidden-index
  * Template Types: index, home
  * Inserter: no
+ * Description: Default index blog feed displaying latest posts in full width.
  *
  * @package Ipsum
  * @since Ipsum 1.0

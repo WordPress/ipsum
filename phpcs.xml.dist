@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<ruleset name="Ipsum">
+	<description>Coding standards for the Ipsum theme.</description>
+
+	<file>.</file>
+
+	<exclude-pattern>/node_modules/*</exclude-pattern>
+	<exclude-pattern>/vendor/*</exclude-pattern>
+
+	<arg name="extensions" value="php"/>
+	<arg name="basepath" value="./"/>
+	<arg name="parallel" value="8"/>
+	<arg name="colors"/>
+	<arg value="ps"/>
+
+	<!-- Keep in sync with "Requires at least" and "Requires PHP" in style.css. -->
+	<config name="minimum_wp_version" value="7.1"/>
+	<config name="testVersion" value="7.4-"/>
+
+	<rule ref="WordPress"/>
+	<rule ref="PHPCompatibilityWP"/>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="ipsum"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="ipsum"/>
+			</property>
+		</properties>
+	</rule>
+</ruleset>

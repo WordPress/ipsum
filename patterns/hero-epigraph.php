@@ -5,7 +5,11 @@
  * Categories: banner, header
  * Viewport width: 1280
  * Description: A full-height opening statement — site title and menu on top, one oversized line about the blog, and an invitation to read.
+ *
+ * @package Ipsum
+ * @since Ipsum 1.0
  */
+
 ?>
 <!-- wp:group {"metadata":{"name":"Hero Epigraph"},"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"default"}} -->
 <div class="wp-block-group" style="margin-top:0;margin-bottom:0"><!-- wp:cover {"overlayColor":"theme-1","isUserOverlayColor":true,"minHeight":400,"contentPosition":"top center","isDark":false,"style":{"spacing":{"padding":{"right":"var:preset|spacing|40","left":"var:preset|spacing|40"},"blockGap":"var:preset|spacing|60"}},"layout":{"type":"default"}} -->
@@ -22,8 +26,12 @@
 <!-- /wp:group -->
 
 <!-- wp:heading {"level":1,"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|70"}}},"fitText":true} -->
-<h1 class="wp-block-heading alignwide has-fit-text" style="margin-top:var(--wp--preset--spacing--80);margin-bottom:var(--wp--preset--spacing--70)"><?php /* Translators: %1$s is a line break HTML element */
-echo sprintf( esc_html__( 'I cook, I run, and I write about both%1$s—usually in that order.', 'ipsum' ), '<br>' ); ?></h1>
+<h1 class="wp-block-heading alignwide has-fit-text" style="margin-top:var(--wp--preset--spacing--80);margin-bottom:var(--wp--preset--spacing--70)">
+<?php
+/* Translators: %1$s is a line break HTML element */
+printf( esc_html__( 'I cook, I run, and I write about both%1$s—usually in that order.', 'ipsum' ), '<br>' );
+?>
+</h1>
 <!-- /wp:heading -->
 
 <!-- wp:group {"metadata":{"name":"Read the blog line"},"layout":{"type":"constrained"}} -->

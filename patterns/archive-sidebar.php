@@ -5,7 +5,11 @@
  * Template Types: archive, category, tag
  * Inserter: no
  * Description: Archive listing beside a classic sidebar with categories and recent posts, on the wide width.
+ *
+ * @package Ipsum
+ * @since Ipsum 1.0
  */
+
 ?>
 <!-- wp:template-part {"slug":"header"} /-->
 
@@ -16,7 +20,7 @@
 <div class="wp-block-group"><!-- wp:query-title {"type":"archive"} /--></div>
 <!-- /wp:group -->
 
-<!-- wp:query {"queryId":10,"query":{"perPage":20,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true,"taxQuery":null,"parents":[],"excludeCurrent":null},"metadata":{"categories":["posts"],"name":"Archive Simple"},"layout":{"type":"default"}} -->
+<!-- wp:query {"query":{"perPage":20,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true,"taxQuery":null,"parents":[],"excludeCurrent":null},"metadata":{"categories":["posts"],"name":"Archive Simple"},"layout":{"type":"default"}} -->
 <div class="wp-block-query"><!-- wp:post-template {"className":"hover-together","style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"default"}} -->
 <!-- wp:group {"metadata":{"name":"Archive Row"},"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:post-title {"level":3,"isLink":true,"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"large"} /-->
@@ -25,13 +29,13 @@
 <div class="wp-block-group" style="border-bottom-color:var(--wp--preset--color--theme-4);border-bottom-style:dotted;border-bottom-width:1px;padding-bottom:var(--wp--preset--spacing--50)"><!-- wp:post-date {"format":"M j","isLink":true} /-->
 
 <!-- wp:paragraph {"metadata":{"name":"·"},"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"small"} -->
-<p class="has-small-font-size" style="font-style:normal;font-weight:600"><?php esc_html_e('·', 'ipsum');?></p>
+<p class="has-small-font-size" style="font-style:normal;font-weight:600"><?php esc_html_e( '·', 'ipsum' ); ?></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:post-terms {"term":"category"} /-->
 
 <!-- wp:paragraph {"metadata":{"name":"·"},"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"small"} -->
-<p class="has-small-font-size" style="font-style:normal;font-weight:600"><?php esc_html_e('·', 'ipsum');?></p>
+<p class="has-small-font-size" style="font-style:normal;font-weight:600"><?php esc_html_e( '·', 'ipsum' ); ?></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:post-time-to-read /--></div>
@@ -42,7 +46,7 @@
 <!-- wp:group {"metadata":{"name":"No Results Wrapper"},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:query-no-results -->
 <!-- wp:paragraph -->
-<p><?php esc_html_e('No posts have been published in this section yet.', 'ipsum');?></p>
+<p><?php esc_html_e( 'No posts have been published in this section yet.', 'ipsum' ); ?></p>
 <!-- /wp:paragraph -->
 <!-- /wp:query-no-results --></div>
 <!-- /wp:group -->

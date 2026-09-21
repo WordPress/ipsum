@@ -3,7 +3,11 @@
  * Title: search
  * Slug: ipsum/search
  * Inserter: no
+ *
+ * @package Ipsum
+ * @since Ipsum 1.0
  */
+
 ?>
 <!-- wp:template-part {"slug":"header"} /-->
 
@@ -11,10 +15,10 @@
 <main class="wp-block-group"><!-- wp:group {"metadata":{"name":"Section Title"},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:query-title {"type":"search"} /-->
 
-<!-- wp:search {"label":"<?php esc_attr_e('Search', 'ipsum');?>","showLabel":false,"placeholder":"<?php esc_attr_e('Type here...', 'ipsum');?>","buttonText":"<?php esc_attr_e('Search', 'ipsum');?>","buttonPosition":"button-inside","buttonUseIcon":true} /--></div>
+<!-- wp:search {"label":"<?php esc_attr_e( 'Search', 'ipsum' ); ?>","showLabel":false,"placeholder":"<?php esc_attr_e( 'Type here...', 'ipsum' ); ?>","buttonText":"<?php esc_attr_e( 'Search', 'ipsum' ); ?>","buttonPosition":"button-inside","buttonUseIcon":true} /--></div>
 <!-- /wp:group -->
 
-<!-- wp:query {"queryId":16,"query":{"perPage":20,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true,"taxQuery":null,"parents":[],"excludeCurrent":null},"metadata":{"categories":["posts"],"name":"Archive Compact"},"layout":{"type":"default"}} -->
+<!-- wp:query {"query":{"perPage":20,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true,"taxQuery":null,"parents":[],"excludeCurrent":null},"metadata":{"categories":["posts"],"name":"Archive Compact"},"layout":{"type":"default"}} -->
 <div class="wp-block-query"><!-- wp:post-template {"className":"hover-together","style":{"spacing":{"blockGap":"var:preset|spacing|60"}},"layout":{"type":"default"}} -->
 <!-- wp:group {"metadata":{"name":"Post Template Wrapper"},"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|50"},"padding":{"bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)"><!-- wp:group {"metadata":{"name":"Post Title"},"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained"}} -->
@@ -24,7 +28,7 @@
 <div class="wp-block-group"><!-- wp:post-date {"isLink":true} /-->
 
 <!-- wp:paragraph {"metadata":{"name":"·"},"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"small"} -->
-<p class="has-small-font-size" style="font-style:normal;font-weight:600"><?php esc_html_e('·', 'ipsum');?></p>
+<p class="has-small-font-size" style="font-style:normal;font-weight:600"><?php esc_html_e( '·', 'ipsum' ); ?></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:post-terms {"term":"category"} /--></div>
@@ -34,7 +38,7 @@
 <!-- wp:group {"metadata":{"name":"Post Template Copy"},"layout":{"type":"constrained","justifyContent":"left"}} -->
 <div class="wp-block-group"><!-- wp:post-excerpt {"showMoreOnNewLine":false} /-->
 
-<!-- wp:read-more {"content":"<?php esc_attr_e('Read more ›', 'ipsum');?>"} /--></div>
+<!-- wp:read-more {"content":"<?php esc_attr_e( 'Read more ›', 'ipsum' ); ?>"} /--></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 <!-- /wp:post-template -->
@@ -42,7 +46,7 @@
 <!-- wp:group {"metadata":{"name":"No Results Wrapper"},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:query-no-results -->
 <!-- wp:paragraph -->
-<p><?php esc_html_e('Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'ipsum');?></p>
+<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'ipsum' ); ?></p>
 <!-- /wp:paragraph -->
 <!-- /wp:query-no-results --></div>
 <!-- /wp:group -->

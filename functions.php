@@ -128,6 +128,15 @@ if ( ! function_exists( 'ipsum_block_styles' ) ) :
 				'inline_style' => '.wp-block-code.is-style-evening{background-color:#000000;color:#fafafa;border-color:#fafafa40;}',
 			)
 		);
+
+		register_block_style(
+			'core/site-logo',
+			array(
+				'name'         => 'tile',
+				'label'        => _x( 'Tile', 'Block style label', 'ipsum' ),
+				'inline_style' => '.wp-block-site-logo.is-style-tile{border-radius:10px;}',
+			)
+		);
 	}
 endif;
 add_action( 'init', 'ipsum_block_styles' );

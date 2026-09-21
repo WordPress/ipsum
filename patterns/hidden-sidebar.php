@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: sidebar
- * Slug: ipsum/sidebar
+ * Slug: ipsum/hidden-sidebar
  * Inserter: no
  *
  * @package Ipsum

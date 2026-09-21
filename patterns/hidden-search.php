@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: search
- * Slug: ipsum/search
+ * Slug: ipsum/hidden-search
  * Inserter: no
  *
  * @package Ipsum

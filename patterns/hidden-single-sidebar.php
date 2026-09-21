@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Single Posts Sidebar
- * Slug: ipsum/single-sidebar
+ * Slug: ipsum/hidden-single-sidebar
  * Template Types: single
  * Inserter: no
  * Description: A single post beside a classic sidebar with categories and recent posts, on the wide width.
@@ -59,14 +59,14 @@
 <hr class="wp-block-separator has-alpha-channel-opacity"/>
 <!-- /wp:separator -->
 
-<!-- wp:pattern {"slug":"ipsum/comments"} /--></div>
+<!-- wp:pattern {"slug":"ipsum/hidden-comments"} /--></div>
 <!-- /wp:group -->
 
 <!-- wp:separator -->
 <hr class="wp-block-separator has-alpha-channel-opacity"/>
 <!-- /wp:separator -->
 
-<!-- wp:pattern {"slug":"ipsum/keep-reading"} /--></div>
+<!-- wp:pattern {"slug":"ipsum/hidden-keep-reading"} /--></div>
 <!-- /wp:column -->
 
 <!-- wp:column {"width":"33.33%"} -->

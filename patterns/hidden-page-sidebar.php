@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Pages Sidebar
- * Slug: ipsum/page-sidebar
+ * Slug: ipsum/hidden-page-sidebar
  * Template Types: page
  * Inserter: no
  * Description: A page beside a classic sidebar with categories and recent posts, on the wide width.

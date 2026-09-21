@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Single Posts
- * Slug: ipsum/single
+ * Slug: ipsum/hidden-single
  * Template Types: single
  * Inserter: no
  *
@@ -55,13 +55,13 @@
 <hr class="wp-block-separator has-alpha-channel-opacity"/>
 <!-- /wp:separator -->
 
-<!-- wp:pattern {"slug":"ipsum/comments"} /-->
+<!-- wp:pattern {"slug":"ipsum/hidden-comments"} /-->
 
 <!-- wp:separator -->
 <hr class="wp-block-separator has-alpha-channel-opacity"/>
 <!-- /wp:separator -->
 
-<!-- wp:pattern {"slug":"ipsum/keep-reading"} /--></main>
+<!-- wp:pattern {"slug":"ipsum/hidden-keep-reading"} /--></main>
 <!-- /wp:group -->
 
 <!-- wp:template-part {"slug":"footer"} /-->

@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Keep Reading
- * Slug: ipsum/keep-reading
+ * Slug: ipsum/hidden-keep-reading
  * Inserter: no
  *
  * @package Ipsum

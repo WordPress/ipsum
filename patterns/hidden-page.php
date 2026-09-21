@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Pages
- * Slug: ipsum/page
+ * Slug: ipsum/hidden-page
  * Template Types: page
  * Inserter: no
  *

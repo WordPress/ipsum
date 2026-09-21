@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: navigation-overlay
- * Slug: ipsum/navigation-overlay
+ * Slug: ipsum/hidden-navigation-overlay
  * Inserter: no
  *
  * @package Ipsum

@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Comments
- * Slug: ipsum/comments
+ * Slug: ipsum/hidden-comments
  * Inserter: no
  *
  * @package Ipsum

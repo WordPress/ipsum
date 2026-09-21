@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: All Archives Sidebar
- * Slug: ipsum/archive-sidebar
+ * Slug: ipsum/hidden-archive-sidebar
  * Template Types: archive, category, tag
  * Inserter: no
  * Description: Archive listing beside a classic sidebar with categories and recent posts, on the wide width.

@@ -37,6 +37,14 @@ GNU General Public License for more details.
 Ipsum is based on Ichi (https://themeshaper.com/ichi/), (C) Automattic, [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)
 
 
+== Images ==
+
+Title: screenshot.jpg
+The imagery in the screenshot was generated with AI using Midjourney.
+Author: Henrique Iamarino (https://profiles.wordpress.org/iamarinoh)
+License: CC0 1.0 Universal - dedicated to the public domain by the author.
+License URL: https://creativecommons.org/publicdomain/zero/1.0/
+
 == Fonts ==
 
 Archivo

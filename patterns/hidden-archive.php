@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: All Archives
- * Slug: ipsum/archive
+ * Slug: ipsum/hidden-archive
  * Template Types: archive, category, tag
  * Inserter: no
  *

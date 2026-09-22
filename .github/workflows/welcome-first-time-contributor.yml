@@ -30,7 +30,32 @@ jobs:
               return;
             }
 
+            // Org members, outside collaborators and the repo owner are not
+            // new contributors, and GitHub does not badge them as such.
+            const association =
+              context.payload.pull_request.author_association;
+            if (['OWNER', 'MEMBER', 'COLLABORATOR'].includes(association)) {
+              core.info(`@${author} is ${association}. Skipping.`);
+              return;
+            }
+
             const { owner, repo } = context.repo;
+
+            // A contributor has no commits until their first pull request is
+            // merged, so check the pull requests they have opened as well.
+            // Otherwise every pull request they open before that first merge
+            // is greeted as their first.
+            const {
+              data: { total_count: pullRequestCount },
+            } = await github.rest.search.issuesAndPullRequests({
+              q: `repo:${owner}/${repo} type:pr author:${author}`,
+              per_page: 1,
+            });
+
+            if (pullRequestCount > 1) {
+              core.info(`Not @${author}'s first pull request. Skipping.`);
+              return;
+            }
 
             const { data: commits } = await github.rest.repos.listCommits({
               owner,

@@ -22,7 +22,7 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:search {"label":"<?php esc_attr_e( 'Search', 'ipsum' ); ?>","showLabel":false,"buttonText":"<?php esc_attr_e( 'Search', 'ipsum' ); ?>","buttonUseIcon":true} /--></main>
+<!-- wp:search {"label":"<?php esc_attr_e( 'Search', 'ipsum' ); ?>","showLabel":false,"placeholder":"<?php esc_attr_e( 'Type here...', 'ipsum' ); ?>","buttonText":"<?php esc_attr_e( 'Search', 'ipsum' ); ?>","buttonPosition":"button-inside","buttonUseIcon":true} /--></main>
 <!-- /wp:group -->
 
 <!-- wp:template-part {"slug":"footer"} /-->

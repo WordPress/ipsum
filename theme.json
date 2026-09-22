@@ -1156,20 +1156,21 @@
 					}
 				},
 				":focus": {
-					"border": {
-						"style": "dotted",
-						"width": "1px"
-					},
 					"color": {
 						"background": "color-mix(in srgb, var(--wp--preset--color--theme-2) 85%, transparent)",
 						"text": "var(--wp--preset--color--theme-1)"
 					},
 					"outline": {
-						"offset": "4px"
+						"color": "var(--wp--preset--color--theme-2)",
+						"offset": "4px",
+						"style": "dotted",
+						"width": "1px"
 					}
 				},
 				":focus-visible": {
-					"border": {
+					"outline": {
+						"color": "var(--wp--preset--color--theme-2)",
+						"offset": "4px",
 						"style": "dotted",
 						"width": "1px"
 					}

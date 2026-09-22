@@ -205,7 +205,6 @@ header.wp-block-template-part:has(> .is-position-sticky) {
  * Quiet search button inside the pinned Search Bar part only: light ground,
  * outlined; global button states take back over on hover/focus/active.
  */
-/* stylelint-disable-next-line selector-class-pattern */
 .sticky-bottom .wp-block-search__button.wp-element-button:not(:hover):not(:focus):not(:active) {
 	background-color: var(--wp--preset--color--theme-1);
 	border: 1px dotted var(--wp--preset--color--theme-2);
@@ -234,7 +233,6 @@ header.wp-block-template-part:has(> .is-position-sticky) {
  * settings on apply, so this cannot ride a custom property from the file.
  */
 @container style(--wp--preset--color--theme-1: #000000) {
-
 	.wp-block-audio audio {
 		color-scheme: dark;
 	}
@@ -242,7 +240,6 @@ header.wp-block-template-part:has(> .is-position-sticky) {
 
 /* Same flip for After Hours' plum-black ground. */
 @container style(--wp--preset--color--theme-1: #310c25) {
-
 	.wp-block-audio audio {
 		color-scheme: dark;
 	}
@@ -250,12 +247,10 @@ header.wp-block-template-part:has(> .is-position-sticky) {
 
 /* Same flip for Golden Hour's maroon ground. */
 @container style(--wp--preset--color--theme-1: #7a1000) {
-
 	.wp-block-audio audio {
 		color-scheme: dark;
 	}
 }
-
 /*
  * Arrival bar: the blank canvas keeps index and single visually close, so a
  * thin accent bar sweeps the top of the viewport when a single post loads,
@@ -263,7 +258,6 @@ header.wp-block-template-part:has(> .is-position-sticky) {
  * as inline-size so the sweep follows the reading direction in RTL.
  */
 @media (prefers-reduced-motion: no-preference) {
-    
 	.single::before {
 		content: "";
 		position: fixed;
@@ -282,9 +276,7 @@ header.wp-block-template-part:has(> .is-position-sticky) {
 	}
 
 	@keyframes ipsum-arrival {
-
 		0% {
-
 			inline-size: 0;
 			opacity: 1;
 		}
@@ -303,9 +295,7 @@ header.wp-block-template-part:has(> .is-position-sticky) {
 
 /* A light tilt-and-settle on the row's featured image when the row is hovered. */
 @media (prefers-reduced-motion: no-preference) {
-
 	@keyframes tilt-settle {
-
 		35% {
 			transform: rotate(-1deg);
 		}

@@ -98,7 +98,6 @@ header.wp-block-template-part:has(> .is-position-sticky) {
  * Quiet search button inside the pinned Search Bar part only: light ground,
  * outlined; global button states take back over on hover/focus/active.
  */
-/* stylelint-disable-next-line selector-class-pattern */
 .sticky-bottom .wp-block-search__button.wp-element-button:not(:hover):not(:focus):not(:active) {
 	background-color: var(--wp--preset--color--theme-1);
 	border: 1px dotted var(--wp--preset--color--theme-2);

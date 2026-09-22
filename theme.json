@@ -1101,7 +1101,9 @@
 				}
 			},
 			"core/social-links": {
-				"css": "& {column-gap: var(--wp--preset--spacing--30);}",
+				"spacing": {
+					"blockGap": "var(--wp--preset--spacing--30)"
+				},
 				"variations": {
 					"logos-only": {
 						"css": " & li.wp-social-link{color: currentcolor;}"

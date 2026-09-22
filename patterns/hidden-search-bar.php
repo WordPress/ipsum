@@ -3,7 +3,7 @@
  * Title: Search Bar
  * Slug: ipsum/hidden-search-bar
  * Inserter: no
- * Description: Sticky search bar button anchored at the bottom edge of the viewport.
+ * Description: A compact icon-only search button that expands into a search field when activated.
  *
  * @package Ipsum
  * @since Ipsum 1.0

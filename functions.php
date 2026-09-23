@@ -62,7 +62,22 @@ if ( ! function_exists( 'ipsum_comments_cta_binding' ) ) :
 			$text = __( 'Be the first to comment', 'ipsum' );
 		}
 
-		return '<a href="' . esc_url( get_comments_link( $post_id ) ) . '">' . esc_html( $text ) . '</a>';
+		/*
+		 * The call to action repeats for every post in a loop, so the post
+		 * title rides along as screen reader text to keep each link's
+		 * accessible name unique.
+		 */
+		$screen_reader = '';
+		$title         = get_the_title( $post_id );
+		if ( '' !== $title ) {
+			$screen_reader = '<span class="screen-reader-text"> ' . esc_html( sprintf(
+				/* translators: %s: post title. Appended to the comments call to action for screen readers. */
+				__( 'on %s', 'ipsum' ),
+				$title
+			) ) . '</span>';
+		}
+
+		return '<a href="' . esc_url( get_comments_link( $post_id ) ) . '">' . esc_html( $text ) . $screen_reader . '</a>';
 	}
 endif;
 
@@ -85,6 +100,40 @@ if ( ! function_exists( 'ipsum_register_block_bindings' ) ) :
 	}
 endif;
 add_action( 'init', 'ipsum_register_block_bindings' );
+
+if ( ! function_exists( 'ipsum_post_date_screen_reader_title' ) ) :
+	/**
+	 * Gives linked post dates a unique accessible name.
+	 *
+	 * The post date block links dates to their posts but adds no screen
+	 * reader affordance, so posts published on the same day share an
+	 * accessible name. The post title rides along as screen reader text
+	 * inside the link.
+	 *
+	 * @since Ipsum 1.0
+	 * @param string   $block_content The block markup.
+	 * @param array    $block         The parsed block.
+	 * @param WP_Block $instance      The block instance.
+	 * @return string The block markup.
+	 */
+	function ipsum_post_date_screen_reader_title( $block_content, $block, $instance ) {
+		if ( empty( $block['attrs']['isLink'] ) ) {
+			return $block_content;
+		}
+
+		$post_id = $instance->context['postId'] ?? get_the_ID();
+		$title   = get_the_title( $post_id );
+
+		if ( '' === $title ) {
+			return $block_content;
+		}
+
+		$screen_reader = '<span class="screen-reader-text"> ' . esc_html( $title ) . '</span>';
+
+		return str_replace( '</a>', $screen_reader . '</a>', $block_content );
+	}
+endif;
+add_filter( 'render_block_core/post-date', 'ipsum_post_date_screen_reader_title', 10, 3 );
 
 if ( ! function_exists( 'ipsum_sidebar_template_types' ) ) :
 	/**

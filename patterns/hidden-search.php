@@ -15,7 +15,7 @@
 <main class="wp-block-group"><!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Section Title', 'Name of the group holding the section title', 'ipsum' ); ?>"},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:query-title {"type":"search"} /-->
 
-<!-- wp:search {"label":"<?php esc_attr_e( 'Search', 'ipsum' ); ?>","showLabel":false,"placeholder":"<?php esc_attr_e( 'Type here...', 'ipsum' ); ?>","buttonText":"<?php esc_attr_e( 'Search', 'ipsum' ); ?>","buttonPosition":"button-inside","buttonUseIcon":true} /--></div>
+<!-- wp:search {"label":"<?php esc_attr_e( 'Search', 'ipsum' ); ?>","placeholder":"<?php esc_attr_e( 'Type here...', 'ipsum' ); ?>","buttonText":"<?php esc_attr_e( 'Search', 'ipsum' ); ?>","buttonPosition":"button-inside","buttonUseIcon":true} /--></div>
 <!-- /wp:group -->
 
 <!-- wp:query {"query":{"perPage":20,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true,"taxQuery":null,"parents":[],"excludeCurrent":null},"metadata":{"categories":["posts"],"name":"<?php echo esc_html_x( 'Archive Compact', 'Name of the Archive Compact query', 'ipsum' ); ?>"},"layout":{"type":"default"}} -->

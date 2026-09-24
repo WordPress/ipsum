@@ -158,6 +158,45 @@ footer.wp-block-template-part {
 }
 
 /*
+ * Visually hide text while keeping it available to assistive tech.
+ * Required for accessibility-ready; patterns already use this class
+ * (e.g. the Posts heading on the index). Authors can apply it via
+ * Additional CSS Class(es) in the editor.
+ * https://wpaccessibility.org/docs/topics/code/screen-reader-text/
+ */
+.screen-reader-text {
+	border: 0;
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+/*
+ * Reveal focusable screen-reader text (skip links) on keyboard focus.
+ * Palette tokens keep the chip readable under every color variation.
+ */
+.screen-reader-text:focus {
+	background-color: var(--wp--preset--color--theme-1);
+	clip-path: none;
+	color: var(--wp--preset--color--theme-6);
+	display: block;
+	font-size: 1em;
+	height: auto;
+	inset-block-start: 5px;
+	inset-inline-start: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
+}
+
+/*
  * Sticky headers: a sticky root block inside a template part has no room to
  * travel — the part's wrapper element is exactly as tall as its content — so
  * the wrapper itself must carry the stickiness. Keyed on the class core emits

@@ -74,6 +74,23 @@ footer.wp-block-template-part {
 }
 
 /*
+ * Screen-reader text — editor mirror of style.css so authors can verify the
+ * class hides content in the canvas when applied via Additional CSS Class(es).
+ * https://wpaccessibility.org/docs/topics/code/screen-reader-text/
+ */
+.screen-reader-text {
+	border: 0;
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+/*
  * Sticky headers: the template part's wrapper carries the stickiness for a
  * sticky root block — see style.css. !important because the editor forces
  * position:relative on block wrappers.

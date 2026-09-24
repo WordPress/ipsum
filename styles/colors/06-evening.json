@@ -47,6 +47,16 @@
 					"color": "#FFFFFF",
 					"name": "Color 6",
 					"slug": "theme-6"
+				},
+				{
+					"color": "#000000",
+					"name": "Color 7",
+					"slug": "black"
+				},
+				{
+					"color": "#FFFFFF",
+					"name": "Color 8",
+					"slug": "white"
 				}
 			]
 		}

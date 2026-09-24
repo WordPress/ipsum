@@ -55,6 +55,7 @@ if ( ! function_exists( 'ipsum_comments_cta_binding' ) ) :
 	 */
 	function ipsum_comments_cta_binding( $source_args, $block_instance ) {
 		$post_id = $block_instance->context['postId'] ?? get_the_ID();
+		$post_title = get_the_title( $post_id );
 
 		if ( get_comments_number( $post_id ) > 0 ) {
 			$text = __( 'Join the conversation', 'ipsum' );
@@ -62,7 +63,14 @@ if ( ! function_exists( 'ipsum_comments_cta_binding' ) ) :
 			$text = __( 'Be the first to comment', 'ipsum' );
 		}
 
-		return '<a href="' . esc_url( get_comments_link( $post_id ) ) . '">' . esc_html( $text ) . '</a>';
+		$aria_label = sprintf(
+			/* translators: %1$s: comments link text, %2$s: post title */
+			__( '%1$s: %2$s', 'ipsum' ),
+			$text,
+			$post_title
+		);
+
+		return '<a href="' . esc_url( get_comments_link( $post_id ) ) . '" aria-label="' . esc_attr( $aria_label ) . '">' . esc_html( $text ) . '</a>';
 	}
 endif;
 
@@ -108,6 +116,38 @@ if ( ! function_exists( 'ipsum_sidebar_template_types' ) ) :
 	}
 endif;
 add_filter( 'default_template_types', 'ipsum_sidebar_template_types' );
+
+if ( ! function_exists( 'ipsum_post_date_aria_label' ) ) :
+	/**
+	 * Adds an aria-label to linked post-date blocks that includes the post
+	 * title, so screen readers announce a unique accessible name per post.
+	 *
+	 * @since Ipsum 1.0
+	 * @param string $block_content The rendered block HTML.
+	 * @param array  $block         The block details.
+	 * @return string Modified block HTML.
+	 */
+	function ipsum_post_date_aria_label( $block_content, $block ) {
+		if ( 'core/post-date' !== $block['blockName'] ) {
+			return $block_content;
+		}
+
+		$post_title = get_the_title();
+		$aria_label = sprintf(
+			/* translators: %1$s: formatted post date, %2$s: post title */
+			__( '%1$s: %2$s', 'ipsum' ),
+			strip_tags( $block_content ),
+			$post_title
+		);
+
+		return str_replace(
+			'<a ',
+			'<a aria-label="' . esc_attr( $aria_label ) . '" ',
+			$block_content
+		);
+	}
+endif;
+add_filter( 'render_block', 'ipsum_post_date_aria_label', 10, 2 );
 
 if ( ! function_exists( 'ipsum_block_styles' ) ) :
 	/**

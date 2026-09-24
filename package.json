@@ -23,6 +23,8 @@
 		"env:status": "wp-env status",
 		"env:stop": "wp-env stop",
 		"env:reset": "wp-env reset",
+		"build": "postcss style.css --use cssnano -o style.min.css --no-map",
+		"watch": "postcss style.css --use cssnano -o style.min.css --no-map --watch",
 		"lint": "npm run lint:php && npm run lint:theme",
 		"lint:php": "composer run lint",
 		"lint:php:fix": "composer run format",
@@ -30,11 +32,18 @@
 		"prepare": "husky"
 	},
 	"devDependencies": {
+		"@wordpress/browserslist-config": "^6.55.0",
 		"@wordpress/env": "^11.15.0",
 		"ajv": "^8.20.0",
+		"cssnano": "^9.0.5",
 		"husky": "^9.1.7",
-		"lint-staged": "^17.5.1"
+		"lint-staged": "^17.5.1",
+		"postcss": "^8.5.28",
+		"postcss-cli": "^12.0.0"
 	},
+	"browserslist": [
+		"extends @wordpress/browserslist-config"
+	],
 	"allowScripts": {
 		"fs-ext-extra-prebuilt": false
 	}

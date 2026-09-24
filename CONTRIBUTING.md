@@ -69,6 +69,19 @@ Or with [WP-CLI](https://developer.wordpress.org/cli/commands/config/set/), from
 
 To try the theme in the browser without installing anything, use [WordPress Playground](https://developer.wordpress.org/playground/).
 
+### Editing the stylesheet
+
+Ipsum has a single stylesheet, `style.css`. On a production site the theme loads the minified copy, `style.min.css`, instead. When `SCRIPT_DEBUG` is on, as it is in the `wp-env` setup above, the theme loads `style.css`, so your edits show up right away.
+
+`style.min.css` is generated from `style.css` and committed to the repository. After changing `style.css`, regenerate it and include both files in your pull request:
+
+```sh
+npm run build   # Regenerate style.min.css from style.css.
+npm run watch   # Or regenerate it every time style.css changes.
+```
+
+Don't edit `style.min.css` by hand.
+
 ### Pattern creation guidelines
 
 [Reference guide for patterns in the handbook](https://developer.wordpress.org/block-editor/reference-guides/block-api/block-patterns/).
@@ -176,7 +189,7 @@ One way to control the order in which patterns are displayed in the inserter is 
 
 - As stated above, a goal for the theme is to have as little CSS as possible. Much of the theme's visual treatments should be handled by the Block Editor and Global Styles. As a general rule, if multiple themes would benefit from the CSS you're considering adding, it might reasonably be provided by Gutenberg instead. Let's include clear code comments for any CSS we do include.
 - Similarly, let's refrain from building any custom-built PHP or JavaScript-based workarounds for functionality that might reasonably be provided by the Block Editor, let's keep the code simple to help with future maintenance.
-- In accordance to those last two bullets, this theme has no required build process.
+- In accordance to those last two bullets, the theme needs no build process to run. The only build step is minifying `style.css` after you change it (see [Editing the stylesheet](#editing-the-stylesheet)).
 - Refrain from creating pull requests for translatable strings until all patterns, parts, and templates are completed.
 
 ## Development guidelines

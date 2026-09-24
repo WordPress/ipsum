@@ -30,10 +30,28 @@ if ( ! function_exists( 'ipsum_styles' ) ) :
 	 * @return void
 	 */
 	function ipsum_styles() {
+		$style_path     = get_parent_theme_file_path( 'style.css' );
+		$style_min_path = get_parent_theme_file_path( 'style.min.css' );
+
+		/*
+		 * Use the minified stylesheet, unless script debugging is on or style.css
+		 * has changed since style.min.css was built. That keeps edits made in the
+		 * Theme File Editor working: saving style.css makes it the newer file.
+		 */
+		if (
+			SCRIPT_DEBUG
+			|| ! file_exists( $style_min_path )
+			|| ( filemtime( $style_path ) > filemtime( $style_min_path ) )
+		) {
+			$src = 'style.css';
+		} else {
+			$src = 'style.min.css';
+		}
+
 		// Register theme stylesheet.
 		wp_register_style(
 			'ipsum-style',
-			get_stylesheet_directory_uri() . '/style.css',
+			get_parent_theme_file_uri( $src ),
 			array(),
 			wp_get_theme()->get( 'Version' )
 		);

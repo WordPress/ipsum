@@ -12,7 +12,9 @@ body {
  * by the text-decoration shorthand emitted in generated global styles.
  * The span selector catches the editor's inline underline format.
  */
-a, u, ins,
+a,
+u,
+ins,
 span[style*="text-decoration"] {
 	text-decoration-thickness: 1px !important;
 	text-decoration-style: dotted !important;
@@ -66,7 +68,10 @@ footer.wp-block-template-part {
 	text-decoration: none;
 }
 
-/* Meta-separator prefix for conditionally rendered neighbors — see style.css. */
+/*
+ * Meta-separator prefix for conditionally rendered neighbors — see
+ * style.css.
+ */
 .dot-before::before {
 	content: "·";
 	font-weight: 600;

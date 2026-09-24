@@ -1,8 +1,11 @@
 <?php
 /**
- * Title: navigation-overlay
- * Slug: ipsum/hidden-navigation-overlay
- * Inserter: no
+ * Title: Navigation Overlay
+ * Slug: ipsum/navigation-overlay
+ * Categories: navigation
+ * Block Types: core/template-part/navigation-overlay
+ * Viewport width: 1280
+ * Description: The theme’s default navigation overlay — centered logo, site title and tagline, and a large vertical menu on a dark background.
  *
  * @package Ipsum
  * @since Ipsum 1.0

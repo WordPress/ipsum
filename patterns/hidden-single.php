@@ -4,7 +4,6 @@
  * Slug: ipsum/hidden-single
  * Template Types: single
  * Inserter: no
- * Description: Default single post layout with featured image, post title, metadata, content, and comments.
  *
  * @package Ipsum
  * @since Ipsum 1.0

@@ -3,7 +3,6 @@
  * Title: Search
  * Slug: ipsum/hidden-search
  * Inserter: no
- * Description: Search results template pattern displaying search query title and matching posts.
  *
  * @package Ipsum
  * @since Ipsum 1.0

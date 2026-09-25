@@ -3,7 +3,6 @@
  * Title: Comments
  * Slug: ipsum/hidden-comments
  * Inserter: no
- * Description: Comments area with comments query loop, pagination, and comment response form.
  *
  * @package Ipsum
  * @since Ipsum 1.0

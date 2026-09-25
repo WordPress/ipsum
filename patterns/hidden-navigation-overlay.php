@@ -1,6 +1,6 @@
 <?php
 /**
- * Title: navigation-overlay
+ * Title: Navigation Overlay
  * Slug: ipsum/hidden-navigation-overlay
  * Inserter: no
  *

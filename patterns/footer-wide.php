@@ -5,6 +5,7 @@
  * Categories: footer
  * Block Types: core/template-part/footer
  * Viewport width: 1280
+ * Description: Wide footer layout with columns for site title, tagline, and navigation links.
  *
  * @package Ipsum
  * @since Ipsum 1.0

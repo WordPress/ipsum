@@ -4,7 +4,6 @@
  * Slug: ipsum/hidden-page
  * Template Types: page
  * Inserter: no
- * Description: Default single page layout with featured image, page title, and content.
  *
  * @package Ipsum
  * @since Ipsum 1.0

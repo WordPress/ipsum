@@ -3,7 +3,6 @@
  * Title: Keep Reading
  * Slug: ipsum/hidden-keep-reading
  * Inserter: no
- * Description: Keep reading section with a list of recent posts displayed beneath post content.
  *
  * @package Ipsum
  * @since Ipsum 1.0

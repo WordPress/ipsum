@@ -3,7 +3,6 @@
  * Title: Search Bar
  * Slug: ipsum/hidden-search-bar
  * Inserter: no
- * Description: A compact icon-only search button that expands into a search field when activated.
  *
  * @package Ipsum
  * @since Ipsum 1.0

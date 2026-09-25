@@ -199,6 +199,8 @@ header.wp-block-template-part:has(> .is-position-sticky) {
 	position: sticky;
 	inset-block-end: 0;
 	z-index: 10;
+	width: fit-content;
+	margin-inline-start: auto;
 }
 
 /*

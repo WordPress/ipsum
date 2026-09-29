@@ -1161,16 +1161,16 @@
 						"text": "var(--wp--preset--color--theme-1)"
 					},
 					"outline": {
-						"color": "var(--wp--preset--color--theme-2)",
-						"offset": "4px",
+						"color": "currentColor",
+						"offset": "-4px",
 						"style": "dotted",
 						"width": "1px"
 					}
 				},
 				":focus-visible": {
 					"outline": {
-						"color": "var(--wp--preset--color--theme-2)",
-						"offset": "4px",
+						"color": "currentColor",
+						"offset": "-4px",
 						"style": "dotted",
 						"width": "1px"
 					}

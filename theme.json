@@ -1060,7 +1060,13 @@
 				"border": {
 					"radius": "5px"
 				},
-				"css": "&.is-style-rounded{border-radius:9999px}"
+				"variations": {
+					"rounded": {
+						"border": {
+							"radius": "9999px"
+						}
+					}
+				}
 			},
 			"core/site-tagline": {
 				"typography": {

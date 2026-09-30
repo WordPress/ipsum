@@ -61,11 +61,6 @@ footer.wp-block-template-part {
 	border-bottom-color: var(--wp--preset--color--theme-5);
 }
 
-/* Utility classes for removing text decoration from link. */
-.no-underline a {
-	text-decoration: none;
-}
-
 /* Meta-separator prefix for conditionally rendered neighbors — see style.css. */
 .dot-before::before {
 	content: "·";

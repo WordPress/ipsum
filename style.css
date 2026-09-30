@@ -138,11 +138,6 @@ footer.wp-block-template-part {
 	border-bottom-color: var(--wp--preset--color--theme-5);
 }
 
-/* Utility classes for removing text decoration from link. */
-.no-underline a {
-	text-decoration: none;
-}
-
 /*
  * Utility class prefixing an element with the "·" meta separator. Used where
  * neighbors render conditionally (e.g. the comment Edit link only exists for

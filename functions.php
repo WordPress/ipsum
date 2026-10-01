@@ -8,16 +8,16 @@
  * @since Ipsum 1.0
  */
 
-// Enqueues editor-style.css in the editors.
+// Loads style.css in the editors too, then the few overrides only the editors need.
 if ( ! function_exists( 'ipsum_editor_style' ) ) :
 	/**
-	 * Enqueues editor-style.css in the editors.
+	 * Adds style.css and editor-style.css as editor stylesheets.
 	 *
 	 * @since Ipsum 1.0
 	 * @return void
 	 */
 	function ipsum_editor_style() {
-		add_editor_style( 'assets/css/editor-style.css' );
+		add_editor_style( array( 'style.css', 'assets/css/editor-style.css' ) );
 	}
 endif;
 add_action( 'after_setup_theme', 'ipsum_editor_style' );

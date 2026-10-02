@@ -1,0 +1,96 @@
+== Accessibility Statement ==
+
+Ipsum is a WordPress block theme. Ipsum is being developed with the goal of
+passing the WordPress accessibility-ready review, so that it may be marked as
+accessibility-ready in the WordPress Theme Directory.
+
+The accessibility-ready program is not a WCAG certification. Instead, it confirms
+that a theme reaches the minimum standards set by the WordPress Theme Review
+team, which are based on the Web Content Accessibility Guidelines (WCAG) and
+adapted for the specific environment of a WordPress theme. This means the theme
+is designed to be usable by as many people as possible, including people who
+rely on assistive technologies such as screen readers, magnification software,
+or keyboard-only navigation.
+
+== Conformance Status ==
+
+Ipsum is currently undergoing its accessibility-ready review
+([WordPress/ipsum#44](https://github.com/WordPress/ipsum/issues/44)). The theme
+is reviewed against the accessibility-ready theme guidelines
+([theme guidelines](https://developer.wordpress.org/themes/classic-themes/functionality/accessibility/)).
+
+Because the review is still in progress, Ipsum does not yet claim full
+conformance. Known items that are still being addressed are listed under
+"Known Limitations" below.
+
+== How This Was Tested ==
+
+Ipsum has been and continues to be tested throughout development using a
+combination of approaches:
+
+- Manual keyboard-only navigation testing of all interactive controls, checking
+  that every control is reachable, operable, and has visible focus.
+- Manual testing of focus visibility, including the theme's visible
+  `:focus-visible` styles, which apply to links, buttons, inputs, and other
+  controls across all templates and style variations.
+- Review of heading structure, meaningful link text, and semantic HTML in the
+  theme's templates, template parts, and patterns.
+- Color contrast checks of text and UI controls against the WCAG AA contrast
+  ratios, including across the theme's color palettes and style variations.
+- Automated checks in development of the theme's styles and configuration.
+
+== Accessibility Features ==
+
+The following accessibility considerations are included as part of the theme's
+base styles and configuration:
+
+- Visible, high-contrast `:focus-visible` styles for links, buttons, and other
+  interactive controls across all templates and style variations.
+- Clear, underlined link styles within content, and link hover/focus states
+  that do not rely on color alone.
+- Logical heading and landmark structure provided through semantic block
+  markup in the theme's templates and patterns, so that assistive technologies
+  can convey the structure of a page.
+- Support for the core comment and search blocks, including labeled form
+  fields and visible focus states.
+- Support for keyboard navigation of core blocks such as the navigation block,
+  search block, and comment block.
+
+Screen-reader text and skip-link infrastructure required by the
+accessibility-ready guidelines are evaluated as part of the ongoing review
+(see "Known Limitations").
+
+== Known Limitations ==
+
+The following items are still being addressed as part of the accessibility-ready
+review. Each is tracked in a separate issue and will be closed independently as
+it is resolved:
+
+- Color contrast failure when the core "Large title" pattern is placed, and
+  related contrast across core patterns
+  ([WordPress/ipsum#46](https://github.com/WordPress/ipsum/issues/46)).
+- Ambiguous link text used across patterns and templates
+  ([WordPress/ipsum#47](https://github.com/WordPress/ipsum/issues/47)).
+- Incorrect heading-level order in some patterns and templates
+  ([WordPress/ipsum#48](https://github.com/WordPress/ipsum/issues/48)).
+- The "Index Sidebar" template is missing a footer
+  ([WordPress/ipsum#55](https://github.com/WordPress/ipsum/issues/55)).
+- Additional findings from the ongoing full accessibility review
+  ([WordPress/ipsum#44](https://github.com/WordPress/ipsum/issues/44)).
+
+== Feedback ==
+
+Accessibility issues, suggestions, and feedback about Ipsum can be reported on
+the [Ipsum issue tracker on GitHub](https://github.com/WordPress/ipsum/issues).
+Please include the theme version when reporting an issue, and describe the
+browser and assistive technology (if any) you were using.
+
+== Reporting Accessibility Issues ==
+
+Accessibility issues can also be reported through the
+[WordPress accessibility-ready review process](https://make.wordpress.org/themes/handbook/review/accessibility/).
+Users of the theme can post in the
+[WordPress.org Accessibility forum](https://wordpress.org/support/forum/accessibility-and-regex/).
+
+Ipsum is reviewed by the same team that reviews WordPress.org themes, and issue
+reports are handled through the GitHub issue tracker above.

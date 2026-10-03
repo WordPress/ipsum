@@ -1280,8 +1280,8 @@
 		},
 		{
 			"area": "header",
-			"name": "header-stick",
-			"title": "Header Stick"
+			"name": "header-sticky",
+			"title": "Header Sticky"
 		},
 		{
 			"area": "footer",

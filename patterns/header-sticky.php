@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Header Sticky
- * Slug: ipsum/header-stick
+ * Slug: ipsum/header-sticky
  * Categories: header
  * Block Types: core/template-part/header
  * Viewport width: 1280

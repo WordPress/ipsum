@@ -1281,7 +1281,7 @@
 		{
 			"area": "header",
 			"name": "header-stick",
-			"title": "Header Stick"
+			"title": "Header Sticky"
 		},
 		{
 			"area": "footer",

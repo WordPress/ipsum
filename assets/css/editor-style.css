@@ -68,6 +68,20 @@ footer.wp-block-template-part {
 	padding-inline: 0.5em;
 }
 
+/* Statement patterns' opening quotation mark — see style.css. */
+.pre-quote::before {
+	content: "❝" / "";
+	display: block;
+	color: var(--wp--preset--color--theme-4);
+	font-size: var(--wp--preset--font-size--2-x-large);
+	line-height: 1;
+}
+
+/* Mark in the block’s own text color — see style.css. */
+.pre-quote-current::before {
+	color: currentColor;
+}
+
 /*
  * Sticky headers: the template part's wrapper carries the stickiness for a
  * sticky root block — see style.css. !important because the editor forces

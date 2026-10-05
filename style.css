@@ -172,7 +172,7 @@ footer.wp-block-template-part {
  * wash — for statements on colored grounds, like the toast card.
  */
 .pre-quote-current::before {
-	color: currentColor;
+	color: currentcolor;
 }
 
 /*

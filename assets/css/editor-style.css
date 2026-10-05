@@ -79,7 +79,7 @@ footer.wp-block-template-part {
 
 /* Mark in the block’s own text color — see style.css. */
 .pre-quote-current::before {
-	color: currentColor;
+	color: currentcolor;
 }
 
 /*

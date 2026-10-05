@@ -3,6 +3,7 @@
  * Title: Hero Epigraph
  * Slug: ipsum/hero-epigraph
  * Categories: banner, header
+ * Block Types: core/template-part/header
  * Viewport width: 1280
  * Description: A full-height opening statement — site title and menu on top, one oversized line about the blog, and an invitation to read.
  *

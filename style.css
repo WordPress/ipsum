@@ -165,6 +165,14 @@ header.wp-block-template-part:has(> .is-position-sticky) {
 }
 
 /*
+ * While the navigation overlay is open, lift the sticky header above the
+ * admin bar and the pinned Search Bar, matching the non-sticky headers.
+ */
+header.wp-block-template-part:has(> .is-position-sticky):has(.wp-block-navigation__responsive-container.is-menu-open) {
+	z-index: 100000;
+}
+
+/*
  * Keep a sticky header clear of the admin bar: it is fixed over the viewport,
  * so logged-in users would see the header slide beneath it. Core publishes the
  * bar's height (32px desktop / 46px small screens) as a custom property.

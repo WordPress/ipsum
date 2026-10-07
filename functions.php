@@ -109,6 +109,25 @@ if ( ! function_exists( 'ipsum_sidebar_template_types' ) ) :
 endif;
 add_filter( 'default_template_types', 'ipsum_sidebar_template_types' );
 
+if ( ! function_exists( 'ipsum_pattern_categories' ) ) :
+	/**
+	 * Registers the pattern categories the theme's patterns use beyond core's.
+	 *
+	 * @since Ipsum 1.0
+	 * @return void
+	 */
+	function ipsum_pattern_categories() {
+		register_block_pattern_category(
+			'ipsum_page',
+			array(
+				'label'       => _x( 'Pages', 'Block pattern category', 'ipsum' ),
+				'description' => __( 'Full page layouts, ready to be applied to a page.', 'ipsum' ),
+			)
+		);
+	}
+endif;
+add_action( 'init', 'ipsum_pattern_categories' );
+
 if ( ! function_exists( 'ipsum_block_styles' ) ) :
 	/**
 	 * Registers block style variations.

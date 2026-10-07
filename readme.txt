@@ -45,6 +45,12 @@ Author: Henrique Iamarino (https://profiles.wordpress.org/iamarinoh)
 License: CC0 1.0 Universal - dedicated to the public domain by the author.
 License URL: https://creativecommons.org/publicdomain/zero/1.0/
 
+Title: assets/images/ipsum-*.webp
+The images bundled with the theme's patterns were generated with AI using Midjourney.
+Author: Henrique Iamarino (https://profiles.wordpress.org/iamarinoh)
+License: CC0 1.0 Universal - dedicated to the public domain by the author.
+License URL: https://creativecommons.org/publicdomain/zero/1.0/
+
 == Fonts ==
 
 Archivo

@@ -376,6 +376,13 @@
 					"blockGap": "var(--wp--preset--spacing--30)"
 				}
 			},
+			"core/accordion-panel": {
+				"spacing": {
+					"padding": {
+						"bottom": "var(--wp--preset--spacing--50)"
+					}
+				}
+			},
 			"core/audio": {
 				"css": "& audio{background-color:var(--wp--preset--color--theme-5);border-radius:10px;color:var(--wp--preset--color--theme-2);color-scheme:var(--wp--custom--control-scheme, light);} & audio::-webkit-media-controls-enclosure{background-color:transparent;border-radius:10px;} & audio::-webkit-media-controls-panel{background-color:transparent;} & audio::-webkit-media-controls-current-time-display{text-shadow:none;color:var(--wp--preset--color--theme-2);} & audio::-webkit-media-controls-time-remaining-display{text-shadow:none;color:var(--wp--preset--color--theme-2);}"
 			},

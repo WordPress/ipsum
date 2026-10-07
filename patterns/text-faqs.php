@@ -32,7 +32,7 @@
 
 <!-- wp:accordion-item -->
 <div class="wp-block-accordion-item"><!-- wp:accordion-heading {"fontSize":"medium"} -->
-<h3 class="wp-block-accordion-heading has-icon has-icon-right has-medium-font-size"><button type="button" class="wp-block-accordion-heading__toggle"><span class="wp-block-accordion-heading__toggle-title"><?php esc_html_e( 'Who writes here?', 'ipsum' ); ?></span><span class="wp-block-accordion-heading__toggle-icon" aria-hidden="true">+</span></button></h3>
+<h3 class="wp-block-accordion-heading has-icon has-icon-right has-medium-font-size"><button type="button" class="wp-block-accordion-heading__toggle"><span class="wp-block-accordion-heading__toggle-title"><?php esc_html_e( 'Where should I start?', 'ipsum' ); ?></span><span class="wp-block-accordion-heading__toggle-icon" aria-hidden="true">+</span></button></h3>
 <!-- /wp:accordion-heading -->
 
 <!-- wp:accordion-panel -->
@@ -44,7 +44,7 @@
 
 <!-- wp:accordion-item -->
 <div class="wp-block-accordion-item"><!-- wp:accordion-heading {"fontSize":"medium"} -->
-<h3 class="wp-block-accordion-heading has-icon has-icon-right has-medium-font-size"><button type="button" class="wp-block-accordion-heading__toggle"><span class="wp-block-accordion-heading__toggle-title"><?php esc_html_e( 'Who writes here?', 'ipsum' ); ?></span><span class="wp-block-accordion-heading__toggle-icon" aria-hidden="true">+</span></button></h3>
+<h3 class="wp-block-accordion-heading has-icon has-icon-right has-medium-font-size"><button type="button" class="wp-block-accordion-heading__toggle"><span class="wp-block-accordion-heading__toggle-title"><?php esc_html_e( 'When do new posts go up?', 'ipsum' ); ?></span><span class="wp-block-accordion-heading__toggle-icon" aria-hidden="true">+</span></button></h3>
 <!-- /wp:accordion-heading -->
 
 <!-- wp:accordion-panel -->
@@ -56,7 +56,7 @@
 
 <!-- wp:accordion-item -->
 <div class="wp-block-accordion-item"><!-- wp:accordion-heading {"fontSize":"medium"} -->
-<h3 class="wp-block-accordion-heading has-icon has-icon-right has-medium-font-size"><button type="button" class="wp-block-accordion-heading__toggle"><span class="wp-block-accordion-heading__toggle-title"><?php esc_html_e( 'Who writes here?', 'ipsum' ); ?></span><span class="wp-block-accordion-heading__toggle-icon" aria-hidden="true">+</span></button></h3>
+<h3 class="wp-block-accordion-heading has-icon has-icon-right has-medium-font-size"><button type="button" class="wp-block-accordion-heading__toggle"><span class="wp-block-accordion-heading__toggle-title"><?php esc_html_e( 'Are these questions placeholders?', 'ipsum' ); ?></span><span class="wp-block-accordion-heading__toggle-icon" aria-hidden="true">+</span></button></h3>
 <!-- /wp:accordion-heading -->
 
 <!-- wp:accordion-panel -->

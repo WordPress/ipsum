@@ -928,7 +928,7 @@
 					}
 				},
 				"typography": {
-					"textAlign": "left"
+					"textAlign": "start"
 				}
 			},
 			"core/query-no-results": {

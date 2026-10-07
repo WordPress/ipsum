@@ -68,6 +68,16 @@ footer.wp-block-template-part {
 	padding-inline: 0.5em;
 }
 
+/* Crops a group's contents to its own box — see style.css. */
+.crop-contents {
+	overflow: clip;
+}
+
+/* Squares a block to match the 1:1 images beside it — see style.css. */
+.ratio-square {
+	aspect-ratio: 1;
+}
+
 /*
  * Sticky headers: the template part's wrapper carries the stickiness for a
  * sticky root block — see style.css. !important because the editor forces

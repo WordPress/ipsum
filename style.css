@@ -153,29 +153,6 @@ footer.wp-block-template-part {
 }
 
 /*
- * Utility class prefixing a text block with the opening quotation mark the
- * Quote and Pullquote blocks draw — same glyph, same ink wash, same scale —
- * so statements, quotes and pullquotes share one ornament. The mark is
- * generated content attached to the top of the block that carries the
- * class, and the alternative-text syntax keeps it silent to screen readers.
- */
-.pre-quote::before {
-	content: "❝" / "";
-	display: block;
-	color: var(--wp--preset--color--theme-4);
-	font-size: var(--wp--preset--font-size--2-x-large);
-	line-height: 1;
-}
-
-/*
- * Modifier: the mark takes the block’s own text color instead of the ink
- * wash — for statements on colored grounds, like the toast card.
- */
-.pre-quote-current::before {
-	color: currentcolor;
-}
-
-/*
  * Sticky headers: a sticky root block inside a template part has no room to
  * travel — the part's wrapper element is exactly as tall as its content — so
  * the wrapper itself must carry the stickiness. Keyed on the class core emits

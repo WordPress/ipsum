@@ -153,27 +153,6 @@ footer.wp-block-template-part {
 }
 
 /*
- * Utility class for a group that crops its contents to its own box — an
- * oversized wordmark pulled beyond the edge with a negative margin stops
- * at the group's boundary instead of spilling over it. `clip` rather than
- * `hidden`, so the box never becomes a scroll container that in-page focus
- * could shift.
- */
-.crop-contents {
-	overflow: clip;
-}
-
-/*
- * Utility class squaring a block, matching the 1:1 images it sits among —
- * a gallery grid's text tile keeps the images' footprint even when the grid
- * collapses to one column and no neighbor sets the row height. Content
- * taller than the square still grows the box instead of clipping.
- */
-.ratio-square {
-	aspect-ratio: 1;
-}
-
-/*
  * Sticky headers: a sticky root block inside a template part has no room to
  * travel — the part's wrapper element is exactly as tall as its content — so
  * the wrapper itself must carry the stickiness. Keyed on the class core emits

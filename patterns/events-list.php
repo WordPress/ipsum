@@ -24,7 +24,7 @@
 <!-- /wp:group -->
 
 <!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Events Stack', 'Name of the events stack group', 'ipsum' ); ?>"},"style":{"spacing":{"blockGap":{"top":"var:preset|spacing|40","left":"0"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
-<div class="wp-block-group"><!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Event Row 1', 'Name of the first event row group', 'ipsum' ); ?>"},"style":{"spacing":{"blockGap":{"top":"var:preset|spacing|20"},"padding":{"bottom":"var:preset|spacing|30"}},"border":{"top":{"width":"1px","style":"dotted"},"right":[],"left":[]}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
+<div class="wp-block-group"><!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Event Row 1', 'Name of the first event row group', 'ipsum' ); ?>"},"style":{"spacing":{"blockGap":{"top":"var:preset|spacing|20"},"padding":{"bottom":"var:preset|spacing|30"}},"border":{"top":{"width":"1px","style":"dotted"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
 <div class="wp-block-group" style="border-top-style:dotted;border-top-width:1px;padding-bottom:var(--wp--preset--spacing--30)"><!-- wp:heading {"level":3,"fontSize":"large"} -->
 <h3 class="wp-block-heading has-large-font-size"><?php esc_html_e( 'Essays, read aloud', 'ipsum' ); ?></h3>
 <!-- /wp:heading -->
@@ -52,7 +52,7 @@
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Event Row 2', 'Name of the second event row group', 'ipsum' ); ?>"},"style":{"spacing":{"blockGap":{"top":"var:preset|spacing|20"},"padding":{"bottom":"var:preset|spacing|30"}},"border":{"top":{"width":"1px","style":"dotted"},"right":[],"left":[]}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
+<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Event Row 2', 'Name of the second event row group', 'ipsum' ); ?>"},"style":{"spacing":{"blockGap":{"top":"var:preset|spacing|20"},"padding":{"bottom":"var:preset|spacing|30"}},"border":{"top":{"width":"1px","style":"dotted"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
 <div class="wp-block-group" style="border-top-style:dotted;border-top-width:1px;padding-bottom:var(--wp--preset--spacing--30)"><!-- wp:heading {"level":3} -->
 <h3 class="wp-block-heading"><?php esc_html_e( 'Pictures, printed small', 'ipsum' ); ?></h3>
 <!-- /wp:heading -->
@@ -80,7 +80,7 @@
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Event Row 3', 'Name of the third event row group', 'ipsum' ); ?>"},"style":{"spacing":{"blockGap":{"top":"var:preset|spacing|20"},"padding":{"bottom":"var:preset|spacing|30"}},"border":{"top":{"width":"1px","style":"dotted"},"right":[],"left":[]}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
+<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Event Row 3', 'Name of the third event row group', 'ipsum' ); ?>"},"style":{"spacing":{"blockGap":{"top":"var:preset|spacing|20"},"padding":{"bottom":"var:preset|spacing|30"}},"border":{"top":{"width":"1px","style":"dotted"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
 <div class="wp-block-group" style="border-top-style:dotted;border-top-width:1px;padding-bottom:var(--wp--preset--spacing--30)"><!-- wp:heading {"level":3} -->
 <h3 class="wp-block-heading"><?php esc_html_e( 'Sounds, played loud', 'ipsum' ); ?></h3>
 <!-- /wp:heading -->
@@ -108,7 +108,7 @@
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Event Row 4', 'Name of the fourth event row group', 'ipsum' ); ?>"},"style":{"spacing":{"blockGap":{"top":"var:preset|spacing|20"},"padding":{"bottom":"var:preset|spacing|30"}},"border":{"top":{"width":"1px","style":"dotted"},"right":[],"left":[]}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
+<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Event Row 4', 'Name of the fourth event row group', 'ipsum' ); ?>"},"style":{"spacing":{"blockGap":{"top":"var:preset|spacing|20"},"padding":{"bottom":"var:preset|spacing|30"}},"border":{"top":{"width":"1px","style":"dotted"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
 <div class="wp-block-group" style="border-top-style:dotted;border-top-width:1px;padding-bottom:var(--wp--preset--spacing--30)"><!-- wp:heading {"level":3,"fontSize":"large"} -->
 <h3 class="wp-block-heading has-large-font-size"><?php esc_html_e( 'Forever in draft: a conversation', 'ipsum' ); ?></h3>
 <!-- /wp:heading -->

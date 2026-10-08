@@ -55,7 +55,7 @@ if ( ! function_exists( 'ipsum_comments_cta_binding' ) ) :
 	 */
 	function ipsum_comments_cta_binding( $source_args, $block_instance ) {
 		$post_id    = $block_instance->context['postId'] ?? get_the_ID();
-		$post_title = get_the_title( $post_id );
+		$post_title = wp_strip_all_tags( get_the_title( $post_id ) );
 		$has_title  = ! empty( $post_title );
 
 		if ( get_comments_number( $post_id ) > 0 ) {

@@ -1,6 +1,6 @@
 <?php
 /**
- * Title: footer
+ * Title: Footer
  * Slug: ipsum/hidden-footer
  * Inserter: no
  *

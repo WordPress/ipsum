@@ -25,6 +25,13 @@ body {
 	text-rendering: geometricprecision;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+
+	/*
+	 * Let long unbroken strings, such as URLs, break onto the next line
+	 * instead of pushing the page wider than the viewport when zoomed in.
+	 * https://www.w3.org/WAI/WCAG22/Understanding/reflow.html
+	 */
+	overflow-wrap: break-word;
 }
 
 /*

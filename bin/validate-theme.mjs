@@ -33,6 +33,12 @@ const PATTERN_HEADERS = [
 ];
 
 /**
+ * Pattern categories the theme registers itself — see
+ * ipsum_pattern_categories() in functions.php.
+ */
+const THEME_PATTERN_CATEGORIES = [ 'ipsum_page' ];
+
+/**
  * Pattern categories that core registers, from
  * _register_core_block_patterns_and_categories() in WordPress 7.1.
  */
@@ -602,13 +608,14 @@ function validatePatternHeaders( slugPrefix ) {
 		for ( const category of ( categories?.value ?? '' ).split( ',' ) ) {
 			if (
 				category.trim() &&
-				! PATTERN_CATEGORIES.includes( category.trim() )
+				! PATTERN_CATEGORIES.includes( category.trim() ) &&
+				! THEME_PATTERN_CATEGORIES.includes( category.trim() )
 			) {
 				report(
 					file,
 					categories.line,
 					'pattern-header',
-					`Unknown category "${ category.trim() }". Use a category registered by core.`
+					`Unknown category "${ category.trim() }". Use a category registered by core or by the theme.`
 				);
 			}
 		}

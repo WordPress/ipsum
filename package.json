@@ -23,7 +23,8 @@
 		"env:status": "wp-env status",
 		"env:stop": "wp-env stop",
 		"env:reset": "wp-env reset",
-		"lint": "npm run lint:php && npm run lint:theme",
+		"lint": "npm run lint:css && npm run lint:php && npm run lint:theme",
+		"lint:css": "stylelint \"**/*.css\"",
 		"lint:php": "composer run lint",
 		"lint:php:fix": "composer run format",
 		"lint:theme": "node bin/validate-theme.mjs",
@@ -31,9 +32,11 @@
 	},
 	"devDependencies": {
 		"@wordpress/env": "^11.15.0",
+		"@wordpress/stylelint-config": "^25.0.0",
 		"ajv": "^8.20.0",
 		"husky": "^9.1.7",
-		"lint-staged": "^17.5.1"
+		"lint-staged": "^17.5.1",
+		"stylelint": "^17.15.0"
 	},
 	"allowScripts": {
 		"fs-ext-extra-prebuilt": false

@@ -17,7 +17,12 @@ if ( ! function_exists( 'ipsum_editor_style' ) ) :
 	 * @return void
 	 */
 	function ipsum_editor_style() {
-		add_editor_style( array( 'style.css', 'assets/css/editor-style.css' ) );
+		add_editor_style(
+			array(
+				get_parent_theme_file_uri( 'style.css' ),
+				get_parent_theme_file_uri( 'assets/css/editor-style.css' ),
+			)
+		);
 	}
 endif;
 add_action( 'after_setup_theme', 'ipsum_editor_style' );
@@ -33,7 +38,7 @@ if ( ! function_exists( 'ipsum_styles' ) ) :
 		// Register theme stylesheet.
 		wp_register_style(
 			'ipsum-style',
-			get_stylesheet_directory_uri() . '/style.css',
+			get_parent_theme_file_uri( 'style.css' ),
 			array(),
 			wp_get_theme()->get( 'Version' )
 		);

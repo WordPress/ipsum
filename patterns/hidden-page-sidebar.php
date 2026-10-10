@@ -25,7 +25,7 @@
 <!-- /wp:group -->
 
 <!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Post Content', 'Name of the group holding the post content', 'ipsum' ); ?>"},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group"><!-- wp:post-content {"align":"full","layout":{"type":"default"}} /--></div>
+<div class="wp-block-group"><!-- wp:post-content {"layout":{"type":"default"}} /--></div>
 <!-- /wp:group --></div>
 <!-- /wp:column -->
 

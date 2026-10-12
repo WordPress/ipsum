@@ -226,8 +226,11 @@ header.wp-block-template-part:has(> .is-position-sticky) {
 /*
  * Arrival bar: the blank canvas keeps index and single visually close, so a
  * thin accent bar sweeps the top of the viewport when a single post loads,
- * then fades — a quiet confirmation that navigation happened. Width animates
- * as inline-size so the sweep follows the reading direction in RTL.
+ * then fades — a quiet confirmation that navigation happened. The sweep is a
+ * scaleX() transform rather than a width change so it runs on the compositor
+ * instead of relaying out and repainting every frame while the page loads.
+ * Transforms have no logical origin, so RTL flips the origin to follow the
+ * reading direction.
  */
 @media (prefers-reduced-motion: no-preference) {
 	.single::before {
@@ -240,7 +243,12 @@ header.wp-block-template-part:has(> .is-position-sticky) {
 		background-color: var(--wp--preset--color--theme-3);
 		z-index: 99;
 		pointer-events: none;
+		transform-origin: left;
 		animation: ipsum-arrival 0.9s ease-out forwards;
+	}
+
+	.rtl.single::before {
+		transform-origin: right;
 	}
 
 	.admin-bar.single::before {
@@ -249,17 +257,17 @@ header.wp-block-template-part:has(> .is-position-sticky) {
 
 	@keyframes ipsum-arrival {
 		0% {
-			inline-size: 0;
+			transform: scaleX(0);
 			opacity: 1;
 		}
 
 		60% {
-			inline-size: 100%;
+			transform: scaleX(1);
 			opacity: 1;
 		}
 
 		100% {
-			inline-size: 100%;
+			transform: scaleX(1);
 			opacity: 0;
 		}
 	}

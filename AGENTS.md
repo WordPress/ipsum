@@ -25,10 +25,10 @@ There is no build step. Templates, patterns, `theme.json` and CSS are served as 
 -   `styles/typography/*.json` - Typography style variations.
 -   `styles/blocks/*.json` - Block style variations. The `slug` is used in markup as `is-style-<slug>`.
 -   `assets/fonts/` - Self-hosted fonts, one directory per family, credited under `== Fonts ==` in `readme.txt`.
--   `assets/css/editor-style.css` - Editor-only CSS.
+-   `assets/css/editor-style.css` - Editor-only overrides, loaded after `style.css` in the editors.
 -   `functions.php` - All theme PHP: stylesheets, the comments CTA block binding, sidebar template types, block styles.
 -   `theme.json` - Global settings and styles, fonts, `customTemplates`, per-block styles.
--   `style.css` - The theme header plus the front end CSS that `theme.json` cannot express.
+-   `style.css` - The theme header plus the CSS that `theme.json` cannot express. It loads on the front end and, through `add_editor_style()`, in the editors.
 -   `readme.txt` - The WordPress.org readme: description, changelog, copyright, font credits.
 -   `.github/`, `CONTRIBUTING.md`, `README.md`, `package.json`, `.wp-env.json`, `.nvmrc` - Repository tooling and docs, not part of the theme.
 

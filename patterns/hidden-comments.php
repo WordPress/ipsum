@@ -24,10 +24,10 @@
 <div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--30);padding-right:0;padding-bottom:var(--wp--preset--spacing--30);padding-left:0"><!-- wp:avatar {"size":48,"isLink":true,"linkTarget":"_blank"} /-->
 
 <!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Comment Date and Author', 'Name of the group holding the comment date and author', 'ipsum' ); ?>"},"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"flex","orientation":"vertical"}} -->
-<div class="wp-block-group"><!-- wp:comment-author-name {"className":"no-underline"} /-->
+<div class="wp-block-group"><!-- wp:comment-author-name /-->
 
 <!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Comment Date and Edit', 'Name of the group holding the comment date and edit link', 'ipsum' ); ?>"},"style":{"spacing":{"blockGap":{"top":"var:preset|spacing|20","left":"0"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
-<div class="wp-block-group"><!-- wp:comment-date {"className":"no-underline"} /-->
+<div class="wp-block-group"><!-- wp:comment-date /-->
 
 <!-- wp:comment-edit-link {"className":"dot-before"} /-->
 

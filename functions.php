@@ -8,19 +8,34 @@
  * @since Ipsum 1.0
  */
 
-// Enqueues editor-style.css in the editors.
+// Loads style.css in the editors too, then the few overrides only the editors need.
 if ( ! function_exists( 'ipsum_editor_style' ) ) :
 	/**
-	 * Enqueues editor-style.css in the editors.
+	 * Adds style.css and editor-style.css as editor stylesheets.
 	 *
 	 * @since Ipsum 1.0
 	 * @return void
 	 */
 	function ipsum_editor_style() {
-		add_editor_style( 'assets/css/editor-style.css' );
+		add_editor_style( array( 'style.css', 'assets/css/editor-style.css' ) );
 	}
 endif;
 add_action( 'after_setup_theme', 'ipsum_editor_style' );
+
+if ( ! function_exists( 'ipsum_theme_support' ) ) :
+	/**
+	 * Adds HTML5 support for navigation widgets, so their lists render inside a
+	 * nav element. Block themes already get core's other HTML5 features, and this
+	 * call merges with them.
+	 *
+	 * @since Ipsum 1.0
+	 * @return void
+	 */
+	function ipsum_theme_support() {
+		add_theme_support( 'html5', array( 'navigation-widgets' ) );
+	}
+endif;
+add_action( 'after_setup_theme', 'ipsum_theme_support' );
 
 if ( ! function_exists( 'ipsum_styles' ) ) :
 	/**
@@ -108,6 +123,48 @@ if ( ! function_exists( 'ipsum_sidebar_template_types' ) ) :
 	}
 endif;
 add_filter( 'default_template_types', 'ipsum_sidebar_template_types' );
+
+if ( ! function_exists( 'ipsum_pattern_categories' ) ) :
+	/**
+	 * Registers the pattern categories the theme's patterns use beyond core's.
+	 *
+	 * @since Ipsum 1.0
+	 * @return void
+	 */
+	function ipsum_pattern_categories() {
+		register_block_pattern_category(
+			'ipsum_page',
+			array(
+				'label'       => _x( 'Pages', 'Block pattern category', 'ipsum' ),
+				'description' => __( 'Full page layouts, ready to be applied to a page.', 'ipsum' ),
+			)
+		);
+	}
+endif;
+add_action( 'init', 'ipsum_pattern_categories' );
+
+if ( ! function_exists( 'ipsum_search_aria_label_support' ) ) :
+	/**
+	 * Lets the Search block take an ARIA label, so its search landmark can be named.
+	 *
+	 * Every Search block is a search landmark, and a page can hold more than one,
+	 * such as the search bar next to the search call to action, or next to the
+	 * search in the navigation overlay. Repeated landmarks need unique names, but
+	 * the block has no ariaLabel support of its own, so this turns on core's and
+	 * the patterns set the name.
+	 *
+	 * @since Ipsum 1.0
+	 * @param array $metadata Metadata for the block type being registered.
+	 * @return array
+	 */
+	function ipsum_search_aria_label_support( $metadata ) {
+		if ( isset( $metadata['name'] ) && 'core/search' === $metadata['name'] ) {
+			$metadata['supports']['ariaLabel'] = true;
+		}
+		return $metadata;
+	}
+endif;
+add_filter( 'block_type_metadata', 'ipsum_search_aria_label_support' );
 
 if ( ! function_exists( 'ipsum_block_styles' ) ) :
 	/**

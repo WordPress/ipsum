@@ -61,6 +61,7 @@ npm install
 npm run lint
 ```
 
+- `npm run lint:css` checks the CSS against the WordPress CSS Coding Standards.
 - `npm run lint:php` checks PHP against the WordPress Coding Standards; `npm run lint:php:fix` fixes what it can.
 - `npm run lint:theme` checks the pattern headers and the block markup in patterns, templates, and template parts, and validates `theme.json` and the style variations against the schema for the theme's "Requires at least" version.
 

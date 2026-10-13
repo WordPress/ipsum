@@ -138,11 +138,6 @@ footer.wp-block-template-part {
 	border-bottom-color: var(--wp--preset--color--theme-5);
 }
 
-/* Utility classes for removing text decoration from link. */
-.no-underline a {
-	text-decoration: none;
-}
-
 /*
  * Utility class prefixing an element with the "·" meta separator. Used where
  * neighbors render conditionally (e.g. the comment Edit link only exists for
@@ -199,6 +194,8 @@ header.wp-block-template-part:has(> .is-position-sticky) {
 	position: sticky;
 	inset-block-end: 0;
 	z-index: 10;
+	width: fit-content;
+	margin-inline-start: auto;
 }
 
 /*
@@ -226,31 +223,6 @@ header.wp-block-template-part:has(> .is-position-sticky) {
 	color: var(--wp--preset--color--theme-6);
 }
 
-/*
- * Flip the audio player's engine-drawn controls to the browser's dark set
- * when the Evening palette is active. A style query on the palette var is
- * the only signal a color preset can deliver — they filter out non-color
- * settings on apply, so this cannot ride a custom property from the file.
- */
-@container style(--wp--preset--color--theme-1: #000000) {
-	.wp-block-audio audio {
-		color-scheme: dark;
-	}
-}
-
-/* Same flip for After Hours' plum-black ground. */
-@container style(--wp--preset--color--theme-1: #310c25) {
-	.wp-block-audio audio {
-		color-scheme: dark;
-	}
-}
-
-/* Same flip for Golden Hour's maroon ground. */
-@container style(--wp--preset--color--theme-1: #7a1000) {
-	.wp-block-audio audio {
-		color-scheme: dark;
-	}
-}
 /*
  * Arrival bar: the blank canvas keeps index and single visually close, so a
  * thin accent bar sweeps the top of the viewport when a single post loads,

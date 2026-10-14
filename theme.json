@@ -15,6 +15,13 @@
 				"page"
 			],
 			"title": "Pages Sidebar"
+		},
+		{
+			"name": "page-no-title",
+			"postTypes": [
+				"page"
+			],
+			"title": "Pages No Title"
 		}
 	],
 	"settings": {

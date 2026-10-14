@@ -18,8 +18,8 @@
 <!-- /wp:image -->
 
 <!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Title and Description', 'Name of the title and description group', 'ipsum' ); ?>"},"style":{"spacing":{"blockGap":{"top":"var:preset|spacing|20"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
-<div class="wp-block-group"><!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading"><?php esc_html_e( 'The keyboard, slowed down', 'ipsum' ); ?></h3>
+<div class="wp-block-group"><!-- wp:heading {"fontSize":"large"} -->
+<h2 class="wp-block-heading has-large-font-size"><?php esc_html_e( 'The keyboard, slowed down', 'ipsum' ); ?></h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->

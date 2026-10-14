@@ -22,17 +22,17 @@
 <!-- wp:site-tagline {"style":{"layout":{"selfStretch":"fill","flexSize":null}}} /--></div>
 <!-- /wp:group -->
 
-<!-- wp:navigation {"overlay":"navigation-overlay","icon":"menu","fontSize":"small"} /--></div>
+<!-- wp:navigation {"overlay":"navigation-overlay","icon":"menu","fontSize":"small","ariaLabel":"<?php esc_attr_e( 'Primary', 'ipsum' ); ?>"} /--></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<!-- wp:heading {"level":1,"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|70"}}},"fitText":true} -->
-<h1 class="wp-block-heading alignwide has-fit-text" style="margin-top:var(--wp--preset--spacing--80);margin-bottom:var(--wp--preset--spacing--70)">
+<!-- wp:heading {"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|70"}}},"fitText":true} -->
+<h2 class="wp-block-heading alignwide has-fit-text" style="margin-top:var(--wp--preset--spacing--80);margin-bottom:var(--wp--preset--spacing--70)">
 <?php
 /* Translators: %1$s is a line break HTML element */
 printf( esc_html__( 'I cook, I run, and I write about both%1$s—usually in that order.', 'ipsum' ), '<br>' );
 ?>
-</h1>
+</h2>
 <!-- /wp:heading -->
 
 <!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Read the blog line', 'Name of the group holding the read the blog line', 'ipsum' ); ?>"},"layout":{"type":"constrained"}} -->

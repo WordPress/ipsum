@@ -38,9 +38,7 @@
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Post Content', 'Name of the group holding the post content', 'ipsum' ); ?>"},"align":"full","style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0"><!-- wp:post-content {"align":"full","layout":{"type":"constrained"}} /--></div>
-<!-- /wp:group -->
+<!-- wp:post-content {"align":"full","layout":{"type":"constrained"}} /-->
 
 <!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Comments Wrapper', 'Name of the group wrapping the comments', 'ipsum' ); ?>"},"align":"full","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull"><!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Comments and CTA', 'Name of the group holding the comments and the call to action', 'ipsum' ); ?>"},"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->

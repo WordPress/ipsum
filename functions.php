@@ -17,12 +17,7 @@ if ( ! function_exists( 'ipsum_editor_style' ) ) :
 	 * @return void
 	 */
 	function ipsum_editor_style() {
-		add_editor_style(
-			array(
-				get_parent_theme_file_uri( 'style.css' ),
-				get_parent_theme_file_uri( 'assets/css/editor-style.css' ),
-			)
-		);
+		add_editor_style( array( 'style.css', 'assets/css/editor-style.css' ) );
 	}
 endif;
 add_action( 'after_setup_theme', 'ipsum_editor_style' );

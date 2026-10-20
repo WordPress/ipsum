@@ -77,8 +77,8 @@ body:
     id: ipsum-version
     attributes:
       label: Ipsum version
-      description: Ipsum stays at 1.0.0 during development, so tell us where you got it too.
-      placeholder: e.g. 1.0.0 from the Playground demo, or a git clone at commit 687d3bd
+      description: Ipsum stays at 1.0 during development, so tell us where you got it too.
+      placeholder: e.g. 1.0 from the Playground demo, or a git clone at commit 687d3bd
     validations:
       required: true
 

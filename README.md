@@ -47,7 +47,7 @@ If you'd like to help with triage, open a new issue and one of the maintainers w
 
 However you contribute, please read the [contributing guide](CONTRIBUTING.md) first.
 
-Two conventions for contributors: the theme version stays at 1.0.0 while Ipsum is in development, and changes are logged in pull request descriptions rather than a changelog.
+Two conventions for contributors: the theme version stays at 1.0 while Ipsum is in development, and changes are logged in pull request descriptions rather than a changelog.
 
 As with all WordPress projects, we want to ensure a welcoming environment for everyone. With that in mind, all contributors are expected to follow our [Code of Conduct](https://make.wordpress.org/handbook/community-code-of-conduct/).
 

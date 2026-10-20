@@ -7,8 +7,10 @@ const hasPhpcs = existsSync( new URL( 'vendor/bin/phpcs', import.meta.url ) );
  * files that match its glob.
  */
 export default {
-	// Stylelint checks the CSS against the WordPress CSS Coding Standards.
-	'*.css': 'stylelint',
+	// Stylelint checks the CSS against the WordPress CSS Coding Standards. It
+	// ignores the generated style.min.css, so --allow-empty-input lets a commit
+	// that only rebuilds that file pass.
+	'*.css': 'stylelint --allow-empty-input',
 	// Without the Composer packages, PHPCS can't check the WordPress Coding
 	// Standards, so the check is skipped with a note instead.
 	'*.php': hasPhpcs

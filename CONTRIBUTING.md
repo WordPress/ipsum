@@ -59,7 +59,7 @@ npm run env:reset   # Reset the database to a fresh WordPress install.
 
 #### Other setups
 
-You can also clone this repository into `wp-content/themes/ipsum` in any WordPress install, such as [WordPress Studio](https://developer.wordpress.com/studio/), then install the [Gutenberg plugin](https://wordpress.org/plugins/gutenberg/) and activate Ipsum. Turn on development mode there too, so `theme.json` isn't cached while you work:
+You can also clone this repository into `wp-content/themes/ipsum` in any WordPress 7.2 install (a beta or release candidate until 7.2 ships), such as [WordPress Studio](https://developer.wordpress.com/studio/), then install the [Gutenberg plugin](https://wordpress.org/plugins/gutenberg/) and activate Ipsum. Turn on development mode there too, so `theme.json` isn't cached while you work:
 
 ```php
 define( 'WP_DEVELOPMENT_MODE', 'theme' );

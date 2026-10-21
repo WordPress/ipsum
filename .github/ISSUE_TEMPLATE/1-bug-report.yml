@@ -61,7 +61,7 @@ body:
     id: wp-version
     attributes:
       label: WordPress version
-      placeholder: e.g. 7.1
+      placeholder: e.g. 7.2
     validations:
       required: true
 

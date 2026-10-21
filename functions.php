@@ -9,7 +9,7 @@
  */
 
 // Loads style.css in the editors too, then the few overrides only the editors need.
-if ( ! function_exists( 'ipsum_editor_style' ) ) :
+if ( ! function_exists( 'ipsum_register_editor_styles' ) ) :
 	/**
 	 * Adds style.css and editor-style.css as editor stylesheets.
 	 *
@@ -17,13 +17,13 @@ if ( ! function_exists( 'ipsum_editor_style' ) ) :
 	 *
 	 * @return void
 	 */
-	function ipsum_editor_style() {
+	function ipsum_register_editor_styles() {
 		add_editor_style( array( 'style.css', 'assets/css/editor-style.css' ) );
 	}
 endif;
-add_action( 'after_setup_theme', 'ipsum_editor_style' );
+add_action( 'after_setup_theme', 'ipsum_register_editor_styles' );
 
-if ( ! function_exists( 'ipsum_theme_support' ) ) :
+if ( ! function_exists( 'ipsum_add_theme_support' ) ) :
 	/**
 	 * Adds HTML5 support for navigation widgets, so their lists render inside a
 	 * nav element. Block themes already get core's other HTML5 features, and this
@@ -33,13 +33,13 @@ if ( ! function_exists( 'ipsum_theme_support' ) ) :
 	 *
 	 * @return void
 	 */
-	function ipsum_theme_support() {
+	function ipsum_add_theme_support() {
 		add_theme_support( 'html5', array( 'navigation-widgets' ) );
 	}
 endif;
-add_action( 'after_setup_theme', 'ipsum_theme_support' );
+add_action( 'after_setup_theme', 'ipsum_add_theme_support' );
 
-if ( ! function_exists( 'ipsum_styles' ) ) :
+if ( ! function_exists( 'ipsum_enqueue_styles' ) ) :
 	/**
 	 * Enqueues styles.
 	 *
@@ -47,7 +47,7 @@ if ( ! function_exists( 'ipsum_styles' ) ) :
 	 *
 	 * @return void
 	 */
-	function ipsum_styles() {
+	function ipsum_enqueue_styles() {
 		// Register theme stylesheet.
 		wp_register_style(
 			'ipsum-style',
@@ -60,7 +60,7 @@ if ( ! function_exists( 'ipsum_styles' ) ) :
 		wp_enqueue_style( 'ipsum-style' );
 	}
 endif;
-add_action( 'wp_enqueue_scripts', 'ipsum_styles' );
+add_action( 'wp_enqueue_scripts', 'ipsum_enqueue_styles' );
 
 if ( ! function_exists( 'ipsum_comments_cta_binding' ) ) :
 	/**
@@ -130,7 +130,7 @@ if ( ! function_exists( 'ipsum_sidebar_template_types' ) ) :
 endif;
 add_filter( 'default_template_types', 'ipsum_sidebar_template_types' );
 
-if ( ! function_exists( 'ipsum_pattern_categories' ) ) :
+if ( ! function_exists( 'ipsum_register_pattern_categories' ) ) :
 	/**
 	 * Registers the pattern categories the theme's patterns use beyond core's.
 	 *
@@ -138,7 +138,7 @@ if ( ! function_exists( 'ipsum_pattern_categories' ) ) :
 	 *
 	 * @return void
 	 */
-	function ipsum_pattern_categories() {
+	function ipsum_register_pattern_categories() {
 		register_block_pattern_category(
 			'ipsum_page',
 			array(
@@ -148,7 +148,7 @@ if ( ! function_exists( 'ipsum_pattern_categories' ) ) :
 		);
 	}
 endif;
-add_action( 'init', 'ipsum_pattern_categories' );
+add_action( 'init', 'ipsum_register_pattern_categories' );
 
 if ( ! function_exists( 'ipsum_search_aria_label_support' ) ) :
 	/**
@@ -174,7 +174,7 @@ if ( ! function_exists( 'ipsum_search_aria_label_support' ) ) :
 endif;
 add_filter( 'block_type_metadata', 'ipsum_search_aria_label_support' );
 
-if ( ! function_exists( 'ipsum_block_styles' ) ) :
+if ( ! function_exists( 'ipsum_register_block_styles' ) ) :
 	/**
 	 * Registers block style variations.
 	 *
@@ -185,7 +185,7 @@ if ( ! function_exists( 'ipsum_block_styles' ) ) :
 	 *
 	 * @return void
 	 */
-	function ipsum_block_styles() {
+	function ipsum_register_block_styles() {
 		register_block_style(
 			'core/code',
 			array(
@@ -205,4 +205,4 @@ if ( ! function_exists( 'ipsum_block_styles' ) ) :
 		);
 	}
 endif;
-add_action( 'init', 'ipsum_block_styles' );
+add_action( 'init', 'ipsum_register_block_styles' );

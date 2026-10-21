@@ -14,6 +14,7 @@ if ( ! function_exists( 'ipsum_editor_style' ) ) :
 	 * Adds style.css and editor-style.css as editor stylesheets.
 	 *
 	 * @since Ipsum 1.0
+	 *
 	 * @return void
 	 */
 	function ipsum_editor_style() {
@@ -29,6 +30,7 @@ if ( ! function_exists( 'ipsum_theme_support' ) ) :
 	 * call merges with them.
 	 *
 	 * @since Ipsum 1.0
+	 *
 	 * @return void
 	 */
 	function ipsum_theme_support() {
@@ -39,9 +41,10 @@ add_action( 'after_setup_theme', 'ipsum_theme_support' );
 
 if ( ! function_exists( 'ipsum_styles' ) ) :
 	/**
-	 * Enqueue styles.
+	 * Enqueues styles.
 	 *
 	 * @since Ipsum 1.0
+	 *
 	 * @return void
 	 */
 	function ipsum_styles() {
@@ -64,6 +67,7 @@ if ( ! function_exists( 'ipsum_comments_cta_binding' ) ) :
 	 * Returns the comments call to action for the current post.
 	 *
 	 * @since Ipsum 1.0
+	 *
 	 * @param array    $source_args    Block binding source arguments.
 	 * @param WP_Block $block_instance The block instance.
 	 * @return string The call to action text.
@@ -86,6 +90,7 @@ if ( ! function_exists( 'ipsum_register_block_bindings' ) ) :
 	 * Registers the comments call-to-action block binding source.
 	 *
 	 * @since Ipsum 1.0
+	 *
 	 * @return void
 	 */
 	function ipsum_register_block_bindings() {
@@ -107,8 +112,9 @@ if ( ! function_exists( 'ipsum_sidebar_template_types' ) ) :
 	 * listed with proper titles and descriptions in the Site Editor.
 	 *
 	 * @since Ipsum 1.0
+	 *
 	 * @param array $default_template_types The default template types.
-	 * @return array
+	 * @return array The template types, with the sidebar variants added.
 	 */
 	function ipsum_sidebar_template_types( $default_template_types ) {
 		$default_template_types['index-sidebar']   = array(
@@ -129,6 +135,7 @@ if ( ! function_exists( 'ipsum_pattern_categories' ) ) :
 	 * Registers the pattern categories the theme's patterns use beyond core's.
 	 *
 	 * @since Ipsum 1.0
+	 *
 	 * @return void
 	 */
 	function ipsum_pattern_categories() {
@@ -154,8 +161,9 @@ if ( ! function_exists( 'ipsum_search_aria_label_support' ) ) :
 	 * the patterns set the name.
 	 *
 	 * @since Ipsum 1.0
+	 *
 	 * @param array $metadata Metadata for the block type being registered.
-	 * @return array
+	 * @return array The block metadata, with ARIA label support on the Search block.
 	 */
 	function ipsum_search_aria_label_support( $metadata ) {
 		if ( isset( $metadata['name'] ) && 'core/search' === $metadata['name'] ) {
@@ -174,6 +182,7 @@ if ( ! function_exists( 'ipsum_block_styles' ) ) :
 	 * so the block reads as a dark slab under every style variation.
 	 *
 	 * @since Ipsum 1.0
+	 *
 	 * @return void
 	 */
 	function ipsum_block_styles() {

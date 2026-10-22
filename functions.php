@@ -96,14 +96,20 @@ if ( ! function_exists( 'ipsum_comments_cta_binding' ) ) :
 	 *
 	 * @param array<string, mixed> $source_args    Block binding source arguments.
 	 * @param WP_Block             $block_instance The block instance.
-	 * @return string The call to action text.
+	 * @return string|null The call to action text, or null to keep the block's
+	 *                     original content when there is no post.
 	 */
 	function ipsum_comments_cta_binding( $source_args, $block_instance ) {
-		$post_id    = $block_instance->context['postId'] ?? get_the_ID();
-		$post_title = wp_strip_all_tags( get_the_title( $post_id ) );
+		$post_id = $block_instance->context['postId'] ?? null;
+		$post    = get_post( is_numeric( $post_id ) ? (int) $post_id : null );
+		if ( ! $post ) {
+			return null;
+		}
+
+		$post_title = wp_strip_all_tags( get_the_title( $post ) );
 		$has_title  = ! empty( $post_title );
 
-		if ( get_comments_number( $post_id ) > 0 ) {
+		if ( get_comments_number( $post ) > 0 ) {
 			$text = $has_title
 				? sprintf(
 					/* translators: %s: Post title. */
@@ -121,7 +127,7 @@ if ( ! function_exists( 'ipsum_comments_cta_binding' ) ) :
 				: __( 'Be the first to comment', 'ipsum' );
 		}
 
-		return '<a href="' . esc_url( get_comments_link( $post_id ) ) . '">' . wp_kses_post( $text ) . '</a>';
+		return '<a href="' . esc_url( get_comments_link( $post ) ) . '">' . wp_kses_post( $text ) . '</a>';
 	}
 endif;
 

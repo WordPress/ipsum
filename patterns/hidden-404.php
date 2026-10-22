@@ -22,7 +22,7 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:search {"label":<?php echo ipsum_serialize_block_attribute( esc_html__( 'Search', 'ipsum' ) ); ?>,"showLabel":false,"placeholder":"<?php esc_attr_e( 'Type here...', 'ipsum' ); ?>","buttonText":"<?php esc_attr_e( 'Search', 'ipsum' ); ?>","buttonPosition":"button-inside","buttonUseIcon":true,"ariaLabel":<?php echo ipsum_serialize_block_attribute( _x( 'Site', 'Accessible name of the search form', 'ipsum' ) ); ?>} /--></main>
+<!-- wp:search {"label":<?php echo ipsum_serialize_block_attribute( esc_html__( 'Search', 'ipsum' ) ); ?>,"showLabel":false,"placeholder":<?php echo ipsum_serialize_block_attribute( __( 'Type here...', 'ipsum' ) ); ?>,"buttonText":<?php echo ipsum_serialize_block_attribute( esc_html__( 'Search', 'ipsum' ) ); ?>,"buttonPosition":"button-inside","buttonUseIcon":true,"ariaLabel":<?php echo ipsum_serialize_block_attribute( _x( 'Site', 'Accessible name of the search form', 'ipsum' ) ); ?>} /--></main>
 <!-- /wp:group -->
 
 <!-- wp:template-part {"slug":"footer"} /-->

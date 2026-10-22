@@ -15,7 +15,7 @@
 <main class="wp-block-group"><!-- wp:group {"metadata":{"name":<?php echo ipsum_serialize_block_attribute( _x( 'Section Title', 'Name of the group holding the section title', 'ipsum' ) ); ?>},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:query-title {"type":"search"} /-->
 
-<!-- wp:search {"label":<?php echo ipsum_serialize_block_attribute( esc_html__( 'Search', 'ipsum' ) ); ?>,"showLabel":false,"placeholder":"<?php esc_attr_e( 'Type here...', 'ipsum' ); ?>","buttonText":"<?php esc_attr_e( 'Search', 'ipsum' ); ?>","buttonPosition":"button-inside","buttonUseIcon":true,"ariaLabel":<?php echo ipsum_serialize_block_attribute( _x( 'Site', 'Accessible name of the search form', 'ipsum' ) ); ?>} /--></div>
+<!-- wp:search {"label":<?php echo ipsum_serialize_block_attribute( esc_html__( 'Search', 'ipsum' ) ); ?>,"showLabel":false,"placeholder":<?php echo ipsum_serialize_block_attribute( __( 'Type here...', 'ipsum' ) ); ?>,"buttonText":<?php echo ipsum_serialize_block_attribute( esc_html__( 'Search', 'ipsum' ) ); ?>,"buttonPosition":"button-inside","buttonUseIcon":true,"ariaLabel":<?php echo ipsum_serialize_block_attribute( _x( 'Site', 'Accessible name of the search form', 'ipsum' ) ); ?>} /--></div>
 <!-- /wp:group -->
 
 <!-- wp:query {"query":{"perPage":10,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true,"taxQuery":null,"parents":[],"excludeCurrent":null},"metadata":{"categories":["posts"],"name":<?php echo ipsum_serialize_block_attribute( _x( 'Archive Compact', 'Name of the Archive Compact query', 'ipsum' ) ); ?>},"layout":{"type":"default"}} -->

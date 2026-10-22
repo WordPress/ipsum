@@ -35,4 +35,13 @@
 			</property>
 		</properties>
 	</rule>
+
+	<!-- ipsum_serialize_block_attribute() escapes a value for JSON in a block delimiter's HTML comment. -->
+	<rule ref="WordPress.Security.EscapeOutput">
+		<properties>
+			<property name="customEscapingFunctions" type="array">
+				<element value="ipsum_serialize_block_attribute"/>
+			</property>
+		</properties>
+	</rule>
 </ruleset>

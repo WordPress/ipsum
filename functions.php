@@ -88,6 +88,31 @@ if ( ! function_exists( 'ipsum_get_asset_url' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'ipsum_serialize_block_attribute' ) ) :
+	/**
+	 * Serializes a value for a block attribute in a pattern's block delimiter.
+	 *
+	 * Block attributes are JSON in an HTML comment, so a value computed in PHP,
+	 * such as a translated string, has to be encoded the way the block editor
+	 * serializes attributes, not escaped for HTML. HTML entities would be kept
+	 * as literal text in the attribute value, and a backslash or a line break in
+	 * a translation would make the JSON invalid, losing all the block's attributes.
+	 *
+	 * The value is serialized under a key, which is then removed, so that it gets
+	 * the same escaping as serialize_block_attributes() gives a whole block.
+	 *
+	 * @since Ipsum 1.0
+	 *
+	 * @param mixed $value Attribute value. A value for an attribute that holds HTML,
+	 *                     such as a label, must be escaped for HTML first.
+	 * @return string The serialized value, including the quotes around a string.
+	 */
+	function ipsum_serialize_block_attribute( $value ): string {
+		$prefix = '{"value":';
+		return substr( serialize_block_attributes( array( 'value' => $value ) ), strlen( $prefix ), -1 );
+	}
+endif;
+
 if ( ! function_exists( 'ipsum_comments_cta_binding' ) ) :
 	/**
 	 * Returns the comments call to action for the current post.

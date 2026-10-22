@@ -32,7 +32,7 @@
 <!-- wp:group {"metadata":{"name":<?php echo ipsum_serialize_block_attribute( _x( 'Post Template Copy', 'Name of the group holding the post excerpt and read more link', 'ipsum' ) ); ?>},"layout":{"type":"constrained","justifyContent":"left"}} -->
 <div class="wp-block-group"><!-- wp:post-excerpt {"showMoreOnNewLine":false} /-->
 
-<!-- wp:read-more {"content":"<?php esc_attr_e( 'Read more ›', 'ipsum' ); ?>"} /--></div>
+<!-- wp:read-more {"content":<?php echo ipsum_serialize_block_attribute( esc_html__( 'Read more ›', 'ipsum' ) ); ?>} /--></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 <!-- /wp:post-template -->

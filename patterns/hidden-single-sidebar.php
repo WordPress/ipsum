@@ -38,7 +38,7 @@
 <div class="wp-block-group"><!-- wp:post-content {"layout":{"type":"constrained","justifyContent":"center"}} /-->
 
 <!-- wp:group {"metadata":{"name":<?php echo ipsum_serialize_block_attribute( _x( 'Tags and author', 'Name of the group holding the tags and author', 'ipsum' ) ); ?>},"layout":{"type":"default"}} -->
-<div class="wp-block-group"><!-- wp:post-terms {"term":"post_tag","separator":"  ","prefix":"<?php esc_attr_e( 'Tags: ', 'ipsum' ); ?>","style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}}} /-->
+<div class="wp-block-group"><!-- wp:post-terms {"term":"post_tag","separator":"  ","prefix":<?php echo ipsum_serialize_block_attribute( esc_html__( 'Tags: ', 'ipsum' ) ); ?>,"style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}}} /-->
 
 <!-- wp:group {"metadata":{"name":<?php echo ipsum_serialize_block_attribute( _x( 'Author Card', 'Name of the author card group', 'ipsum' ) ); ?>},"style":{"spacing":{"margin":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
 <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--60);margin-bottom:var(--wp--preset--spacing--60)"><!-- wp:group {"metadata":{"name":<?php echo ipsum_serialize_block_attribute( _x( 'Avatar and Author', 'Name of the group holding the author avatar and name', 'ipsum' ) ); ?>},"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"stretch","justifyContent":"left"}} -->

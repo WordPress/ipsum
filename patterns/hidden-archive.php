@@ -12,8 +12,8 @@
 ?>
 <!-- wp:template-part {"slug":"header"} /-->
 
-<!-- wp:group {"tagName":"main","metadata":{"name":"<?php echo esc_html_x( 'Body', 'Group block defining the main content area', 'ipsum' ); ?>"},"layout":{"type":"default"}} -->
-<main class="wp-block-group"><!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Section Title', 'Group containing the archive title', 'ipsum' ); ?>"},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"tagName":"main","metadata":{"name":<?php echo ipsum_serialize_block_attribute( _x( 'Body', 'Group block defining the main content area', 'ipsum' ) ); ?>},"layout":{"type":"default"}} -->
+<main class="wp-block-group"><!-- wp:group {"metadata":{"name":<?php echo ipsum_serialize_block_attribute( _x( 'Section Title', 'Group containing the archive title', 'ipsum' ) ); ?>},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:query-title {"type":"archive"} /--></div>
 <!-- /wp:group -->
 

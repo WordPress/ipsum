@@ -11,8 +11,8 @@
  */
 
 ?>
-<!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Text FAQs', 'Name of the Text FAQs element', 'ipsum' ); ?>"},"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group" style="margin-top:0;margin-bottom:0"><!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Text FAQs Wrapper', 'Name of the Text FAQs Wrapper element', 'ipsum' ); ?>"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"name":<?php echo ipsum_serialize_block_attribute( _x( 'Text FAQs', 'Name of the Text FAQs element', 'ipsum' ) ); ?>},"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group" style="margin-top:0;margin-bottom:0"><!-- wp:group {"metadata":{"name":<?php echo ipsum_serialize_block_attribute( _x( 'Text FAQs Wrapper', 'Name of the Text FAQs Wrapper element', 'ipsum' ) ); ?>},"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"default"}} -->
 <div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)"><!-- wp:heading {"fontSize":"x-large"} -->
 <h2 class="wp-block-heading has-x-large-font-size"><?php esc_html_e( 'Frequently Asked Questions', 'ipsum' ); ?></h2>
 <!-- /wp:heading -->

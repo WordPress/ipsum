@@ -53,7 +53,7 @@ if ( ! function_exists( 'ipsum_enqueue_styles' ) ) :
 			'ipsum-style',
 			get_parent_theme_file_uri( 'style.css' ),
 			array(),
-			wp_get_theme()->get( 'Version' )
+			wp_get_theme( get_template() )->get( 'Version' )
 		);
 
 		// Enqueue theme stylesheet.
@@ -62,26 +62,59 @@ if ( ! function_exists( 'ipsum_enqueue_styles' ) ) :
 endif;
 add_action( 'wp_enqueue_scripts', 'ipsum_enqueue_styles' );
 
+if ( ! function_exists( 'ipsum_get_asset_url' ) ) :
+	/**
+	 * Gets the URL of a theme asset, with the theme version added for cache busting.
+	 *
+	 * The asset and the version both come from the parent theme, so a child
+	 * theme's version doesn't stand in for Ipsum's.
+	 *
+	 * @since Ipsum 1.0
+	 *
+	 * @param string $path Path to the asset, relative to the theme directory, such as
+	 *                     'assets/images/ipsum-polygons.webp'.
+	 * @return string The asset URL, with a `ver` query argument when the theme
+	 *                version can be read.
+	 *
+	 * @phpstan-param non-falsy-string $path
+	 */
+	function ipsum_get_asset_url( string $path ): string {
+		$url     = get_parent_theme_file_uri( $path );
+		$version = wp_get_theme( get_template() )->get( 'Version' );
+		if ( false !== $version ) {
+			$url = add_query_arg( 'ver', $version, $url );
+		}
+		return $url;
+	}
+endif;
+
 if ( ! function_exists( 'ipsum_comments_cta_binding' ) ) :
 	/**
 	 * Returns the comments call to action for the current post.
 	 *
 	 * @since Ipsum 1.0
 	 *
-	 * @param array    $source_args    Block binding source arguments.
-	 * @param WP_Block $block_instance The block instance.
-	 * @return string The call to action text.
+	 * @param array<string, mixed> $source_args    Block binding source arguments. Unused.
+	 * @param WP_Block             $block_instance The block instance.
+	 * @return string|null The call to action text, or null to keep the block's
+	 *                     original content when there is no post.
 	 */
 	function ipsum_comments_cta_binding( $source_args, $block_instance ) {
-		$post_id = $block_instance->context['postId'] ?? get_the_ID();
+		unset( $source_args ); // Unused, but must be accepted to get the block instance.
 
-		if ( get_comments_number( $post_id ) > 0 ) {
+		$post_id = $block_instance->context['postId'] ?? null;
+		$post    = get_post( is_numeric( $post_id ) ? (int) $post_id : null );
+		if ( ! $post ) {
+			return null;
+		}
+
+		if ( get_comments_number( $post ) > 0 ) {
 			$text = __( 'Join the conversation', 'ipsum' );
 		} else {
 			$text = __( 'Be the first to comment', 'ipsum' );
 		}
 
-		return '<a href="' . esc_url( get_comments_link( $post_id ) ) . '">' . esc_html( $text ) . '</a>';
+		return '<a href="' . esc_url( get_comments_link( $post ) ) . '">' . esc_html( $text ) . '</a>';
 	}
 endif;
 
@@ -113,8 +146,9 @@ if ( ! function_exists( 'ipsum_sidebar_template_types' ) ) :
 	 *
 	 * @since Ipsum 1.0
 	 *
-	 * @param array $default_template_types The default template types.
-	 * @return array The template types, with the sidebar variants added.
+	 * @param array<string, array<string, string>> $default_template_types The default template types, keyed by
+	 *                                                                     slug, each with a title and description.
+	 * @return array<string, array<string, string>> The template types, with the sidebar variants added.
 	 */
 	function ipsum_sidebar_template_types( $default_template_types ) {
 		$default_template_types['index-sidebar']   = array(
@@ -162,12 +196,14 @@ if ( ! function_exists( 'ipsum_search_aria_label_support' ) ) :
 	 *
 	 * @since Ipsum 1.0
 	 *
-	 * @param array $metadata Metadata for the block type being registered.
-	 * @return array The block metadata, with ARIA label support on the Search block.
+	 * @param array<string, mixed> $metadata Metadata for the block type being registered.
+	 * @return array<string, mixed> The block metadata, with ARIA label support on the Search block.
 	 */
 	function ipsum_search_aria_label_support( $metadata ) {
 		if ( isset( $metadata['name'] ) && 'core/search' === $metadata['name'] ) {
-			$metadata['supports']['ariaLabel'] = true;
+			$supports              = isset( $metadata['supports'] ) && is_array( $metadata['supports'] ) ? $metadata['supports'] : array();
+			$supports['ariaLabel'] = true;
+			$metadata['supports']  = $supports;
 		}
 		return $metadata;
 	}

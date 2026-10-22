@@ -774,7 +774,12 @@ function checkBlocks( file, markup, slugPrefix, patternSlugs ) {
 
 		for ( const key of TEXT_ATTRIBUTES ) {
 			const value = attributes[ key ];
-			if ( typeof value === 'string' && hasLetters( value ) ) {
+			// Rich text attributes can hold markup, such as a span that hides
+			// a decorative character; only the text between tags is visible.
+			if (
+				typeof value === 'string' &&
+				hasLetters( value.replace( /<[^>]*>/g, '' ) )
+			) {
 				const text = quote( value );
 				report(
 					file,

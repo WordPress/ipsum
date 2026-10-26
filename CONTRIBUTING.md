@@ -4,7 +4,7 @@ Thank you for helping build the default theme for [WordPress 7.2](https://make.w
 
 You can try Ipsum without installing anything using the [WordPress Playground demo](https://bit.ly/wp-ipsum). It runs WordPress with the theme from this repository's default branch.
 
-New default themes for WordPress are developed on GitHub until their version 1.0 release. At that point, the GitHub repository is archived, remaining issues triaged and moved to Trac, and development continues in the core SVN repository.
+New default themes for WordPress are developed on GitHub until their version 1.0 release. At that point, the GitHub repository is archived, remaining issues triaged and moved to [Trac](https://core.trac.wordpress.org), and development continues in the core SVN repository.
 
 ## Before you contribute
 

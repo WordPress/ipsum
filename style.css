@@ -85,6 +85,14 @@ span[style*="text-decoration"] {
 }
 
 /*
+ * Collapse adjacent separators on single posts when discussions are closed
+ * and have no comments, preventing an empty section between them.
+ */
+:where(.single, .single-post) .wp-block-separator + .wp-block-separator {
+	display: none;
+}
+
+/*
  * Change the position of the more block on the front, by making it a block level element.
  * https://github.com/WordPress/gutenberg/issues/65934
  */

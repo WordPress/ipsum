@@ -75,7 +75,11 @@ if ( ! function_exists( 'ipsum_comments_cta_binding' ) ) :
 	function ipsum_comments_cta_binding( $source_args, $block_instance ) {
 		$post_id = $block_instance->context['postId'] ?? get_the_ID();
 
-		if ( get_comments_number( $post_id ) > 0 ) {
+		if ( ! comments_open( $post_id ) || post_password_required( $post_id ) ) {
+			return '';
+		}
+
+		if ( 0 < get_comments_number( $post_id ) ) {
 			$text = __( 'Join the conversation', 'ipsum' );
 		} else {
 			$text = __( 'Be the first to comment', 'ipsum' );
@@ -84,6 +88,44 @@ if ( ! function_exists( 'ipsum_comments_cta_binding' ) ) :
 		return '<a href="' . esc_url( get_comments_link( $post_id ) ) . '">' . esc_html( $text ) . '</a>';
 	}
 endif;
+
+if ( ! function_exists( 'ipsum_filter_comments_group' ) ) :
+	/**
+	 * Hides the Comments wrapper and flex group when comments are closed or password-protected.
+	 *
+	 * When comments are closed, core/post-comments-link outputs nothing and
+	 * ipsum/comments-cta returns an empty string. Suppressing the group prevents
+	 * the orphan separator (·) and chevron (›) paragraphs from rendering.
+	 *
+	 * @since Ipsum 1.0
+	 *
+	 * @param string   $block_content The block content.
+	 * @param array    $block         The full block, including name and attributes.
+	 * @param WP_Block $instance      The block instance.
+	 * @return string The filtered block content.
+	 */
+	function ipsum_filter_comments_group( $block_content, $block, $instance ) {
+		$name = $block['attrs']['metadata']['name'] ?? '';
+
+		$comments_group_names = array(
+			'Comments Wrapper',
+			_x( 'Comments Wrapper', 'Name of the group wrapping the comments', 'ipsum' ),
+			'Comments and CTA',
+			_x( 'Comments and CTA', 'Name of the group holding the comments and the call to action', 'ipsum' ),
+		);
+
+		if ( in_array( $name, $comments_group_names, true ) ) {
+			$post_id = $instance->context['postId'] ?? get_the_ID();
+
+			if ( ! comments_open( $post_id ) || post_password_required( $post_id ) ) {
+				return '';
+			}
+		}
+
+		return $block_content;
+	}
+endif;
+add_filter( 'render_block_core/group', 'ipsum_filter_comments_group', 10, 3 );
 
 if ( ! function_exists( 'ipsum_register_block_bindings' ) ) :
 	/**

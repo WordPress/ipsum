@@ -3,6 +3,7 @@
  * Title: Format Link
  * Slug: ipsum/format-link
  * Categories: posts
+ * Keywords: link, bookmark, url
  * Viewport width: 1280
  * Description: A link-format post body — a bold line about the destination, with the link set off by a dotted rule.
  *

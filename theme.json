@@ -1328,7 +1328,7 @@
 			"title": "Navigation Overlay"
 		},
 		{
-			"area": "uncategorized",
+			"area": "sidebar",
 			"name": "sidebar",
 			"title": "Sidebar"
 		}

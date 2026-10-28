@@ -186,9 +186,9 @@ header.wp-block-template-part:has(> .is-position-sticky) {
 	}
 }
 
-/* Keep focused elements from scrolling under the sticky header. */
-html:has(header.wp-block-template-part > .is-position-sticky) {
-	scroll-padding-block-start: calc(var(--wp-admin--admin-bar--height, 0px) + 6rem);
+/* Unstick the header while focus or an anchor target is elsewhere, so it never covers them. */
+.wp-site-blocks:has(:focus-visible, :target) > header.wp-block-template-part:has(> .is-position-sticky):not(:focus-within) {
+	position: static;
 }
 
 /*

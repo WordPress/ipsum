@@ -14,7 +14,7 @@ Ipsum is built as a [block theme](https://developer.wordpress.org/block-editor/h
 
 - **[Open Ipsum in WordPress Playground](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/WordPress/ipsum/trunk/.github/blueprint.json)** — a throwaway WordPress in your browser with Ipsum active and the demo content already imported. Nothing to install; close the tab and it's gone.
 - **[Browse the demo site](https://ipsum.mystagingwebsite.com/)** — the theme with the same content, hosted.
-- **Install it** — download this repository as a ZIP (Code → Download ZIP) or clone it into `wp-content/themes/ipsum`, then activate Ipsum under Appearance → Themes. Requires WordPress 7.1 or later and PHP 7.4 or later.
+- **Install it** — download this repository as a ZIP (Code → Download ZIP) or clone it into `wp-content/themes/ipsum`, then activate Ipsum under Appearance → Themes. Requires WordPress 7.2 or later and PHP 7.4 or later.
 
 ## Demo content
 
@@ -47,7 +47,7 @@ If you'd like to help with triage, open a new issue and one of the maintainers w
 
 However you contribute, please read the [contributing guide](CONTRIBUTING.md) first.
 
-Two conventions for contributors: the theme version stays at 1.0.0 while Ipsum is in development, and changes are logged in pull request descriptions rather than a changelog.
+Two conventions for contributors: the theme version stays at 1.0 while Ipsum is in development, and changes are logged in pull request descriptions rather than a changelog.
 
 As with all WordPress projects, we want to ensure a welcoming environment for everyone. With that in mind, all contributors are expected to follow our [Code of Conduct](https://make.wordpress.org/handbook/community-code-of-conduct/).
 

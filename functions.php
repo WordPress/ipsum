@@ -9,31 +9,49 @@
  */
 
 // Loads style.css in the editors too, then the few overrides only the editors need.
-if ( ! function_exists( 'ipsum_editor_style' ) ) :
+if ( ! function_exists( 'ipsum_register_editor_styles' ) ) :
 	/**
 	 * Adds style.css and editor-style.css as editor stylesheets.
 	 *
 	 * @since Ipsum 1.0
+	 *
 	 * @return void
 	 */
-	function ipsum_editor_style() {
+	function ipsum_register_editor_styles() {
 		add_editor_style( array( 'style.css', 'assets/css/editor-style.css' ) );
 	}
 endif;
-add_action( 'after_setup_theme', 'ipsum_editor_style' );
+add_action( 'after_setup_theme', 'ipsum_register_editor_styles' );
 
-if ( ! function_exists( 'ipsum_styles' ) ) :
+if ( ! function_exists( 'ipsum_add_theme_support' ) ) :
 	/**
-	 * Enqueue styles.
+	 * Adds HTML5 support for navigation widgets, so their lists render inside a
+	 * nav element. Block themes already get core's other HTML5 features, and this
+	 * call merges with them.
 	 *
 	 * @since Ipsum 1.0
+	 *
 	 * @return void
 	 */
-	function ipsum_styles() {
+	function ipsum_add_theme_support() {
+		add_theme_support( 'html5', array( 'navigation-widgets' ) );
+	}
+endif;
+add_action( 'after_setup_theme', 'ipsum_add_theme_support' );
+
+if ( ! function_exists( 'ipsum_enqueue_styles' ) ) :
+	/**
+	 * Enqueues styles.
+	 *
+	 * @since Ipsum 1.0
+	 *
+	 * @return void
+	 */
+	function ipsum_enqueue_styles() {
 		// Register theme stylesheet.
 		wp_register_style(
 			'ipsum-style',
-			get_stylesheet_directory_uri() . '/style.css',
+			get_parent_theme_file_uri( 'style.css' ),
 			array(),
 			wp_get_theme()->get( 'Version' )
 		);
@@ -42,13 +60,14 @@ if ( ! function_exists( 'ipsum_styles' ) ) :
 		wp_enqueue_style( 'ipsum-style' );
 	}
 endif;
-add_action( 'wp_enqueue_scripts', 'ipsum_styles' );
+add_action( 'wp_enqueue_scripts', 'ipsum_enqueue_styles' );
 
 if ( ! function_exists( 'ipsum_comments_cta_binding' ) ) :
 	/**
 	 * Returns the comments call to action for the current post.
 	 *
 	 * @since Ipsum 1.0
+	 *
 	 * @param array    $source_args    Block binding source arguments.
 	 * @param WP_Block $block_instance The block instance.
 	 * @return string The call to action text.
@@ -71,6 +90,7 @@ if ( ! function_exists( 'ipsum_register_block_bindings' ) ) :
 	 * Registers the comments call-to-action block binding source.
 	 *
 	 * @since Ipsum 1.0
+	 *
 	 * @return void
 	 */
 	function ipsum_register_block_bindings() {
@@ -92,8 +112,9 @@ if ( ! function_exists( 'ipsum_sidebar_template_types' ) ) :
 	 * listed with proper titles and descriptions in the Site Editor.
 	 *
 	 * @since Ipsum 1.0
+	 *
 	 * @param array $default_template_types The default template types.
-	 * @return array
+	 * @return array The template types, with the sidebar variants added.
 	 */
 	function ipsum_sidebar_template_types( $default_template_types ) {
 		$default_template_types['index-sidebar']   = array(
@@ -109,14 +130,15 @@ if ( ! function_exists( 'ipsum_sidebar_template_types' ) ) :
 endif;
 add_filter( 'default_template_types', 'ipsum_sidebar_template_types' );
 
-if ( ! function_exists( 'ipsum_pattern_categories' ) ) :
+if ( ! function_exists( 'ipsum_register_pattern_categories' ) ) :
 	/**
 	 * Registers the pattern categories the theme's patterns use beyond core's.
 	 *
 	 * @since Ipsum 1.0
+	 *
 	 * @return void
 	 */
-	function ipsum_pattern_categories() {
+	function ipsum_register_pattern_categories() {
 		register_block_pattern_category(
 			'ipsum_page',
 			array(
@@ -126,9 +148,33 @@ if ( ! function_exists( 'ipsum_pattern_categories' ) ) :
 		);
 	}
 endif;
-add_action( 'init', 'ipsum_pattern_categories' );
+add_action( 'init', 'ipsum_register_pattern_categories' );
 
-if ( ! function_exists( 'ipsum_block_styles' ) ) :
+if ( ! function_exists( 'ipsum_search_aria_label_support' ) ) :
+	/**
+	 * Lets the Search block take an ARIA label, so its search landmark can be named.
+	 *
+	 * Every Search block is a search landmark, and a page can hold more than one,
+	 * such as the search bar next to the search call to action, or next to the
+	 * search in the navigation overlay. Repeated landmarks need unique names, but
+	 * the block has no ariaLabel support of its own, so this turns on core's and
+	 * the patterns set the name.
+	 *
+	 * @since Ipsum 1.0
+	 *
+	 * @param array $metadata Metadata for the block type being registered.
+	 * @return array The block metadata, with ARIA label support on the Search block.
+	 */
+	function ipsum_search_aria_label_support( $metadata ) {
+		if ( isset( $metadata['name'] ) && 'core/search' === $metadata['name'] ) {
+			$metadata['supports']['ariaLabel'] = true;
+		}
+		return $metadata;
+	}
+endif;
+add_filter( 'block_type_metadata', 'ipsum_search_aria_label_support' );
+
+if ( ! function_exists( 'ipsum_register_block_styles' ) ) :
 	/**
 	 * Registers block style variations.
 	 *
@@ -136,9 +182,10 @@ if ( ! function_exists( 'ipsum_block_styles' ) ) :
 	 * so the block reads as a dark slab under every style variation.
 	 *
 	 * @since Ipsum 1.0
+	 *
 	 * @return void
 	 */
-	function ipsum_block_styles() {
+	function ipsum_register_block_styles() {
 		register_block_style(
 			'core/code',
 			array(
@@ -158,4 +205,4 @@ if ( ! function_exists( 'ipsum_block_styles' ) ) :
 		);
 	}
 endif;
-add_action( 'init', 'ipsum_block_styles' );
+add_action( 'init', 'ipsum_register_block_styles' );

@@ -1,4 +1,5 @@
 {
+	"core": "WordPress/WordPress",
 	"mappings": {
 		"wp-content/themes/ipsum": ".",
 		"wp-content/themes/ipsum/node_modules": "./node_modules/.wp-env-empty"

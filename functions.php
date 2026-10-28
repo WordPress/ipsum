@@ -195,6 +195,11 @@ if ( ! function_exists( 'ipsum_register_block_styles' ) ) :
 	 * The Evening code style keeps the Evening palette's literals on purpose,
 	 * so the block reads as a dark slab under every style variation.
 	 *
+	 * Pinned to Bottom, Row Hover and Dot Separator have no inline style: their
+	 * rules live in style.css, which loads on the front end and in the editors,
+	 * and carry comments there. They are registered so the Styles panel and the
+	 * REST API list them for their blocks.
+	 *
 	 * @since Ipsum 1.0
 	 *
 	 * @return void
@@ -215,6 +220,30 @@ if ( ! function_exists( 'ipsum_register_block_styles' ) ) :
 				'name'         => 'sharp',
 				'label'        => _x( 'Sharp', 'Block style label', 'ipsum' ),
 				'inline_style' => '.wp-block-site-logo.is-style-sharp{border-radius:0;}',
+			)
+		);
+
+		register_block_style(
+			'core/template-part',
+			array(
+				'name'  => 'sticky-bottom',
+				'label' => _x( 'Pinned to Bottom', 'Block style label', 'ipsum' ),
+			)
+		);
+
+		register_block_style(
+			'core/post-template',
+			array(
+				'name'  => 'hover-together',
+				'label' => _x( 'Row Hover', 'Block style label', 'ipsum' ),
+			)
+		);
+
+		register_block_style(
+			array( 'core/comment-edit-link', 'core/comment-reply-link' ),
+			array(
+				'name'  => 'dot-before',
+				'label' => _x( 'Dot Separator', 'Block style label', 'ipsum' ),
 			)
 		);
 	}

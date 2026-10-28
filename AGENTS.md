@@ -26,7 +26,8 @@ There is no build step. Templates, patterns, `theme.json` and CSS are served as 
 -   `styles/blocks/*.json` - Block style variations. The `slug` is used in markup as `is-style-<slug>`.
 -   `assets/fonts/` - Self-hosted fonts, one directory per family, credited under `== Fonts ==` in `readme.txt`.
 -   `assets/css/editor-style.css` - Editor-only overrides, loaded after `style.css` in the editors.
--   `functions.php` - All theme PHP: stylesheets, the comments CTA block binding, sidebar template types, block styles.
+-   `functions.php` - Theme PHP: stylesheets, the comments CTA block binding, sidebar template types, block styles. It loads `inc/abilities.php`.
+-   `inc/abilities.php` - The `ipsum/get-design-guide` ability, which gives agents on a live site the palette roles, presets, style variations, block styles, patterns and templates through the Abilities API. A new palette color needs its role in `ipsum_get_color_roles()`.
 -   `theme.json` - Global settings and styles, fonts, `customTemplates`, per-block styles.
 -   `style.css` - The theme header plus the CSS that `theme.json` cannot express. It loads on the front end and, through `add_editor_style()`, in the editors.
 -   `readme.txt` - The WordPress.org readme: description, changelog, copyright, font credits.
@@ -50,7 +51,7 @@ Markdown in this repository is soft-wrapped: a paragraph, list item or table row
 -   **Style with the design tokens, not literals.** Colors come from `var(--wp--preset--color--<slug>)`, spacing from `var:preset|spacing|N`. The palette uses the Twenty Twenty-Five slugs, so default theme patterns pick up Ipsum's colors: `base` (Base) is the background, `contrast` (Contrast) the text, headings, links and buttons, `accent-1` (Accent) the accent, which only the arrival bar uses, `accent-3` (Strong Contrast) the hover color and the ground of inverted sections and cards, `accent-5` (Surface) the faint wash behind quotes, tags and cards, and `accent-6` (Border) the faint lines. `accent-2` and `accent-4` are not defined. Every color variation redefines all six, so a literal hex freezes one variation's look into all the others. `settings.custom.controlScheme` says whether the active palette is `light` or `dark`.
 -   **CSS explains why, in prose.** Rules in `style.css` and `assets/css/editor-style.css` carry a comment saying why they exist, often with the Gutenberg or Trac issue behind it. `css` strings in `theme.json` cannot hold comments.
 -   **Text domain is `ipsum`.** Every user-visible string goes through an i18n function, including single characters such as the `·` separators.
--   **PHP follows the WordPress coding standards**, in tabs. Functions in `functions.php` are wrapped in `if ( ! function_exists( '…' ) ) : … endif;`, every docblock carries `@since Ipsum 1.0`, and `@package Ipsum` heads the file.
+-   **PHP follows the WordPress coding standards**, in tabs. Functions in `functions.php` and `inc/` are wrapped in `if ( ! function_exists( '…' ) ) : … endif;`, every docblock carries `@since Ipsum 1.0`, and `@package Ipsum` heads the file.
 
 ## Do not reformat block markup
 

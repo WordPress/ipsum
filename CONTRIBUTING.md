@@ -189,7 +189,7 @@ Ipsum is a [block theme](https://developer.wordpress.org/block-editor/how-to-gui
 
 - Prefer **`theme.json`** and Global Styles over custom CSS. Only add CSS when the block editor or theme APIs cannot express the design yet.
 - Use existing patterns in the repo for templates, template parts, and block patterns (`templates/`, `parts/`, `patterns/`).
-- Follow [WordPress PHP coding standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/) for PHP in `functions.php` and pattern files.
+- Follow [WordPress PHP coding standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/) for PHP in `functions.php`, `inc/` and pattern files.
 
 When a change affects the front end or the Site Editor, test both and note what you checked in your pull request.
 

@@ -62,32 +62,6 @@ if ( ! function_exists( 'ipsum_enqueue_styles' ) ) :
 endif;
 add_action( 'wp_enqueue_scripts', 'ipsum_enqueue_styles' );
 
-if ( ! function_exists( 'ipsum_get_asset_url' ) ) :
-	/**
-	 * Gets the URL of a theme asset, with the theme version added for cache busting.
-	 *
-	 * The asset and the version both come from the parent theme, so a child
-	 * theme's version doesn't stand in for Ipsum's.
-	 *
-	 * @since Ipsum 1.0
-	 *
-	 * @param string $path Path to the asset, relative to the theme directory, such as
-	 *                     'assets/images/ipsum-polygons.webp'.
-	 * @return string The asset URL, with a `ver` query argument when the theme
-	 *                version can be read.
-	 *
-	 * @phpstan-param non-falsy-string $path
-	 */
-	function ipsum_get_asset_url( string $path ): string {
-		$url     = get_parent_theme_file_uri( $path );
-		$version = wp_get_theme( get_template() )->get( 'Version' );
-		if ( false !== $version ) {
-			$url = add_query_arg( 'ver', $version, $url );
-		}
-		return $url;
-	}
-endif;
-
 if ( ! function_exists( 'ipsum_comments_cta_binding' ) ) :
 	/**
 	 * Returns the comments call to action for the current post.

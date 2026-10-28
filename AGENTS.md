@@ -14,7 +14,7 @@ npm run env:start       # Later runs, if the environment is not already running.
 
 The site is at <http://localhost:8899> (`admin` / `password`). The repository is mounted as the `ipsum` theme with `node_modules` hidden, and `WP_DEVELOPMENT_MODE` is `theme`, so `theme.json` is not cached. See [Getting Started](CONTRIBUTING.md#getting-started) for the rest, including running without Docker.
 
-Templates, patterns, `theme.json` and CSS are served as they are in the tree; reload to see an edit. `SCRIPT_DEBUG` is on, so the front end loads `style.css` rather than `style.min.css`. The only build step is regenerating `style.min.css`, which the pre-commit hook does when `style.css` is staged. If the hook doesn't run, as in a worktree without `npm install` or with `--no-verify`, run `npm run build` and commit both files.
+Templates, patterns, `theme.json` and CSS are served as they are in the tree; reload to see an edit. `SCRIPT_DEBUG` is on, so the front end loads `style.css` rather than `style.min.css`. The only build step is regenerating `style.min.css`, which the pre-commit hook does when `style.css` is staged. If the hook doesn't run, as in a worktree without `npm install` or with `--no-verify`, run `npm run build` and commit both files. `Version:` stays at 1.0 until release, so tell copies apart by the git commit, not the version.
 
 ### Key directories
 
@@ -38,6 +38,7 @@ Templates, patterns, `theme.json` and CSS are served as they are in the tree; re
 
 Read only what your task needs, when it needs it:
 
+-   **Styling, or building pages, patterns or templates**: read [DESIGN.md](DESIGN.md) first. It covers the color roles, the type and spacing scales, the style variations, and which pattern fills each template and part.
 -   **Adding or changing a pattern**: read [Pattern creation guidelines](CONTRIBUTING.md#pattern-creation-guidelines) first. It covers categories, hiding from the inserter, which i18n function to use, images, and removing `id`, `queryId`, `theme`, `area`, `patternName` and `metadata.categories` from copied markup.
 -   **Adding CSS or PHP**: read [Development guidelines](CONTRIBUTING.md#development-guidelines). Prefer `theme.json` and Global Styles; add CSS or PHP only when the editor cannot express the design, and keep it commented.
 -   **Opening a pull request**: follow `.github/PULL_REQUEST_TEMPLATE.md`, including the AI disclosure section.

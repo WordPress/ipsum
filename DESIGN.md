@@ -31,7 +31,7 @@ Six palette colors. Every color variation redefines all six, and the duotone too
 
 How the palettes are built:
 
--   **Light palettes:** Contrast, Border and Surface are the dark ink at 75%, 20% and 3% opacity (hex alpha `bf`, `33`, `08`). Strong Contrast is the ink itself.
+-   **Light palettes:** Contrast, Border and Surface are the dark ink at 75%, 20% and 3% opacity (hex alpha `bf`, `33`, `08`). Strong Contrast is the ink itself. The default builds Border and Surface on `#0a0a0a` instead of its `#000000` ink.
 -   **Dark palettes:** Contrast is opaque. Border and Surface are Contrast at 25% and 10% (`40`, `1a`). Strong Contrast is lighter than Contrast.
 -   Border and Surface are translucent, so they tint whatever is under them.
 
@@ -43,11 +43,11 @@ How the palettes are built:
 -   **Buttons** fill with Contrast, with Base text, and fill with Strong Contrast on hover. Focus and press use Contrast at 85% (`color-mix()`). The Outline style keeps a Contrast border and fills with Surface on hover.
 -   **Form fields** in Search and the comment form are Base with Contrast text and border. The border turns Strong Contrast on hover. Jetpack form fields get the same border.
 -   **Accent is not a link or button color.** The theme uses it only in the arrival bar.
--   **Inverted sections and cards** use a Strong Contrast ground with Base text and links: the About Row band, the Navigation Overlay, and the cards in Text Statement, Footer Centered, Footer Subscribe, Header Collapsed, Page Bio and the gallery text tiles. They are dark in light variations and light in dark ones.
+-   **Inverted sections and cards** use a Strong Contrast ground with Base text and links: the About Row band, the Navigation Overlay, and the cards in Text Statement, Footer Centered, Footer Subscribe, Header Collapsed, Page Bio, Page Blog Home and the gallery text tiles. They are dark in light variations and light in dark ones.
 -   **Tinted cards** use a Surface ground and 10px corners: Kind Words, CTA Membership, Hero Colophon, Format Audio, Format Link and the author chip in single posts.
--   **Lines** use Border, at 1px. Dotted rules use Border or the current text color.
+-   **Lines** use Border, at 1px, apart from the Surface rules in Header Sticky and Text Alternating (5px). Dotted rules use Border or the current text color.
 -   **Light or dark:** read `settings.custom.controlScheme`. It is `light` in `theme.json`, and each color variation sets its own. The variation titles don't tell you. It becomes `--wp--custom--control-scheme`, which sets the audio player's `color-scheme`.
--   **Literal colors in the code:** the Evening code block style keeps the Evening palette's literals on purpose, so it reads as a dark slab under every variation. The Soft shadow is black at 8%. The duotone colors are hex copies of palette colors.
+-   **Literal colors in the code:** the Evening code block style keeps the Evening palette's literals on purpose, so it reads as a dark slab under every variation. The Soft shadow is black at 8%. Each variation's duotone colors are hex copies of its palette colors.
 
 ### Gradients and duotone
 
@@ -71,7 +71,7 @@ All seven are self-hosted variable fonts in `assets/fonts/`. Manrope has no ital
 
 ### The meta voice
 
-Labels, dates, terms, bylines, comment meta, pagination, read more links, cites, form labels and table headers share one treatment: **Manrope, Small (0.875rem), weight 600**. A few use 700 (site title, accordion and details summaries, table headers) or 400 (comment date, comment edit and reply links, comments title). The tagline is 500. The navigation is Manrope at Medium, 500.
+Labels, dates, terms, bylines, comment meta, pagination, read more links, cites, form labels and table headers share one treatment: **Manrope, Small (0.875rem), weight 600**. A few use 700 (site title, accordion and details summaries, table headers) or 400 (comment date, comment edit and reply links, comments title). The tagline is 500. The Navigation block defaults to Manrope at Medium, 500; every header but Header Vertical sets it to Small.
 
 It is not a token. `theme.json` has no shared text style, so the treatment is repeated:
 
@@ -89,9 +89,9 @@ To change it, change every copy. Typography variations leave it alone, since tho
 | `medium` | Medium | 1.125rem | No | Body text, h4, navigation, verse |
 | `large` | Large | 1.4375rem | No | h3 |
 | `x-large` | X-Large | 1.75rem | 1.5rem to 1.75rem | h2 |
-| `2-x-large` | 2-X-Large | 2.1875rem | 1.625rem to 2.1875rem | h1, single post titles, quote marks |
+| `2-x-large` | 2X-Large | 2.1875rem | 1.625rem to 2.1875rem | h1, single post titles, quote marks |
 
-Above 2-X-Large, the theme uses the Display block style (`is-style-text-display`, 2.2rem to 3.5rem) or fit text (Hero Epigraph, About Row, the 404 heading, the Footer Centered wordmark). Core's default sizes are off.
+Above 2X-Large, the theme uses the Display block style (`is-style-text-display`, 2.2rem to 3.5rem) or fit text (Hero Epigraph, About Row, the 404 heading, the Footer Centered wordmark). Core's default sizes are off.
 
 ### Conventions
 
@@ -106,8 +106,8 @@ Above 2-X-Large, the theme uses the Display block style (`is-style-text-display`
 | Slug | Name | Size | Typical use |
 | --- | --- | --- | --- |
 | `20` | 2X-Small | 8px | Gaps inside rows (date · categories, title and tagline), tag pill padding, heading bottom margin |
-| `30` | X-Small | 16px | Gaps between small items and buttons; padding in compact boxes (code, comment bubbles, button top and bottom) |
-| `40` | Small | 24px to 32px | The root block gap and side padding, card padding, button side padding |
+| `30` | X-Small | 16px | Gaps between small items and buttons; padding in most cards and in compact boxes (code, comment bubbles, button top and bottom) |
+| `40` | Small | 24px to 32px | The root block gap and side padding, button side padding |
 | `50` | Regular | 32px to 48px | Section padding (header top, footer), heading top margin |
 | `60` | Large | 48px to 64px | Between sections (separators, comments, tags, author chip), the gap between posts in query loops, header bottom padding |
 | `70` | X-Large | 64px to 96px | Large section padding, the gap beside the sidebar |
@@ -119,7 +119,7 @@ From `40` up, sizes scale with the viewport between the two values. Core's defau
 
 -   **Widths:** content 640px, wide 1280px.
 -   **Root padding:** spacing `40` on each side, with root-padding-aware alignments, so full-width blocks reach the screen edges.
--   **Templates** wrap their content in a `main` group with a constrained layout. Post content is full-aligned with a constrained layout, so its blocks sit at 640px and can go wide or full.
+-   **Templates** wrap their content in a `main` group with a constrained layout; `archive` and `search` use the default layout. In the one-column templates, post content is full-aligned with a constrained layout, so its blocks sit at 640px and can go wide or full.
 -   **Sidebar templates** use a wide Columns block: 66.66% content, 33.33% sidebar, spacing `70` between.
 
 ### Shadow
@@ -136,7 +136,7 @@ One preset, `soft` ("Soft"): `0 2px 8px rgba(0, 0, 0, 0.08)`. Only the Header St
 | 2px | Post author name |
 | 0 and 9999px | The Sharp and Rounded site logo styles |
 
-Lines are 1px. Dotted lines mark link underlines, button focus outlines, the top of accordions and details, and the rules between rows in Archive Simple, Archive Minimal, Events List, Format Link and All Archives Sidebar. Buttons, separators, tables and code use solid lines.
+Lines are 1px, except Text Alternating's 5px heading rules. Dotted lines mark link underlines, button focus outlines, the Search Bar's quiet button, the top of accordions and details, the rules between rows in Archive Simple, Archive Minimal, Events List and All Archives Sidebar, and the rule beside the link in Format Link. Other buttons, separators, tables and code use solid lines.
 
 ## Style variations
 
@@ -177,7 +177,7 @@ The class is `is-style-` plus the slug, which doesn't always match the file name
 | --- | --- | --- | --- | --- |
 | Crop Contents | `is-style-crop-contents` | Group | `overflow: clip` | `styles/blocks/crop-contents.json` |
 | Display | `is-style-text-display` | Heading, Paragraph, Post Title, Site Title, Query Title | Size from 2.2rem to 3.5rem with the viewport, line height 1.2 | `styles/blocks/display.json` |
-| Quote Mark | `is-style-text-quote-mark` | Heading, Paragraph | A ❝ above the text, in Border, at 2-X-Large | `styles/blocks/quote-mark.json` |
+| Quote Mark | `is-style-text-quote-mark` | Heading, Paragraph | A ❝ above the text, in Border, at 2X-Large | `styles/blocks/quote-mark.json` |
 | Quote Mark on Color | `is-style-text-quote-mark-on-color` | Heading, Paragraph | The same mark in the current text color; Text Statement uses it on a Strong Contrast card | `styles/blocks/quote-mark-on-color.json` |
 | Evening | `is-style-evening` | Code | Black ground, `#fafafa` text and `#fafafa40` border, as literals on purpose | `functions.php` |
 | Sharp | `is-style-sharp` | Site Logo | Square corners | `functions.php` |
@@ -206,7 +206,7 @@ The class is `is-style-` plus the slug, which doesn't always match the file name
 | `archive-sidebar` | `ipsum/hidden-archive-sidebar` | The archive beside the Sidebar part |
 
 -   Every template starts with the Header part.
--   One-column templates end with Footer; sidebar templates end with Footer Wide.
+-   One-column templates use the Footer part; sidebar templates use Footer Wide.
 -   All but `404` and `search` add the Search Bar part with the Pinned to Bottom block style, which pins it to the bottom of the screen.
 -   Both single templates insert two hidden helper patterns: `ipsum/hidden-comments` and `ipsum/hidden-keep-reading` (the three latest posts).
 
@@ -241,7 +241,7 @@ No class names in the patterns carry behaviour that the editor can't see. Each o
 | Style | Block | What it does | Used in |
 | --- | --- | --- | --- |
 | Pinned to Bottom (`sticky-bottom`) | Template Part | Pins the part to the bottom of the viewport, shrunk to its content at the inline end (bottom right in LTR, bottom left in RTL), above the content (`z-index: 10`). A Search block inside it gets a quiet outlined button until hover, focus or press. | The Search Bar part at the end of every template but Search and 404. |
-| Row Hover (`hover-together`) | Post Template | Post rows hover as one: hovering any visible part of a row turns all its text and links Strong Contrast and gives its featured image a small tilt and settle (skipped with reduced motion). The empty space beside the content doesn't trigger it. | Archive Simple, Archive Standard, Archive Compact, Archive Lead, Search, All Archives Sidebar. |
+| Row Hover (`hover-together`) | Post Template | Post rows hover as one: hovering any visible part of a row turns all its text and links Strong Contrast and gives its featured image a small tilt and settle (skipped with reduced motion). The empty space beside the content doesn't trigger it. | Archive Simple, Archive Standard, Archive Compact, Archive Lead, Search Results, All Archives Sidebar. |
 | Dot Separator (`dot-before`) | Comment Edit Link, Comment Reply Link | Puts a decorative `·` before the link, with 0.5em of space on each side and weight 600. Screen readers skip it, and the dot comes and goes with its link. | The date, Edit and Reply row of each comment in `ipsum/hidden-comments`. |
 
 What each one needs to work:
@@ -263,7 +263,7 @@ These blocks keep a `css` string in `theme.json` because no `theme.json` propert
 
 | Block | What the CSS does | Why `theme.json` can't | Upstream |
 | --- | --- | --- | --- |
-| Audio | Gives the `<audio>` player the Surface wash, 10px corners, Contrast text and the palette's `color-scheme`; clears WebKit's panel and time-display shadows. | The block only supports link color, and the rules target the inner `<audio>` element and WebKit media-control pseudo-elements. | [#56837](https://github.com/WordPress/gutenberg/issues/56837) |
+| Audio | Gives the `<audio>` player the Surface wash, 10px corners, Contrast text and the palette's `color-scheme`; clears WebKit's panel backgrounds and time-display text shadows. | The block only supports link color, and the rules target the inner `<audio>` element and WebKit media-control pseudo-elements. | [#56837](https://github.com/WordPress/gutenberg/issues/56837) |
 | Calendar | Draws the cell grid in Border and fills header cells with Surface unless the block has its own colors. The text color is in `color.text`. | No border support. The color selector covers both `table` and `th`, so a background would paint twice. Core's cell border rule is more specific, hence `!important`. | [#39053](https://github.com/WordPress/gutenberg/issues/39053) |
 | Categories | Indents the list and its child lists by `spacing\|30` at the inline start. | Block padding is physical and would break RTL; nested `ul.children` lists aren't reachable. | [#37411](https://github.com/WordPress/gutenberg/issues/37411), [#53187](https://github.com/WordPress/gutenberg/issues/53187) |
 | Comment Content | Spaces the comment's paragraphs by `spacing\|40`, flush at the top. | The paragraphs are plain `<p>`s, with no paragraph element or block gap. | [#49470](https://github.com/WordPress/gutenberg/issues/49470) |
@@ -276,7 +276,7 @@ These blocks keep a `css` string in `theme.json` because no `theme.json` propert
 | Post Comments Form | Fields get a Base fill, Contrast text and border, 5px corners and a Strong Contrast border on hover; sets the checkbox margin and the spacing between form rows. Labels are in `elements.label`. | `textInput` only matches text-like inputs; there's no input `:hover`, and block elements print after the CSS, so they'd override it. Core's checkbox rule uses an ID, hence `!important`. | [#34198](https://github.com/WordPress/gutenberg/issues/34198), [#76534](https://github.com/WordPress/gutenberg/issues/76534) |
 | Post Excerpt | Lets the excerpt paragraph inherit the block's line height. | The Paragraph block's bare `p` selector leaks its line height into the excerpt. | [#82647](https://github.com/WordPress/gutenberg/issues/82647) |
 | Post Terms | Keeps each term on one line; tag lists become Surface pills with no separators and a Strong Contrast hover. | Keyed on the taxonomy class; no layout or gap support, and terms can't be styled one by one. | [#85587](https://github.com/WordPress/gutenberg/issues/85587), [#57998](https://github.com/WordPress/gutenberg/issues/57998) |
-| Pullquote | Adds a Border ❝ above the quote and a dash before the citation; keeps space under the paragraph when a citation follows. | Generated content and the inner paragraph. | None found ([#48257](https://github.com/WordPress/gutenberg/issues/48257) is closest) |
+| Pullquote | Adds a Border ❝ above the quote and a dash before the citation; keeps space under the last paragraph. | Generated content and the inner paragraph. | None found ([#48257](https://github.com/WordPress/gutenberg/issues/48257) is closest) |
 | Quote | Adds a Border ❝ and a dash before the citation. | Generated content. | None found |
 | Search | Input border and hover, placeholder color; the button-inside wrapper's fill, border, corners, hover and focus ring; the label as a block in the meta voice; no input transition for button-only; the outlined text button. The input fill, text and corners are in `elements.textInput`. | Hover and the wrapper aren't reachable. Gutenberg's `theme.json` class drops `::placeholder`. The editor renders the label as a `div`, so `elements.label` misses it. | [#49249](https://github.com/WordPress/gutenberg/issues/49249), [#71382](https://github.com/WordPress/gutenberg/issues/71382), [#52854](https://github.com/WordPress/gutenberg/issues/52854) |
 | Separator (Wide) | Lets the Wide style reach the wide size. | No max-width property. Layout rules load later or are more specific in the editor, hence `!important`. | [#65407](https://github.com/WordPress/gutenberg/issues/65407), [#50674](https://github.com/WordPress/gutenberg/issues/50674) |

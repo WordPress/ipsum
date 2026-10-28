@@ -5,7 +5,7 @@
  * Categories: footer
  * Block Types: core/template-part/footer
  * Viewport width: 1280
- * Description: A footer leading with the subscribe invitation on the toast card — a quiet pitch and a full-width button — over the credit line.
+ * Description: A footer leading with the subscribe invitation on an inverted card — a quiet pitch and a full-width button — over the credit line.
  *
  * @package Ipsum
  * @since Ipsum 1.0

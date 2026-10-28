@@ -3,6 +3,7 @@
  * Title: Text Alternating
  * Slug: ipsum/text-alternating
  * Categories: text, about
+ * Keywords: media, image, sections, features
  * Viewport width: 1280
  * Description: Rows alternating image and text — introductions for the blog’s sections.
  *

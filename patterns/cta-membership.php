@@ -3,8 +3,9 @@
  * Title: CTA Membership
  * Slug: ipsum/cta-membership
  * Categories: call-to-action
+ * Keywords: subscribe, newsletter, join, signup
  * Viewport width: 1280
- * Description: A membership invitation on the toast card — the site screenshot cover above the pitch and two buttons.
+ * Description: A membership invitation on a tinted card — the site screenshot cover above the pitch and two buttons.
  *
  * @package Ipsum
  * @since Ipsum 1.0

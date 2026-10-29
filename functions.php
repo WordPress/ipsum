@@ -195,9 +195,7 @@ if ( ! function_exists( 'ipsum_register_block_styles' ) ) :
 	 * The Evening code style keeps the Evening palette's literals on purpose,
 	 * so the block reads as a dark slab under every style variation.
 	 *
-	 * Each style carries its CSS as an inline style, as the default themes do.
-	 * Core prints it on the front end and in the editors, and the REST API
-	 * returns it with the style.
+	 * Each style's CSS is an inline style, as in the default themes.
 	 *
 	 * @since Ipsum 1.0
 	 *
@@ -223,15 +221,9 @@ if ( ! function_exists( 'ipsum_register_block_styles' ) ) :
 		);
 
 		/*
-		 * Pins the part to the bottom of the viewport, shrunk to its content at
-		 * the inline end. Like the sticky header, the part's wrapper carries the
-		 * stickiness, and it can only travel within the block that holds it, so
-		 * the part belongs at the root of the template. The editors need an
-		 * !important override too, in assets/css/editor-style.css.
-		 *
-		 * The search button inside a pinned part, which in the theme is the
-		 * Search Bar, is quiet: Base ground, outlined; global button states take
-		 * back over on hover/focus/active.
+		 * Pins the part to the bottom of the viewport, so it belongs at the root
+		 * of the template. The editors also need the override in editor-style.css.
+		 * Its search button stays outlined until hovered or focused.
 		 */
 		register_block_style(
 			'core/template-part',
@@ -256,11 +248,8 @@ if ( ! function_exists( 'ipsum_register_block_styles' ) ) :
 		);
 
 		/*
-		 * Post rows hover as one: hovering any visible content of a row colors
-		 * the whole row, and its featured image tilts and settles. It needs each
-		 * post's blocks wrapped in a single Group, as the theme's archive
-		 * patterns do. Keyed on the row's child blocks because the row group's
-		 * own box spans the full alignwide band.
+		 * Hovering any part of a post row colors the whole row and tilts its
+		 * featured image. Needs each post's blocks wrapped in one Group.
 		 */
 		register_block_style(
 			'core/post-template',
@@ -297,16 +286,8 @@ if ( ! function_exists( 'ipsum_register_block_styles' ) ) :
 		);
 
 		/*
-		 * Prefixes the block with the "·" meta separator. Used where neighbors
-		 * render conditionally (e.g. the comment Edit link only exists for users
-		 * who can edit), so the dot appears and disappears with its element
-		 * instead of leaving orphan separators. Rows whose neighbors always
-		 * render use a literal, translatable "·" paragraph instead. The padding
-		 * carries the breathing room — literal spaces in generated content can
-		 * collapse — so rows using this style need no block gap of their own.
-		 * The empty alternative text after the slash keeps screen readers from
-		 * announcing the dot, which is decorative. Registered per block, so each
-		 * block prints only its own rule.
+		 * Adds a decorative "·" before the block, so the separator only shows
+		 * when the block does (the Edit link is only there for editors).
 		 */
 		foreach ( array( 'comment-edit-link', 'comment-reply-link' ) as $block ) {
 			register_block_style(

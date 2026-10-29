@@ -195,10 +195,9 @@ if ( ! function_exists( 'ipsum_register_block_styles' ) ) :
 	 * The Evening code style keeps the Evening palette's literals on purpose,
 	 * so the block reads as a dark slab under every style variation.
 	 *
-	 * Pinned to Bottom, Row Hover and Dot Separator have no inline style: their
-	 * rules live in style.css, which loads on the front end and in the editors,
-	 * and carry comments there. They are registered so the Styles panel and the
-	 * REST API list them for their blocks.
+	 * Each style carries its CSS as an inline style, as the default themes do.
+	 * Core prints it on the front end and in the editors, and the REST API
+	 * returns it with the style.
 	 *
 	 * @since Ipsum 1.0
 	 *
@@ -223,29 +222,107 @@ if ( ! function_exists( 'ipsum_register_block_styles' ) ) :
 			)
 		);
 
+		/*
+		 * Pins the part to the bottom of the viewport, shrunk to its content at
+		 * the inline end. Like the sticky header, the part's wrapper carries the
+		 * stickiness, and it can only travel within the block that holds it, so
+		 * the part belongs at the root of the template. The editors need an
+		 * !important override too, in assets/css/editor-style.css.
+		 *
+		 * The search button inside a pinned part, which in the theme is the
+		 * Search Bar, is quiet: Base ground, outlined; global button states take
+		 * back over on hover/focus/active.
+		 */
 		register_block_style(
 			'core/template-part',
 			array(
-				'name'  => 'sticky-bottom',
-				'label' => _x( 'Pinned to Bottom', 'Block style label', 'ipsum' ),
+				'name'         => 'sticky-bottom',
+				'label'        => _x( 'Pinned to Bottom', 'Block style label', 'ipsum' ),
+				'inline_style' => '
+				.wp-block-template-part.is-style-sticky-bottom {
+					position: sticky;
+					inset-block-end: 0;
+					z-index: 10;
+					width: fit-content;
+					margin-inline-start: auto;
+				}
+
+				.wp-block-template-part.is-style-sticky-bottom .wp-block-search__button.wp-element-button:not(:hover):not(:focus):not(:active) {
+					background-color: var(--wp--preset--color--base);
+					border: 1px dotted var(--wp--preset--color--contrast);
+					color: var(--wp--preset--color--contrast);
+				}',
 			)
 		);
 
+		/*
+		 * Post rows hover as one: hovering any visible content of a row colors
+		 * the whole row, and its featured image tilts and settles. It needs each
+		 * post's blocks wrapped in a single Group, as the theme's archive
+		 * patterns do. Keyed on the row's child blocks because the row group's
+		 * own box spans the full alignwide band.
+		 */
 		register_block_style(
 			'core/post-template',
 			array(
-				'name'  => 'hover-together',
-				'label' => _x( 'Row Hover', 'Block style label', 'ipsum' ),
+				'name'         => 'hover-together',
+				'label'        => _x( 'Row Hover', 'Block style label', 'ipsum' ),
+				'inline_style' => '
+				.wp-block-post-template.is-style-hover-together .wp-block-post > .wp-block-group,
+				.wp-block-post-template.is-style-hover-together .wp-block-post > .wp-block-group a {
+					transition: color 0.15s ease-out;
+				}
+
+				.wp-block-post-template.is-style-hover-together .wp-block-post > .wp-block-group:has(> :hover),
+				.wp-block-post-template.is-style-hover-together .wp-block-post > .wp-block-group:has(> :hover) a {
+					color: var(--wp--preset--color--accent-3);
+				}
+
+				@media (prefers-reduced-motion: no-preference) {
+					@keyframes tilt-settle {
+						35% {
+							transform: rotate(-1deg);
+						}
+
+						100% {
+							transform: rotate(0deg);
+						}
+					}
+
+					.wp-block-post-template.is-style-hover-together .wp-block-post > .wp-block-group:has(> :hover) .wp-block-post-featured-image img {
+						animation: tilt-settle 0.5s ease-out;
+					}
+				}',
 			)
 		);
 
-		register_block_style(
-			array( 'core/comment-edit-link', 'core/comment-reply-link' ),
-			array(
-				'name'  => 'dot-before',
-				'label' => _x( 'Dot Separator', 'Block style label', 'ipsum' ),
-			)
-		);
+		/*
+		 * Prefixes the block with the "·" meta separator. Used where neighbors
+		 * render conditionally (e.g. the comment Edit link only exists for users
+		 * who can edit), so the dot appears and disappears with its element
+		 * instead of leaving orphan separators. Rows whose neighbors always
+		 * render use a literal, translatable "·" paragraph instead. The padding
+		 * carries the breathing room — literal spaces in generated content can
+		 * collapse — so rows using this style need no block gap of their own.
+		 * The empty alternative text after the slash keeps screen readers from
+		 * announcing the dot, which is decorative. Registered per block, so each
+		 * block prints only its own rule.
+		 */
+		foreach ( array( 'comment-edit-link', 'comment-reply-link' ) as $block ) {
+			register_block_style(
+				'core/' . $block,
+				array(
+					'name'         => 'dot-before',
+					'label'        => _x( 'Dot Separator', 'Block style label', 'ipsum' ),
+					'inline_style' => '
+					.wp-block-' . $block . '.is-style-dot-before::before {
+						content: "·" / "";
+						font-weight: 600;
+						padding-inline: 0.5em;
+					}',
+				)
+			);
+		}
 	}
 endif;
 add_action( 'init', 'ipsum_register_block_styles' );

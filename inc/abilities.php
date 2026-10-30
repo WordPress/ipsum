@@ -124,7 +124,7 @@ if ( ! function_exists( 'ipsum_get_design_guide_schema' ) ) :
 			);
 		};
 
-		$colors = $preset_list( __( 'The color palette, with what each color is for. Every style variation redefines the same slugs.', 'ipsum' ), 'color', $string );
+		$colors = $preset_list( __( 'The color palette, with what each color is for. Every style variation redefines the same slugs. Colors added on the site have no role.', 'ipsum' ), 'color', $string );
 
 		$colors['items']['properties']['role'] = $string;
 

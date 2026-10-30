@@ -2,7 +2,6 @@
 /**
  * Title: Search Bar
  * Slug: ipsum/hidden-search-bar
- * Block Types: core/template-part/uncategorized
  * Inserter: no
  * Description: The Search Bar template part — a search button on the right that opens into a field. Most templates place it after the footer and pin it to the bottom of the screen.
  *

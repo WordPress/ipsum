@@ -92,7 +92,7 @@ We do this by adding the following line:
 
 Let's prefix hidden patterns using `hidden-` when we name the pattern file.
 
-Hidden patterns still need a `Title` and a `Description`, since agents read them through the REST API (`/wp/v2/block-patterns/patterns`). Say which template or template part the pattern fills and what it holds. Template patterns take `Template Types:`, and template part patterns take `Block Types: core/template-part/<area>`.
+Hidden patterns still need a `Title` and a `Description`, since agents read them through the REST API (`/wp/v2/block-patterns/patterns`). Say which template or template part the pattern fills and what it holds. Template patterns take `Template Types:`, and header, footer and navigation overlay patterns take `Block Types: core/template-part/<area>`. Patterns for General parts, like the sidebar and the search bar, leave out `Block Types`, or the Site Editor offers each one as a design for every other General part.
 
 - **Different translation functions and when to use them**
 

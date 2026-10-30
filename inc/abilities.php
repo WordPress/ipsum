@@ -78,7 +78,7 @@ if ( ! function_exists( 'ipsum_get_color_roles' ) ) :
 			'contrast' => __( 'Body text, links and buttons.', 'ipsum' ),
 			'accent-1' => __( 'The accent color. Use it sparingly.', 'ipsum' ),
 			'accent-3' => __( 'The strongest contrast with the background: hover states, and the background of inverted sections such as the navigation overlay.', 'ipsum' ),
-			'accent-5' => __( 'A subtle wash behind quotes, tags and table headers.', 'ipsum' ),
+			'accent-5' => __( 'A subtle, translucent wash behind quotes, tags and table headers. It works on any background; keep Contrast text on it.', 'ipsum' ),
 			'accent-6' => __( 'Faint lines, such as borders, list markers and table rules.', 'ipsum' ),
 		);
 	}

@@ -249,7 +249,8 @@ if ( ! function_exists( 'ipsum_register_block_styles' ) ) :
 
 		/*
 		 * Hovering any part of a post row colors the whole row and tilts its
-		 * featured image. Needs each post's blocks wrapped in one Group.
+		 * featured image. Targets the row's child blocks, since the Group spans
+		 * the full band. Needs each post's blocks wrapped in one Group.
 		 */
 		register_block_style(
 			'core/post-template',

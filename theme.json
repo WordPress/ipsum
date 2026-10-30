@@ -437,7 +437,7 @@
 						"text": "var(--wp--preset--color--base)"
 					},
 					"outline": {
-						"offset": "4px"
+						"offset": "-4px"
 					}
 				},
 				":focus-visible": {

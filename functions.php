@@ -144,36 +144,6 @@ if ( ! function_exists( 'ipsum_sidebar_template_types' ) ) :
 endif;
 add_filter( 'default_template_types', 'ipsum_sidebar_template_types' );
 
-if ( ! function_exists( 'ipsum_sidebar_template_part_area' ) ) :
-	/**
-	 * Registers a Sidebar template part area, so the sidebar part is listed
-	 * under its own area in the Site Editor and the REST API, and renders in an
-	 * aside element. Core only registers the header, footer, navigation overlay
-	 * and general areas.
-	 *
-	 * @since Ipsum 1.0
-	 *
-	 * @param array $areas The template part areas.
-	 * @return array The template part areas, with the sidebar area added.
-	 */
-	function ipsum_sidebar_template_part_area( $areas ) {
-		// Core or a plugin may register the same area one day; don't list it twice.
-		if ( in_array( 'sidebar', wp_list_pluck( $areas, 'area' ), true ) ) {
-			return $areas;
-		}
-
-		$areas[] = array(
-			'area'        => 'sidebar',
-			'label'       => _x( 'Sidebar', 'Template part area', 'ipsum' ),
-			'description' => __( 'The Sidebar template defines a page area beside the main content that typically contains secondary content, such as categories and recent posts.', 'ipsum' ),
-			'icon'        => 'sidebar',
-			'area_tag'    => 'aside',
-		);
-		return $areas;
-	}
-endif;
-add_filter( 'default_wp_template_part_areas', 'ipsum_sidebar_template_part_area' );
-
 if ( ! function_exists( 'ipsum_register_pattern_categories' ) ) :
 	/**
 	 * Registers the pattern categories the theme's patterns use beyond core's.

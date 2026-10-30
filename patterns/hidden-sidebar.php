@@ -2,7 +2,7 @@
 /**
  * Title: Sidebar
  * Slug: ipsum/hidden-sidebar
- * Block Types: core/template-part/sidebar
+ * Block Types: core/template-part/uncategorized
  * Inserter: no
  * Description: The Sidebar template part — the categories list and the five latest posts, each a title and how long ago it was published. The sidebar templates place it in a column beside the main content.
  *

@@ -195,7 +195,9 @@ if ( ! function_exists( 'ipsum_register_block_styles' ) ) :
 	 * The Evening code style keeps the Evening palette's literals on purpose,
 	 * so the block reads as a dark slab under every style variation.
 	 *
-	 * Each style's CSS is an inline style, as in the default themes.
+	 * Each style's CSS is an inline style, as in the default themes. These
+	 * live here rather than in styles/blocks/ because their CSS needs at-rules
+	 * and selector lists that a theme.json css string cannot hold.
 	 *
 	 * @since Ipsum 1.0
 	 *

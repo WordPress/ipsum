@@ -3,6 +3,7 @@
  * Title: Comments
  * Slug: ipsum/hidden-comments
  * Inserter: no
+ * Description: The comments section of the Single Posts templates — a heading and comment count, each comment with avatar, author, date, and edit and reply links, pagination, and the comment form.
  *
  * @package Ipsum
  * @since Ipsum 1.0

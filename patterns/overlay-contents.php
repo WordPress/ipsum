@@ -3,6 +3,7 @@
  * Title: Overlay Contents
  * Slug: ipsum/overlay-contents
  * Categories: navigation
+ * Keywords: menu, submenu, contents, sitemap, search
  * Block Types: core/template-part/navigation-overlay
  * Viewport width: 1280
  * Description: A navigation overlay working as the site’s table of contents — a large menu list with submenus in view and a search field underneath.

@@ -6,6 +6,6 @@
  * the editor forces position:relative on block wrappers.
  */
 header.wp-block-template-part:has(> .is-position-sticky),
-.is-style-sticky-bottom {
+.wp-block-template-part.is-style-sticky-bottom {
 	position: sticky !important;
 }

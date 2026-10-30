@@ -75,7 +75,7 @@ if ( ! function_exists( 'ipsum_get_color_roles' ) ) :
 	function ipsum_get_color_roles() {
 		return array(
 			'base'     => __( 'The page background.', 'ipsum' ),
-			'contrast' => __( 'Body text, links and buttons.', 'ipsum' ),
+			'contrast' => __( 'Body text, headings, links and buttons, on Base. It can be translucent, so on any other background use Strong Contrast.', 'ipsum' ),
 			'accent-1' => __( 'An accent for small highlights. The theme uses it only for the arrival bar. Links and buttons use Contrast, not this. Use it sparingly.', 'ipsum' ),
 			'accent-3' => __( 'The strongest contrast with the background, not an accent: hover states, and the background of inverted sections such as the navigation overlay, with Base for the text.', 'ipsum' ),
 			'accent-5' => __( 'A subtle, translucent wash behind quotes, tags and table headers. It works on any background; keep Contrast text on it.', 'ipsum' ),

@@ -536,8 +536,8 @@
 								}
 							},
 							"color": {
-								"background": "color-mix(in srgb, var(--wp--preset--color--contrast) 85%, transparent)",
-								"text": "var(--wp--preset--color--base)"
+								"background": "var(--wp--preset--color--accent-5)",
+								"text": "var(--wp--preset--color--accent-3)"
 							},
 							"outline": {
 								"offset": "-4px"

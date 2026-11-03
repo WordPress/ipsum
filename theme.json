@@ -538,9 +538,6 @@
 							"color": {
 								"background": "var(--wp--preset--color--accent-5)",
 								"text": "var(--wp--preset--color--accent-3)"
-							},
-							"outline": {
-								"offset": "-4px"
 							}
 						},
 						":focus-visible": {

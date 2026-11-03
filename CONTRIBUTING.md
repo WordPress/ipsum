@@ -82,7 +82,7 @@ npm run build   # Regenerate style.min.css from style.css.
 npm run watch   # Or regenerate it every time style.css changes.
 ```
 
-Don't edit `style.min.css` by hand.
+Don't edit `style.min.css` by hand. CI rebuilds it and fails the pull request if the committed copy doesn't match.
 
 ### Pattern creation guidelines
 

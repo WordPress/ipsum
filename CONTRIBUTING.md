@@ -73,7 +73,7 @@ To try the theme in the browser without installing anything, use [WordPress Play
 
 ### Editing the stylesheet
 
-Ipsum has a single stylesheet, `style.css`. On a production site the theme loads the minified copy, `style.min.css`, instead. When `SCRIPT_DEBUG` is on, as it is in the `wp-env` setup above, the theme loads `style.css`, so your edits show up right away.
+Ipsum's main stylesheet is `style.css`. On a production site the front end loads the minified copy, `style.min.css`, instead. When `SCRIPT_DEBUG` is on, as it is in the `wp-env` setup above, the theme loads `style.css`, so your edits show up right away.
 
 `style.min.css` is generated from `style.css` and committed to the repository. After changing `style.css`, regenerate it and include both files in your pull request:
 

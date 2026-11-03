@@ -14,7 +14,7 @@ npm run env:start       # Later runs, if the environment is not already running.
 
 The site is at <http://localhost:8899> (`admin` / `password`). The repository is mounted as the `ipsum` theme with `node_modules` hidden, and `WP_DEVELOPMENT_MODE` is `theme`, so `theme.json` is not cached. See [Getting Started](CONTRIBUTING.md#getting-started) for the rest, including running without Docker.
 
-There is no build step. Templates, patterns, `theme.json` and CSS are served as they are in the tree; reload to see an edit.
+Templates, patterns, `theme.json` and CSS are served as they are in the tree; reload to see an edit. `SCRIPT_DEBUG` is on, so the front end loads `style.css` rather than `style.min.css`. The only build step is regenerating `style.min.css`: after changing `style.css`, run `npm run build` and commit both files.
 
 ### Key directories
 
@@ -29,7 +29,8 @@ There is no build step. Templates, patterns, `theme.json` and CSS are served as 
 -   `functions.php` - Theme PHP: stylesheets, the comments CTA block binding, sidebar template types, block styles. It loads `inc/abilities.php`.
 -   `inc/abilities.php` - The `ipsum/get-design-guide` ability, which gives agents on a live site the palette roles, presets, style variations, block styles, patterns and templates through the Abilities API. A new palette color needs its role in `ipsum_get_color_roles()`.
 -   `theme.json` - Global settings and styles, fonts, `customTemplates`, per-block styles.
--   `style.css` - The theme header plus the CSS that `theme.json` cannot express. It loads on the front end and, through `add_editor_style()`, in the editors.
+-   `style.css` - The theme header plus the CSS that `theme.json` cannot express. It loads in the editors through `add_editor_style()`, and on the front end when `SCRIPT_DEBUG` is on or it is newer than `style.min.css`.
+-   `style.min.css` - `style.css` minified by `npm run build`, loaded on the front end otherwise. Generated: rebuild it, never edit it.
 -   `readme.txt` - The WordPress.org readme: description, changelog, copyright, font credits.
 -   `.github/`, `CONTRIBUTING.md`, `README.md`, `package.json`, `.wp-env.json`, `.nvmrc` - Repository tooling and docs, not part of the theme.
 

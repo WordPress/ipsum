@@ -473,13 +473,15 @@ if ( ! function_exists( 'ipsum_get_design_guide' ) ) :
 		}
 
 		if ( isset( $sections['patterns'] ) ) {
-			$theme_pattern_dirs = array(
-				wp_normalize_path( get_stylesheet_directory() . '/patterns' ),
-				wp_normalize_path( get_template_directory() . '/patterns' ),
-			);
-			$guide['patterns']  = array();
+			// Match by slug, since the registry drops a pattern's filePath once its content is loaded.
+			$theme               = wp_get_theme();
+			$theme_pattern_slugs = array_column( $theme->get_block_patterns(), 'slug' );
+			if ( $theme->parent() ) {
+				$theme_pattern_slugs = array_merge( $theme_pattern_slugs, array_column( $theme->parent()->get_block_patterns(), 'slug' ) );
+			}
+			$guide['patterns'] = array();
 			foreach ( WP_Block_Patterns_Registry::get_instance()->get_all_registered() as $pattern ) {
-				if ( ! isset( $pattern['filePath'] ) || ! is_string( $pattern['filePath'] ) || '' === $pattern['filePath'] || ! in_array( wp_normalize_path( dirname( $pattern['filePath'] ) ), $theme_pattern_dirs, true ) ) {
+				if ( ! in_array( $pattern['name'], $theme_pattern_slugs, true ) ) {
 					continue;
 				}
 				$item = array(

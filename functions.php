@@ -195,9 +195,9 @@ if ( ! function_exists( 'ipsum_register_block_styles' ) ) :
 	 * The Evening code style keeps the Evening palette's literals on purpose,
 	 * so the block reads as a dark slab under every style variation.
 	 *
-	 * Each style's CSS is an inline style, as in the default themes. These
-	 * live here rather than in styles/blocks/ because their CSS needs at-rules
-	 * and selector lists that a theme.json css string cannot hold.
+	 * Each style's CSS is an inline style, as in the default themes. Row Hover
+	 * can't move to styles/blocks/, because a theme.json css string cannot hold
+	 * its at-rules and selector lists.
 	 *
 	 * @since Ipsum 1.0
 	 *
@@ -224,8 +224,9 @@ if ( ! function_exists( 'ipsum_register_block_styles' ) ) :
 
 		/*
 		 * Pins the part to the bottom of the viewport, so it belongs at the root
-		 * of the template. The editors also need the override in editor-style.css.
-		 * Its search button stays outlined until hovered or focused.
+		 * of the template. It keeps to its content's width at the inline end, so
+		 * the rest of the band doesn't block clicks on the page. The editors also
+		 * need the override in editor-style.css.
 		 */
 		register_block_style(
 			'core/template-part',
@@ -239,9 +240,22 @@ if ( ! function_exists( 'ipsum_register_block_styles' ) ) :
 					z-index: 10;
 					width: fit-content;
 					margin-inline-start: auto;
-				}
+				}',
+			)
+		);
 
-				.wp-block-template-part.is-style-sticky-bottom .wp-block-search__button.wp-element-button:not(:hover):not(:focus):not(:active) {
+		/*
+		 * Outlines the Search button until it is hovered, focused or pressed, when
+		 * the global button states take back over. A theme.json css string would
+		 * wrap this in :where() and only tie with the global button styles.
+		 */
+		register_block_style(
+			'core/search',
+			array(
+				'name'         => 'outline',
+				'label'        => _x( 'Outline', 'Block style label', 'ipsum' ),
+				'inline_style' => '
+				.wp-block-search.is-style-outline .wp-block-search__button.wp-element-button:not(:hover):not(:focus):not(:active) {
 					background-color: var(--wp--preset--color--base);
 					border: 1px dotted var(--wp--preset--color--contrast);
 					color: var(--wp--preset--color--contrast);
@@ -287,26 +301,6 @@ if ( ! function_exists( 'ipsum_register_block_styles' ) ) :
 				}',
 			)
 		);
-
-		/*
-		 * Adds a decorative "·" before the block, so the separator only shows
-		 * when the block does (the Edit link is only there for editors).
-		 */
-		foreach ( array( 'comment-edit-link', 'comment-reply-link' ) as $block ) {
-			register_block_style(
-				'core/' . $block,
-				array(
-					'name'         => 'dot-before',
-					'label'        => _x( 'Dot Separator', 'Block style label', 'ipsum' ),
-					'inline_style' => '
-					.wp-block-' . $block . '.is-style-dot-before::before {
-						content: "·" / "";
-						font-weight: 600;
-						padding-inline: 0.5em;
-					}',
-				)
-			);
-		}
 	}
 endif;
 add_action( 'init', 'ipsum_register_block_styles' );

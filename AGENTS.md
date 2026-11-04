@@ -14,7 +14,7 @@ npm run env:start       # Later runs, if the environment is not already running.
 
 The site is at <http://localhost:8899> (`admin` / `password`). The repository is mounted as the `ipsum` theme with `node_modules` hidden, and `WP_DEVELOPMENT_MODE` is `theme`, so `theme.json` is not cached. See [Getting Started](CONTRIBUTING.md#getting-started) for the rest, including running without Docker.
 
-Templates, patterns, `theme.json` and CSS are served as they are in the tree; reload to see an edit. `SCRIPT_DEBUG` is on, so the front end loads `style.css` rather than `style.min.css`. The only build step is regenerating `style.min.css`: after changing `style.css`, run `npm run build` and commit both files.
+Templates, patterns, `theme.json` and CSS are served as they are in the tree; reload to see an edit. `SCRIPT_DEBUG` is on, so the front end loads `style.css` rather than `style.min.css`. The only build step is regenerating `style.min.css`, which the pre-commit hook does when `style.css` is staged. If the hook doesn't run, as in a worktree without `npm install` or with `--no-verify`, run `npm run build` and commit both files.
 
 ### Key directories
 

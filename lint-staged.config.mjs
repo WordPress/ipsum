@@ -1,3 +1,4 @@
+import { execSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
 
 const hasPhpcs = existsSync( new URL( 'vendor/bin/phpcs', import.meta.url ) );
@@ -11,6 +12,16 @@ export default {
 	// ignores the generated style.min.css, so --allow-empty-input lets a commit
 	// that only rebuilds that file pass.
 	'*.css': 'stylelint --allow-empty-input',
+	// Rebuilds style.min.css so it lands in the same commit as style.css. It needs
+	// its own git add because lint-staged only re-stages the files it matched. This
+	// is a function because lint-staged warns about any command with "git add" in
+	// it, and that warning would tell contributors to remove a step that's needed.
+	'style.css': {
+		title: 'Rebuilding style.min.css',
+		task: () => {
+			execSync( 'npm run build && git add style.min.css' );
+		},
+	},
 	// Without the Composer packages, PHPCS can't check the WordPress Coding
 	// Standards, so the check is skipped with a note instead.
 	'*.php': hasPhpcs

@@ -169,7 +169,7 @@ Accessibility: Presets facilitate adherence to accessibility standards, making y
 
 - **Other tips**
 
-In the same way we remove IDs from image blocks, we need to remove queryId from query blocks too. Also, if any of our template parts have a theme attribute, that needs to remove too.
+In the same way we remove IDs from image blocks, we need to remove queryId from query blocks too. Also, if any of our template parts have a theme or an area attribute, those need to be removed too. The area comes from `templateParts` in `theme.json`, so the slug is enough.
 
 `<!-- wp:query {"queryId":18,"query":{"perPage":8,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true}} -->`
 
@@ -183,7 +183,15 @@ and
 
 turns into
 
-`<!-- wp:template-part {"slug":"header-portfolio","area":"header","tagName":"header"} /-->`
+`<!-- wp:template-part {"slug":"header-portfolio","tagName":"header"} /-->`
+
+The editor also writes `patternName` and `categories` into the metadata of blocks inserted from a pattern, and exports such as Create Block Theme keep them. The editor adds them back on insertion, so remove those two and keep the rest of the metadata, such as `name` or `bindings`:
+
+`<!-- wp:group {"metadata":{"name":"Footer","patternName":"ipsum/footer","categories":["footer"]},"layout":{"type":"constrained"}} -->`
+
+turns into
+
+`<!-- wp:group {"metadata":{"name":"Footer"},"layout":{"type":"constrained"}} -->`
 
 Block names (`metadata.name`) show in the List View and are what an agent reads to tell blocks apart, so name a block by what it does, not what it prints: a paragraph holding the `·` separator is `Meta Separator`, not `·`. Translate names like other strings: `esc_html_x( 'Meta Separator', 'Name of the paragraph separating post meta items', 'ipsum' )`.
 

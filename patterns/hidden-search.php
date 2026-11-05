@@ -2,6 +2,7 @@
 /**
  * Title: Search
  * Slug: ipsum/hidden-search
+ * Template Types: search
  * Inserter: no
  *
  * @package Ipsum

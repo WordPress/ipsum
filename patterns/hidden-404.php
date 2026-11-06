@@ -2,6 +2,7 @@
 /**
  * Title: 404
  * Slug: ipsum/hidden-404
+ * Template Types: 404
  * Inserter: no
  *
  * @package Ipsum

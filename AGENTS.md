@@ -37,7 +37,7 @@ There is no build step. Templates, patterns, `theme.json` and CSS are served as 
 
 Read only what your task needs, when it needs it:
 
--   **Adding or changing a pattern**: read [Pattern creation guidelines](CONTRIBUTING.md#pattern-creation-guidelines) first. It covers categories, hiding from the inserter, which i18n function to use, images, and removing `id`, `queryId` and `theme` attributes from copied markup.
+-   **Adding or changing a pattern**: read [Pattern creation guidelines](CONTRIBUTING.md#pattern-creation-guidelines) first. It covers categories, hiding from the inserter, which i18n function to use, images, and removing `id`, `queryId`, `theme`, `area`, `patternName` and `metadata.categories` from copied markup.
 -   **Adding CSS or PHP**: read [Development guidelines](CONTRIBUTING.md#development-guidelines). Prefer `theme.json` and Global Styles; add CSS or PHP only when the editor cannot express the design, and keep it commented.
 -   **Opening a pull request**: follow `.github/PULL_REQUEST_TEMPLATE.md`, including the AI disclosure section.
 

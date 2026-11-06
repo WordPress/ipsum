@@ -9,6 +9,7 @@
  */
 
 ?>
+<?php if ( ! post_password_required() ) : ?>
 <!-- wp:comments {"className":"wp-block-comments-query-loop","style":{"spacing":{"padding":{"top":"var:preset|spacing|60"}},"border":{"top":{"color":"var:preset|color|accent-6","style":"solid","width":"1px"}}}} -->
 <div class="wp-block-comments wp-block-comments-query-loop" style="border-top-color:var(--wp--preset--color--accent-6);border-top-style:solid;border-top-width:1px;padding-top:var(--wp--preset--spacing--60)"><!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Comments Titles', 'Name of the group holding the comments heading and count', 'ipsum' ); ?>"},"style":{"spacing":{"blockGap":{"top":"var:preset|spacing|20"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
 <div class="wp-block-group"><!-- wp:heading -->
@@ -48,3 +49,4 @@
 
 <!-- wp:post-comments-form {"style":{"spacing":{"margin":{"top":"var:preset|spacing|70"}}}} /--></div>
 <!-- /wp:comments -->
+<?php endif; ?>

@@ -3,6 +3,7 @@
  * Title: Page Soon
  * Slug: ipsum/page-soon
  * Categories: ipsum_page
+ * Keywords: launch, landing, maintenance, placeholder
  * Block Types: core/post-content
  * Post Types: page
  * Viewport width: 1280

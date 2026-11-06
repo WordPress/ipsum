@@ -92,6 +92,8 @@ We do this by adding the following line:
 
 Let's prefix hidden patterns using `hidden-` when we name the pattern file.
 
+Hidden patterns still need a `Title` and a `Description`, since agents read them through the REST API (`/wp/v2/block-patterns/patterns`). Say which template or template part the pattern fills and what it holds. Template patterns take `Template Types:`, and header, footer and navigation overlay patterns take `Block Types: core/template-part/<area>`. Patterns for General parts, like the sidebar and the search bar, leave out `Block Types`, or the Site Editor offers each one as a design for every other General part.
+
 - **Different translation functions and when to use them**
 
 WordPress block patterns should be [internationalized](https://developer.wordpress.org/apis/internationalization/internationalization-guidelines/) to make them accessible to a global audience.
@@ -169,6 +171,8 @@ and
 turns into
 
 `<!-- wp:template-part {"slug":"header-portfolio","area":"header","tagName":"header"} /-->`
+
+Block names (`metadata.name`) show in the List View and are what an agent reads to tell blocks apart, so name a block by what it does, not what it prints: a paragraph holding the `·` separator is `Meta Separator`, not `·`. Translate names like other strings: `esc_html_x( 'Meta Separator', 'Name of the paragraph separating post meta items', 'ipsum' )`.
 
 If we are constantly assigning properties to the same block over and over again (ie: border radius to images), consider moving those properties to the theme.json.
 

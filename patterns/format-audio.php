@@ -3,6 +3,9 @@
  * Title: Format Audio
  * Slug: ipsum/format-audio
  * Categories: posts
+ * Keywords: audio, podcast, episode, music, player
+ * Block Types: core/post-content
+ * Post Types: post, page
  * Viewport width: 1280
  * Description: An audio-format post body — cover art, title and a one-line description over the player.
  *

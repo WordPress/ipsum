@@ -73,6 +73,14 @@ jobs:
       - name: Run Stylelint
         run: npm run lint:css
 
+      - name: Check that style.min.css is up to date
+        run: |
+          npm run build
+          git diff --quiet style.min.css || {
+            echo "::error file=style.min.css::style.min.css doesn't match style.css. Run npm run build and commit the result."
+            exit 1
+          }
+
   theme:
     name: Patterns and theme.json
     runs-on: ubuntu-24.04

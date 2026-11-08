@@ -289,27 +289,6 @@ if ( ! function_exists( 'ipsum_get_design_guide_presets' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'ipsum_get_design_guide_value' ) ) :
-	/**
-	 * Returns the value at a path in theme.json data.
-	 *
-	 * @since Ipsum 1.0
-	 *
-	 * @param mixed    $data The theme.json data, such as the global settings or styles.
-	 * @param string[] $path The keys leading to the value.
-	 * @return mixed The value, or null when the path is missing.
-	 */
-	function ipsum_get_design_guide_value( $data, $path ) {
-		foreach ( $path as $key ) {
-			if ( ! is_array( $data ) || ! isset( $data[ $key ] ) ) {
-				return null;
-			}
-			$data = $data[ $key ];
-		}
-		return $data;
-	}
-endif;
-
 if ( ! function_exists( 'ipsum_get_design_guide_font_slug' ) ) :
 	/**
 	 * Returns the slug of the font family preset a style refers to.
@@ -392,13 +371,13 @@ if ( ! function_exists( 'ipsum_get_design_guide' ) ) :
 
 		if ( isset( $sections['colorScheme'] ) ) {
 			// The audio player's CSS also reads a palette that sets no scheme as light.
-			$guide['colorScheme'] = 'dark' === ipsum_get_design_guide_value( $settings, array( 'custom', 'controlScheme' ) ) ? 'dark' : 'light';
+			$guide['colorScheme'] = 'dark' === ( $settings['custom']['controlScheme'] ?? '' ) ? 'dark' : 'light';
 		}
 
 		if ( isset( $sections['colors'] ) ) {
 			$roles           = ipsum_get_color_roles();
 			$guide['colors'] = array();
-			foreach ( ipsum_get_design_guide_presets( ipsum_get_design_guide_value( $settings, array( 'color', 'palette' ) ), array( 'slug', 'name', 'color' ) ) as $color ) {
+			foreach ( ipsum_get_design_guide_presets( $settings['color']['palette'] ?? array(), array( 'slug', 'name', 'color' ) ) as $color ) {
 				if ( isset( $color['slug'] ) && is_string( $color['slug'] ) && isset( $roles[ $color['slug'] ] ) ) {
 					$color['role'] = $roles[ $color['slug'] ];
 				}
@@ -407,72 +386,63 @@ if ( ! function_exists( 'ipsum_get_design_guide' ) ) :
 		}
 
 		if ( isset( $sections['gradients'] ) ) {
-			$guide['gradients'] = ipsum_get_design_guide_presets( ipsum_get_design_guide_value( $settings, array( 'color', 'gradients' ) ), array( 'slug', 'name', 'gradient' ) );
+			$guide['gradients'] = ipsum_get_design_guide_presets( $settings['color']['gradients'] ?? array(), array( 'slug', 'name', 'gradient' ) );
 		}
 
 		if ( isset( $sections['duotone'] ) ) {
-			$guide['duotone'] = ipsum_get_design_guide_presets( ipsum_get_design_guide_value( $settings, array( 'color', 'duotone' ) ), array( 'slug', 'name', 'colors' ) );
+			$guide['duotone'] = ipsum_get_design_guide_presets( $settings['color']['duotone'] ?? array(), array( 'slug', 'name', 'colors' ) );
 		}
 
 		if ( isset( $sections['typography'] ) ) {
-			$body_font   = ipsum_get_design_guide_font_slug( ipsum_get_design_guide_value( $styles, array( 'typography', 'fontFamily' ) ) );
+			$body_font   = ipsum_get_design_guide_font_slug( $styles['typography']['fontFamily'] ?? '' );
 			$block_fonts = array();
-			$blocks      = ipsum_get_design_guide_value( $styles, array( 'blocks' ) );
-			foreach ( is_array( $blocks ) ? $blocks : array() as $block_type => $block_styles ) {
-				$block_font = ipsum_get_design_guide_font_slug( ipsum_get_design_guide_value( $block_styles, array( 'typography', 'fontFamily' ) ) );
+			foreach ( $styles['blocks'] ?? array() as $block_type => $block_styles ) {
+				$block_font = ipsum_get_design_guide_font_slug( $block_styles['typography']['fontFamily'] ?? '' );
 				if ( null !== $block_font && $block_font !== $body_font ) {
 					$block_fonts[ $block_font ][] = $block_type;
 				}
 			}
 			$guide['typography'] = array(
 				'bodyFont'     => $body_font,
-				'headingFont'  => ipsum_get_design_guide_font_slug( ipsum_get_design_guide_value( $styles, array( 'elements', 'heading', 'typography', 'fontFamily' ) ) ) ?? $body_font,
+				'headingFont'  => ipsum_get_design_guide_font_slug( $styles['elements']['heading']['typography']['fontFamily'] ?? '' ) ?? $body_font,
 				'blockFonts'   => $block_fonts,
-				'fontFamilies' => ipsum_get_design_guide_presets( ipsum_get_design_guide_value( $settings, array( 'typography', 'fontFamilies' ) ), array( 'slug', 'name', 'fontFamily' ) ),
-				'fontSizes'    => ipsum_get_design_guide_presets( ipsum_get_design_guide_value( $settings, array( 'typography', 'fontSizes' ) ), array( 'slug', 'name', 'size' ) ),
+				'fontFamilies' => ipsum_get_design_guide_presets( $settings['typography']['fontFamilies'] ?? array(), array( 'slug', 'name', 'fontFamily' ) ),
+				'fontSizes'    => ipsum_get_design_guide_presets( $settings['typography']['fontSizes'] ?? array(), array( 'slug', 'name', 'size' ) ),
 			);
 		}
 
 		if ( isset( $sections['spacing'] ) ) {
-			$guide['spacing'] = ipsum_get_design_guide_presets( ipsum_get_design_guide_value( $settings, array( 'spacing', 'spacingSizes' ) ), array( 'slug', 'name', 'size' ) );
+			$guide['spacing'] = ipsum_get_design_guide_presets( $settings['spacing']['spacingSizes'] ?? array(), array( 'slug', 'name', 'size' ) );
 		}
 
 		if ( isset( $sections['layout'] ) ) {
 			$guide['layout'] = array(
-				'contentSize' => ipsum_get_design_guide_value( $settings, array( 'layout', 'contentSize' ) ),
-				'wideSize'    => ipsum_get_design_guide_value( $settings, array( 'layout', 'wideSize' ) ),
+				'contentSize' => $settings['layout']['contentSize'] ?? null,
+				'wideSize'    => $settings['layout']['wideSize'] ?? null,
 			);
 		}
 
 		if ( isset( $sections['styleVariations'] ) ) {
 			$guide['styleVariations'] = array();
 			foreach ( WP_Theme_JSON_Resolver::get_style_variations() as $variation ) {
-				$item = array( 'title' => ipsum_get_design_guide_value( $variation, array( 'title' ) ) );
+				$variation_settings = $variation['settings'] ?? array();
+				$variation_styles   = $variation['styles'] ?? array();
+				$item               = array( 'title' => $variation['title'] );
 
-				$control_scheme = ipsum_get_design_guide_value( $variation, array( 'settings', 'custom', 'controlScheme' ) );
-				if ( null !== $control_scheme ) {
-					$item['colorScheme'] = 'dark' === $control_scheme ? 'dark' : 'light';
+				if ( isset( $variation_settings['custom']['controlScheme'] ) ) {
+					$item['colorScheme'] = 'dark' === $variation_settings['custom']['controlScheme'] ? 'dark' : 'light';
 				}
-				$palette = ipsum_get_design_guide_value( $variation, array( 'settings', 'color', 'palette' ) );
-				if ( ! empty( $palette ) ) {
-					$item['colors'] = array_column( ipsum_get_design_guide_presets( $palette, array( 'slug', 'color' ) ), 'color', 'slug' );
+				if ( ! empty( $variation_settings['color']['palette'] ) ) {
+					$item['colors'] = array_column( ipsum_get_design_guide_presets( $variation_settings['color']['palette'], array( 'slug', 'color' ) ), 'color', 'slug' );
 				}
-				$body_font = ipsum_get_design_guide_value( $variation, array( 'styles', 'typography', 'fontFamily' ) );
-				if ( ! empty( $body_font ) ) {
-					$item['bodyFont'] = ipsum_get_design_guide_font_slug( $body_font );
+				if ( ! empty( $variation_styles['typography']['fontFamily'] ) ) {
+					$item['bodyFont'] = ipsum_get_design_guide_font_slug( $variation_styles['typography']['fontFamily'] );
 				}
-				$heading_font = ipsum_get_design_guide_value( $variation, array( 'styles', 'elements', 'heading', 'typography', 'fontFamily' ) );
-				if ( ! empty( $heading_font ) ) {
-					$item['headingFont'] = ipsum_get_design_guide_font_slug( $heading_font );
+				if ( ! empty( $variation_styles['elements']['heading']['typography']['fontFamily'] ) ) {
+					$item['headingFont'] = ipsum_get_design_guide_font_slug( $variation_styles['elements']['heading']['typography']['fontFamily'] );
 				}
-				$blocks = ipsum_get_design_guide_value( $variation, array( 'styles', 'blocks' ) );
-				if ( is_array( $blocks ) && array() !== $blocks ) {
-					$item['blocks'] = array_map(
-						static function ( $block_styles ) {
-							return is_array( $block_styles ) ? array_keys( $block_styles ) : array();
-						},
-						$blocks
-					);
+				if ( ! empty( $variation_styles['blocks'] ) ) {
+					$item['blocks'] = array_map( 'array_keys', $variation_styles['blocks'] );
 				}
 				$guide['styleVariations'][] = $item;
 			}

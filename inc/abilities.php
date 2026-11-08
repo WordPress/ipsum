@@ -442,8 +442,13 @@ if ( ! function_exists( 'ipsum_get_design_guide' ) ) :
 				if ( ! empty( $variation_styles['elements']['heading']['typography']['fontFamily'] ) ) {
 					$item['headingFont'] = ipsum_get_design_guide_font_slug( $variation_styles['elements']['heading']['typography']['fontFamily'] );
 				}
-				if ( ! empty( $variation_styles['blocks'] ) ) {
-					$item['blocks'] = array_map( 'array_keys', $variation_styles['blocks'] );
+				if ( ! empty( $variation_styles['blocks'] ) && is_array( $variation_styles['blocks'] ) ) {
+					$item['blocks'] = array_map(
+						static function ( $block_styles ) {
+							return is_array( $block_styles ) ? array_keys( $block_styles ) : array();
+						},
+						$variation_styles['blocks']
+					);
 				}
 				$guide['styleVariations'][] = $item;
 			}

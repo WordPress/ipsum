@@ -90,7 +90,12 @@ if ( ! function_exists( 'ipsum_get_design_guide_schema' ) ) :
 	 *
 	 * @since Ipsum 1.0
 	 *
-	 * @return array The output schema of the design guide ability.
+	 * @return array<string, mixed> The output schema of the design guide ability.
+	 * @phpstan-return array{
+	 *     type: 'object',
+	 *     additionalProperties: false,
+	 *     properties: array<string, array<string, mixed>>
+	 * }
 	 */
 	function ipsum_get_design_guide_schema() {
 		$string      = array( 'type' => 'string' );

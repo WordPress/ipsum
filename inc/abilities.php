@@ -396,7 +396,8 @@ if ( ! function_exists( 'ipsum_get_design_guide' ) ) :
 		if ( isset( $sections['typography'] ) ) {
 			$body_font   = ipsum_get_design_guide_font_slug( $styles['typography']['fontFamily'] ?? '' );
 			$block_fonts = array();
-			foreach ( $styles['blocks'] ?? array() as $block_type => $block_styles ) {
+			$blocks      = $styles['blocks'] ?? null;
+			foreach ( is_array( $blocks ) ? $blocks : array() as $block_type => $block_styles ) {
 				$block_font = ipsum_get_design_guide_font_slug( $block_styles['typography']['fontFamily'] ?? '' );
 				if ( null !== $block_font && $block_font !== $body_font ) {
 					$block_fonts[ $block_font ][] = $block_type;

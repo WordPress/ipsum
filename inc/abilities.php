@@ -503,7 +503,7 @@ if ( ! function_exists( 'ipsum_get_design_guide' ) ) :
 			);
 			$guide['patterns']  = array();
 			foreach ( WP_Block_Patterns_Registry::get_instance()->get_all_registered() as $pattern ) {
-				if ( empty( $pattern['filePath'] ) || ! in_array( wp_normalize_path( dirname( $pattern['filePath'] ) ), $theme_pattern_dirs, true ) ) {
+				if ( ! isset( $pattern['filePath'] ) || ! is_string( $pattern['filePath'] ) || '' === $pattern['filePath'] || ! in_array( wp_normalize_path( dirname( $pattern['filePath'] ) ), $theme_pattern_dirs, true ) ) {
 					continue;
 				}
 				$item = array(

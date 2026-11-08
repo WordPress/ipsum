@@ -399,7 +399,7 @@ if ( ! function_exists( 'ipsum_get_design_guide' ) ) :
 			$roles           = ipsum_get_color_roles();
 			$guide['colors'] = array();
 			foreach ( ipsum_get_design_guide_presets( ipsum_get_design_guide_value( $settings, array( 'color', 'palette' ) ), array( 'slug', 'name', 'color' ) ) as $color ) {
-				if ( isset( $color['slug'], $roles[ $color['slug'] ] ) ) {
+				if ( isset( $color['slug'] ) && is_string( $color['slug'] ) && isset( $roles[ $color['slug'] ] ) ) {
 					$color['role'] = $roles[ $color['slug'] ];
 				}
 				$guide['colors'][] = $color;

@@ -259,14 +259,23 @@ if ( ! function_exists( 'ipsum_get_design_guide_presets' ) ) :
 	 *
 	 * @since Ipsum 1.0
 	 *
-	 * @param array    $presets The presets from the global settings, keyed by origin.
+	 * @param mixed    $presets The presets from the global settings, keyed by origin.
 	 * @param string[] $keys    The preset properties to keep.
-	 * @return array[] The presets, with only the given properties.
+	 * @return array<int, array<string, mixed>> The presets, with only the given properties.
 	 */
 	function ipsum_get_design_guide_presets( $presets, $keys ) {
 		$items = array();
+		if ( ! is_array( $presets ) ) {
+			return $items;
+		}
 		foreach ( array( 'theme', 'custom' ) as $origin ) {
-			foreach ( $presets[ $origin ] ?? array() as $preset ) {
+			if ( ! isset( $presets[ $origin ] ) || ! is_array( $presets[ $origin ] ) ) {
+				continue;
+			}
+			foreach ( $presets[ $origin ] as $preset ) {
+				if ( ! is_array( $preset ) ) {
+					continue;
+				}
 				$item = array();
 				foreach ( $keys as $key ) {
 					if ( isset( $preset[ $key ] ) ) {

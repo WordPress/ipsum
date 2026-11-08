@@ -350,7 +350,7 @@ if ( ! function_exists( 'ipsum_get_design_guide_pattern_slug' ) ) :
 				}
 			)
 		);
-		if ( 1 === count( $blocks ) && 'core/pattern' === $blocks[0]['blockName'] && ! empty( $blocks[0]['attrs']['slug'] ) ) {
+		if ( 1 === count( $blocks ) && 'core/pattern' === $blocks[0]['blockName'] && isset( $blocks[0]['attrs']['slug'] ) && is_string( $blocks[0]['attrs']['slug'] ) && '' !== $blocks[0]['attrs']['slug'] ) {
 			return $blocks[0]['attrs']['slug'];
 		}
 		return null;

@@ -110,9 +110,9 @@ These functions enhance security and support localization efforts in WordPress b
 
 - **Patterns with images**
 
-To create dynamic image links in your block patterns, utilize the `get_template_directory_uri()` function. This function retrieves the URL of the current theme's directory, ensuring that the image links are relative to the theme and work correctly even if the website's directory structure changes or if we are using a child theme. This is essential for maintaining the stability and portability of your patterns.
+To create dynamic image links in your block patterns, pass the image's path within the theme to the `get_parent_theme_file_uri()` function. It returns the URL of that file in Ipsum's directory, ensuring that the image links work correctly even if the website's directory structure changes or if we are using a child theme. The URL can also be filtered with `parent_theme_file_uri`, such as to serve the images from a CDN.
 
-Add the theme version to the end of the image URL as `?ver=`, so browsers that cache static files for a long time fetch the image again after a theme update.
+Don't add a `?ver=` query argument to image URLs. The images won't change after release, and once a pattern is inserted, its image URL is saved in the post, so the version would never update there anyway.
 
 Make sure to add alt text to your images and to make sure to remove the IDs from them. An example would be:
 
@@ -126,7 +126,7 @@ would turn into
 
 ```
 <!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/project.webp?ver=<?php echo esc_attr( wp_get_theme( get_template() )->get( 'Version' ) ); ?>" alt="<?php echo esc_attr_x( 'Picture of a building', 'Alt text for project picture', 'ipsum' ); ?>"/></figure>
+<figure class="wp-block-image size-large"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/project.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'Picture of a building', 'Alt text for project picture', 'ipsum' ); ?>"/></figure>
 <!-- /wp:image -->
 ```
 

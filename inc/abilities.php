@@ -369,7 +369,7 @@ if ( ! function_exists( 'ipsum_get_design_guide' ) ) :
 	 *
 	 *     @type string[] $fields Optional. The sections to return. Default all of them.
 	 * }
-	 * @return array The design guide.
+	 * @return array<string, mixed> The design guide, keyed by section.
 	 */
 	function ipsum_get_design_guide( $input = array() ) {
 		$sections = array_keys( ipsum_get_design_guide_schema()['properties'] );

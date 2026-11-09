@@ -473,15 +473,22 @@ if ( ! function_exists( 'ipsum_get_design_guide' ) ) :
 		}
 
 		if ( isset( $sections['patterns'] ) ) {
-			// Match by slug, since the registry drops a pattern's filePath once its content is loaded.
+			// Look up the theme's patterns by slug, since the registry drops a pattern's filePath once its content is loaded.
 			$theme               = wp_get_theme();
-			$theme_pattern_slugs = array_column( $theme->get_block_patterns(), 'slug' );
-			if ( $theme->parent() ) {
-				$theme_pattern_slugs = array_merge( $theme_pattern_slugs, array_column( $theme->parent()->get_block_patterns(), 'slug' ) );
+			$theme_pattern_slugs = array();
+			foreach ( array_filter( array( $theme, $theme->parent() ) ) as $pattern_theme ) {
+				foreach ( $pattern_theme->get_block_patterns() as $file_pattern ) {
+					if ( isset( $file_pattern['slug'] ) && is_string( $file_pattern['slug'] ) ) {
+						$theme_pattern_slugs[] = $file_pattern['slug'];
+					}
+				}
 			}
+
+			$registry          = WP_Block_Patterns_Registry::get_instance();
 			$guide['patterns'] = array();
-			foreach ( WP_Block_Patterns_Registry::get_instance()->get_all_registered() as $pattern ) {
-				if ( ! in_array( $pattern['name'], $theme_pattern_slugs, true ) ) {
+			foreach ( array_unique( $theme_pattern_slugs ) as $slug ) {
+				$pattern = $registry->get_registered( $slug );
+				if ( null === $pattern ) {
 					continue;
 				}
 				$item = array(

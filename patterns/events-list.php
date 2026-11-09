@@ -4,7 +4,7 @@
  * Slug: ipsum/events-list
  * Categories: text
  * Viewport width: 1280
- * Description: A stack of event rows under dotted rules — title, date and place, with a reserve link on the right.
+ * Description: A stack of event rows under dotted rules. Each row has the title, date and place, with a reserve link on the right.
  *
  * @package Ipsum
  * @since Ipsum 1.0

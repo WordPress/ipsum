@@ -5,7 +5,7 @@
  * Categories: posts
  * Block Types: core/query
  * Viewport width: 1280
- * Description: Featured image, title, meta, and an excerpt with a Read more link — the classic listing.
+ * Description: The classic listing. Each post shows its featured image, title, meta, and an excerpt with a Read more link.
  *
  * @package Ipsum
  * @since Ipsum 1.0

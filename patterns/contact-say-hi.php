@@ -4,7 +4,7 @@
  * Slug: ipsum/contact-say-hi
  * Categories: contact
  * Viewport width: 1280
- * Description: A centered contact invitation — a display heading with the reach-out link over a row of social icons.
+ * Description: A centered contact invitation. A display heading with the reach-out link sits over a row of social icons.
  *
  * @package Ipsum
  * @since Ipsum 1.0

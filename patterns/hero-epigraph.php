@@ -6,7 +6,7 @@
  * Keywords: intro, welcome, statement, landing
  * Block Types: core/template-part/header
  * Viewport width: 1280
- * Description: A full-height opening statement — site title and menu on top, one oversized line about the blog, and an invitation to read.
+ * Description: A full-height opening statement. The site title and menu sit on top, over one oversized line about the blog and an invitation to read.
  *
  * @package Ipsum
  * @since Ipsum 1.0

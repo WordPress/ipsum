@@ -4,7 +4,7 @@
  * Slug: ipsum/gallery-offset-full
  * Categories: gallery
  * Viewport width: 1280
- * Description: The offset gallery at full width — three columns of photographs with rounded corners, in mixed ratios.
+ * Description: The offset gallery at full width. Its three columns hold photographs with rounded corners, in mixed ratios.
  *
  * @package Ipsum
  * @since Ipsum 1.0

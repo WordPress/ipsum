@@ -3,7 +3,7 @@
  * Title: Sidebar
  * Slug: ipsum/hidden-sidebar
  * Inserter: no
- * Description: The Sidebar template part — the categories list and the five latest posts, each a title and how long ago it was published. The sidebar templates place it in a column beside the main content.
+ * Description: The Sidebar template part. It has the categories list and the five latest posts, each a title and how long ago it was published. The sidebar templates place it in a column beside the main content.
  *
  * @package Ipsum
  * @since Ipsum 1.0

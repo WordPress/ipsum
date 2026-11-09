@@ -91,7 +91,7 @@ A few things to have in mind when building patterns for the default theme:
 
 - **Category selection**
 
-When creating WordPress block patterns, it's important to carefully choose the appropriate category for your pattern. WordPress provides a set of default categories, each serving a specific purpose. Let's stick to using the default categories, with one exception: full page layouts go in the theme's own `ipsum_page` category (labeled "Pages"), registered in `functions.php`. We can add multiple of them separating them by commas. The list of the slug is [here](https://github.com/WordPress/gutenberg/blob/c20350c1d246163201375f090b0b7b4ab49b1dad/packages/block-editor/src/components/inserter/block-patterns-tab.js#L35).
+When creating WordPress block patterns, it's important to carefully choose the appropriate category for your pattern. WordPress provides a set of default categories, each serving a specific purpose. Let's stick to using the default categories, with two exceptions registered in `functions.php`: full page layouts go in the theme's own `ipsum_page` category (labeled "Pages"), and post format patterns in `ipsum_post-format` (labeled "Post formats"). We can add multiple of them separating them by commas. The list of the slug is [here](https://github.com/WordPress/gutenberg/blob/c20350c1d246163201375f090b0b7b4ab49b1dad/packages/block-editor/src/components/inserter/block-patterns-tab.js#L35).
 
 - **Hiding patterns from the inserter**
 
@@ -105,7 +105,7 @@ We do this by adding the following line:
 
 Let's prefix hidden patterns using `hidden-` when we name the pattern file.
 
-Hidden patterns still need a `Title` and a `Description`, since agents read them through the REST API (`/wp/v2/block-patterns/patterns`). Say which template or template part the pattern fills and what it holds. Template patterns take `Template Types:`, and header, footer and navigation overlay patterns take `Block Types: core/template-part/<area>`. Patterns for General parts, like the sidebar and the search bar, leave out `Block Types`, or the Site Editor offers each one as a design for every other General part.
+Hidden patterns still need a `Title` and a `Description`, since agents read them through the REST API (`/wp/v2/block-patterns/patterns`). Say which template or template part the pattern fills and what it holds. As in every description, use full sentences instead of dashes: what the pattern is, then a second sentence saying what's in it. Template patterns take `Template Types:`, and header, footer and navigation overlay patterns take `Block Types: core/template-part/<area>`. Patterns for General parts, like the sidebar and the search bar, leave out `Block Types`, or the Site Editor offers each one as a design for every other General part.
 
 - **Different translation functions and when to use them**
 

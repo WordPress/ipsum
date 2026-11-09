@@ -5,7 +5,7 @@
  * Categories: posts
  * Block Types: core/query
  * Viewport width: 1280
- * Description: A lean chronological list — titles, dates, categories, and reading time. Inherits the template’s query; turn that off when using it inside a page.
+ * Description: A lean chronological list of titles, dates, categories, and reading time. It inherits the template’s query, so turn that off when using it inside a page.
  *
  * @package Ipsum
  * @since Ipsum 1.0

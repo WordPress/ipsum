@@ -5,7 +5,7 @@
  * Categories: posts
  * Block Types: core/query
  * Viewport width: 1280
- * Description: A section lead — a small Manrope label over the five latest posts in the compact, imageless listing.
+ * Description: A section lead. It has a small Manrope label over the five latest posts in the compact, imageless listing.
  *
  * @package Ipsum
  * @since Ipsum 1.0

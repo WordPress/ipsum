@@ -5,7 +5,7 @@
  * Categories: text, about
  * Keywords: media, image, sections, features
  * Viewport width: 1280
- * Description: Rows alternating image and text — introductions for the blog’s sections.
+ * Description: Rows that alternate image and text, to introduce the blog’s sections.
  *
  * @package Ipsum
  * @since Ipsum 1.0

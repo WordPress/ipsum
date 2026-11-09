@@ -5,7 +5,7 @@
  * Categories: posts
  * Block Types: core/query
  * Viewport width: 1280
- * Description: Title, meta, and an excerpt — the Standard listing without images.
+ * Description: The Standard listing without images. Each post shows its title, meta, and an excerpt.
  *
  * @package Ipsum
  * @since Ipsum 1.0

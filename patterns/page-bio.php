@@ -7,7 +7,7 @@
  * Block Types: core/post-content
  * Post Types: page
  * Viewport width: 1280
- * Description: An inverted bio card — portrait beside the name, a short introduction, and social links.
+ * Description: An inverted bio card. It has a portrait beside the name, a short introduction, and social links.
  *
  * @package Ipsum
  * @since Ipsum 1.0

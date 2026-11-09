@@ -5,7 +5,7 @@
  * Categories: testimonials
  * Keywords: testimonials, reviews, quotes
  * Viewport width: 1280
- * Description: Testimonials — two reader quotes on tinted cards, each with an avatar with rounded corners and a one-line attribution.
+ * Description: Two reader testimonials on tinted cards. Each quote has an avatar with rounded corners and a one-line attribution.
  *
  * @package Ipsum
  * @since Ipsum 1.0

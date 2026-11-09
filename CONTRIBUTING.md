@@ -73,7 +73,7 @@ To try the theme in the browser without installing anything, use [WordPress Play
 
 ### Editing the stylesheet
 
-Ipsum's main stylesheet is `style.css`. On a production site the front end loads the minified copy, `style.min.css`, instead. When `SCRIPT_DEBUG` is on, as it is in the `wp-env` setup above, the theme loads `style.css`, so your edits show up right away.
+Ipsum's main stylesheet is `style.css`. On a production site the front end uses the minified copy, `style.min.css`, instead. When `SCRIPT_DEBUG` is on, as it is in the `wp-env` setup above, the theme uses `style.css`, so your edits show up right away. Either way, WordPress prints the stylesheet inline in the page's `<head>` rather than linking to it, which saves a render-blocking request.
 
 `style.min.css` is generated from `style.css` and committed to the repository. When you commit a change to `style.css`, the pre-commit hook regenerates `style.min.css` and adds it to the commit. If you skip the hook, regenerate it yourself and include both files in your pull request:
 

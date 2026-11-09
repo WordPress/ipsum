@@ -36,7 +36,7 @@ const PATTERN_HEADERS = [
  * Pattern categories the theme registers itself — see
  * ipsum_register_pattern_categories() in functions.php.
  */
-const THEME_PATTERN_CATEGORIES = [ 'ipsum_page' ];
+const THEME_PATTERN_CATEGORIES = [ 'ipsum_page', 'ipsum_post-format' ];
 
 /**
  * Pattern categories that core registers, from

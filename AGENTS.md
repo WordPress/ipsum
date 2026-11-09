@@ -30,7 +30,7 @@ Templates, patterns, `theme.json` and CSS are served as they are in the tree. Th
 Read only what your task needs, when it needs it:
 
 -   **Styling, or building pages, patterns or templates**: read [DESIGN.md](DESIGN.md) first. It covers the color roles, the type and spacing scales, the style variations, and which pattern fills each template and part.
--   **Adding or changing a pattern**: read [Pattern creation guidelines](https://github.com/WordPress/ipsum/blob/trunk/CONTRIBUTING.md#pattern-creation-guidelines) first. It covers categories, hiding from the inserter, which i18n function to use, images, and removing `id`, `queryId`, `theme`, `area`, `patternName` and `metadata.categories` from copied markup.
+-   **Adding or changing a pattern**: read [Writing patterns](DESIGN.md#writing-patterns) in DESIGN.md first. It covers categories, hiding from the inserter, which i18n function to use, images, and removing `id`, `queryId`, `theme`, `area`, `patternName` and `metadata.categories` from copied markup.
 -   **Adding CSS or PHP**: read [Development guidelines](https://github.com/WordPress/ipsum/blob/trunk/CONTRIBUTING.md#development-guidelines). Prefer `theme.json` and Global Styles; add CSS or PHP only when the editor cannot express the design, and keep it commented.
 
 ## Markdown files

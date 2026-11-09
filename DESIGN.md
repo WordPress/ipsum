@@ -1,6 +1,6 @@
 # DESIGN.md
 
-How to design with Ipsum: what each preset is for, how the theme uses it, and what the style variations, templates, parts and block styles give you. `AGENTS.md` covers working in the repository.
+How to design with Ipsum: what each preset is for, how the theme uses it, and what the style variations, templates, parts and block styles give you. [AGENTS.md](AGENTS.md) covers working on the theme's files.
 
 ## Ipsum
 

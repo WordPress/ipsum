@@ -40,7 +40,7 @@ This starts WordPress, activates Ipsum, and installs and activates the [Gutenber
 - Username: `admin`
 - Password: `password`
 
-Debugging, script debugging, and theme [development mode](https://make.wordpress.org/core/2023/07/14/configuring-development-mode-in-6-3/) are on. PHP notices, warnings, and errors go to `debug.log` in the WordPress install's `wp-content` directory instead of the browser. That install lives outside this repository (`npm run env:status` shows the path), or you can follow the log from the container:
+Debugging, script debugging, and theme [development mode](https://make.wordpress.org/core/2023/07/14/configuring-development-mode-in-6-3/) are on, so `theme.json` isn't cached and a reload shows your edits. PHP notices, warnings, and errors go to `debug.log` in the WordPress install's `wp-content` directory instead of the browser. That install lives outside this repository (`npm run env:status` shows the path), or you can follow the log from the container:
 
 ```sh
 npm run wp-env -- run cli tail -f wp-content/debug.log
@@ -56,6 +56,8 @@ npm run env:status  # Show its status and ports.
 npm run env:stop    # Stop it without deleting data.
 npm run env:reset   # Reset the database to a fresh WordPress install.
 ```
+
+Check `npm run env:status` before you start or set up anything, since the environment may already be running.
 
 `npm run env:reset` can't be undone. Run `npm run env:setup` afterwards to activate Ipsum and the plugins again.
 
@@ -73,9 +75,9 @@ To try the theme in the browser without installing anything, use [WordPress Play
 
 ### Editing the stylesheet
 
-Ipsum's main stylesheet is `style.css`. On a production site the front end uses the minified copy, `style.min.css`, instead. When `SCRIPT_DEBUG` is on, as it is in the `wp-env` setup above, the theme uses `style.css`, so your edits show up right away. Either way, WordPress prints the stylesheet inline in the page's `<head>` rather than linking to it, which saves a render-blocking request.
+Ipsum's main stylesheet is `style.css`. On a production site the front end uses the minified copy, `style.min.css`, instead. When `SCRIPT_DEBUG` is on, as it is in the `wp-env` setup above, the theme uses `style.css`, so your edits show up right away. Either way, WordPress prints the stylesheet inline in the page's `<head>` rather than linking to it, which saves a render-blocking request. It's printed as `<style id="ipsum-style-inline-css">`, so there's no stylesheet request to inspect or intercept.
 
-`style.min.css` is generated from `style.css` and committed to the repository. When you commit a change to `style.css`, the pre-commit hook regenerates `style.min.css` and adds it to the commit. If you skip the hook, regenerate it yourself and include both files in your pull request:
+`style.min.css` is generated from `style.css` and committed to the repository. When you commit a change to `style.css`, the pre-commit hook regenerates `style.min.css` and adds it to the commit. If you skip the hook with `--no-verify`, or it doesn't run, as in a worktree without `npm install`, regenerate it yourself and include both files in your pull request:
 
 ```sh
 npm run build   # Regenerate style.min.css from style.css.
@@ -208,6 +210,14 @@ One way to control the order in which patterns are displayed in the inserter is 
 - In accordance to those last two bullets, the theme needs no build process to run. The only build step is minifying `style.css`, which the pre-commit hook does for you (see [Editing the stylesheet](#editing-the-stylesheet)).
 - Refrain from creating pull requests for translatable strings until all patterns, parts, and templates are completed.
 
+### Opening a pull request
+
+Follow the [pull request template](.github/PULL_REQUEST_TEMPLATE.md), including the AI disclosure section.
+
+- Link the issue the change fixes.
+- Check the front end and the Site Editor, and at least one color variation besides the default, since variations redefine every preset color. Say what you checked in Testing Instructions.
+- Don't bump `Version:` or add a changelog entry unless the issue asks for it. `Version:` stays at 1.0 until release, so tell copies apart by the git commit, not the version.
+
 ## Development guidelines
 
 Ipsum is a [block theme](https://developer.wordpress.org/block-editor/how-to-guides/themes/block-theme-overview/). Keep these goals in mind:
@@ -218,6 +228,8 @@ Ipsum is a [block theme](https://developer.wordpress.org/block-editor/how-to-gui
 - Follow [WordPress PHP coding standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/) for PHP in `functions.php`, `inc/` and pattern files.
 
 When a change affects the front end or the Site Editor, test both and note what you checked in your pull request.
+
+Only the theme ships with WordPress. Repository tooling and docs, such as `.github/`, `.husky/`, `bin/`, `CONTRIBUTING.md`, `README.md`, `package.json`, `.wp-env.json` and `.nvmrc`, stay in this repository. `AGENTS.md` and `DESIGN.md` ship with the theme, so keep them true for any copy of it.
 
 ## Contributor Attribution (Props)
 

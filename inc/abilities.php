@@ -183,7 +183,7 @@ if ( ! function_exists( 'ipsum_get_design_guide_schema' ) ) :
 				),
 				$extra_properties
 			);
-			$required = $require_name ? array( 'slug', 'name', $value_key ) : array( 'slug', $value_key );
+			$required         = $require_name ? array( 'slug', 'name', $value_key ) : array( 'slug', $value_key );
 			return $object_list( $title, $description, $properties, $required );
 		};
 

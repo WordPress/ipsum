@@ -71,6 +71,19 @@ Or with [WP-CLI](https://developer.wordpress.org/cli/commands/config/set/), from
 
 To try the theme in the browser without installing anything, use [WordPress Playground](https://developer.wordpress.org/playground/).
 
+### Editing the stylesheet
+
+Ipsum's main stylesheet is `style.css`. On a production site the front end uses the minified copy, `style.min.css`, instead. When `SCRIPT_DEBUG` is on, as it is in the `wp-env` setup above, the theme uses `style.css`, so your edits show up right away. Either way, WordPress prints the stylesheet inline in the page's `<head>` rather than linking to it, which saves a render-blocking request.
+
+`style.min.css` is generated from `style.css` and committed to the repository. When you commit a change to `style.css`, the pre-commit hook regenerates `style.min.css` and adds it to the commit. If you skip the hook, regenerate it yourself and include both files in your pull request:
+
+```sh
+npm run build   # Regenerate style.min.css from style.css.
+npm run watch   # Or regenerate it every time style.css changes.
+```
+
+Don't edit `style.min.css` by hand. CI rebuilds it and fails the pull request if the committed copy doesn't match.
+
 ### Pattern creation guidelines
 
 [Reference guide for patterns in the handbook](https://developer.wordpress.org/block-editor/reference-guides/block-api/block-patterns/).
@@ -78,7 +91,7 @@ A few things to have in mind when building patterns for the default theme:
 
 - **Category selection**
 
-When creating WordPress block patterns, it's important to carefully choose the appropriate category for your pattern. WordPress provides a set of default categories, each serving a specific purpose. Let's stick to using the default categories, with one exception: full page layouts go in the theme's own `ipsum_page` category (labeled "Pages"), registered in `functions.php`. We can add multiple of them separating them by commas. The list of the slug is [here](https://github.com/WordPress/gutenberg/blob/c20350c1d246163201375f090b0b7b4ab49b1dad/packages/block-editor/src/components/inserter/block-patterns-tab.js#L35).
+When creating WordPress block patterns, it's important to carefully choose the appropriate category for your pattern. WordPress provides a set of default categories, each serving a specific purpose. Let's stick to using the default categories, with two exceptions registered in `functions.php`: full page layouts go in the theme's own `ipsum_page` category (labeled "Pages"), and post format patterns in `ipsum_post-format` (labeled "Post formats"). We can add multiple of them separating them by commas. The list of the slug is [here](https://github.com/WordPress/gutenberg/blob/c20350c1d246163201375f090b0b7b4ab49b1dad/packages/block-editor/src/components/inserter/block-patterns-tab.js#L35).
 
 - **Hiding patterns from the inserter**
 
@@ -91,6 +104,8 @@ We do this by adding the following line:
 ` * Inserter: no`
 
 Let's prefix hidden patterns using `hidden-` when we name the pattern file.
+
+Hidden patterns still need a `Title` and a `Description`, since agents read them through the REST API (`/wp/v2/block-patterns/patterns`). Say which template or template part the pattern fills and what it holds. As in every description, use full sentences instead of dashes: what the pattern is, then a second sentence saying what's in it. Template patterns take `Template Types:`, and header, footer and navigation overlay patterns take `Block Types: core/template-part/<area>`. Patterns for General parts, like the sidebar and the search bar, leave out `Block Types`, or the Site Editor offers each one as a design for every other General part.
 
 - **Different translation functions and when to use them**
 
@@ -110,9 +125,9 @@ These functions enhance security and support localization efforts in WordPress b
 
 - **Patterns with images**
 
-To create dynamic image links in your block patterns, utilize the `get_template_directory_uri()` function. This function retrieves the URL of the current theme's directory, ensuring that the image links are relative to the theme and work correctly even if the website's directory structure changes or if we are using a child theme. This is essential for maintaining the stability and portability of your patterns.
+To create dynamic image links in your block patterns, pass the image's path within the theme to the `get_parent_theme_file_uri()` function. It returns the URL of that file in Ipsum's directory, ensuring that the image links work correctly even if the website's directory structure changes or if we are using a child theme. The URL can also be filtered with `parent_theme_file_uri`, such as to serve the images from a CDN.
 
-Add the theme version to the end of the image URL as `?ver=`, so browsers that cache static files for a long time fetch the image again after a theme update.
+Don't add a `?ver=` query argument to image URLs. The images won't change after release, and once a pattern is inserted, its image URL is saved in the post, so the version would never update there anyway.
 
 Make sure to add alt text to your images and to make sure to remove the IDs from them. An example would be:
 
@@ -126,7 +141,7 @@ would turn into
 
 ```
 <!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/project.webp?ver=<?php echo esc_attr( wp_get_theme( get_template() )->get( 'Version' ) ); ?>" alt="<?php echo esc_attr_x( 'Picture of a building', 'Alt text for project picture', 'ipsum' ); ?>"/></figure>
+<figure class="wp-block-image size-large"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/project.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'Picture of a building', 'Alt text for project picture', 'ipsum' ); ?>"/></figure>
 <!-- /wp:image -->
 ```
 
@@ -154,7 +169,7 @@ Accessibility: Presets facilitate adherence to accessibility standards, making y
 
 - **Other tips**
 
-In the same way we remove IDs from image blocks, we need to remove queryId from query blocks too. Also, if any of our template parts have a theme attribute, that needs to remove too.
+In the same way we remove IDs from image blocks, we need to remove queryId from query blocks too. Also, if any of our template parts have a theme or an area attribute, those need to be removed too. The area comes from `templateParts` in `theme.json`, so the slug is enough.
 
 `<!-- wp:query {"queryId":18,"query":{"perPage":8,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true}} -->`
 
@@ -168,7 +183,17 @@ and
 
 turns into
 
-`<!-- wp:template-part {"slug":"header-portfolio","area":"header","tagName":"header"} /-->`
+`<!-- wp:template-part {"slug":"header-portfolio","tagName":"header"} /-->`
+
+The editor also writes `patternName` and `categories` into the metadata of blocks inserted from a pattern, and exports such as Create Block Theme keep them. The editor adds them back on insertion, so remove those two and keep the rest of the metadata, such as `name` or `bindings`:
+
+`<!-- wp:group {"metadata":{"name":"Footer","patternName":"ipsum/footer","categories":["footer"]},"layout":{"type":"constrained"}} -->`
+
+turns into
+
+`<!-- wp:group {"metadata":{"name":"Footer"},"layout":{"type":"constrained"}} -->`
+
+Block names (`metadata.name`) show in the List View and are what an agent reads to tell blocks apart, so name a block by what it does, not what it prints: a paragraph holding the `·` separator is `Meta Separator`, not `·`. Translate names like other strings: `esc_html_x( 'Meta Separator', 'Name of the paragraph separating post meta items', 'ipsum' )`.
 
 If we are constantly assigning properties to the same block over and over again (ie: border radius to images), consider moving those properties to the theme.json.
 
@@ -180,7 +205,7 @@ One way to control the order in which patterns are displayed in the inserter is 
 
 - As stated above, a goal for the theme is to have as little CSS as possible. Much of the theme's visual treatments should be handled by the Block Editor and Global Styles. As a general rule, if multiple themes would benefit from the CSS you're considering adding, it might reasonably be provided by Gutenberg instead. Let's include clear code comments for any CSS we do include.
 - Similarly, let's refrain from building any custom-built PHP or JavaScript-based workarounds for functionality that might reasonably be provided by the Block Editor, let's keep the code simple to help with future maintenance.
-- In accordance to those last two bullets, this theme has no required build process.
+- In accordance to those last two bullets, the theme needs no build process to run. The only build step is minifying `style.css`, which the pre-commit hook does for you (see [Editing the stylesheet](#editing-the-stylesheet)).
 - Refrain from creating pull requests for translatable strings until all patterns, parts, and templates are completed.
 
 ## Development guidelines
@@ -189,6 +214,7 @@ Ipsum is a [block theme](https://developer.wordpress.org/block-editor/how-to-gui
 
 - Prefer **`theme.json`** and Global Styles over custom CSS. Only add CSS when the block editor or theme APIs cannot express the design yet.
 - Use existing patterns in the repo for templates, template parts, and block patterns (`templates/`, `parts/`, `patterns/`).
+- Style with the presets as [DESIGN.md](DESIGN.md) describes them: what each color, font size and spacing step is for.
 - Follow [WordPress PHP coding standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/) for PHP in `functions.php`, `inc/` and pattern files.
 
 When a change affects the front end or the Site Editor, test both and note what you checked in your pull request.

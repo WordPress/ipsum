@@ -196,11 +196,10 @@ footer.wp-block-template-part {
 }
 
 /*
- * Let long unbroken strings (URLs, pasted text, long names) wrap inside comments.
- * `break-word` on body doesn't reduce min-content width, so the flex layout
- * grows and the page scrolls sideways; `anywhere` does.
+ * Long unbroken author names still grow their flex row (avatar + meta).
+ * Comment content inherits body's break-word once the template wrapper is a
+ * plain group; only the author needs anywhere so min-content can shrink.
  */
-.wp-block-comment-content,
 .wp-block-comment-author-name {
 	overflow-wrap: anywhere;
 }

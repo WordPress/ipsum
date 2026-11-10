@@ -171,16 +171,20 @@ if ( ! function_exists( 'ipsum_get_design_guide_schema' ) ) :
 			return $schema;
 		};
 
-		$preset_list = static function ( $title, $description, $value_key, $value_schema, $extra_properties = array() ) use ( $object_list, $titled ) {
-			$properties = array_merge(
+		$preset_list = static function ( $title, $description, $value_key, $value_schema, $extra_properties = array(), $require_name = true ) use ( $object_list, $titled ) {
+			$name_description = $require_name
+				? __( 'The human-readable preset name.', 'ipsum' )
+				: __( 'The human-readable preset name. Omitted when the preset does not set one.', 'ipsum' );
+			$properties       = array_merge(
 				array(
 					'slug'     => $titled( __( 'Slug', 'ipsum' ), __( 'The preset slug.', 'ipsum' ) ),
-					'name'     => $titled( __( 'Name', 'ipsum' ), __( 'The human-readable preset name.', 'ipsum' ) ),
+					'name'     => $titled( __( 'Name', 'ipsum' ), $name_description ),
 					$value_key => $value_schema,
 				),
 				$extra_properties
 			);
-			return $object_list( $title, $description, $properties, array( 'slug', 'name', $value_key ) );
+			$required = $require_name ? array( 'slug', 'name', $value_key ) : array( 'slug', $value_key );
+			return $object_list( $title, $description, $properties, $required );
 		};
 
 		$colors = $preset_list(
@@ -261,15 +265,19 @@ if ( ! function_exists( 'ipsum_get_design_guide_schema' ) ) :
 						),
 						'fontFamilies' => $preset_list(
 							__( 'Font Families', 'ipsum' ),
-							__( 'The font family presets from the theme and any added on the site.', 'ipsum' ),
+							__( 'The font family presets from the theme and any added on the site. The name is omitted when a preset does not set one.', 'ipsum' ),
 							'fontFamily',
-							$titled( __( 'Font Family', 'ipsum' ), __( 'The CSS font-family value.', 'ipsum' ) )
+							$titled( __( 'Font Family', 'ipsum' ), __( 'The CSS font-family value.', 'ipsum' ) ),
+							array(),
+							false
 						),
 						'fontSizes'    => $preset_list(
 							__( 'Font Sizes', 'ipsum' ),
-							__( 'The font size presets from the theme, then any custom sizes. Not sorted by size.', 'ipsum' ),
+							__( 'The font size presets from the theme, then any custom sizes. Not sorted by size. The name is omitted when a preset does not set one.', 'ipsum' ),
 							'size',
-							$titled( __( 'Size', 'ipsum' ), __( 'The CSS font-size value.', 'ipsum' ) )
+							$titled( __( 'Size', 'ipsum' ), __( 'The CSS font-size value.', 'ipsum' ) ),
+							array(),
+							false
 						),
 					),
 					'required'             => array( 'bodyFont', 'headingFont', 'blockFonts', 'fontFamilies', 'fontSizes' ),
@@ -277,9 +285,11 @@ if ( ! function_exists( 'ipsum_get_design_guide_schema' ) ) :
 				),
 				'spacing'           => $preset_list(
 					__( 'Spacing', 'ipsum' ),
-					__( 'The spacing scale from the theme, then any custom sizes. Not sorted by size.', 'ipsum' ),
+					__( 'The spacing scale from the theme, then any custom sizes. Not sorted by size. The name is omitted when a preset does not set one.', 'ipsum' ),
 					'size',
-					$titled( __( 'Size', 'ipsum' ), __( 'The CSS spacing size value.', 'ipsum' ) )
+					$titled( __( 'Size', 'ipsum' ), __( 'The CSS spacing size value.', 'ipsum' ) ),
+					array(),
+					false
 				),
 				'layout'            => array(
 					'type'                 => 'object',
@@ -422,7 +432,11 @@ if ( ! function_exists( 'ipsum_get_design_guide_schema' ) ) :
 					array(
 						'slug'       => $titled( __( 'Slug', 'ipsum' ), __( 'The template part slug.', 'ipsum' ) ),
 						'title'      => $titled( __( 'Title', 'ipsum' ), __( 'The template part title.', 'ipsum' ) ),
-						'area'       => $titled( __( 'Area', 'ipsum' ), __( 'The template part area, such as header, footer, or uncategorized.', 'ipsum' ) ),
+						'area'       => array(
+							'type'        => array( 'string', 'null' ),
+							'title'       => __( 'Area', 'ipsum' ),
+							'description' => __( 'The template part area, such as header, footer, or uncategorized, or null when the part has no area term.', 'ipsum' ),
+						),
 						'pattern'    => array(
 							'type'        => array( 'string', 'null' ),
 							'title'       => __( 'Pattern', 'ipsum' ),
@@ -614,7 +628,8 @@ if ( ! function_exists( 'ipsum_get_design_guide' ) ) :
 			$guide['typography'] = array(
 				'bodyFont'     => $body_font,
 				'headingFont'  => ipsum_get_design_guide_font_slug( $styles['elements']['heading']['typography']['fontFamily'] ?? '' ) ?? $body_font,
-				'blockFonts'   => $block_fonts,
+				// An empty array JSON-encodes as [], which fails the object schema.
+				'blockFonts'   => (object) $block_fonts,
 				'fontFamilies' => ipsum_get_design_guide_presets( $settings['typography']['fontFamilies'] ?? array(), array( 'slug', 'name', 'fontFamily' ) ),
 				'fontSizes'    => ipsum_get_design_guide_presets( $settings['typography']['fontSizes'] ?? array(), array( 'slug', 'name', 'size' ) ),
 			);

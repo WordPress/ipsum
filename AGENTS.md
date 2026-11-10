@@ -14,7 +14,7 @@ npm run env:start       # Later runs, if the environment is not already running.
 
 The site is at <http://localhost:8899> (`admin` / `password`). The repository is mounted as the `ipsum` theme with `node_modules` hidden, and `WP_DEVELOPMENT_MODE` is `theme`, so `theme.json` is not cached. See [Getting Started](CONTRIBUTING.md#getting-started) for the rest, including running without Docker.
 
-Templates, patterns, `theme.json` and CSS are served as they are in the tree; reload to see an edit. `SCRIPT_DEBUG` is on, so the front end loads `style.css` rather than `style.min.css`. The only build step is regenerating `style.min.css`, which the pre-commit hook does when `style.css` is staged. If the hook doesn't run, as in a worktree without `npm install` or with `--no-verify`, run `npm run build` and commit both files.
+Templates, patterns, `theme.json` and CSS are served as they are in the tree; reload to see an edit. `SCRIPT_DEBUG` is on, so the front end uses `style.css` rather than `style.min.css`. WordPress inlines it as `<style id="ipsum-style-inline-css">` instead of linking to it, so there is no stylesheet request to inspect or intercept. The only build step is regenerating `style.min.css`, which the pre-commit hook does when `style.css` is staged. If the hook doesn't run, as in a worktree without `npm install` or with `--no-verify`, run `npm run build` and commit both files. `Version:` stays at 1.0 until release, so tell copies apart by the git commit, not the version.
 
 ### Key directories
 
@@ -29,8 +29,8 @@ Templates, patterns, `theme.json` and CSS are served as they are in the tree; re
 -   `functions.php` - Theme PHP: stylesheets, the comments CTA block binding, sidebar template types, block styles. It loads `inc/abilities.php`.
 -   `inc/abilities.php` - The `ipsum/get-design-guide` ability, which gives agents on a live site the palette roles, presets, style variations, block styles, patterns and templates through the Abilities API. A new palette color needs its role in `ipsum_get_color_roles()`.
 -   `theme.json` - Global settings and styles, fonts, `customTemplates`, per-block styles.
--   `style.css` - The theme header plus the CSS that `theme.json` cannot express. It loads in the editors through `add_editor_style()`, and on the front end when `SCRIPT_DEBUG` is on or it is newer than `style.min.css`.
--   `style.min.css` - `style.css` minified by `npm run build`, loaded on the front end otherwise. Generated: rebuild it, never edit it.
+-   `style.css` - The theme header plus the CSS that `theme.json` cannot express. It loads in the editors through `add_editor_style()`, and is inlined on the front end when `SCRIPT_DEBUG` is on or it is newer than `style.min.css`.
+-   `style.min.css` - `style.css` minified by `npm run build`, inlined on the front end otherwise. Generated: rebuild it, never edit it.
 -   `readme.txt` - The WordPress.org readme: description, changelog, copyright, font credits.
 -   `.github/`, `CONTRIBUTING.md`, `README.md`, `package.json`, `.wp-env.json`, `.nvmrc` - Repository tooling and docs, not part of the theme.
 
@@ -38,7 +38,8 @@ Templates, patterns, `theme.json` and CSS are served as they are in the tree; re
 
 Read only what your task needs, when it needs it:
 
--   **Adding or changing a pattern**: read [Pattern creation guidelines](CONTRIBUTING.md#pattern-creation-guidelines) first. It covers categories, hiding from the inserter, which i18n function to use, images, and removing `id`, `queryId` and `theme` attributes from copied markup.
+-   **Styling, or building pages, patterns or templates**: read [DESIGN.md](DESIGN.md) first. It covers the color roles, the type and spacing scales, the style variations, and which pattern fills each template and part.
+-   **Adding or changing a pattern**: read [Pattern creation guidelines](CONTRIBUTING.md#pattern-creation-guidelines) first. It covers categories, hiding from the inserter, which i18n function to use, images, and removing `id`, `queryId`, `theme`, `area`, `patternName` and `metadata.categories` from copied markup.
 -   **Adding CSS or PHP**: read [Development guidelines](CONTRIBUTING.md#development-guidelines). Prefer `theme.json` and Global Styles; add CSS or PHP only when the editor cannot express the design, and keep it commented.
 -   **Opening a pull request**: follow `.github/PULL_REQUEST_TEMPLATE.md`, including the AI disclosure section.
 

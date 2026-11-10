@@ -73,7 +73,7 @@ To try the theme in the browser without installing anything, use [WordPress Play
 
 ### Editing the stylesheet
 
-Ipsum's main stylesheet is `style.css`. On a production site the front end loads the minified copy, `style.min.css`, instead. When `SCRIPT_DEBUG` is on, as it is in the `wp-env` setup above, the theme loads `style.css`, so your edits show up right away.
+Ipsum's main stylesheet is `style.css`. On a production site the front end uses the minified copy, `style.min.css`, instead. When `SCRIPT_DEBUG` is on, as it is in the `wp-env` setup above, the theme uses `style.css`, so your edits show up right away. Either way, WordPress prints the stylesheet inline in the page's `<head>` rather than linking to it, which saves a render-blocking request.
 
 `style.min.css` is generated from `style.css` and committed to the repository. When you commit a change to `style.css`, the pre-commit hook regenerates `style.min.css` and adds it to the commit. If you skip the hook, regenerate it yourself and include both files in your pull request:
 
@@ -169,7 +169,7 @@ Accessibility: Presets facilitate adherence to accessibility standards, making y
 
 - **Other tips**
 
-In the same way we remove IDs from image blocks, we need to remove queryId from query blocks too. Also, if any of our template parts have a theme attribute, that needs to remove too.
+In the same way we remove IDs from image blocks, we need to remove queryId from query blocks too. Also, if any of our template parts have a theme or an area attribute, those need to be removed too. The area comes from `templateParts` in `theme.json`, so the slug is enough.
 
 `<!-- wp:query {"queryId":18,"query":{"perPage":8,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true}} -->`
 
@@ -183,7 +183,15 @@ and
 
 turns into
 
-`<!-- wp:template-part {"slug":"header-portfolio","area":"header","tagName":"header"} /-->`
+`<!-- wp:template-part {"slug":"header-portfolio","tagName":"header"} /-->`
+
+The editor also writes `patternName` and `categories` into the metadata of blocks inserted from a pattern, and exports such as Create Block Theme keep them. The editor adds them back on insertion, so remove those two and keep the rest of the metadata, such as `name` or `bindings`:
+
+`<!-- wp:group {"metadata":{"name":"Footer","patternName":"ipsum/footer","categories":["footer"]},"layout":{"type":"constrained"}} -->`
+
+turns into
+
+`<!-- wp:group {"metadata":{"name":"Footer"},"layout":{"type":"constrained"}} -->`
 
 Block names (`metadata.name`) show in the List View and are what an agent reads to tell blocks apart, so name a block by what it does, not what it prints: a paragraph holding the `·` separator is `Meta Separator`, not `·`. Translate names like other strings: `esc_html_x( 'Meta Separator', 'Name of the paragraph separating post meta items', 'ipsum' )`.
 
@@ -206,6 +214,7 @@ Ipsum is a [block theme](https://developer.wordpress.org/block-editor/how-to-gui
 
 - Prefer **`theme.json`** and Global Styles over custom CSS. Only add CSS when the block editor or theme APIs cannot express the design yet.
 - Use existing patterns in the repo for templates, template parts, and block patterns (`templates/`, `parts/`, `patterns/`).
+- Style with the presets as [DESIGN.md](DESIGN.md) describes them: what each color, font size and spacing step is for.
 - Follow [WordPress PHP coding standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/) for PHP in `functions.php`, `inc/` and pattern files.
 
 When a change affects the front end or the Site Editor, test both and note what you checked in your pull request.

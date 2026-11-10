@@ -163,27 +163,26 @@ if ( ! function_exists( 'ipsum_get_design_guide_schema' ) ) :
 			);
 		};
 
-		$titled = static function ( $title, $description = '' ) use ( $string ) {
-			$schema = array_merge( $string, array( 'title' => $title ) );
-			if ( '' !== $description ) {
-				$schema['description'] = $description;
-			}
-			return $schema;
-		};
-
-		$preset_list = static function ( $title, $description, $value_key, $value_schema, $extra_properties = array(), $require_name = true ) use ( $object_list, $titled ) {
-			$name_description = $require_name
+		$preset_list = static function ( $title, $description, $value_key, $value_schema, $required, $extra_properties = array() ) use ( $object_list ) {
+			$name_description = in_array( 'name', $required, true )
 				? __( 'The human-readable preset name.', 'ipsum' )
 				: __( 'The human-readable preset name. Omitted when the preset does not set one.', 'ipsum' );
 			$properties       = array_merge(
 				array(
-					'slug'     => $titled( __( 'Slug', 'ipsum' ), __( 'The preset slug.', 'ipsum' ) ),
-					'name'     => $titled( __( 'Name', 'ipsum' ), $name_description ),
+					'slug'     => array(
+						'type'        => 'string',
+						'title'       => __( 'Slug', 'ipsum' ),
+						'description' => __( 'The preset slug.', 'ipsum' ),
+					),
+					'name'     => array(
+						'type'        => 'string',
+						'title'       => __( 'Name', 'ipsum' ),
+						'description' => $name_description,
+					),
 					$value_key => $value_schema,
 				),
 				$extra_properties
 			);
-			$required         = $require_name ? array( 'slug', 'name', $value_key ) : array( 'slug', $value_key );
 			return $object_list( $title, $description, $properties, $required );
 		};
 
@@ -191,7 +190,12 @@ if ( ! function_exists( 'ipsum_get_design_guide_schema' ) ) :
 			__( 'Colors', 'ipsum' ),
 			__( 'The color palette from the theme and any colors added on the site, with what each theme color is for. Every style variation redefines the same slugs. The role field is omitted for colors that have no known role.', 'ipsum' ),
 			'color',
-			$titled( __( 'Color', 'ipsum' ), __( 'The CSS color value.', 'ipsum' ) ),
+			array(
+				'type'        => 'string',
+				'title'       => __( 'Color', 'ipsum' ),
+				'description' => __( 'The CSS color value.', 'ipsum' ),
+			),
+			array( 'slug', 'name', 'color' ),
 			array(
 				'role' => array(
 					'type'        => 'string',
@@ -215,8 +219,16 @@ if ( ! function_exists( 'ipsum_get_design_guide_schema' ) ) :
 					'title'                => __( 'Theme', 'ipsum' ),
 					'description'          => __( 'The active theme. Its stylesheet is the one to use in REST routes such as /wp/v2/global-styles/themes/{stylesheet}.', 'ipsum' ),
 					'properties'           => array(
-						'name'       => $titled( __( 'Name', 'ipsum' ), __( 'The active theme name.', 'ipsum' ) ),
-						'stylesheet' => $titled( __( 'Stylesheet', 'ipsum' ), __( 'The theme stylesheet slug.', 'ipsum' ) ),
+						'name'       => array(
+							'type'        => 'string',
+							'title'       => __( 'Name', 'ipsum' ),
+							'description' => __( 'The active theme name.', 'ipsum' ),
+						),
+						'stylesheet' => array(
+							'type'        => 'string',
+							'title'       => __( 'Stylesheet', 'ipsum' ),
+							'description' => __( 'The theme stylesheet slug.', 'ipsum' ),
+						),
 					),
 					'required'             => array( 'name', 'stylesheet' ),
 					'additionalProperties' => false,
@@ -230,7 +242,12 @@ if ( ! function_exists( 'ipsum_get_design_guide_schema' ) ) :
 					__( 'Gradients', 'ipsum' ),
 					__( 'The gradient presets from the theme and any added on the site.', 'ipsum' ),
 					'gradient',
-					$titled( __( 'Gradient', 'ipsum' ), __( 'The CSS gradient value.', 'ipsum' ) )
+					array(
+						'type'        => 'string',
+						'title'       => __( 'Gradient', 'ipsum' ),
+						'description' => __( 'The CSS gradient value.', 'ipsum' ),
+					),
+					array( 'slug', 'name', 'gradient' )
 				),
 				'duotone'           => $preset_list(
 					__( 'Duotone', 'ipsum' ),
@@ -242,7 +259,8 @@ if ( ! function_exists( 'ipsum_get_design_guide_schema' ) ) :
 							'title'       => __( 'Colors', 'ipsum' ),
 							'description' => __( 'The two colors in the duotone filter.', 'ipsum' ),
 						)
-					)
+					),
+					array( 'slug', 'name', 'colors' )
 				),
 				'typography'        => array(
 					'type'                 => 'object',
@@ -267,17 +285,23 @@ if ( ! function_exists( 'ipsum_get_design_guide_schema' ) ) :
 							__( 'Font Families', 'ipsum' ),
 							__( 'The font family presets from the theme and any added on the site. The name is omitted when a preset does not set one.', 'ipsum' ),
 							'fontFamily',
-							$titled( __( 'Font Family', 'ipsum' ), __( 'The CSS font-family value.', 'ipsum' ) ),
-							array(),
-							false
+							array(
+								'type'        => 'string',
+								'title'       => __( 'Font Family', 'ipsum' ),
+								'description' => __( 'The CSS font-family value.', 'ipsum' ),
+							),
+							array( 'slug', 'fontFamily' )
 						),
 						'fontSizes'    => $preset_list(
 							__( 'Font Sizes', 'ipsum' ),
 							__( 'The font size presets from the theme, then any custom sizes. Not sorted by size. The name is omitted when a preset does not set one.', 'ipsum' ),
 							'size',
-							$titled( __( 'Size', 'ipsum' ), __( 'The CSS font-size value.', 'ipsum' ) ),
-							array(),
-							false
+							array(
+								'type'        => 'string',
+								'title'       => __( 'Size', 'ipsum' ),
+								'description' => __( 'The CSS font-size value.', 'ipsum' ),
+							),
+							array( 'slug', 'size' )
 						),
 					),
 					'required'             => array( 'bodyFont', 'headingFont', 'blockFonts', 'fontFamilies', 'fontSizes' ),
@@ -287,9 +311,12 @@ if ( ! function_exists( 'ipsum_get_design_guide_schema' ) ) :
 					__( 'Spacing', 'ipsum' ),
 					__( 'The spacing scale from the theme, then any custom sizes. Not sorted by size. The name is omitted when a preset does not set one.', 'ipsum' ),
 					'size',
-					$titled( __( 'Size', 'ipsum' ), __( 'The CSS spacing size value.', 'ipsum' ) ),
-					array(),
-					false
+					array(
+						'type'        => 'string',
+						'title'       => __( 'Size', 'ipsum' ),
+						'description' => __( 'The CSS spacing size value.', 'ipsum' ),
+					),
+					array( 'slug', 'size' )
 				),
 				'layout'            => array(
 					'type'                 => 'object',
@@ -314,7 +341,11 @@ if ( ! function_exists( 'ipsum_get_design_guide_schema' ) ) :
 					__( 'Style Variations', 'ipsum' ),
 					__( 'The style variations available for this theme. Each item lists only what that variation changes: colorScheme and colors for the palette, bodyFont and headingFont for the fonts, and blocks for the style properties it sets on each block. Optional fields are omitted when the variation does not change them. Their full data is at /wp/v2/global-styles/themes/{stylesheet}/variations.', 'ipsum' ),
 					array(
-						'title'       => $titled( __( 'Title', 'ipsum' ), __( 'The style variation title.', 'ipsum' ) ),
+						'title'       => array(
+							'type'        => 'string',
+							'title'       => __( 'Title', 'ipsum' ),
+							'description' => __( 'The style variation title.', 'ipsum' ),
+						),
 						'colorScheme' => $scheme,
 						'colors'      => array(
 							'type'                 => 'object',
@@ -343,9 +374,21 @@ if ( ! function_exists( 'ipsum_get_design_guide_schema' ) ) :
 					__( 'Block Styles', 'ipsum' ),
 					__( 'The block styles registered on this site, beyond the ones blocks define themselves. Add className to a block of one of the blockTypes to apply it.', 'ipsum' ),
 					array(
-						'name'       => $titled( __( 'Name', 'ipsum' ), __( 'The block style slug.', 'ipsum' ) ),
-						'label'      => $titled( __( 'Label', 'ipsum' ), __( 'The human-readable block style label.', 'ipsum' ) ),
-						'className'  => $titled( __( 'Class Name', 'ipsum' ), __( 'The CSS class to add to the block, such as is-style-outline.', 'ipsum' ) ),
+						'name'       => array(
+							'type'        => 'string',
+							'title'       => __( 'Name', 'ipsum' ),
+							'description' => __( 'The block style slug.', 'ipsum' ),
+						),
+						'label'      => array(
+							'type'        => 'string',
+							'title'       => __( 'Label', 'ipsum' ),
+							'description' => __( 'The human-readable block style label.', 'ipsum' ),
+						),
+						'className'  => array(
+							'type'        => 'string',
+							'title'       => __( 'Class Name', 'ipsum' ),
+							'description' => __( 'The CSS class to add to the block, such as is-style-outline.', 'ipsum' ),
+						),
 						'blockTypes' => array_merge(
 							$strings,
 							array(
@@ -360,9 +403,21 @@ if ( ! function_exists( 'ipsum_get_design_guide_schema' ) ) :
 					__( 'Patterns', 'ipsum' ),
 					__( 'The patterns registered by the active theme, without their markup, which is at /wp/v2/block-patterns/patterns. Includes both insertable patterns and hidden ones that fill templates and template parts. Optional fields (blockTypes, templateTypes, postTypes) are omitted when empty.', 'ipsum' ),
 					array(
-						'slug'          => $titled( __( 'Slug', 'ipsum' ), __( 'The pattern slug.', 'ipsum' ) ),
-						'title'         => $titled( __( 'Title', 'ipsum' ), __( 'The pattern title.', 'ipsum' ) ),
-						'description'   => $titled( __( 'Description', 'ipsum' ), __( 'The pattern description.', 'ipsum' ) ),
+						'slug'          => array(
+							'type'        => 'string',
+							'title'       => __( 'Slug', 'ipsum' ),
+							'description' => __( 'The pattern slug.', 'ipsum' ),
+						),
+						'title'         => array(
+							'type'        => 'string',
+							'title'       => __( 'Title', 'ipsum' ),
+							'description' => __( 'The pattern title.', 'ipsum' ),
+						),
+						'description'   => array(
+							'type'        => 'string',
+							'title'       => __( 'Description', 'ipsum' ),
+							'description' => __( 'The pattern description.', 'ipsum' ),
+						),
 						'categories'    => array_merge(
 							$strings,
 							array(
@@ -403,9 +458,21 @@ if ( ! function_exists( 'ipsum_get_design_guide_schema' ) ) :
 					__( 'Templates', 'ipsum' ),
 					__( 'The block templates available on the site, including theme templates and any customized copies, with the pattern each delegates to when its markup is a single Pattern block.', 'ipsum' ),
 					array(
-						'slug'        => $titled( __( 'Slug', 'ipsum' ), __( 'The template slug.', 'ipsum' ) ),
-						'title'       => $titled( __( 'Title', 'ipsum' ), __( 'The template title.', 'ipsum' ) ),
-						'description' => $titled( __( 'Description', 'ipsum' ), __( 'The template description.', 'ipsum' ) ),
+						'slug'        => array(
+							'type'        => 'string',
+							'title'       => __( 'Slug', 'ipsum' ),
+							'description' => __( 'The template slug.', 'ipsum' ),
+						),
+						'title'       => array(
+							'type'        => 'string',
+							'title'       => __( 'Title', 'ipsum' ),
+							'description' => __( 'The template title.', 'ipsum' ),
+						),
+						'description' => array(
+							'type'        => 'string',
+							'title'       => __( 'Description', 'ipsum' ),
+							'description' => __( 'The template description.', 'ipsum' ),
+						),
 						'pattern'     => array(
 							'type'        => array( 'string', 'null' ),
 							'title'       => __( 'Pattern', 'ipsum' ),
@@ -430,8 +497,16 @@ if ( ! function_exists( 'ipsum_get_design_guide_schema' ) ) :
 					__( 'Template Parts', 'ipsum' ),
 					__( 'The template parts available on the site, including theme parts and any customized copies, with their area and the pattern each delegates to when its markup is a single Pattern block.', 'ipsum' ),
 					array(
-						'slug'       => $titled( __( 'Slug', 'ipsum' ), __( 'The template part slug.', 'ipsum' ) ),
-						'title'      => $titled( __( 'Title', 'ipsum' ), __( 'The template part title.', 'ipsum' ) ),
+						'slug'       => array(
+							'type'        => 'string',
+							'title'       => __( 'Slug', 'ipsum' ),
+							'description' => __( 'The template part slug.', 'ipsum' ),
+						),
+						'title'      => array(
+							'type'        => 'string',
+							'title'       => __( 'Title', 'ipsum' ),
+							'description' => __( 'The template part title.', 'ipsum' ),
+						),
 						'area'       => array(
 							'type'        => array( 'string', 'null' ),
 							'title'       => __( 'Area', 'ipsum' ),
@@ -454,9 +529,21 @@ if ( ! function_exists( 'ipsum_get_design_guide_schema' ) ) :
 					__( 'Template Part Areas', 'ipsum' ),
 					__( 'The areas a template part can belong to on this site.', 'ipsum' ),
 					array(
-						'area'        => $titled( __( 'Area', 'ipsum' ), __( 'The template part area slug.', 'ipsum' ) ),
-						'label'       => $titled( __( 'Label', 'ipsum' ), __( 'The human-readable area label.', 'ipsum' ) ),
-						'description' => $titled( __( 'Description', 'ipsum' ), __( 'What the area is for.', 'ipsum' ) ),
+						'area'        => array(
+							'type'        => 'string',
+							'title'       => __( 'Area', 'ipsum' ),
+							'description' => __( 'The template part area slug.', 'ipsum' ),
+						),
+						'label'       => array(
+							'type'        => 'string',
+							'title'       => __( 'Label', 'ipsum' ),
+							'description' => __( 'The human-readable area label.', 'ipsum' ),
+						),
+						'description' => array(
+							'type'        => 'string',
+							'title'       => __( 'Description', 'ipsum' ),
+							'description' => __( 'What the area is for.', 'ipsum' ),
+						),
 					),
 					array( 'area', 'label', 'description' )
 				),
@@ -628,8 +715,7 @@ if ( ! function_exists( 'ipsum_get_design_guide' ) ) :
 			$guide['typography'] = array(
 				'bodyFont'     => $body_font,
 				'headingFont'  => ipsum_get_design_guide_font_slug( $styles['elements']['heading']['typography']['fontFamily'] ?? '' ) ?? $body_font,
-				// An empty array JSON-encodes as [], which fails the object schema.
-				'blockFonts'   => (object) $block_fonts,
+				'blockFonts'   => $block_fonts,
 				'fontFamilies' => ipsum_get_design_guide_presets( $settings['typography']['fontFamilies'] ?? array(), array( 'slug', 'name', 'fontFamily' ) ),
 				'fontSizes'    => ipsum_get_design_guide_presets( $settings['typography']['fontSizes'] ?? array(), array( 'slug', 'name', 'size' ) ),
 			);

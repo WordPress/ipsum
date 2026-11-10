@@ -285,7 +285,7 @@ An image copied from the editor:
 
 ```html
 <!-- wp:image {"id":125,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="http://wp-stable.test/wp-content/themes/twentytwentyfive/assets/images/project.webp" alt="" class="wp-image-125"/></figure>
+<figure class="wp-block-image size-large"><img src="http://wp-stable.test/wp-content/themes/ipsum/assets/images/project.webp" alt="" class="wp-image-125"/></figure>
 <!-- /wp:image -->
 ```
 

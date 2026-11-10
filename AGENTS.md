@@ -29,7 +29,7 @@ Templates, patterns, `theme.json` and CSS are served as they are in the tree; re
 -   `functions.php` - Theme PHP: stylesheets, the comments CTA block binding, sidebar template types, block styles. It loads `inc/abilities.php`.
 -   `inc/abilities.php` - The `ipsum/get-design-guide` ability, which gives agents on a live site the palette roles, presets, style variations, block styles, patterns and templates through the Abilities API. A new palette color needs its role in `ipsum_get_color_roles()`.
 -   `theme.json` - Global settings and styles, fonts, `customTemplates`, per-block styles.
--   `style.css` - The theme header plus the CSS that `theme.json` cannot express. It loads in the editors through `add_editor_style()`, and is inlined on the front end when `SCRIPT_DEBUG` is on or it is newer than `style.min.css`.
+-   `style.css` - The theme header plus the CSS that `theme.json` cannot express. It loads in the editors through `add_editor_style()`, and is inlined on the front end when `SCRIPT_DEBUG` is on.
 -   `style.min.css` - `style.css` minified by `npm run build`, inlined on the front end otherwise. Generated: rebuild it, never edit it.
 -   `readme.txt` - The WordPress.org readme: description, changelog, copyright, font credits.
 -   `.github/`, `CONTRIBUTING.md`, `README.md`, `package.json`, `.wp-env.json`, `.nvmrc` - Repository tooling and docs, not part of the theme.

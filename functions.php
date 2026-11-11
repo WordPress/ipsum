@@ -120,15 +120,67 @@ if ( ! function_exists( 'ipsum_comments_cta_binding' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'ipsum_author_credit_binding' ) ) :
+	/**
+	 * Returns a complete author credit so translations can position the author name.
+	 *
+	 * @since Ipsum 1.0
+	 *
+	 * @param array<string, mixed> $source_args    Block binding source arguments. Unused.
+	 * @param WP_Block             $block_instance The block instance.
+	 * @return string|null The linked author credit, an empty string when authors are not
+	 *                     supported or the author name is empty, or null when there is no post.
+	 */
+	function ipsum_author_credit_binding( $source_args, $block_instance ) {
+		unset( $source_args ); // Unused, but must be accepted to get the block instance.
+
+		$post_id = $block_instance->context['postId'] ?? null;
+		$post    = get_post( is_numeric( $post_id ) ? (int) $post_id : null );
+		if ( ! $post ) {
+			return null;
+		}
+
+		if ( ! post_type_supports( $post->post_type, 'author' ) ) {
+			return '';
+		}
+
+		$author_name = get_the_author_meta( 'display_name', $post->post_author );
+		if ( '' === trim( (string) $author_name ) ) {
+			return '';
+		}
+
+		$author = sprintf(
+			'<a href="%1$s">%2$s</a>',
+			esc_url( get_author_posts_url( (int) $post->post_author ) ),
+			esc_html( $author_name )
+		);
+
+		return sprintf(
+			/* translators: %s: Linked post author name. */
+			esc_html__( 'Written by %s', 'ipsum' ),
+			$author
+		);
+	}
+endif;
+
 if ( ! function_exists( 'ipsum_register_block_bindings' ) ) :
 	/**
-	 * Registers the comments call-to-action block binding source.
+	 * Registers the comments call-to-action and author credit block binding sources.
 	 *
 	 * @since Ipsum 1.0
 	 *
 	 * @return void
 	 */
 	function ipsum_register_block_bindings() {
+		register_block_bindings_source(
+			'ipsum/author-credit',
+			array(
+				'label'              => __( 'Author credit', 'ipsum' ),
+				'get_value_callback' => 'ipsum_author_credit_binding',
+				'uses_context'       => array( 'postId' ),
+			)
+		);
+
 		register_block_bindings_source(
 			'ipsum/comments-cta',
 			array(

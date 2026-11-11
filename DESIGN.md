@@ -242,7 +242,7 @@ What each one needs to work:
 Two classes in `style.css` hide a group when a block inside it renders nothing, so the hand-written text around it doesn't stand alone. Keep the class on the group when you copy it into a new pattern.
 
 -   **`comments-meta`** goes on the group around the comments link row in post lists. Core renders nothing for the Comments Link block when comments are closed, so the row, with its `·` and call to action, hides with it.
--   **`author-card`** goes on the author chip in single posts. Core renders nothing for the Author Name block when the post type doesn't support authors, so the card, with its "Written by" byline and avatar, hides with it.
+-   **`author-card`** goes on the author chip in single posts. The author credit binding returns empty content when the post type doesn't support authors or the author name is empty, so the card and avatar hide with it. The author credit is a single bound paragraph, so the author name cannot be styled as a separate block. Saved templates that use the Author Name block are also supported.
 
 ### The `·` meta separator
 

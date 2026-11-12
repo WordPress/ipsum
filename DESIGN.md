@@ -163,8 +163,6 @@ The class is `is-style-` plus the slug.
 | --- | --- | --- | --- |
 | Crop Contents | `is-style-crop-contents` | Group | `overflow: clip` |
 | Display | `is-style-text-display` | Heading, Paragraph, Post Title, Site Title, Query Title | A size above 2X-Large that scales with the viewport, line height 1.2 |
-| Quote Mark | `is-style-text-quote-mark` | Heading, Paragraph | A ❝ above the text, in Border, at 2X-Large |
-| Quote Mark on Color | `is-style-text-quote-mark-on-color` | Heading, Paragraph | The same mark in the current text color; Text Statement uses it on a Strong Contrast card |
 | Evening | `is-style-evening` | Code | A black ground with near-white text and border, the same under every variation |
 | Sharp | `is-style-sharp` | Site Logo | Square corners |
 | Pinned to Bottom | `is-style-sticky-bottom` | Template Part | Pins the part to the bottom of the screen; see [Utility block styles](#utility-block-styles) |
@@ -173,6 +171,8 @@ The class is `is-style-` plus the slug.
 | Outline | `is-style-outline` | Search | A dotted Contrast outline on a Base button until hover, focus or press; the Search Bar part uses it |
 
 Ipsum also restyles core's own block styles: Button Outline (a separate style from Search's Outline, though they share the name), Quote Plain (no ground, padding or corners), Separator Wide (capped at the wide width), Site Logo Rounded (9999px) and Social Icons Logos Only (icons in the current text color).
+
+Text Statement, Text Statement Wide and Page Blog Home use Plain Quote blocks for their opening statements. The quote mark normally uses Border; Text Statement adds `ipsum-quote-on-color` to its Quote block so the mark follows the text color on the inverted card.
 
 ## Templates and parts
 

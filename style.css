@@ -110,6 +110,14 @@ span[style*="text-decoration"] {
 }
 
 /*
+ * The Text Statement quote sits on an inverted card, where the default
+ * Border-colored mark disappears. Match its text without changing other quotes.
+ */
+.wp-block-quote.ipsum-quote-on-color::before {
+	color: currentcolor;
+}
+
+/*
  * Make sure headers and footers have no margin, so the root block gap
  * never adds spacing the parts don't control themselves.
  * https://github.com/WordPress/gutenberg/issues/47637

@@ -166,13 +166,12 @@ footer.wp-block-template-part {
 }
 
 /*
- * Author cards: core hides the Author Name block for post types that do not
- * support authors, but the hand-written "Written by" byline would remain.
- * Hide the card when the Author Name block renders nothing, so the avatar and
- * the byline disappear together.
+ * Author cards: the author credit binding returns an empty string for post types that
+ * do not support authors. Hide the card too, so the avatar disappears with it.
+ * Keep supporting saved templates that still use the Author Name block.
  * https://github.com/WordPress/ipsum/issues/166
  */
-.author-card:not(:has(.wp-block-post-author-name)) {
+.author-card:not(:has(.wp-block-post-author-name, .ipsum-author-credit:not(:empty))) {
 	display: none;
 }
 

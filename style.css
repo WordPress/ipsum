@@ -230,9 +230,16 @@ header.wp-block-template-part:has(> .is-position-sticky) {
 	}
 }
 
-/* Unstick the header while focus or an anchor target is elsewhere, so it never covers them. */
-.wp-site-blocks:has(:focus-visible, :target) > header.wp-block-template-part:has(> .is-position-sticky):not(:focus-within) {
-	position: static;
+/*
+ * Keep focused elements and anchor targets from scrolling under a sticky
+ * header. Scroll padding can't follow the header's real height, so this is a
+ * generous guess: Header Sticky is under 120px tall with its 48px logo, and
+ * 10rem leaves room for a bigger logo or a title that wraps. Too much padding
+ * only leaves a little more space above what you scroll to. It replaces core's
+ * admin bar scroll padding, so the bar's height is added back.
+ */
+html:has(header.wp-block-template-part > .is-position-sticky) {
+	scroll-padding-block-start: calc(var(--wp-admin--admin-bar--height, 0px) + 10rem);
 }
 
 /*

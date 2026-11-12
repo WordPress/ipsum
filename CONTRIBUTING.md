@@ -116,7 +116,7 @@ Ipsum is a [block theme](https://developer.wordpress.org/block-editor/how-to-gui
 
 When a change affects the front end or the Site Editor, test both and note what you checked in your pull request.
 
-Only the theme ships with WordPress. Repository tooling and docs, such as `.github/`, `.husky/`, `bin/`, `CONTRIBUTING.md`, `README.md`, `package.json`, `.wp-env.json` and `.nvmrc`, stay in this repository. `AGENTS.md` and `DESIGN.md` ship with the theme, so keep them true for any copy of it.
+Only the theme ships with WordPress. Repository tooling and docs, such as `.github/`, `.husky/`, `bin/`, `CONTRIBUTING.md`, `README.md` and `.wp-env.json`, stay in this repository. Like the other bundled themes, core's copy has its own `package.json`, `package-lock.json` and `.nvmrc`, which only build `style.min.css`, so this repository's versions don't sync to core. `AGENTS.md` and `DESIGN.md` ship with the theme, so keep them true for any copy of it.
 
 ## Contributor Attribution (Props)
 

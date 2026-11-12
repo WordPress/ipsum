@@ -290,3 +290,19 @@ header.wp-block-template-part:has(> .is-position-sticky):has(.wp-block-navigatio
 		}
 	}
 }
+
+
+/*
+ * Keep post dates on one line when categories wrap on narrow screens.
+ * https://github.com/WordPress/ipsum/issues/202
+ */
+.wp-block-group:has(> .wp-block-post-date):has(> .wp-block-post-terms) > .wp-block-post-date {
+	flex: 0 0 auto;
+	white-space: nowrap;
+}
+
+.wp-block-group:has(> .wp-block-post-date):has(> .wp-block-post-terms) > .wp-block-post-terms {
+	flex: 1 1 auto;
+	min-width: 0;
+	overflow-wrap: anywhere;
+}

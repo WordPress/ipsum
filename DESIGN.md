@@ -35,7 +35,7 @@ How the palettes are built:
 -   **Buttons** fill with Contrast, with Base text, and fill with Strong Contrast on hover. Focus and press use Contrast at 85% (`color-mix()`). The Outline style keeps a Contrast border and fills with Surface on hover.
 -   **Form fields** in Search and the comment form are Base with Contrast text and border. The border turns Strong Contrast on hover. Jetpack form fields get the same border.
 -   **Accent is not a link or button color.** The theme uses it only in the arrival bar.
--   **Inverted sections and cards** use a Strong Contrast ground with Base text and links: the About Row band, the Navigation Overlay, and the cards in Text Statement, Footer Centered, Footer Subscribe, Header Collapsed, Page Bio, Page Blog Home and the gallery text tiles. They are dark in light variations and light in dark ones.
+-   **Inverted sections and cards** use a Strong Contrast ground with Base text and links: the About Row band, the Navigation Overlay, and the cards in Text Statement, Footer Subscribe, Header Collapsed, Page Bio, Page Blog Home and the gallery text tiles. They are dark in light variations and light in dark ones.
 -   **Tinted cards** use a Surface ground, Contrast text and 10px corners: Kind Words, CTA Membership, Hero Colophon, Format Audio, Format Link and the author chip in single posts. Surface works on any ground, so keep Contrast text on it.
 -   **Lines** use Border, at 1px, apart from the Surface rules in Header Sticky (1px) and Text Alternating (5px). Dotted rules use Border or the current text color.
 -   **Light or dark:** read `settings.custom.controlScheme`. It is `light` in `theme.json`, and each color variation sets its own. The variation titles don't tell you.
@@ -77,7 +77,7 @@ It isn't a preset you can pick. New meta text needs Manrope, Small and weight 60
 | `x-large` | X-Large | h2 |
 | `2-x-large` | 2X-Large | h1, single post titles, quote marks |
 
-Small to Large are fixed; X-Large and 2X-Large are fluid, smaller on narrow screens. The sizes are in `theme.json`. Above 2X-Large, the theme uses the Display block style (`is-style-text-display`) or fit text (Hero Epigraph, About Row, the 404 heading, the Footer Centered wordmark). Core's default sizes are off.
+Small to Large are fixed; X-Large and 2X-Large are fluid, smaller on narrow screens. The sizes are in `theme.json`. Above 2X-Large, the theme uses the Display block style (`is-style-text-display`) or fit text (Hero Epigraph, About Row, the 404 heading). Core's default sizes are off.
 
 ### Conventions
 
@@ -218,7 +218,7 @@ Ipsum also restyles core's own block styles: Button Outline (a separate style fr
 The header, footer and overlay parts delegate to insertable patterns. Other patterns carry `Block Types: core/template-part/<area>`, so the editor offers them as replacements:
 
 -   **Header:** Header Default, Header Collapsed, Header Sticky, Header Vertical, Hero Colophon, Hero Epigraph.
--   **Footer:** Footer, Footer Wide, Footer Centered, Footer Social, Footer Subscribe.
+-   **Footer:** Footer, Footer Wide, Footer Social, Footer Subscribe.
 -   **Navigation overlay:** Navigation Overlay, Overlay Contents, Overlay Profile.
 
 ## Utility block styles

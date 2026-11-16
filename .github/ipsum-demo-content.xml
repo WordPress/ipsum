@@ -1529,7 +1529,7 @@ audio/mpeg
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>The rest are a swap away in the Site Editor: replace the header with <code>ipsum/header-collapsed</code>, <code>ipsum/header-sticky</code> or <code>ipsum/header-vertical</code>, the footer with <code>ipsum/footer-centered</code>, <code>ipsum/footer-social</code> or <code>ipsum/footer-subscribe</code>, and the menu overlay with <code>ipsum/overlay-contents</code> or <code>ipsum/overlay-profile</code>.</p>
+<p>The rest are a swap away in the Site Editor: replace the header with <code>ipsum/header-collapsed</code>, <code>ipsum/header-sticky</code> or <code>ipsum/header-vertical</code>, the footer with <code>ipsum/footer-social</code> or <code>ipsum/footer-subscribe</code>, and the menu overlay with <code>ipsum/overlay-contents</code> or <code>ipsum/overlay-profile</code>.</p>
 <!-- /wp:paragraph -->]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
 		<wp:post_id>101</wp:post_id>

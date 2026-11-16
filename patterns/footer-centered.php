@@ -5,7 +5,7 @@
  * Categories: footer
  * Block Types: core/template-part/footer
  * Viewport width: 1280
- * Description: A centered footer on an inverted card. The site name runs as a cropped wordmark over the tagline, with the credit line beneath.
+ * Description: A centered footer on an inverted card. The site name runs large over the tagline, with the credit line beneath.
  *
  * @package Ipsum
  * @since Ipsum 1.0
@@ -17,7 +17,7 @@
 <div class="wp-block-group is-style-crop-contents has-base-color has-accent-3-background-color has-text-color has-background has-link-color" style="border-radius:10px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)"><!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Title and Tagline', 'Name of the group holding the site title and tagline', 'ipsum' ); ?>"},"align":"full","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|40","left":"var:preset|spacing|20"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 <div class="wp-block-group alignfull"><!-- wp:site-title {"level":0,"isLink":false,"metadata":{"name":"<?php echo esc_html_x( 'Title - Fit Text', 'Name of the fit-text site name paragraph', 'ipsum' ); ?>"},"style":{"typography":{"fontStyle":"normal","fontWeight":"400","lineHeight":"0","textAlign":"center"},"spacing":{"padding":{"bottom":"var:preset|spacing|80","top":"var:preset|spacing|60"}},"@mobile":{"spacing":{"padding":{"right":"var:preset|spacing|30","left":"var:preset|spacing|30","top":"var:preset|spacing|20","bottom":"var:preset|spacing|80"}}}},"fitText":true} /-->
 
-<!-- wp:site-tagline {"style":{"typography":{"textAlign":"center","fontStyle":"normal","fontWeight":"700"}}} /--></div>
+<!-- wp:site-tagline {"style":{"typography":{"textAlign":"center","fontWeight":"700"}}} /--></div>
 <!-- /wp:group -->
 
 <!-- wp:paragraph {"metadata":{"name":"<?php echo esc_html_x( 'Credit Line', 'Name of the credit line paragraph', 'ipsum' ); ?>"},"style":{"typography":{"textAlign":"center"}},"fontSize":"small","fontFamily":"manrope"} -->

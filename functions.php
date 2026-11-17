@@ -69,6 +69,41 @@ if ( ! function_exists( 'ipsum_enqueue_styles' ) ) :
 endif;
 add_action( 'wp_enqueue_scripts', 'ipsum_enqueue_styles' );
 
+if ( ! function_exists( 'ipsum_link_untitled_post_date' ) ) :
+	/**
+	 * Links dates for untitled posts so post lists always offer a permalink.
+	 *
+	 * The Post Title block renders nothing for an empty title, and comments
+	 * links disappear when comments are closed. The editor cannot express
+	 * this conditional date link through block attributes alone.
+	 *
+	 * @since Ipsum 1.0
+	 *
+	 * @param string   $block_content The rendered date block.
+	 * @param array    $block         The parsed block.
+	 * @param WP_Block $instance      The block instance.
+	 * @return string The date block, linked when the post has no title.
+	 */
+	function ipsum_link_untitled_post_date( $block_content, $block, $instance ) {
+		$post_id = $instance->context['postId'] ?? 0;
+
+		if ( ! $post_id || get_the_title( $post_id ) || ! empty( $instance->attributes['isLink'] ) ) {
+			return $block_content;
+		}
+
+		if ( is_singular() && get_queried_object_id() === $post_id ) {
+			return $block_content;
+		}
+
+		return str_replace(
+			array( '<time ', '</time>' ),
+			array( '<a href="' . esc_url( get_permalink( $post_id ) ) . '"><time ', '</time></a>' ),
+			$block_content
+		);
+	}
+endif;
+add_filter( 'render_block_core/post-date', 'ipsum_link_untitled_post_date', 10, 3 );
+
 if ( ! function_exists( 'ipsum_comments_cta_binding' ) ) :
 	/**
 	 * Returns the comments call to action for the current post, or nothing when

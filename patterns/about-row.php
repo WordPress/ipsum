@@ -29,7 +29,7 @@
 
 <!-- wp:column {"verticalAlignment":"bottom","width":"50%","layout":{"type":"default"}} -->
 <div class="wp-block-column is-vertically-aligned-bottom" style="flex-basis:50%"><!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-portrait.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A person with a hoop earring half hidden behind a white curved form.', 'Alt text for the portrait image', 'ipsum' ); ?>" class="wp-image-32321" style="aspect-ratio:1;object-fit:cover"/></figure>
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-portrait.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A person with a hoop earring half hidden behind a white curved form.', 'Alt text for the portrait image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div>

@@ -26,47 +26,47 @@
 <!-- /wp:cover -->
 
 <!-- wp:image {"aspectRatio":"1","scale":"cover","focalPoint":{"x":0.6,"y":1},"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-audio-panel.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A brushed metal dial and black knobs on a pale panel.', 'Alt text for the audio panel image', 'ipsum' ); ?>" class="wp-image-32348" style="aspect-ratio:1;object-fit:cover;object-position:60% 100%"/></figure>
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-audio-panel.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A brushed metal dial and black knobs on a pale panel.', 'Alt text for the audio panel image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover;object-position:60% 100%"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-chair-dark.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A glossy black chair curving out of the dark.', 'Alt text for the dark chair image', 'ipsum' ); ?>" class="wp-image-32325" style="aspect-ratio:1;object-fit:cover"/></figure>
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-chair-dark.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A glossy black chair curving out of the dark.', 'Alt text for the dark chair image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-number-27.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'The number 27 cut into a black block on a white surface.', 'Alt text for the number 27 image', 'ipsum' ); ?>" class="wp-image-32337" style="aspect-ratio:1;object-fit:cover"/></figure>
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-number-27.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'The number 27 cut into a black block on a white surface.', 'Alt text for the number 27 image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-dome-lamp.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A white dome pendant lamp glowing in a dark room.', 'Alt text for the dome lamp image', 'ipsum' ); ?>" class="wp-image-32331" style="aspect-ratio:1;object-fit:cover"/></figure>
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-dome-lamp.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A white dome pendant lamp glowing in a dark room.', 'Alt text for the dome lamp image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"aspectRatio":"1","scale":"cover","focalPoint":{"x":0.5,"y":1},"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-furniture.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A black lounge chair and low table in a bright white room.', 'Alt text for the furniture image', 'ipsum' ); ?>" class="wp-image-32339" style="aspect-ratio:1;object-fit:cover;object-position:50% 100%"/></figure>
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-furniture.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A black lounge chair and low table in a bright white room.', 'Alt text for the furniture image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover;object-position:50% 100%"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-umbrella.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A black umbrella tilted against a white background.', 'Alt text for the umbrella image', 'ipsum' ); ?>" class="wp-image-32328" style="aspect-ratio:1;object-fit:cover"/></figure>
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-umbrella.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A black umbrella tilted against a white background.', 'Alt text for the umbrella image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-dog.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'The head of a black dog in profile against white.', 'Alt text for the dog image', 'ipsum' ); ?>" class="wp-image-32333" style="aspect-ratio:1;object-fit:cover"/></figure>
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-dog.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'The head of a black dog in profile against white.', 'Alt text for the dog image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-black-table.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A black table on one thin leg, lit across a white wall.', 'Alt text for the black table image', 'ipsum' ); ?>" class="wp-image-32332" style="aspect-ratio:1;object-fit:cover"/></figure>
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-black-table.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A black table on one thin leg, lit across a white wall.', 'Alt text for the black table image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"aspectRatio":"1","scale":"cover","focalPoint":{"x":0.5,"y":0.8},"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-clock.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A round black clock and its shadow on a gray wall.', 'Alt text for the clock image', 'ipsum' ); ?>" class="wp-image-32329" style="aspect-ratio:1;object-fit:cover;object-position:50% 80%"/></figure>
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-clock.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A round black clock and its shadow on a gray wall.', 'Alt text for the clock image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover;object-position:50% 80%"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"aspectRatio":"1","scale":"cover","focalPoint":{"x":0.5,"y":0.5},"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-portrait.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A person with a hoop earring half hidden behind a white curved form.', 'Alt text for the portrait image', 'ipsum' ); ?>" class="wp-image-32321" style="aspect-ratio:1;object-fit:cover;object-position:50% 50%"/></figure>
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-portrait.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A person with a hoop earring half hidden behind a white curved form.', 'Alt text for the portrait image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover;object-position:50% 50%"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"aspectRatio":"1","scale":"cover","focalPoint":{"x":0.5,"y":1},"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-coffee-cup.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A white coffee cup and saucer against black.', 'Alt text for the coffee cup image', 'ipsum' ); ?>" class="wp-image-32342" style="aspect-ratio:1;object-fit:cover;object-position:50% 100%"/></figure>
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-coffee-cup.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A white coffee cup and saucer against black.', 'Alt text for the coffee cup image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover;object-position:50% 100%"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->

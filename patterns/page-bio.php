@@ -19,7 +19,7 @@
 <div class="wp-block-cover has-base-color has-text-color has-link-color" style="border-radius:10px;margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30);min-height:50px"><span aria-hidden="true" class="wp-block-cover__background has-accent-3-background-color has-background-dim-100 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}}} -->
 <div class="wp-block-columns are-vertically-aligned-center" style="margin-top:0;margin-bottom:0"><!-- wp:column {"verticalAlignment":"center"} -->
 <div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"aspectRatio":"3/4","scale":"cover","sizeSlug":"full","linkDestination":"none","align":"center","style":{"border":{"radius":"5px"}}} -->
-<figure class="wp-block-image aligncenter size-full has-custom-border"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-portrait-tall.webp' ) ); ?>" alt="<?php esc_attr_e( 'Portrait of the author.', 'ipsum' ); ?>" style="border-radius:5px;aspect-ratio:3/4;object-fit:cover"/></figure>
+<figure class="wp-block-image aligncenter size-full has-custom-border"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-portrait.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A person with a hoop earring half hidden behind a white curved form.', 'Alt text for the portrait image', 'ipsum' ); ?>" class="wp-image-32321" style="border-radius:5px;aspect-ratio:3/4;object-fit:cover"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column -->
 

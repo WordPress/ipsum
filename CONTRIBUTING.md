@@ -86,6 +86,19 @@ npm run watch   # Or regenerate it every time style.css changes.
 
 Don't edit `style.min.css` by hand. CI rebuilds it and fails the pull request if the committed copy doesn't match.
 
+### Updating Inter
+
+Inter is the text font, so it loads on every page. Instead of the full font files, the theme ships one file per script in `assets/fonts/inter/`, each with a `unicodeRange` in `theme.json`, so a browser only downloads the scripts a page uses. The subsets also leave out Inter's stylistic sets and character variants, which the theme doesn't use.
+
+To update Inter, download the release from [rsms/inter](https://github.com/rsms/inter/releases) and run the script on the two variable fonts in its `web` folder:
+
+```sh
+pip install fonttools brotli
+python3 bin/subset-inter.py InterVariable.woff2 InterVariable-Italic.woff2
+```
+
+The script replaces the files in `assets/fonts/inter/` and prints the `fontFace` entries. Paste them over the Inter `fontFace` list in `theme.json`, and update the copyright in `readme.txt` if it changed.
+
 ### Pattern creation guidelines
 
 What a pattern needs ships with the theme, in [Writing patterns](DESIGN.md#writing-patterns) in DESIGN.md: file names, categories and headers, translatable strings, images, presets, cleaning up copied markup, and block names.

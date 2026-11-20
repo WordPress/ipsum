@@ -23,14 +23,14 @@ Six palette colors. Every color variation redefines all six, and the duotone too
 
 How the palettes are built:
 
--   **Light palettes:** Contrast, Border and Surface are the dark ink at 75%, 20% and 3% opacity (hex alpha `bf`, `33`, `08`). Strong Contrast is the ink itself. The default builds Border and Surface on `#0a0a0a` instead of its `#000000` ink.
+-   **Light palettes:** Contrast is the dark ink at 75% mixed over Base and kept opaque, because the editor warns that transparent text may be hard to read. Border and Surface are the ink at 20% and 3% opacity (hex alpha `33`, `08`). Strong Contrast is the ink itself. The default builds Border and Surface on `#0a0a0a` instead of its `#000000` ink.
 -   **Dark palettes:** Contrast is opaque. Border and Surface are Contrast at 25% and 10% (`40`, `1a`). Strong Contrast is lighter than Contrast.
 -   Border and Surface are translucent, so they tint whatever is under them.
 
 ### Usage rules
 
 -   **Use the slugs, never literal colors.** `var(--wp--preset--color--contrast)` in CSS, `var:preset|color|contrast` in block attributes, or `textColor` and `backgroundColor`. A literal hex freezes one variation's look into all the others.
--   **Text is Contrast.** Body, headings and links all use it. Hover goes to Strong Contrast. Contrast is translucent in the light palettes, so it only reads as intended on Base or Surface; on any other ground, use Strong Contrast.
+-   **Text is Contrast.** Body, headings and links all use it. Hover goes to Strong Contrast. Contrast is mixed for Base in the light palettes, so it reads as intended on Base or Surface; on any other ground, use Strong Contrast.
 -   **Links** have a dotted 1px underline. On hover they turn Strong Contrast and lose the underline. Navigation, post title, post navigation and pagination links do the reverse: no underline until hover.
 -   **Buttons** fill with Contrast, with Base text, and fill with Strong Contrast on hover. Focus and press use Contrast at 85% (`color-mix()`). The Outline style keeps a Contrast border and fills with Surface on hover.
 -   **Form fields** in Search and the comment form are Base with Contrast text and border. The border turns Strong Contrast on hover. Jetpack form fields get the same border.

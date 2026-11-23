@@ -16,7 +16,7 @@
 <div class="wp-block-group alignwide"><!-- wp:cover {"overlayColor":"accent-3","isUserOverlayColor":true,"metadata":{"name":"<?php echo esc_html_x( 'Grid Unit', 'Name of the gallery text tile', 'ipsum' ); ?>"},"style":{"dimensions":{"aspectRatio":"1"},"border":{"radius":"5px"}},"textColor":"base","layout":{"type":"constrained"}} -->
 <div class="wp-block-cover has-base-color has-text-color" style="border-radius:5px"><span aria-hidden="true" class="wp-block-cover__background has-accent-3-background-color has-background-dim-100 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Info Stack', 'Name of the tile info stack group', 'ipsum' ); ?>"},"style":{"dimensions":{"minHeight":"100%"},"spacing":{"blockGap":{"top":"0","left":"0"}},"elements":{"link":{"color":{"text":"var:preset|color|base"}}}},"layout":{"type":"flex","orientation":"vertical","verticalAlignment":"center","justifyContent":"center"}} -->
 <div class="wp-block-group has-link-color" style="min-height:100%"><!-- wp:heading {"fontSize":"medium"} -->
-<h2 class="wp-block-heading has-medium-font-size"><?php esc_html_e( 'Cover Block', 'ipsum' ); ?></h2>
+<h2 class="wp-block-heading has-medium-font-size"><?php esc_html_e( 'Instagram', 'ipsum' ); ?></h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}},"fontSize":"medium"} -->

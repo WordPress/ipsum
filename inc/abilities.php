@@ -859,7 +859,7 @@ if ( ! function_exists( 'ipsum_get_design_guide' ) ) :
 		if ( isset( $sections['guidelines'] ) ) {
 			$guide['guidelines'] = array(
 				__( 'Style with the presets in this guide, by slug, rather than with literal values. Every style variation redefines the colors, so a literal color keeps the look of one variation under all the others.', 'ipsum' ),
-				__( 'Each template and template part holds a single Pattern block, and that pattern holds the markup. To change one on this site, save new markup to the template or template part itself.', 'ipsum' ),
+				__( 'Each template and template part holds a single Pattern block, and that pattern holds the markup. To change one, either save new markup to the template or template part, which overrides the theme file from the database, or return the markup to be added to the theme files, as when the theme is kept in version control. Changes saved on a local site can also be exported to the files, for example with Create Block Theme. If unsure which, ask.', 'ipsum' ),
 				__( 'Hidden patterns are there to fill templates and template parts, not to be inserted on their own.', 'ipsum' ),
 			);
 		}

@@ -44,7 +44,7 @@
 
 <!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Link and Icon', 'Name of the link and icon group', 'ipsum' ); ?>"},"style":{"spacing":{"blockGap":{"left":"0"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"metadata":{"name":"<?php echo esc_html_x( 'Link', 'Name of the link paragraph', 'ipsum' ); ?>"},"style":{"typography":{"fontStyle":"normal","fontWeight":"700"}},"fontSize":"small","fontFamily":"manrope"} -->
-<p class="has-manrope-font-family has-small-font-size" style="font-style:normal;font-weight:700"><a href="#"><?php esc_html_e( 'Reserve a seat', 'ipsum' ); ?></a></p>
+<p class="has-manrope-font-family has-small-font-size" style="font-style:normal;font-weight:700"><a href="#"><?php echo wp_kses_post( sprintf( /* translators: %s: Event name. */ __( 'Reserve a seat<span class="screen-reader-text"> for %s</span>', 'ipsum' ), esc_html__( 'Essays, read aloud', 'ipsum' ) ) ); ?></a></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:icon {"icon":"core/chevron-right-small"} /--></div>
@@ -72,7 +72,7 @@
 
 <!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Link and Icon', 'Name of the link and icon group', 'ipsum' ); ?>"},"style":{"spacing":{"blockGap":{"left":"0"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"metadata":{"name":"<?php echo esc_html_x( 'Link', 'Name of the link paragraph', 'ipsum' ); ?>"},"style":{"typography":{"fontStyle":"normal","fontWeight":"700"}},"fontSize":"small","fontFamily":"manrope"} -->
-<p class="has-manrope-font-family has-small-font-size" style="font-style:normal;font-weight:700"><a href="#"><?php esc_html_e( 'Reserve a seat', 'ipsum' ); ?></a></p>
+<p class="has-manrope-font-family has-small-font-size" style="font-style:normal;font-weight:700"><a href="#"><?php echo wp_kses_post( sprintf( /* translators: %s: Event name. */ __( 'Reserve a seat<span class="screen-reader-text"> for %s</span>', 'ipsum' ), esc_html__( 'Pictures, printed small', 'ipsum' ) ) ); ?></a></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:icon {"icon":"core/chevron-right-small"} /--></div>
@@ -100,7 +100,7 @@
 
 <!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Link and Icon', 'Name of the link and icon group', 'ipsum' ); ?>"},"style":{"spacing":{"blockGap":{"left":"0"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"metadata":{"name":"<?php echo esc_html_x( 'Link', 'Name of the link paragraph', 'ipsum' ); ?>"},"style":{"typography":{"fontStyle":"normal","fontWeight":"700"}},"fontSize":"small","fontFamily":"manrope"} -->
-<p class="has-manrope-font-family has-small-font-size" style="font-style:normal;font-weight:700"><a href="#"><?php esc_html_e( 'Reserve a seat', 'ipsum' ); ?></a></p>
+<p class="has-manrope-font-family has-small-font-size" style="font-style:normal;font-weight:700"><a href="#"><?php echo wp_kses_post( sprintf( /* translators: %s: Event name. */ __( 'Reserve a seat<span class="screen-reader-text"> for %s</span>', 'ipsum' ), esc_html__( 'Sounds, played loud', 'ipsum' ) ) ); ?></a></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:icon {"icon":"core/chevron-right-small"} /--></div>
@@ -128,7 +128,7 @@
 
 <!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Link and Icon', 'Name of the link and icon group', 'ipsum' ); ?>"},"style":{"spacing":{"blockGap":{"left":"0"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"metadata":{"name":"<?php echo esc_html_x( 'Link', 'Name of the link paragraph', 'ipsum' ); ?>"},"style":{"typography":{"fontStyle":"normal","fontWeight":"700"}},"fontSize":"small","fontFamily":"manrope"} -->
-<p class="has-manrope-font-family has-small-font-size" style="font-style:normal;font-weight:700"><a href="#"><?php esc_html_e( 'Reserve a seat', 'ipsum' ); ?></a></p>
+<p class="has-manrope-font-family has-small-font-size" style="font-style:normal;font-weight:700"><a href="#"><?php echo wp_kses_post( sprintf( /* translators: %s: Event name. */ __( 'Reserve a seat<span class="screen-reader-text"> for %s</span>', 'ipsum' ), esc_html__( 'Forever in draft: a conversation', 'ipsum' ) ) ); ?></a></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:icon {"icon":"core/chevron-right-small"} /--></div>

@@ -1,0 +1,47 @@
+=== Accessibility Statement ===
+
+Ipsum is built to be usable by as many people as possible, including people who use a keyboard, a screen reader, zoom or other assistive technology. It follows the WordPress accessibility-ready theme guidelines and aims for WCAG 2.2 Level AA. Accessibility is reviewed as part of the normal development work, and changes that affect markup, color or interaction are labeled for accessibility review before they are merged.
+
+== Quick Information ==
+
+Accessibility audit completed: No
+
+== Testing Tools and Methodology ==
+
+Ipsum is tested against the [WordPress accessibility-ready theme guidelines](https://wpaccessibility.org/docs/accessibility-ready/theme-guidelines/), using the [accessibility theme unit test content](https://github.com/wpaccessibility/a11y-theme-unit-test). The review is tracked in the open on [GitHub](https://github.com/WordPress/ipsum/issues/44).
+
+Testing includes:
+
+* Keyboard-only navigation of every template, the navigation overlay, submenus, search and the comment form.
+* Checking landmarks, landmark names and heading levels in every template and pattern.
+* Checking the color contrast of text and controls in every color style variation.
+* Zooming to 400% and checking that content reflows without horizontal scrolling.
+* Checking that motion is turned off when the visitor prefers reduced motion.
+* Automated checks with browser tools such as axe DevTools and WAVE.
+
+Changes that affect accessibility are labeled "[Focus] Accessibility (a11y)" and get an accessibility review before they are merged.
+
+== Screen Reader Text Class ==
+
+`.screen-reader-text`
+
+WordPress provides the styles for this class to block themes. Enter `screen-reader-text`, without the leading period, in a block's Advanced > Additional CSS class(es) field to hide the block visually while keeping it available to screen readers.
+
+== Accessibility Features ==
+
+* A skip link to the main content.
+* A dotted focus outline in the text color, so it stays visible in every color style variation, and focused elements are kept clear of the sticky header.
+* Links in text are underlined, and the underline is removed on hover.
+* Named landmarks for repeated navigation and search regions.
+* Every color style variation keeps text contrast at 4.5:1 or more.
+* Page transitions and the arrival bar on single posts only run when the visitor has not asked for reduced motion.
+* Long words and URLs wrap, so pages reflow when zoomed in.
+* Decorative characters, such as separators and arrows, are hidden from screen readers.
+
+== Accessibility Help Contact ==
+
+https://wordpress.org/support/theme/ipsum/
+
+== Where to Report Issues ==
+
+Until the 1.0 release, please report accessibility issues on [GitHub](https://github.com/WordPress/ipsum/issues). After that, report them on [WordPress Trac](https://core.trac.wordpress.org/newticket) under the Bundled Theme component, with the keyword "accessibility".

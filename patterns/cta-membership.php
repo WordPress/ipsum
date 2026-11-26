@@ -20,8 +20,8 @@
 
 <!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Copy', 'Name of the membership copy group', 'ipsum' ); ?>"},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Title and Paragraph', 'Name of the Title and Paragraph element', 'ipsum' ); ?>"},"style":{"spacing":{"blockGap":{"top":"var:preset|spacing|20"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
-<div class="wp-block-group"><!-- wp:heading {"fontSize":"2-x-large"} -->
-<h2 class="wp-block-heading has-2-x-large-font-size"><?php esc_html_e( 'Become a friend of the blog', 'ipsum' ); ?></h2>
+<div class="wp-block-group"><!-- wp:heading {"fontSize":"xx-large"} -->
+<h2 class="wp-block-heading has-xx-large-font-size"><?php esc_html_e( 'Become a friend of the blog', 'ipsum' ); ?></h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->

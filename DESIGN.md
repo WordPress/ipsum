@@ -75,7 +75,7 @@ It isn't a preset you can pick. New meta text needs Manrope, Small and weight 60
 | `medium` | Medium | Body text, h4, navigation, verse |
 | `large` | Large | h3 |
 | `x-large` | X-Large | h2 |
-| `2-x-large` | 2X-Large | h1, single post titles, quote marks |
+| `xx-large` | 2X-Large | h1, single post titles, quote marks |
 
 Small to Large are fixed; X-Large and 2X-Large are fluid, smaller on narrow screens. The sizes are in `theme.json`. Above 2X-Large, the theme uses the Display block style (`is-style-text-display`) or fit text (Hero Epigraph, About Row, the 404 heading, the Footer Centered wordmark). Core's default sizes are off.
 

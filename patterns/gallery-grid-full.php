@@ -26,39 +26,39 @@
 <!-- /wp:cover -->
 
 <!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-metal-table.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A dark metal tabletop on a single thin leg against a hazy sky.', 'Alt text for the metal table image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover"/></figure>
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-audio-panel.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A brushed metal dial and black knobs on a pale panel.', 'Alt text for the audio panel image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-staircase.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A black staircase climbing a white wall.', 'Alt text for the staircase image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover"/></figure>
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-chair-dark.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A glossy black chair curving out of the dark.', 'Alt text for the dark chair image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-pendant-lamp.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A glowing pendant lamp above a warm orange room.', 'Alt text for the pendant lamp image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover"/></figure>
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-number-27.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'The number 27 cut into a black block on a white surface.', 'Alt text for the number 27 image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-polygons.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'Rows of glossy black hollow cones catching the light.', 'Alt text for the polygons image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover"/></figure>
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-dome-lamp.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A white dome pendant lamp glowing in a dark room.', 'Alt text for the dome lamp image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"aspectRatio":"1","scale":"cover","focalPoint":{"x":0.5,"y":1},"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-furniture.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A black lounge chair and low table in a bright white room.', 'Alt text for the furniture image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover;object-position:50% 100%"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-monobloc-front.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A blurred plastic chair in blue and cream tones.', 'Alt text for the monobloc chair image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover"/></figure>
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-umbrella.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A black umbrella tilted against a white background.', 'Alt text for the umbrella image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-capital.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A capital A pressed into brushed metal.', 'Alt text for the capital letter image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover"/></figure>
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-dog.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'The head of a black dog in profile against white.', 'Alt text for the dog image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-monobloc-back.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A blurred plastic chair seen from behind, in iridescent pastel tones.', 'Alt text for the back view of the monobloc chair image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover"/></figure>
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-black-table.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A black table on one thin leg, lit across a white wall.', 'Alt text for the black table image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover"/></figure>
 <!-- /wp:image -->
 
-<!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-studio-closeup.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'Metal cylinders standing on a gray surface.', 'Alt text for the studio close-up image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover"/></figure>
-<!-- /wp:image -->
-
-<!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-lead-letter.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'The number 27 fading into blue and pink light.', 'Alt text for the lead letter image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover"/></figure>
+<!-- wp:image {"aspectRatio":"1","scale":"cover","focalPoint":{"x":0.5,"y":0},"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/images/ipsum-clock.webp' ) ); ?>" alt="<?php echo esc_attr_x( 'A round black clock and its shadow on a gray wall.', 'Alt text for the clock image', 'ipsum' ); ?>" style="aspect-ratio:1;object-fit:cover;object-position:50% 0%"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->

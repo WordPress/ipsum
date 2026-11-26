@@ -343,7 +343,7 @@
 					},
 					"name": "2X-Large",
 					"size": "2.1875rem",
-					"slug": "2-x-large"
+					"slug": "xx-large"
 				}
 			],
 			"writingMode": true
@@ -787,7 +787,7 @@
 				"color": {
 					"background": "var(--wp--preset--color--accent-5)"
 				},
-				"css": "& blockquote::before{content:\"❝\" / \"\";display:block;color:var(--wp--preset--color--accent-6);font-size:var(--wp--preset--font-size--2-x-large);line-height:1;} & cite::before{content:\"— \" / \"\";} & p:last-of-type {margin-bottom: var(--wp--preset--spacing--40);}",
+				"css": "& blockquote::before{content:\"❝\" / \"\";display:block;color:var(--wp--preset--color--accent-6);font-size:var(--wp--preset--font-size--xx-large);line-height:1;} & cite::before{content:\"— \" / \"\";} & p:last-of-type {margin-bottom: var(--wp--preset--spacing--40);}",
 				"elements": {
 					"cite": {
 						"typography": {
@@ -854,7 +854,7 @@
 				"color": {
 					"background": "var(--wp--preset--color--accent-5)"
 				},
-				"css": "&::before{content:\"❝\" / \"\";display:block;color:var(--wp--preset--color--accent-6);font-size:var(--wp--preset--font-size--2-x-large);line-height:1;} & cite::before{content:\"— \" / \"\";}",
+				"css": "&::before{content:\"❝\" / \"\";display:block;color:var(--wp--preset--color--accent-6);font-size:var(--wp--preset--font-size--xx-large);line-height:1;} & cite::before{content:\"— \" / \"\";}",
 				"elements": {
 					"cite": {
 						"typography": {
@@ -1080,7 +1080,7 @@
 			},
 			"h1": {
 				"typography": {
-					"fontSize": "var(--wp--preset--font-size--2-x-large)",
+					"fontSize": "var(--wp--preset--font-size--xx-large)",
 					"letterSpacing": "-0.02rem"
 				}
 			},

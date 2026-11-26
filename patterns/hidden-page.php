@@ -19,7 +19,7 @@
 <!-- /wp:group -->
 
 <!-- wp:group {"metadata":{"name":"<?php echo esc_html_x( 'Post Title', 'Name of the group holding the post title', 'ipsum' ); ?>"},"align":"full","style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull"><!-- wp:post-title {"level":1,"fontSize":"2-x-large"} /--></div>
+<div class="wp-block-group alignfull"><!-- wp:post-title {"level":1,"fontSize":"xx-large"} /--></div>
 <!-- /wp:group -->
 
 <!-- wp:post-content {"align":"full","layout":{"type":"constrained"}} /--></main>
